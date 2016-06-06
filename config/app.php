@@ -161,6 +161,11 @@ return [
          */
         Overtrue\LaravelWechat\ServiceProvider::class,
 
+        /**
+         * IDE支持
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
     ],
 
     /*
