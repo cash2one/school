@@ -171,6 +171,11 @@ return [
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
 
+        /**
+         * Excel 服务
+         */
+        Maatwebsite\Excel\ExcelServiceProvider::class
+
     ],
 
     /*
@@ -218,6 +223,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Wechat' => Overtrue\LaravelWechat\Facade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class
 
     ],
 
