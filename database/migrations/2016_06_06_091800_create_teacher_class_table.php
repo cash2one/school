@@ -13,7 +13,6 @@ class CreateTeacherClassTable extends Migration
     public function up()
     {
         Schema::create('teacher_class', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('teacher_id')->comment('教师id');
             $table->integer('class_id')->comment('班级id');
         });

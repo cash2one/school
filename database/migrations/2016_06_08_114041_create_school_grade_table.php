@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateParentStudentTable extends Migration
+class CreateSchoolGradeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateParentStudentTable extends Migration
      */
     public function up()
     {
-        Schema::create('parent_student', function (Blueprint $table) {
-            $table->integer('parent_id')->comment('父母id');
-            $table->integer('student_id')->comment('学生id');
+        Schema::create('school_grade', function (Blueprint $table) {
+            $table->integer('school_id')->comment('学校id');
+            $table->integer('grade_id')->comment('年级id');
         });
     }
 
@@ -25,6 +25,6 @@ class CreateParentStudentTable extends Migration
      */
     public function down()
     {
-        Schema::drop('parent_student');
+        Schema::drop('school_grade');
     }
 }
