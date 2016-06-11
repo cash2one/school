@@ -28,4 +28,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 当前用户所有操作
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Logs()
+    {
+        return $this->hasMany('App\Models\Log','user_id','id');
+    }
 }
