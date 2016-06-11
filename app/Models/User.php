@@ -30,7 +30,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * 当前用户所有操作
+     * 当前用户所有操作日志
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function Logs()
