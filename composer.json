@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "dyyhobby/school",
+    "description": "The School App.",
+    "keywords": ["App", "school"],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -43,9 +43,7 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize",
-            "php -r \"copy('.env.example', '.env');\"",
-            "php artisan key:generate"
+            "php artisan optimize"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
