@@ -21,6 +21,12 @@ Route::group(['prefix' => '/'],function(){
 
         Route::get('/','IndexController@index');
 
+        Route::group(['prefix' => 'school'],function(){
+
+            Route::get('/','SchoolController@index');
+
+        });
+
     });
 
 });

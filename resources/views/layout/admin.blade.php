@@ -14,6 +14,8 @@
     <link href="/css/ionicons.min.css" rel="stylesheet">
     <!-- Simplify -->
     <link href="/css/simplify.min.css" rel="stylesheet">
+    @section('header')
+    @show
 </head>
 <body class="overflow-hidden">
 <div class="wrapper preload">
@@ -122,7 +124,7 @@
                         </ul>
                     </li>
                     <li class="openable bg-palette2">
-                        <a href="#">
+                        <a href="{{ url('/admin/school') }}">
                             <span class="menu-content block">
                                 <span class="menu-icon"><i class="block fa fa-puzzle-piece fa-lg"></i></span>
                                 <span class="text m-left-sm">学校</span>
@@ -133,7 +135,7 @@
                             </span>
                         </a>
                         <ul class="submenu">
-                            <li><a href="school_list.html"><span class="submenu-label">学校管理</span></a></li>
+                            <li><a href="{{ url('/admin/school') }}"><span class="submenu-label">学校管理</span></a></li>
                             <li><a href="#"><span class="submenu-label">学校类型</span></a></li>
                         </ul>
                     </li>
@@ -248,5 +250,7 @@
 <script src='/js/modernizr.min.js'></script>
 <!-- Simplify -->
 <script src="/js/simplify/simplify.js"></script>
+@section('footer')
+@show
 </body>
 </html>
