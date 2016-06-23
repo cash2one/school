@@ -11,7 +11,7 @@ namespace App\Models;
 
 class School extends Common
 {
-    protected $table = 'schooles';
+    protected $table = 'schools';
 
     /**
      * 获取学校下所有年级
@@ -37,7 +37,7 @@ class School extends Common
      */
     public function students()
     {
-        return $this->hasMany('App\Models\Schoole','school_id','id');
+        return $this->hasMany('App\Models\Student','school_id','id');
     }
 
     /**

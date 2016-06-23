@@ -17,7 +17,7 @@ class CreateCategorysTable extends Migration
             $table->string('name')->comment('分类名称');
             $table->integer('created_at')->comment('创建时间');
             $table->integer('updated_at')->comment('更新时间');
-            $table->integer('deleted_at')->comment('删除时间');
+            $table->integer('deleted_at')->nullable()->comment('删除时间');
         });
     }
 

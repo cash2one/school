@@ -22,7 +22,7 @@ class CreateTeachersTable extends Migration
             $table->string('mobile')->default(0)->comment('教师联系方式');
             $table->integer('created_at')->comment('创建时间');
             $table->integer('updated_at')->comment('更新时间');
-            $table->integer('deleted_at')->comment('删除时间');
+            $table->integer('deleted_at')->nullable()->comment('删除时间');
         });
     }
 

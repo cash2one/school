@@ -25,6 +25,10 @@ Route::group(['prefix' => '/'],function(){
 
             Route::get('/','SchoolController@index');
 
+            Route::get('add','SchoolController@add');
+
+            Route::post('add','SchoolController@store');
+
         });
 
     });

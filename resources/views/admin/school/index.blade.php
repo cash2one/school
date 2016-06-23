@@ -5,7 +5,7 @@
 @section('content')
     <!--当前位置 begin-->
     <h3 class="header-text">学校
-        <span class="hed_te_span"><a  class="cursa"  href="account.html">管理</a><a href="account_add.html">新增</a></span></h3>
+        <span class="hed_te_span"><a  class="cursa"  href="{{ url('/admin/school') }}">管理</a><a href="{{ url('/admin/school/add') }}">新增</a></span></h3>
     <!--当前位置 end-->
     <table class="table table-striped ccad_table" id="dataTable_a">
         <thead>
@@ -16,14 +16,16 @@
             <th>总人数</th>
             <th>负责人</th>
             <th>联系方式</th>
+            <th>创建时间</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
+        @foreach($schools as $school)
         <tr>
-            <td>01</td>
-            <td><a href="#">郑州市第四十二中学</a></td>
-            <td>中学</td>
+            <td>{{ $school->id }}</td>
+            <td><a href="#">{{ $school->name }}</a></td>
+            <td>{{ $school->type }}</td>
             <td>1200</td>
             <td>李主任</td>
             <td>13584569541</td>
@@ -33,19 +35,7 @@
                 <span><a href="#" nctype="btn_del_account" data-seller-id="1" class="btn-red"><i class="fa fa-trash-o"></i><p>删除</p></a></span>
             </td>
         </tr>
-        <tr>
-            <td>02</td>
-            <td><a href="#">郑州市第四十九中学</a></td>
-            <td>中学</td>
-            <td>1856</td>
-            <td>王主任</td>
-            <td>13584569541</td>
-            <td class="nscs-table-handle">
-                <span><a href="school_add.html" class="btn-blue"><i class="fa fa-edit"></i><p>编辑</p></a></span>
-                <span><a href="grade_list.html" class="btn-blue"><i class="fa fa-search"></i><p>查看</p></a></span>
-                <span><a href="#" nctype="btn_del_account" data-seller-id="1" class="btn-red"><i class="fa fa-trash-o"></i><p>删除</p></a></span>
-            </td>
-        </tr>
+        @endforeach
         </tbody>
     </table>
     <!--分页 begin-->
@@ -64,5 +54,11 @@
             </div>
         </div>
     </div>
+
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <!--分页 end-->
 @endsection
