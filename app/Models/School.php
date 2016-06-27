@@ -48,4 +48,22 @@ class School extends Common
     {
         return $this->hasMany('App\Models\Teacher','school_id','id');
     }
+
+    /**
+     * 学校类型
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function type()
+    {
+        return $this->hasOne('App\Models\Type','id','type_id');
+    }
+
+    /**
+     * 学校负责人
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function principal()
+    {
+        return $this->hasOne('App\Models\User','id','user_id');
+    }
 }

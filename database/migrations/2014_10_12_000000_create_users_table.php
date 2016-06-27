@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken()->comment('用户标示');
             $table->integer('created_at')->comment('创建时间');
             $table->integer('updated_at')->comment('更新时间');
-            $table->integer('deleted_at')->nullable()->comment('删除时间');
         });
     }
 

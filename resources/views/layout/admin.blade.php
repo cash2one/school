@@ -59,7 +59,7 @@
                 <div class="pull-right m-right-sm">
                     <div class="user-block hidden-xs">
                         <a href="#" id="userToggle" data-toggle="dropdown">
-                            <img src="images/profile9.jpg" alt="" class="img-circle inline-block user-profile-pic">
+                            <img src="/images/profile9.jpg" alt="" class="img-circle inline-block user-profile-pic">
                             <div class="user-detail inline-block">
                                 陈祺承
                                 <i class="fa fa-angle-down"></i>
@@ -250,6 +250,18 @@
 <script src='/js/modernizr.min.js'></script>
 <!-- Simplify -->
 <script src="/js/simplify/simplify.js"></script>
+<!-- Noty -->
+<script src='/js/jquery.noty.packaged.min.js'></script>
+@if(session('status'))
+    <script>
+        noty({
+            text: '{{ session('status.msg') }}',
+            type: '{{ session('status.code') }}',
+            layout: 'center',
+            timeout: '3000'
+        });
+    </script>
+@endif
 @section('footer')
 @show
 </body>

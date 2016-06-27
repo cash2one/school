@@ -18,8 +18,8 @@ class CreateClassesTable extends Migration
             $table->integer('school_id')->comment('学校id');
             $table->integer('grades_id')->comment('年级id');
             $table->integer('name')->comment('班级名称');
-            $table->string('description')->comment('班级简介');
-            $table->text('content')->comment('班级详情');
+            $table->string('description')->nullable()->comment('班级简介');
+            $table->text('content')->nullable()->comment('班级详情');
             $table->integer('created_at')->comment('创建时间');
             $table->integer('updated_at')->comment('更新时间');
             $table->integer('deleted_at')->nullable()->comment('删除时间');

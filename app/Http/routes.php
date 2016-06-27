@@ -17,10 +17,17 @@ Route::group(['prefix' => '/'],function(){
         return view('welcome');
     });
 
+
+    /**
+     * 后台管理
+     */
     Route::group(['prefix' => 'admin','namespace' => 'Admin'],function(){
 
         Route::get('/','IndexController@index');
 
+        /**
+         * 学校管理
+         */
         Route::group(['prefix' => 'school'],function(){
 
             Route::get('/','SchoolController@index');
@@ -28,6 +35,12 @@ Route::group(['prefix' => '/'],function(){
             Route::get('add','SchoolController@add');
 
             Route::post('add','SchoolController@store');
+
+            Route::get('delete/{id}','SchoolController@delete');
+
+            Route::get('edit/{id}','SchoolController@edit');
+
+            Route::post('edit','SchoolController@store');
 
         });
 
