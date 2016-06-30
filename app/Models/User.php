@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as AuthUser;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
-class User extends AuthUser
+class User extends Authenticatable
 {
     use EntrustUserTrait;
     

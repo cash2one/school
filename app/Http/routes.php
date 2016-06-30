@@ -11,6 +11,8 @@
 |
 */
 
+Route::auth();
+
 Route::group(['prefix' => '/'],function(){
 
     Route::get('/',function(){
@@ -21,7 +23,7 @@ Route::group(['prefix' => '/'],function(){
     /**
      * 后台管理
      */
-    Route::group(['prefix' => 'admin','namespace' => 'Admin'],function(){
+    Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['auth']],function(){
 
         Route::get('/','IndexController@index');
 
