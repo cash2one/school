@@ -37,4 +37,16 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Log','user_id','id');
     }
+
+    /**
+     * 用户的学校
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function school()
+    {
+        if($this->hasRole('school'))
+        {
+            return $this->hasOne('App\Models\School','user_id','id');
+        }
+    }
 }

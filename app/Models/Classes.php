@@ -48,4 +48,13 @@ class Classes extends Common
     {
         return $this->belongsToMany('App\Models\Teacher','teacher_class','class_id','teacher_id');
     }
+
+    /**
+     * 班级负责人
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function principal()
+    {
+        return $this->hasOne('App\Models\User','id','user_id');
+    }
 }

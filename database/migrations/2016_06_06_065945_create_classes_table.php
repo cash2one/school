@@ -16,8 +16,8 @@ class CreateClassesTable extends Migration
             $table->increments('id')->comment('自增长id');
             $table->integer('user_id')->default(0)->comment('用户id');
             $table->integer('school_id')->comment('学校id');
-            $table->integer('grades_id')->comment('年级id');
-            $table->integer('name')->comment('班级名称');
+            $table->integer('grade_id')->comment('年级id');
+            $table->string('name')->comment('班级名称');
             $table->string('description')->nullable()->comment('班级简介');
             $table->text('content')->nullable()->comment('班级详情');
             $table->integer('created_at')->comment('创建时间');

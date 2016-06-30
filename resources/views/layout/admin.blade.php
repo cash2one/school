@@ -38,7 +38,7 @@
                                     <h5 class="no-m-bottom">窄屏显示</h5>
                                     <div class="m-top-xs">
                                         <a href="#" class="m-right-sm">修改密码</a>
-                                        <a href="#">退出</a>
+                                        <a href="{{ url('/logout') }}">退出</a>
                                     </div>
                                 </div>
                             </li>
@@ -61,7 +61,7 @@
                         <a href="#" id="userToggle" data-toggle="dropdown">
                             <img src="/images/profile9.jpg" alt="" class="img-circle inline-block user-profile-pic">
                             <div class="user-detail inline-block">
-                                陈祺承
+                                {{ Auth::user()->name }}
                                 <i class="fa fa-angle-down"></i>
                             </div>
                         </a>
@@ -79,7 +79,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ url('/logout') }}">
                                             <i class="fa fa-power-off fa-lg"></i><span class="m-left-xs">退出</span>
                                         </a>
                                     </li>
@@ -136,11 +136,23 @@
                         </a>
                         <ul class="submenu">
                             <li><a href="{{ url('/admin/school') }}"><span class="submenu-label">学校管理</span></a></li>
-                            <li><a href="#"><span class="submenu-label">学校类型</span></a></li>
                         </ul>
                     </li>
+
                     <li class="bg-palette2">
-                        <a href="teacher_list.html">
+                        <a href="{{ url('/admin/classes') }}">
+                            <span class="menu-content block">
+                                <span class="menu-icon"><i class="block fa fa-puzzle-piece fa-lg"></i></span>
+                                <span class="text m-left-sm">班级管理</span>
+                            </span>
+                            <span class="menu-content-hover block">
+                                班级管理
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="bg-palette2">
+                        <a href="{{ url('/admin/teacher') }}">
                             <span class="menu-content block">
                                 <span class="menu-icon"><i class="block fa fa-puzzle-piece fa-lg"></i></span>
                                 <span class="text m-left-sm">教师</span>
@@ -183,7 +195,7 @@
                         </ul>
                     </li>
                     <li class="bg-palette1">
-                        <a href="users.html">
+                        <a href="{{ url('/admin/user') }}">
                             <span class="menu-content block">
                                 <span class="menu-icon"><i class="block fa fa-weixin fa-lg"></i></span>
                                 <span class="text m-left-sm">会员管理</span>

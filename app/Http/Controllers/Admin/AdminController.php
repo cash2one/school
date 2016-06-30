@@ -10,11 +10,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function __construct()
-    {
+    protected $user;
 
+    public function __construct(Request $request)
+    {
+        $this->user = $request->user();
     }
 }

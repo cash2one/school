@@ -52,6 +52,9 @@ class SchoolController extends AdminController
 
         try
         {
+            /**
+             * 判断是否是新增学校
+             */
             if($request->id)
             {
                 $school = $school->findOrFail($request->id);
@@ -62,6 +65,7 @@ class SchoolController extends AdminController
                 $user->email = $request->email;
                 $user->password = bcrypt($request->password);
                 $user->save();
+                $user->attachRole(3);
 
                 $school->user_id = $user->id;
             }
@@ -81,10 +85,10 @@ class SchoolController extends AdminController
         catch(\Exception $e)
         {
             DB::rollBack();
-
+            //dd($e->getMessage());
             return redirect()->back()->with('status',[
                 'code' => 'error',
-                'msg'  => '保存失败！'
+                'msg'  => '保存失败！'.$e->getMessage()
             ]);
         }
     }
