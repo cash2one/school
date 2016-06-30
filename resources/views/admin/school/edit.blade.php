@@ -13,13 +13,13 @@
                     {!! csrf_field() !!}
                     <div class="form-group">
                         <label class="control-label col-lg-2">学校名称：</label>
-                        <div class="col-lg-3">
+                        <div class="col-lg-10">
                             <input type="text" name="name" value="{{ $school->name }}" class="form-control input-sm" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
                         <label class="control-label col-lg-2">学校属性：</label>
-                        <div class="col-lg-1">
+                        <div class="col-lg-10">
                             <select name="type" class="form-control">
                                 @foreach($types as $type)
                                     <option value="{{ $type->id }}" @if($type->id == $school->type_id) selected @endif >{{ $type->name }}</option>

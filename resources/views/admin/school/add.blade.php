@@ -13,13 +13,13 @@
                     {!! csrf_field() !!}
                     <div class="form-group">
                         <label class="control-label col-lg-2">学校名称：</label>
-                        <div class="col-lg-3">
+                        <div class="col-lg-10">
                             <input type="text" name="name" value="{{ old('name') }}" class="form-control input-sm" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
                         <label class="control-label col-lg-2">学校属性：</label>
-                        <div class="col-lg-1">
+                        <div class="col-lg-10">
                             <select name="type" class="form-control">
                                 @foreach($types as $type)
                                 <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -28,19 +28,25 @@
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
+                        <label class="control-label col-lg-2">负责人：</label>
+                        <div class="col-lg-10">
+                            <input type="text" name="user_name" value="{{ old('user_name') }}" class="form-control input-sm"  >
+                        </div><!-- /.col -->
+                    </div><!-- /form-group -->
+                    <div class="form-group">
                         <label class="control-label col-lg-2">负责人账户：</label>
-                        <div class="col-lg-2">
+                        <div class="col-lg-10">
                             <input type="text" name="email" value="{{ old('email') }}" class="form-control input-sm"  >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
                         <label class="control-label col-lg-2">负责人密码：</label>
-                        <div class="col-lg-2">
+                        <div class="col-lg-10">
                             <input type="text" name="password" value="{{ old('password') }}" class="form-control input-sm"  >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="text-center m-top-md">
-                        <button type="submit" class="btn btn-info">提交</button>
+                        <button type="submit" class="btn btn-info btn-block">提交</button>
                     </div>
                 </form>
             </div>

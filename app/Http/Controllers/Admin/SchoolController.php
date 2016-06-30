@@ -30,6 +30,11 @@ class SchoolController extends AdminController
         ]);
     }
 
+    /**
+     * 新增学校
+     * @param Type $type
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function add(Type $type)
     {
         $types = $type->get();
@@ -44,7 +49,7 @@ class SchoolController extends AdminController
      * @param Request $request
      * @param School $school
      * @param User $user
-     * @return mixed
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request,School $school,User $user)
     {
@@ -57,11 +62,24 @@ class SchoolController extends AdminController
              */
             if($request->id)
             {
+                $this->validate($request,[
+                    'name' => 'required',
+                    'type' => 'required|number'
+                ]);
+
                 $school = $school->findOrFail($request->id);
             }
             else
             {
-                $user->name = $request->name;
+                $this->validate($request,[
+                    'name' => 'required',
+                    'type' => 'required|numeric',
+                    'user_name' => 'required',
+                    'email'  => 'required|email',
+                    'password' => 'required'
+                ]);
+
+                $user->name = $request->user_name;
                 $user->email = $request->email;
                 $user->password = bcrypt($request->password);
                 $user->save();
@@ -98,7 +116,7 @@ class SchoolController extends AdminController
      * @param Request $request
      * @param School $school
      * @param Type $type
-     * @return mixed
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Request $request,School $school,Type $type)
     {
@@ -116,7 +134,7 @@ class SchoolController extends AdminController
      * 删除学校
      * @param Request $request
      * @param School $school
-     * @return mixed
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function delete(Request $request,School $school)
     {

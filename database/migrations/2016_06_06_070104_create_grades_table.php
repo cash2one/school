@@ -14,6 +14,7 @@ class CreateGradesTable extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->increments('id')->comment('自增长id');
+            $table->integer('type_id')->comment('类型id');
             $table->string('name')->comment('年级名称');
             $table->integer('created_at')->comment('创建时间');
             $table->integer('updated_at')->comment('更新时间');

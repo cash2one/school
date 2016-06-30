@@ -14,13 +14,13 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label class="control-label col-lg-2">班级名称：</label>
-                        <div class="col-lg-3">
+                        <div class="col-lg-10">
                             <input type="text" name="name" class="form-control input-sm" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
                         <label class="control-label col-lg-2">所属年级：</label>
-                        <div class="col-lg-1">
+                        <div class="col-lg-10">
                             <select class="form-control" name="grade">
                                 @foreach($grades as $grade)
                                 <option value="{{ $grade->id }}">{{ $grade->name }}</option>
@@ -30,19 +30,19 @@
                     </div><!-- /form-group -->
                     <div class="form-group">
                         <label class="control-label col-lg-2">班主任：</label>
-                        <div class="col-lg-2">
+                        <div class="col-lg-10">
                             <input type="text" name="user_name" class="form-control input-sm" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
                         <label class="control-label col-lg-2">账号：</label>
-                        <div class="col-lg-2">
+                        <div class="col-lg-10">
                             <input type="text" name="email" class="form-control input-sm" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
                         <label class="control-label col-lg-2">密码：</label>
-                        <div class="col-lg-2">
+                        <div class="col-lg-10">
                             <input type="text" name="password" class="form-control input-sm" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
