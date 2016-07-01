@@ -37,7 +37,7 @@ class Classes extends Common
      */
     public function students()
     {
-        return $this->hasMany('App\Models\Students','class_id','id');
+        return $this->hasMany('App\Models\Student','class_id','id');
     }
 
     /**

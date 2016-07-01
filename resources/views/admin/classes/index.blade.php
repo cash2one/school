@@ -30,7 +30,7 @@
             <td>{{ $item->id }}</td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->grade->name }}</td>
-            <td>暂无数据</td>
+            <td>{{ count($item->student) }}</td>
             <td>{{ $item->principal->name }}</td>
             <td class="nscs-table-handle">
                 <span><a href="{{ url('/admin/classes/edit',['id' => $item->id]) }}" class="btn-blue"><i class="fa fa-edit"></i><p>编辑</p></a></span>

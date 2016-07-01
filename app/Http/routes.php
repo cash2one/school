@@ -72,6 +72,16 @@ Route::group(['prefix' => '/'],function(){
 
             Route::post('edit','ClassesController@store');
 
+            Route::get('/detail/{id}','ClassesController@detail');
+
+        });
+
+        Route::group(['prefix' => 'student'],function(){
+
+            Route::get('/','StudentController@index');
+
+            Route::get('add/{id}','StudentController@add');
+
         });
 
     });

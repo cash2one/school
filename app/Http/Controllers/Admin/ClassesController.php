@@ -117,4 +117,16 @@ class ClassesController extends AdminController
             ]);
         }
     }
+
+    public function detail(Request $request,Classes $classes)
+    {
+        $classes = $classes->findOrFail($request->id);
+
+        $students = $classes->students()->paginate(20);
+
+        return view('admin.classes.detail',[
+            'classes' => $classes,
+            'students' => $students
+        ]);
+    }
 }
