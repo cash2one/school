@@ -178,21 +178,17 @@
                             <li><a href="article_type.html"><span class="submenu-label">文章类型</span></a></li>
                         </ul>
                     </li>
-                    <li class="openable bg-palette4">
-                        <a href="#">
+                    <li class="bg-palette4">
+                        <a href="{{ url('/admin/role') }}">
                             <span class="menu-content block">
                                 <span class="menu-icon"><i class="block fa fa-list-ul fa-lg"></i></span>
-                                <span class="text m-left-sm">权限</span>
+                                <span class="text m-left-sm">角色管理</span>
                                 <span class="submenu-icon"></span>
                             </span>
                             <span class="menu-content-hover block">
-                                权限
+                                角色
                             </span>
                         </a>
-                        <ul class="submenu">
-                            <li><a href="account.html"><span class="submenu-label">权限管理</span></a></li>
-                            <li><a href="account_type.html"><span class="submenu-label">权限类型</span></a></li>
-                        </ul>
                     </li>
                     <li class="bg-palette1">
                         <a href="{{ url('/admin/user') }}">

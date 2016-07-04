@@ -76,11 +76,23 @@ Route::group(['prefix' => '/'],function(){
 
         });
 
+        /**
+         * 学生管理
+         */
         Route::group(['prefix' => 'student'],function(){
 
             Route::get('/','StudentController@index');
 
             Route::get('add/{id}','StudentController@add');
+
+        });
+
+        /**
+         * 角色管理
+         */
+        Route::group(['prefix' => 'role'],function(){
+
+            Route::get('/','RoleController@index');
 
         });
 
