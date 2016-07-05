@@ -107,6 +107,7 @@
                             </span>
                         </a>
                     </li>
+                    @role('administrator')
                     <li class="openable bg-palette4">
                         <a href="#">
                             <span class="menu-content block">
@@ -123,6 +124,9 @@
                             <li><a href="banner.html"><span class="submenu-label">轮播图</span></a></li>
                         </ul>
                     </li>
+                    @endrole
+
+                    @role('administrator')
                     <li class="openable bg-palette2">
                         <a href="{{ url('/admin/school') }}">
                             <span class="menu-content block">
@@ -138,7 +142,23 @@
                             <li><a href="{{ url('/admin/school') }}"><span class="submenu-label">学校管理</span></a></li>
                         </ul>
                     </li>
+                    @endrole
 
+                    @role('school')
+                    <li class="bg-palette2">
+                        <a href="{{ url('/admin/grade') }}">
+                            <span class="menu-content block">
+                                <span class="menu-icon"><i class="block fa fa-puzzle-piece fa-lg"></i></span>
+                                <span class="text m-left-sm">年级管理</span>
+                            </span>
+                            <span class="menu-content-hover block">
+                                年级管理
+                            </span>
+                        </a>
+                    </li>
+                    @endrole
+
+                    @role('grades')
                     <li class="bg-palette2">
                         <a href="{{ url('/admin/classes') }}">
                             <span class="menu-content block">
@@ -150,18 +170,36 @@
                             </span>
                         </a>
                     </li>
+                    @endrole
 
+                    @role('school')
                     <li class="bg-palette2">
                         <a href="{{ url('/admin/teacher') }}">
                             <span class="menu-content block">
                                 <span class="menu-icon"><i class="block fa fa-puzzle-piece fa-lg"></i></span>
-                                <span class="text m-left-sm">教师</span>
+                                <span class="text m-left-sm">教师管理</span>
                             </span>
                             <span class="menu-content-hover block">
                                 教师
                             </span>
                         </a>
                     </li>
+                    @endrole
+
+                    @role('school')
+                    <li class="bg-palette2">
+                        <a href="{{ url('/admin/course') }}">
+                            <span class="menu-content block">
+                                <span class="menu-icon"><i class="block fa fa-puzzle-piece fa-lg"></i></span>
+                                <span class="text m-left-sm">课程管理</span>
+                            </span>
+                            <span class="menu-content-hover block">
+                                课程
+                            </span>
+                        </a>
+                    </li>
+                    @endrole
+
                     <li class="openable bg-palette3">
                         <a href="#">
                             <span class="menu-content block">
@@ -178,6 +216,8 @@
                             <li><a href="article_type.html"><span class="submenu-label">文章类型</span></a></li>
                         </ul>
                     </li>
+
+                    @role('administrator')
                     <li class="bg-palette4">
                         <a href="{{ url('/admin/role') }}">
                             <span class="menu-content block">
@@ -190,6 +230,9 @@
                             </span>
                         </a>
                     </li>
+                    @endrole
+
+                    @role('administrator')
                     <li class="bg-palette1">
                         <a href="{{ url('/admin/user') }}">
                             <span class="menu-content block">
@@ -201,22 +244,7 @@
                             </span>
                         </a>
                     </li>
-                    <li class="openable bg-palette3">
-                        <a href="#">
-                            <span class="menu-content block">
-                                <span class="menu-icon"><i class="block fa fa-file-image-o fa-lg"></i></span>
-                                <span class="text m-left-sm">权限管理</span>
-                                <span class="submenu-icon"></span>
-                            </span>
-                            <span class="menu-content-hover block">
-                                权限管理
-                            </span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="account.html"><span class="submenu-label">账户管理</span></a></li>
-                            <li><a href="account_type.html"><span class="submenu-label">权限类型</span></a></li>
-                        </ul>
-                    </li>
+                    @endrole
                 </ul>
             </div>
             <!--左侧nav end-->

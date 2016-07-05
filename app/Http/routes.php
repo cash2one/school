@@ -47,6 +47,47 @@ Route::group(['prefix' => '/'],function(){
         });
 
         /**
+         * 年级管理
+         */
+        Route::group(['prefix' => 'grade'],function(){
+
+            Route::get('/','GradeController@index');
+
+            Route::get('/add','GradeController@add');
+
+            Route::post('/add','GradeController@store');
+
+        });
+
+        /**
+         * 课程管理
+         */
+        Route::group(['prefix' => 'course'],function(){
+
+
+
+        });
+
+        /**
+         * 教师管理
+         */
+        Route::group(['prefix' => 'teacher'],function(){
+
+            Route::get('/','TeacherController@index');
+
+            Route::get('add','TeacherController@add');
+
+            Route::post('add','TeacherController@store');
+
+            Route::get('edit/{id}','TeacherController@edit');
+
+            Route::post('edit','TeacherController@store');
+
+            Route::get('delete/{id}','TeacherController@delete');
+
+        });
+
+        /**
          * 用户管理
          */
         Route::group(['prefix' => 'user'],function(){

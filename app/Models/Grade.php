@@ -39,4 +39,13 @@ class Grade extends Common
     {
         return $this->hasMany('App\Models\Student','grade_id','id');
     }
+
+    /**
+     * 负责人
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function principal()
+    {
+        return $this->hasOne('App\Models\User','id','user_id');
+    }
 }

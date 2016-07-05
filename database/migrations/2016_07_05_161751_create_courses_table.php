@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGradesTable extends Migration
+class CreateCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,13 @@ class CreateGradesTable extends Migration
      */
     public function up()
     {
-        Schema::create('grades', function (Blueprint $table) {
-            $table->increments('id')->comment('自增长id');
-            $table->integer('school_id')->comment('类型id');
-            $table->integer('user_id')->comment('用户id');
-            $table->string('name')->comment('年级名称');
+        Schema::create('courses', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('school_id')->comment('学校id');
+            $table->integer('classes_id')->comment('班级id');
+            $table->integer('grades_id')->comment('年级id');
+            $table->integer('teacher_id')->comment('教师id');
+            $table->string('name')->comment('学科名称');
             $table->integer('created_at')->comment('创建时间');
             $table->integer('updated_at')->comment('更新时间');
             $table->integer('deleted_at')->nullable()->comment('删除时间');
@@ -30,6 +32,6 @@ class CreateGradesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('grades');
+        Schema::drop('courses');
     }
 }
