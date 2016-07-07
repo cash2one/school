@@ -3,23 +3,23 @@
     <link href="/css/ccadd.min.css" rel="stylesheet" />
 @endsection
 @section('content')
-    <!--当前位置 begin-->
-    <h3 class="header-text">班级
-        <span class="hed_te_span"><a href="#">管理</a><a class="cursa" href="#">添加</a></span></h3>
+    <h3 class="header-text">新增考试
+        <span class="hed_te_span"><a href="{{ url('/admin/exam/classes',['id' => Auth::user()->classes->id]) }}">管理</a></span></h3>
     <!--当前位置 end-->
     <div class="smart-widget">
         <div class="smart-widget-inner">
             <div class="smart-widget-body">
-                <form class="form-horizontal no-margin form-border" id="basic-constraint" method="post" action="{{ url('/admin/classes/edit') }}" novalidate>
-                    {{ csrf_field() }}
+                <form class="form-horizontal no-margin form-border" id="school_add" method="post" action="{{ url('/admin/exam/add') }}">
+                    {!! csrf_field() !!}
                     <div class="form-group">
-                        <label class="control-label col-lg-2">班级名称：</label>
+                        <label class="control-label col-lg-2">考试名称：</label>
                         <div class="col-lg-10">
-                            <input type="text" name="name" value="{{ $classes->name }}" class="form-control input-sm" >
+                            <input type="text" name="name" value="{{ $exam->name }}" class="form-control input-sm" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="text-center m-top-md">
-                        <input type="hidden" name="id" value="{{ $classes->id }}">
+                        <input type="hidden" value="{{ $classes->id }}" name="classes_id">
+                        <input type="hidden" value="{{ $exam->id }}" name="id">
                         <button type="submit" class="btn btn-info">提交</button>
                     </div>
                 </form>

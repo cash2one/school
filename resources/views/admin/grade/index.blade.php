@@ -7,12 +7,6 @@
     <h3 class="header-text">年级
         <span class="hed_te_span"><a class="cursa"  href="{{ url('/admin/grade') }}">管理</a><a href="{{ url('/admin/grade/add') }}">新增</a></span></h3>
     <!--当前位置 end-->
-    <!--搜索-->
-    <div class="breadcrumb ccsearch">
-        <input type="text" class="form-control ccdates" >
-        <input type="submit" class="btn btn-success btn-sm" value="搜索">
-    </div>
-    <!--搜索 end-->
     <table class="table table-striped ccad_table" id="dataTable_a">
         <thead>
         <tr>

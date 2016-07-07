@@ -42,6 +42,21 @@ class GradeController extends AdminController
     }
 
     /**
+     * 编辑年级
+     * @param Request $request
+     * @param Grade $grade
+     * @return mixed
+     */
+    public function edit(Request $request,Grade $grade)
+    {
+        $grade = $grade->findOrFail($request->id);
+
+        return view('admin.grade.edit',[
+            'grade' => $grade
+        ]);
+    }
+
+    /**
      * 存储年级更改
      * @param Request $request
      * @param Grade $grade
@@ -57,18 +72,17 @@ class GradeController extends AdminController
         {
             $school = $school->findOrFail($this->user->school->id);
 
+            $this->validate($request,[
+                'name' => 'required',
+            ]);
+
             if($request->id)
             {
-                $this->validate($request,[
-                    'name' => 'required',
-                ]);
-
                 $grade = $grade->findOrFail($request->id);
             }
             else
             {
                 $this->validate($request,[
-                    'name' => 'required',
                     'user_name' => 'required',
                     'email'  => 'required|email',
                     'password' => 'required'
@@ -79,13 +93,11 @@ class GradeController extends AdminController
                 $user->password = bcrypt($request->password);
                 $user->save();
                 $user->attachRole(5);
-
                 $grade->user_id = $user->id;
             }
 
             $grade->name = $request->name;
             $grade->school_id = $school->id;
-            $grade->user_id = $user->id;
             $grade->save();
 
             DB::commit();

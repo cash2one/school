@@ -7,11 +7,11 @@
  */
 
 namespace App\Http\Controllers\Admin;
-
-
 use App\Models\Classes;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use DB;
+use Exception;
 
 class StudentController extends AdminController
 {
@@ -30,18 +30,82 @@ class StudentController extends AdminController
     {
         $classes = $classes->findOrFail($request->id);
 
-        return view('admin.student.add');
-    }
-
-    public function store(Request $request,Student $student,Classes $classes)
-    {
-        if($request->id)
+        if($this->user->classes->id != $classes->id)
         {
-            $student = $student->findOrFail($request->id);
+            abort(403);
         }
 
-        $student->name = $request->name;
+        return view('admin.student.add',[
+            'classes' => $classes
+        ]);
+    }
 
-        //$student->
+    /**
+     * 存储学生
+     * @param Request $request
+     * @param Student $student
+     * @return mixed
+     * @throws Exception
+     */
+    public function store(Request $request,Student $student)
+    {
+        //校验字段
+        $this->validate($request,[
+            'name' => 'required',
+            'sex' => 'required',
+            'student_id' => 'required'
+        ]);
+
+        DB::beginTransaction();
+        //鉴定权限
+        if(!$this->user->hasRole('director') || $this->user->classes->id != $request->classes_id)
+        {
+            throw new Exception('您没有权限执行此操作！');
+        }
+
+        try {
+
+            if ($request->id)
+            {
+                $student = $student->where('id',$request->id)->first();
+
+                if(!$student)
+                {
+                    throw new Exception('没有找到想关班级！');
+                }
+            }
+            else
+            {
+                $student->class_id = $request->classes_id;
+
+                $student->school_id = $this->user->classes->school->id;
+
+                $student->grade_id = $this->user->classes->grade->id;
+            }
+
+            $student->student_id = $request->student_id;
+
+            $student->sex_id = $request->sex;
+
+            $student->name = $request->name;
+
+            $student->save();
+
+            DB::commit();
+
+            return redirect()->back()->with('status',[
+                'code' => 'success',
+                'msg'  => '保存成功'
+            ]);
+        }
+        catch (Exception $e)
+        {
+            DB::rollBack();
+
+            return redirect()->back()->with('status',[
+                'code' => 'error',
+                'msg'  => '保存失败'.$e->getCode()
+            ]);
+        }
     }
 }

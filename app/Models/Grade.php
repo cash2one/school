@@ -14,12 +14,12 @@ class Grade extends Common
     protected $table = 'grades';
 
     /**
-     * 获取当前年级都有哪些学校开设
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * 当前年级所属学校
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function school()
     {
-        return $this->belongsToMany('App\Models\School','school_grade','grade_id','school_id');
+        return $this->hasOne('App\Models\School','id','school_id');
     }
 
     /**

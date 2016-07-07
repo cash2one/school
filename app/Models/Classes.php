@@ -19,7 +19,7 @@ class Classes extends Common
      */
     public function school()
     {
-        return $this->hasOne('App\Models\Student','id','schoole_id');
+        return $this->hasOne('App\Models\School', 'id', 'school_id');
     }
 
     /**
@@ -28,7 +28,7 @@ class Classes extends Common
      */
     public function grade()
     {
-        return $this->hasOne('App\Models\Grade','id','grade_id');
+        return $this->hasOne('App\Models\Grade', 'id', 'grade_id');
     }
 
     /**
@@ -37,7 +37,7 @@ class Classes extends Common
      */
     public function students()
     {
-        return $this->hasMany('App\Models\Student','class_id','id');
+        return $this->hasMany('App\Models\Student', 'class_id', 'id');
     }
 
     /**
@@ -46,7 +46,7 @@ class Classes extends Common
      */
     public function teachers()
     {
-        return $this->belongsToMany('App\Models\Teacher','teacher_class','class_id','teacher_id');
+        return $this->belongsToMany('App\Models\Teacher', 'teacher_class', 'class_id', 'teacher_id');
     }
 
     /**
@@ -55,6 +55,24 @@ class Classes extends Common
      */
     public function principal()
     {
-        return $this->hasOne('App\Models\User','id','user_id');
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
+    }
+
+    /**
+     * 班级课程
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function courses()
+    {
+        return $this->hasMany('App\Models\Course','classes_id','id');
+    }
+
+    /**
+     * 班级考试
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function exams()
+    {
+        return $this->hasMany('App\Models\Exam','classes_id','id');
     }
 }

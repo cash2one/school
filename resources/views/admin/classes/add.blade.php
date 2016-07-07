@@ -19,16 +19,6 @@
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
-                        <label class="control-label col-lg-2">所属年级：</label>
-                        <div class="col-lg-10">
-                            <select class="form-control" name="grade">
-                                @foreach($grades as $grade)
-                                <option value="{{ $grade->id }}">{{ $grade->name }}</option>
-                                @endforeach
-                            </select>
-                        </div><!-- /.col -->
-                    </div><!-- /form-group -->
-                    <div class="form-group">
                         <label class="control-label col-lg-2">班主任：</label>
                         <div class="col-lg-10">
                             <input type="text" name="user_name" class="form-control input-sm" >

@@ -53,9 +53,15 @@ Route::group(['prefix' => '/'],function(){
 
             Route::get('/','GradeController@index');
 
-            Route::get('/add','GradeController@add');
+            Route::get('add','GradeController@add');
 
-            Route::post('/add','GradeController@store');
+            Route::post('add','GradeController@store');
+
+            Route::get('edit/{id}','GradeController@edit');
+
+            Route::post('edit','GradeController@store');
+
+            Route::get('delete/{id}','GradeController@delete');
 
         });
 
@@ -64,7 +70,17 @@ Route::group(['prefix' => '/'],function(){
          */
         Route::group(['prefix' => 'course'],function(){
 
+            Route::get('classes/{id}','CourseController@classes');
 
+            Route::get('add/{id}','CourseController@add');
+
+            Route::post('add','CourseController@store');
+
+            Route::get('edit/{id}','CourseController@edit');
+
+            Route::post('edit','CourseController@store');
+
+            Route::get('delete/{id}','CourseController@delete');
 
         });
 
@@ -125,6 +141,39 @@ Route::group(['prefix' => '/'],function(){
             Route::get('/','StudentController@index');
 
             Route::get('add/{id}','StudentController@add');
+
+            Route::post('add','StudentController@store');
+
+            Route::get('edit/{id}','StudentController@edit');
+
+            Route::post('edit','StudentController@store');
+
+            Route::get('delete/{id}','StudentController@delete');
+
+        });
+
+        /**
+         * 考试管理
+         */
+        Route::group(['prefix' => 'exam'],function(){
+
+            Route::get('classes/{id}','ExamController@classes');
+
+            Route::get('add/{id}','ExamController@add');
+
+            Route::post('add','ExamController@store');
+
+            Route::get('edit/{id}','ExamController@edit');
+
+            Route::get('detail/{id}','ExamController@detail');
+
+        });
+
+        Route::group(['prefix' => 'score'],function(){
+
+            Route::get('add/{id}','ScoreController@add');
+
+            Route::post('add','ScoreController@store');
 
         });
 

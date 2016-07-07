@@ -48,5 +48,30 @@ class User extends Authenticatable
         {
             return $this->hasOne('App\Models\School','user_id','id');
         }
+
+    }
+
+    /**
+     * 用户负责的年级
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function grade()
+    {
+        if($this->hasRole('grades'))
+        {
+            return $this->hasOne('App\Models\Grade','user_id','id');
+        }
+    }
+
+    /**
+     * 用户负责的班级
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function classes()
+    {
+        if($this->hasRole('director'))
+        {
+            return $this->hasOne('App\Models\Classes','user_id','id');
+        }
     }
 }

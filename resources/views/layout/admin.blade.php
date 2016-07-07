@@ -172,6 +172,20 @@
                     </li>
                     @endrole
 
+                    @role('director')
+                    <li class="bg-palette2">
+                        <a href="{{ url('/admin/classes/detail',['id' => Auth::user()->classes->id]) }}">
+                            <span class="menu-content block">
+                                <span class="menu-icon"><i class="block fa fa-puzzle-piece fa-lg"></i></span>
+                                <span class="text m-left-sm">我的班级</span>
+                            </span>
+                            <span class="menu-content-hover block">
+                                班级
+                            </span>
+                        </a>
+                    </li>
+                    @endrole
+
                     @role('school')
                     <li class="bg-palette2">
                         <a href="{{ url('/admin/teacher') }}">

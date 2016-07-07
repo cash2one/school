@@ -23,6 +23,7 @@ class TeacherController extends AdminController
      */
     public function index(Teacher $teacher)
     {
+        dd(123);
         $teachers = $teacher->where('school_id',$this->user->school->id)->paginate(25);
 
         return view('admin.teacher.index',[
@@ -99,7 +100,7 @@ class TeacherController extends AdminController
                 $user->email = $request->email;
                 $user->password = bcrypt($request->password);
                 $user->save();
-                $user->attachRole(5);
+                $user->attachRole(4);
 
                 $teacher->user_id = $user->id;
             }

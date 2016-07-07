@@ -8,6 +8,8 @@
         <span class="hed_te_span">
             <a href="{{ url('/admin/classes/edit',['id' => $classes->id]) }}">编辑班级信息</a>
             <a href="{{ url('/admin/student/add',['id' => $classes->id]) }}">新增学生</a>
+            <a href="{{ url('/admin/course/classes',['id' => $classes->id]) }}">班级课程管理</a>
+            <a href="{{ url('/admin/exam/classes',['id' => $classes->id]) }}">考试管理</a>
         </span>
     </h3>
     <!--当前位置 end-->
@@ -21,7 +23,7 @@
         <div class="col-sm-4">
             <div class="statistic-box bg-info m-bottom-md">
                 <div class="statistic-title">总人数</div>
-                <h3>{{ count($classes->student) }}</h3>
+                <h3>{{ count($classes->students) }}</h3>
             </div>
         </div>
         <div class="col-sm-4">
@@ -41,28 +43,23 @@
         <thead>
         <tr>
             <th>学号</th>
-            <th>头像</th>
             <th>姓名</th>
             <th>性别</th>
-            <th>家长姓名</th>
-            <th>联系方式</th>
-            <th>家校绑定</th>
+            <th>家校绑定数</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
         @foreach($students as $student)
         <tr>
-            <td>01</td>
-            <td><img class="men_photo img-circle" src="images/profile1.jpg" /></td>
-            <td>丽丽</td>
-            <td>女</td>
-            <td>张惠</td>
-            <td>13584569541</td>
-            <td>是</td>
+            <td>{{ $student->student_id }}</td>
+            <td>{{ $student->name }}</td>
+            <td>{{ $student->sex->name }}</td>
+            <td>{{ count($student->parents) }}</td>
             <td class="nscs-table-handle">
-                <span><a href="student_add.html" class="btn-blue"><i class="fa fa-edit"></i><p>编辑</p></a></span>
-                <span><a href="#" nctype="btn_del_account" data-seller-id="1" class="btn-red"><i class="fa fa-trash-o"></i><p>删除</p></a></span>
+                <span><a href="{{ url('/admin/student/detail',['id' => $student->id]) }}" class="btn-blue"><i class="fa fa-search"></i><p>查看</p></a></span>
+                <span><a href="{{ url('/admin/student/edit',['id' => $student->id]) }}" class="btn-blue"><i class="fa fa-edit"></i><p>编辑</p></a></span>
+                <span><a href="{{ url('/admin/student/delete',['id' => $student->id]) }}" nctype="btn_del_account" data-seller-id="1" class="btn-red"><i class="fa fa-trash-o"></i><p>删除</p></a></span>
             </td>
         </tr>
         @endforeach

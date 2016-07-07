@@ -48,4 +48,13 @@ class Student extends Common
     {
         return $this->belongsToMany('App\Models\Parents','parent_student','parent_id','student_id');
     }
+
+    /**
+     * 学生性别
+     * @return mixed
+     */
+    public function sex()
+    {
+        return $this->hasOne('App\Models\Sex','id','sex_id');
+    }
 }

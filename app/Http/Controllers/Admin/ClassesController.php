@@ -25,7 +25,17 @@ class ClassesController extends AdminController
      */
     public function index(Classes $classes)
     {
-        $classes = $classes->where('school_id',$this->user->school->id)->paginate(50);
+        if($this->user->hasRole('grades'))
+        {
+            $conditions['school_id'] = $this->user->grade->school->id;
+        }
+
+        if($this->user->hasRole('director'))
+        {
+            $conditions['user_id'] = $this->user->id;
+        }
+
+        $classes = $classes->where('school_id',$this->user->grade->school->id)->paginate(50);
 
         return view('admin.classes.index',[
             'classes' => $classes
@@ -34,33 +44,24 @@ class ClassesController extends AdminController
 
     /**
      * 新增班级
-     * @param Grade $grade
      * @return mixed
      */
-    public function add(Grade $grade)
+    public function add()
     {
-        $grades = $grade->where('type_id',$this->user->school->type_id)->get();
-
-        return view('admin.classes.add',[
-            'grades' => $grades
-        ]);
+        return view('admin.classes.add');
     }
 
     /**
      * 班级班级
      * @param Request $request
-     * @param Grade $grade
      * @param Classes $classes
      * @return mixed
      */
-    public function edit(Request $request,Grade $grade,Classes $classes)
+    public function edit(Request $request,Classes $classes)
     {
         $classes = $classes->findOrFail($request->id);
 
-        $grades = $grade->where('type_id',$this->user->school->type_id)->get();
-
         return view('admin.classes.edit',[
-            'grades' => $grades,
             'classes' => $classes
         ]);
     }
@@ -78,34 +79,46 @@ class ClassesController extends AdminController
 
         try
         {
+            $this->validate($request,[
+                'name' => 'required'
+            ]);
+
             if($request->id)
             {
                 $classes = $classes->findOrFail($request->id);
             }
             else
             {
+                $this->validate($request,[
+                    'user_name' => 'required',
+                    'email'     => 'required|email',
+                    'password'  => 'required'
+                ]);
+
                 $user->name = $request->user_name;
                 $user->email = $request->email;
                 $user->password = bcrypt($request->password);
                 $user->save();
                 $user->attachRole(7);
+
                 $classes->user_id = $user->id;
+                $classes->school_id = $this->user->grade->school->id;
+                $classes->grade_id = $this->user->grade->id;
             }
 
+
+
             $classes->name = $request->name;
-
-            $classes->school_id = $this->user->school->id;
-
-            $classes->grade_id = $request->grade;
 
             $classes->save();
 
             DB::commit();
 
-            return redirect('/admin/classes')->with('status',[
+            return redirect()->back()->with('status',[
                 'code' => 'success',
                 'msg'  => '保存成功'
             ]);
+
         }
         catch (Exception $e)
         {
