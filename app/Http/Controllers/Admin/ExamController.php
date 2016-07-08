@@ -100,12 +100,33 @@ class ExamController extends AdminController
         ]);
     }
 
+    /**
+     * 显示考试详情
+     * @param Request $request
+     * @param Exam $exam
+     * @return mixed
+     */
     public function detail(Request $request,Exam $exam)
     {
         $exam = $exam->findOrFail($request->id);
 
+        $total = [];
+
+        foreach ($exam->scores as $score)
+        {
+            if(!isset($total[$score->student_id]))
+            {
+                $total[$score->student_id] = 0;
+            }
+
+            $total[$score->student_id] += $score->val;
+        }
+
+        asort($total);
+
         return view('admin.exam.detail',[
-            'exam' => $exam
+            'exam' => $exam,
+            'total' => $total
         ]);
     }
 }

@@ -30,8 +30,6 @@
                 @foreach($exam->classes->courses as $course)
                 <th>{{ $course->name }}</th>
                 @endforeach
-                <th>总成绩</th>
-                <th>班级排名</th>
             </tr>
             </thead>
             <tbody>
@@ -42,8 +40,6 @@
                 @foreach($exam->classes->courses as $course)
                 <td><input type="text" name="val[{{ $student->id }}][{{ $course->id }}]" class="form-control input-sm" /></td>
                 @endforeach
-                <td><input type="text" name="total[{{ $student->id }}]" class="form-control input-sm" /></td>
-                <td><input type="text" name="sort[{{ $student->id }}]" class="form-control input-sm" /></td>
             </tr>
             @endforeach
             </tbody>

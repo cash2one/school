@@ -175,6 +175,8 @@ Route::group(['prefix' => '/'],function(){
 
             Route::post('add','ScoreController@store');
 
+            Route::post('edit','ScoreController@edit');
+
         });
 
         /**
