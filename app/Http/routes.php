@@ -13,36 +13,15 @@
 
 Route::auth();
 
-Route::group(['prefix' => '/'],function(){
+Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
     /**
      * 前台路由
      */
-    Route::group(['prefix' => '/','namespace' => 'Home','middleware' => ['auth']],function(){
+    Route::group(['prefix' => '/','namespace' => 'Home'],function(){
 
         Route::get('/','IndexController@index');
 
-        /**
-         * 教师选项
-         */
-        Route::group(['prefix' => 'teacher','middleware' => ['teacher']],function(){
-
-            Route::get('/','TeacherController@index');
-
-        });
-
-        /**
-         * 家庭选项
-         */
-        Route::group(['prefix'=>'family','middleware' => ['family']],function (){
-
-            Route::get('/','FamilyController@index');
-
-        });
-
-        /**
-         * 学生选项
-         */
         Route::group(['prefix' => 'student'],function(){
 
             Route::get('bind','StudentController@bind');
@@ -60,6 +39,36 @@ Route::group(['prefix' => '/'],function(){
         Route::group(['prefix' => 'task'],function(){
 
             Route::get('add','TaskController@add');
+
+        });
+
+    });
+
+    /**
+     * 家庭中心
+     */
+    Route::group(['prefix'=>'/family','middleware' => ['family']],function (){
+
+        Route::get('/','FamilyController@index');
+
+    });
+
+    /**
+     * 教师中心
+     */
+    Route::group(['prefix' => '/teacher','namespace' => 'Teacher','middleware' => ['teacher']],function(){
+
+        Route::get('/','IndexController@index');
+
+        Route::group(['prefix' => 'classes'],function(){
+
+            Route::get('/','ClassesController@index');
+
+        });
+
+        Route::group(['prefix' => 'course'],function(){
+
+            Route::get('detail/{id}','CourseController@detail');
 
         });
 

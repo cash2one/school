@@ -17,7 +17,7 @@
     </div>
     <div class="all_edit">
         <ul>
-            <li><a href="edit_mark.html">发布<br/>作业</a></li>
+            <li><a href="{{ url('/task/add') }}">发布<br/>作业</a></li>
             <li><a href="edit_active.html">发布<br/>活动</a></li>
         </ul>
     </div>
@@ -30,7 +30,7 @@
                 <a href="grade_single_table.html"><span><img src="/images/icon/icon_grade.png" /></span><i></i>成绩查询</a>
             </li>
             <li>
-                <a href="class.html"><span><img src="/images/icon/icon_class.png" /></span><i></i><b>5</b>任教班级</a>
+                <a href="{{ url('/teacher/classes') }}"><span><img src="/images/icon/icon_class.png" /></span><i></i><b>5</b>任教班级</a>
             </li>
             <li>
                 <a href="habit_more.html"><span><img src="/images/icon/icon_habit_user.png" /></span><i></i>习惯养成</a>

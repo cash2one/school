@@ -25,4 +25,13 @@ class Teacher extends Common
     {
         return $this->belongsToMany('App\Models\Classes','teacher_class','teacher_id','class_id');
     }
+
+    /**
+     * 老师任教的课程
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function courses()
+    {
+        return $this->hasMany('App\Models\Course','teacher_id','id');
+    }
 }

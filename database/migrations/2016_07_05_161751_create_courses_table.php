@@ -16,7 +16,7 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->integer('school_id')->comment('学校id');
             $table->integer('classes_id')->comment('班级id');
-            $table->integer('grades_id')->comment('年级id');
+            $table->integer('grade_id')->comment('年级id');
             $table->integer('teacher_id')->comment('教师id');
             $table->string('name')->comment('学科名称');
             $table->integer('created_at')->comment('创建时间');

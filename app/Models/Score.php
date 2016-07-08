@@ -39,4 +39,26 @@ class Score extends Common
     {
         return $this->hasOne('App\Models\Student','id','student_id');
     }
+
+    public function sortVal($scores,$val)
+    {
+        $total = [];
+
+        foreach ($scores as $key => $score)
+        {
+            $total[$score->student_id] = $score->val;
+        }
+
+        rsort($total);
+
+        foreach ($total as $key => $item)
+        {
+            if($val == $item)
+            {
+                return $key + 1;
+            }
+        }
+
+        return '暂无排名';
+    }
 }

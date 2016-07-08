@@ -63,7 +63,7 @@ class CourseController extends AdminController
     }
 
     /**
-     * 存储班级信息
+     * 存储课程信息
      * @param Request $request
      * @param Classes $classes
      * @param Course $course
@@ -84,7 +84,7 @@ class CourseController extends AdminController
 
         $course->classes_id = $classes->id;
 
-        $course->grades_id = $classes->grade->id;
+        $course->grade_id = $classes->grade->id;
 
         $course->teacher_id = $request->teacher_id;
 
