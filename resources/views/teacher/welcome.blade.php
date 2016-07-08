@@ -30,7 +30,7 @@
                 <a href="grade_single_table.html"><span><img src="/images/icon/icon_grade.png" /></span><i></i>成绩查询</a>
             </li>
             <li>
-                <a href="{{ url('/teacher/classes') }}"><span><img src="/images/icon/icon_class.png" /></span><i></i><b>5</b>任教班级</a>
+                <a href="{{ url('/teacher/classes') }}"><span><img src="/images/icon/icon_class.png" /></span><i></i><b>{{ count($teacher->courses) }}</b>任教班级</a>
             </li>
             <li>
                 <a href="habit_more.html"><span><img src="/images/icon/icon_habit_user.png" /></span><i></i>习惯养成</a>

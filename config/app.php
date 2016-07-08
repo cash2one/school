@@ -174,7 +174,13 @@ return [
         /**
          * Excel 服务
          */
-        Maatwebsite\Excel\ExcelServiceProvider::class
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
+        /**
+         * 短信服务
+         */
+        Toplan\PhpSms\PhpSmsServiceProvider::class,
+        Toplan\Sms\SmsManagerServiceProvider::class,
 
     ],
 
@@ -224,8 +230,9 @@ return [
         'Wechat' => Overtrue\LaravelWechat\Facade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Score' => App\Http\Controllers\Admin\ScoreController::class
-
+        'Score' => App\Http\Controllers\Admin\ScoreController::class,
+        'PhpSms' => Toplan\PhpSms\Facades\Sms::class,
+        'SmsManager' => Toplan\Sms\Facades\SmsManager::class
     ],
 
 ];
