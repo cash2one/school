@@ -14,9 +14,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('status_id')->comment('订单状态');
             $table->integer('user_id')->comment('用户id');
+            $table->integer('student_id')->comment('学生id');
+            $table->integer('grade_id')->comment('年级id');
+            $table->integer('school_id')->comment('学校id');
             $table->integer('order_type_id')->comment('订单类型');
+            $table->integer('status_id')->comment('订单状态');
             $table->string('name')->comment('订单名称');
             $table->string('number')->comment('订单编号');
             $table->decimal('total',18,2)->comment('订单金额');
