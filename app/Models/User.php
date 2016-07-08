@@ -74,4 +74,12 @@ class User extends Authenticatable
             return $this->hasOne('App\Models\Classes','user_id','id');
         }
     }
+
+    public function teacher()
+    {
+        if($this->hasRole('teacher'))
+        {
+            return $this->hasOne('App\Models\Teacher','user_id','id');
+        }
+    }
 }

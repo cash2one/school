@@ -200,20 +200,6 @@
                     </li>
                     @endrole
 
-                    @role('school')
-                    <li class="bg-palette2">
-                        <a href="{{ url('/admin/course') }}">
-                            <span class="menu-content block">
-                                <span class="menu-icon"><i class="block fa fa-puzzle-piece fa-lg"></i></span>
-                                <span class="text m-left-sm">课程管理</span>
-                            </span>
-                            <span class="menu-content-hover block">
-                                课程
-                            </span>
-                        </a>
-                    </li>
-                    @endrole
-
                     <li class="openable bg-palette3">
                         <a href="#">
                             <span class="menu-content block">

@@ -23,7 +23,6 @@ class TeacherController extends AdminController
      */
     public function index(Teacher $teacher)
     {
-        dd(123);
         $teachers = $teacher->where('school_id',$this->user->school->id)->paginate(25);
 
         return view('admin.teacher.index',[

@@ -10,8 +10,14 @@ namespace App\Http\Controllers\Home;
 
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    protected $user;
 
+    public function __construct(Request $request)
+    {
+        $this->user = $request->user();
+    }
 }

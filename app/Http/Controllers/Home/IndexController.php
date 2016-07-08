@@ -11,8 +11,8 @@ namespace App\Http\Controllers\Home;
 
 class IndexController extends HomeController
 {
-    public function __construct()
+    public function index()
     {
-
+        return view('welcome');
     }
 }
