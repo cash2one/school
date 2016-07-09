@@ -1,0 +1,31 @@
+/* 登录  找回密码 修改密码 注册 */
+
+.retype{ width:80%; margin:3rem auto; border-radius:.5rem; overflow:hidden; line-height:4rem; border:1px solid #06B3F7;}
+.retype p{ width:50%; float:left; color:#06B3F7; text-align:center;}
+.retype p.reclass{ background:#06B3F7; color:#fff;}
+
+
+.sigle{ padding:0 5%;}
+.sigle li{ border:1px solid #ebebeb; border-radius:.5rem; position:relative; margin-top:2.4rem; padding:1rem .5rem 1rem 4rem;}
+.sigle li.yz{ padding:1rem 8rem 1rem 4rem;}
+
+.sigle li a{ position:absolute; right:0; text-align:center; display:inline-block; height:4.4rem; width:10rem; line-height:4.4rem; top:0; border-top-right-radius:.5rem; border-bottom-right-radius:.5rem; overflow:hidden;}
+.sigle li a.timebtn{ background:#06B3F7; color:#fff;}
+.sigle li a.atimebtn{ background:#ebebeb; color:#999;}
+.sigle li a.dtimg img{ width:10rem; height:4.4rem;}
+
+.sigle li i{ width:2rem; height:2rem; position:absolute; left:1rem;}
+.sigle li i img{ width:80%; margin:10%;}
+.sigle li input{ width:100%; border:none;  line-height:2.4rem; font-size:1.6rem;}
+.sigle .btn{ margin-top:3rem;}
+.sigle .loginbtn{ margin:0}
+.sigle .btn input{ width:100%; height:4.4rem; line-height:4.4rem; color:#fff; font-size:1.6rem; font-weight:bolder; border:none; background:#06B3F7; border-radius:.5rem;}
+.sigle .forget{ color:#06F; line-height:2rem; color:#666; margin:2rem 0;}
+.sigle .forget a{ color: inherit}
+/*.notuser{ margin-top:5rem;}
+.notuser .erwm{ width:100%;}
+.notuser .erwm img{ width:15rem; height:15rem; margin:0 auto;}
+.notuser .sm{ margin:1rem 0; line-height:1.6rem; color:#ccc; padding:0 5%; text-align:center;}*/
+.sigle label.error{ padding-left:3rem; bottom:-2rem} 
+.rechick .loginmes{ display:none;}
+

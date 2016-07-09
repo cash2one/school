@@ -1,0 +1,19 @@
+
+/*格子布局*/
+.cellbox{ background:#ebebeb;}
+.cellbox ul{ background:#fff; margin-bottom:1rem;}
+.cellbox li{ float:left; width:25%; border-bottom:1px solid #efefef; border-right:1px solid #ebebeb; box-sizing:border-box; text-align:center; padding:1rem 0}
+.cellbox li:nth-child(4n){ border-right:none;}
+.cellbox li a{ display:block;}
+.cellbox li i{ display:block; width:3rem; height:3rem; margin:0 auto;}
+.cellbox li p{ text-align:center; line-height:2rem; margin-top:1rem; font-size:1.4rem; height:2rem}
+
+
+/*条状布局*/
+.abeambox{}
+.abeambox ul{ padding-bottom:1rem; background:#ebebeb;}
+.abeambox li{ border-bottom:1px solid #ebebeb; padding:.5rem 0rem .5rem 1.5rem; box-sizing:border-box; line-height:4rem; position:relative; background:#fff;}
+.abeambox li i{ float:right; display:inline-block; width:1.8rem; height:3rem; margin-right:.5rem}
+.abeambox li i img{ width:1.8rem; margin:1rem 0;}
+.abeambox li span{ position:absolute; right:3rem; top:.5rem; color:#999;}
+.abeambox li span img{ width:4rem; height:4rem;}
