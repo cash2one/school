@@ -36,7 +36,7 @@
                 <a href="{{ url('/teacher/activity') }}"><span><img src="/images/icon/icon_habit_user.png" /></span><i></i>习惯养成</a>
             </li>
             <li>
-                <a href="{{ url('/teacher/message') }}"><span><img src="/images/icon/leave_user.png" /></span><i></i><b>{{ count(Auth::user()->getMessages) }}</b>我的留言</a>
+                <a href="{{ url('/teacher/message') }}"><span><img src="/images/icon/leave_user.png" /></span><i></i><b>{{ count(Auth::user()->getUnReadMessageNumber) }}</b>我的留言</a>
             </li>
         </ul>
     </div>

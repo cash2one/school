@@ -97,6 +97,15 @@ class User extends Authenticatable
     }
 
     /**
+     * 未读消息数量
+     * @return mixed
+     */
+    public function getUnReadMessageNumber()
+    {
+        return $this->hasMany('App\Models\Message','to_user_id','id')->where('looked_at',0)->count();
+    }
+
+    /**
      * 发送的消息
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
