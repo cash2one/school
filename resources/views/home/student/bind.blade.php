@@ -36,7 +36,7 @@
 </div>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="/js/jquery.validation.min.js"></script>
-<script src="/path/to/laravel-sms.js"></script>
+<script src="/js/laravel-sms.js"></script>
 <script>
     $(document).ready(function(){
 
