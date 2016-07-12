@@ -20,42 +20,14 @@
     </div>
     <div class="grade_box">
         <ul>
+            @foreach($firstScores as $score)
             <li>
                 <a href="grade_subject.html">
-                    <p class="grade_num">120</p>
-                    <p class="grade_subject">语文</p>
+                    <p class="grade_num">{{ $score->val }}</p>
+                    <p class="grade_subject">{{ $score->course->name }}</p>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <p class="grade_num">120</p>
-                    <p class="grade_subject">数学</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p class="grade_num">98</p>
-                    <p class="grade_subject">英语</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p class="grade_num">86</p>
-                    <p class="grade_subject">物理</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p class="grade_num">70</p>
-                    <p class="grade_subject">化学</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p class="grade_num">80</p>
-                    <p class="grade_subject">生物</p>
-                </a>
-            </li>
+            @endforeach
         </ul>
     </div>
     <div class="agg">
