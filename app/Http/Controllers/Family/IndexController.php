@@ -13,6 +13,8 @@ class IndexController extends FamilyController
 {
     public function index()
     {
-        
+        return view('family.welcome',[
+            'user' => $this->user
+        ]);
     }
 }

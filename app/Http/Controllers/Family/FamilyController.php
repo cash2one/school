@@ -8,8 +8,14 @@
  */
 namespace App\Http\Controllers\Family;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class FamilyController extends Controller
 {
+    protected $user;
 
+    public function __construct(Request $request)
+    {
+        $this->user = $request->user();
+    }
 }
