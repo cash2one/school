@@ -26,6 +26,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::get('bind','StudentController@bind');
 
+            Route::post('getCode','StudentController@getCode');
+
         });
 
     });

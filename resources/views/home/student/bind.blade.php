@@ -8,6 +8,7 @@
     <title>家长绑定</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/school.css" >
+    <meta name="_token" content="{{ csrf_token() }}"/>
 </head>
 <body>
 <div class="frame">
@@ -17,9 +18,9 @@
                 <p class="por_img fillet"><img src="/images/icon/icon_camera.gif" /></p>
             </div>
             <ul class="bind_mgs">
-                <li><p><strong><img src="/images/icon/icon_num.png" /></strong><input name="student_id" placeholder="学生学号" type="text"/><b></b></p></li>
-                <li><p><strong><img src="/images/icon/icon_phone.png" /></strong><input placeholder="手机号" name="family_mobile" type="text"/><b></b></p></li>
-                <li><p><strong><img src="/images/icon/icon_check.png" /></strong><input name="check_num"  placeholder="手机验证码" class="input_check" type="text"/><b></b><input class="check_btn" type="button" value="获取验证码" /></p></li>
+                <li><p><strong><img src="/images/icon/icon_num.png" /></strong><input id="student_id" name="student_id" placeholder="学生学号" type="text"/><b></b></p></li>
+                <li><p><strong><img src="/images/icon/icon_phone.png" /></strong><input id="family_mobile" placeholder="手机号" name="family_mobile" type="text"/><b></b></p></li>
+                <li><p><strong><img src="/images/icon/icon_check.png" /></strong><input name="check_num"  placeholder="手机验证码" class="input_check" type="text"/><b></b><input id="getCode" class="check_btn" type="button" value="获取验证码" /></p></li>
             </ul>
             <p>
                 <input class="bind_btn" type="submit" value="立即绑定" />
@@ -75,6 +76,35 @@
                 },
             }
         });
+    });
+</script>
+<script>
+    $("#getCode").bind('click',function(e){
+
+        var student_id = $('#student_id').val();
+
+        var family_mobile = $('#family_mobile').val();
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ url('/student/getCode') }}',
+            data: {student_id:student_id,family_mobile:family_mobile},
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            },
+            success: function(data){
+
+                console.log(data)
+
+            },
+            error: function(xhr, type){
+
+                alert('Ajax error!')
+
+            }
+        });
+
     });
 </script>
 
