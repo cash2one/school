@@ -22,7 +22,7 @@ class ActivityController extends TeacherController
      */
     public function index(Activity $activity)
     {
-        $activitys = $this->user->activitys->paginate(15);
+        $activitys = $this->user->activitys()->paginate(15);
 
         return view('teacher.activity.index',[
             'activitys' => $activitys
