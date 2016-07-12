@@ -105,6 +105,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::post('add','ActivityController@store');
 
+            Route::get('detail/{id}','ActivityController@detail');
+
         });
 
     });

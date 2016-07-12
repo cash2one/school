@@ -105,4 +105,19 @@ class ActivityController extends TeacherController
             'msg' => '发布失败'
         ]);
     }
+
+    /**
+     * 活动详情
+     * @param Request $request
+     * @param Activity $activity
+     * @return mixed
+     */
+    public function detail(Request $request,Activity $activity)
+    {
+        $activity = $activity->findOrFail($request->id);
+
+        return view('teacher.activity.detail',[
+            'activity' => $activity
+        ]);
+    }
 }
