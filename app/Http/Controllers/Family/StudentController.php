@@ -9,7 +9,18 @@
 namespace App\Http\Controllers\Family;
 
 
-class StudentController
+class StudentController extends FamilyController
 {
+    /**
+     * 学生列表
+     * @return mixed
+     */
+    public function index()
+    {
+        $students = $this->user->family->students;
 
+        return view('family.student.index',[
+            'students' => $students
+        ]);
+    }
 }

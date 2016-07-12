@@ -41,6 +41,15 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         Route::get('/','IndexController@index');
 
+        /**
+         * 学生
+         */
+        Route::group(['prefix' => 'student'],function (){
+
+            Route::get('/','StudentController@index');
+
+        });
+
     });
 
     /**
