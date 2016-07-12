@@ -88,6 +88,18 @@ class User extends Authenticatable
     }
 
     /**
+     * 绑定家庭
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function family()
+    {
+        if($this->hasRole('parents'))
+        {
+            return $this->hasOne('App\Models\Parents','user_id','id');
+        }
+    }
+
+    /**
      * 用户消息
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

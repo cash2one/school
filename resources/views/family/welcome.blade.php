@@ -18,25 +18,22 @@
     <div class="module">
         <ul>
             <li>
-                <a href="../notice.html"><span><img src="../images/icon/icon_news.png" /></span><i></i>通知</a>
+                <a href="{{ url('/family/news') }}"><span><img src="/images/icon/icon_news.png" /></span><i></i>通知</a>
             </li>
             <li>
-                <a href="../leave_mgs_list.html"><span><img src="../images/icon/leave_user.png" /></span><i></i>我的留言</a>
+                <a href="{{ url('/family/message') }}"><span><img src="/images/icon/leave_user.png" /></span><i></i>我的留言</a>
             </li>
             <li>
-                <a href="../task_subject.html"><span><img src="../images/icon/icon_subject.png" /></span><i></i>作业查询</a>
+                <a href="{{ url('/family/task') }}"><span><img src="/images/icon/icon_subject.png" /></span><i></i>作业查询</a>
             </li>
             <li>
-                <a href="grade.html"><span><img src="../images/icon/icon_grade.png" /></span><i></i>成绩查询</a>
+                <a href="grade.html"><span><img src="/images/icon/icon_grade.png" /></span><i></i>成绩查询</a>
             </li>
             <li>
-                <a href="habit_more.html"><span><img src="../images/icon/icon_habit_user.png" /></span><i></i>习惯养成</a>
+                <a href="habit_more.html"><span><img src="/images/icon/icon_habit_user.png" /></span><i></i>习惯养成</a>
             </li>
             <li>
-                <a href="teacher_list.html"><span><img src="../images/icon/icon_teacher.png" /></span><i></i>给老师留言</a>
-            </li>
-            <li>
-                <a href="children.html"><span><img src="../images/icon/icon_set.png" /></span><i></i><b>5</b>账号管理</a>
+                <a href="{{ url('/family/student') }}"><span><img src="/images/icon/icon_set.png" /></span><i></i><b>{{ count($user->family->students) }}</b>我的孩子</a>
             </li>
         </ul>
     </div>
