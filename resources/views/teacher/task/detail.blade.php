@@ -17,11 +17,6 @@
             <div class="task_cont">
                 {{ $task->detail }}
             </div>
-            <div class="task_img">
-                <ul>
-                    <li><a href="#"><img src="/images/face.png" /></a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
