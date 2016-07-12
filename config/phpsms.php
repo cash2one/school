@@ -18,7 +18,7 @@ return [
      * 'Luosimao', 'YunTongXun', 'YunPian', 'SubMail', 'Ucpaas', 'JuHe', 'Alidayu', 'Log'
      */
     'scheme' => [
-        'Log',
+        'YunPian' => '30'
     ],
 
     /*
