@@ -87,4 +87,19 @@ class TaskController extends TeacherController
             'msg'  => '失败'
         ]);
     }
+
+    /**
+     * 作业详情
+     * @param Request $request
+     * @param Task $task
+     * @return mixed
+     */
+    public function detail(Request $request,Task $task)
+    {
+        $task = $task->findOrFail($request->id);
+
+        return view('teacher.task.detail',[
+            'task' => $task
+        ]);
+    }
 }
