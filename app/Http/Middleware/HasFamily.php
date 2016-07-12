@@ -14,7 +14,7 @@ class HasFamily
      */
     public function handle($request, Closure $next,$guard = null)
     {
-        if(Auth::guard($guard)->guest() && !$request->user()->hasRole('family'))
+        if(!$request->user()->hasRole('family'))
         {
             return redirect('/student/bind');
         }
