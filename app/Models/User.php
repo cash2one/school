@@ -75,11 +75,33 @@ class User extends Authenticatable
         }
     }
 
+    /**
+     * 用户教师
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function teacher()
     {
         if($this->hasRole('teacher'))
         {
             return $this->hasOne('App\Models\Teacher','user_id','id');
         }
+    }
+
+    /**
+     * 用户消息
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function getMessages()
+    {
+        return $this->hasMany('App\Models\Message','to_user_id','id');
+    }
+
+    /**
+     * 发送的消息
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function postMessages()
+    {
+        return $this->hasMany('App\Models\Message','user_id','id');
     }
 }

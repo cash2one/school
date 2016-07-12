@@ -79,6 +79,15 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         });
 
+        /**
+         * 消息
+         */
+        Route::group(['prefix' => 'message'],function(){
+
+            Route::get('/','MessageController@index');
+
+        });
+
     });
 
 

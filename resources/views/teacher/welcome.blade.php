@@ -27,16 +27,16 @@
                 <a href="{{ url('/teacher/task') }}"><span><img src="/images/icon/icon_subject.png" /></span><i></i>作业</a>
             </li>
             <li>
-                <a href="grade_single_table.html"><span><img src="/images/icon/icon_grade.png" /></span><i></i>成绩查询</a>
+                <a href="{{ url('/teacher/exam') }}"><span><img src="/images/icon/icon_grade.png" /></span><i></i>成绩查询</a>
             </li>
             <li>
                 <a href="{{ url('/teacher/classes') }}"><span><img src="/images/icon/icon_class.png" /></span><i></i><b>{{ count($teacher->courses) }}</b>任教班级</a>
             </li>
             <li>
-                <a href="habit_more.html"><span><img src="/images/icon/icon_habit_user.png" /></span><i></i>习惯养成</a>
+                <a href="{{ url('/teacher/activity') }}"><span><img src="/images/icon/icon_habit_user.png" /></span><i></i>习惯养成</a>
             </li>
             <li>
-                <a href="/leave_mgs_list.html"><span><img src="/images/icon/leave_user.png" /></span><i></i><b>5</b>我的留言</a>
+                <a href="{{ url('/teacher/message') }}"><span><img src="/images/icon/leave_user.png" /></span><i></i><b>{{ count(Auth::user()->getMessages) }}</b>我的留言</a>
             </li>
         </ul>
     </div>
