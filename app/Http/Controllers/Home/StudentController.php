@@ -48,7 +48,7 @@ class StudentController extends HomeController
 
         $res = $manager->requestVerifySms($student,60);
 
-        if($res->success)
+        if($res['success'])
         {
             return response()->json([
                 'code' => 'success',
