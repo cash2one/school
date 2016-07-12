@@ -24,7 +24,8 @@ class MessageController extends TeacherController
         $messages = $message->where('to_user_id',$this->user->id)->paginate(10);
 
         return view('teacher.message.index',[
-            'messages' => $messages
+            'messages' => $messages,
+            'type' => 1
         ]);
     }
 
@@ -44,6 +45,36 @@ class MessageController extends TeacherController
 
         return view('teacher.message.detail',[
             'message' => $message
+        ]);
+    }
+
+    /**
+     * 已读消息
+     * @param Message $message
+     * @return mixed
+     */
+    public function read(Message $message)
+    {
+        $messages = $message->where('to_user_id',$this->user->id)->where('looked_at','>',0)->paginate(10);
+
+        return view('teacher.message.index',[
+            'messages' => $messages,
+            'type' => 2
+        ]);
+    }
+
+    /**
+     * 未读消息
+     * @param Message $message
+     * @return mixed
+     */
+    public function unread(Message $message)
+    {
+        $messages = $message->where('to_user_id',$this->user->id)->where('looked_at',0)->paginate(10);
+
+        return view('teacher.message.index',[
+            'messages' => $messages,
+            'type' => 3
         ]);
     }
 }

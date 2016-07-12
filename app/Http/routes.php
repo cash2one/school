@@ -86,6 +86,10 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::get('/','MessageController@index');
 
+            Route::get('read','MessageController@read');
+
+            Route::get('unread','MessageController@unread');
+
             Route::get('detail/{id}','MessageController@detail');
 
         });
