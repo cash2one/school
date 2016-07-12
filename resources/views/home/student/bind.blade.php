@@ -36,6 +36,7 @@
 </div>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="/js/jquery.validation.min.js"></script>
+<script src="/path/to/laravel-sms.js"></script>
 <script>
     $(document).ready(function(){
 
@@ -85,6 +86,8 @@
 
         var family_mobile = $('#family_mobile').val();
 
+
+
         $.ajax({
             type: 'POST',
             url: '{{ url('/student/getCode') }}',
@@ -96,6 +99,17 @@
             success: function(data){
 
                 console.log(data)
+
+                $('#getCode').sms({
+                    //laravel csrf token
+                    token           : "{{csrf_token()}}",
+                    //定义如何获取mobile的值
+                    mobile_selector : 'input[name=family_mobile]',
+                    //手机号的检测规则
+                    mobile_rule     : 'mobile_required',
+                    //请求间隔时间
+                    interval        : 60
+                });
 
             },
             error: function(xhr, type){
