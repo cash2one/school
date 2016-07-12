@@ -22,7 +22,7 @@
                         </a>
                         <p>
                             <a class="work" href="{{ url('/teacher/task/add',['id' => $course->id]) }}">发布作业</a>
-                            <a class="task" href="{{ url('/teacher/act/add',['id' => $course->id]) }}">发布任务</a>
+                            <a class="task" href="{{ url('/teacher/activity/add',['id' => $course->id]) }}">发布任务</a>
                         </p>
                     </div>
                 </li>
