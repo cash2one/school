@@ -86,18 +86,11 @@ class StudentController extends FamilyController
 
         $i = 0;
 
-        foreach ($exams as $item)
+        foreach ($exams as $ite)
         {
-            $total_name[$i] = $item->name;
+            $total_name[$i] = $ite->name;
 
-            $val = 0;
-
-            foreach ($item->scores->where('student_id',$student->id)->get() as $value)
-            {
-                $val += $value->val;
-            }
-
-            $totals[$i] = $val;
+            $totals[$i] = $ite->scores->where('student_id',$student->id)->sum('val');
 
             $i++;
         }
