@@ -64,9 +64,14 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         });
 
+        /**
+         * 作业
+         */
         Route::group(['prefix' => 'task'],function(){
 
             Route::get('add/{id}','TaskController@add');
+
+            Route::post('add','TaskController@store');
 
         });
 

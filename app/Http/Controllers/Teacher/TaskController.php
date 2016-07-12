@@ -28,4 +28,9 @@ class TaskController extends TeacherController
             'course' => $course
         ]);
     }
+
+    public function store(Request $request,Course $course)
+    {
+
+    }
 }

@@ -12,17 +12,12 @@
 <body>
 <div class="warp_bg">
     <form method="post" action="{{ url('/teacher/task/add') }}">
-    <div class="up_img">
-        <ul>
-            <li><img src="/images/icon/icon_add.png" /></li>
-            <li><img src="/images/icon/icon_add.png" /></li>
-            <li><img src="/images/icon/icon_add.png" /></li>
-        </ul>
-    </div>
     <div class="cover_box">
-        <div class="text_cont"><textarea placeholder="作业内容"></textarea></div>
+        <div class="text_cont"><textarea name="detail" placeholder="作业内容"></textarea></div>
     </div>
     <div class="cover_btn">
+        <input type="hidden" name="classes_id" value="{{ $course->classes->id }}">
+        <input type="hidden" name="course_id" value="{{ $course->id }}">
         <input class="fr sure_btn" type="submit" value="发布" />
         <p>发送给：{{ $course->grade->name }} {{ $course->classes->name }}</p>
     </div>
