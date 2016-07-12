@@ -32,6 +32,19 @@ class StudentController extends HomeController
      */
     public function getCode(Request $request,Student $student)
     {
+        $student = $student->where([
+            'student_id' => $request->student_id,
+            'family_mobile' => $request->family_mobile
+        ])->first();
+
+        if(!$student)
+        {
+            return response()->json([
+                'code' => 'error',
+                'msg' => '找不到学生'
+            ]);
+        }
+
         return response()->json([
             'code' => 'success',
             'msg' => '成功'
