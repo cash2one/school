@@ -54,6 +54,8 @@ class TaskController extends TeacherController
 
         $task->school_id = $course->school_id;
 
+        $task->course_id = $course->id;
+
         $task->name = date('Y-m-d').$course->name.'作业';
 
         $task->detail = $request->detail;
