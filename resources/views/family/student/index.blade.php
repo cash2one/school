@@ -15,7 +15,7 @@
         <ul>
             @foreach($students as $student)
             <li>
-                <a href="#">
+                <a href="{{ url('/family/student/detail',['id' => $student->id]) }}">
                     <div class="child_img fl"><img src="/images/face.png" /></div>
                     <div class="child_mgs">
                         <h3>{{ $student->name }}</h3>
@@ -26,7 +26,7 @@
             </li>
             @endforeach
             <li class="add_more">
-                <a href="bind_parent.html">
+                <a href="{{ url('/student/bind') }}">
                     绑定新学生
                 </a>
             </li>
