@@ -13,22 +13,15 @@
 <div class="frame">
     <div class="bind">
         <form id="bind_parent">
-
+            <div class="portrait">
+                <p class="por_img fillet"><img src="/images/icon/icon_camera.gif" /></p>
+            </div>
             <ul class="bind_mgs">
-                <li><p>学生姓名：<input name="student_name" type="text"/><b></b></p></li>
-                <li><p>所在学校：<input name="school_name" type="text"/><b></b></p></li>
-                <!--
-                <li><p>所在班级：<input name="class_name" type="text"/><b></b></p></li>
-                -->
-                <li><p>学生学号：<input name="student_num" type="text"/><b></b></p></li>
-                <!--
-                <li><p>出生日期：<input name="birthday" type="text"/><b></b></p></li>
-                <li><p>学生性别：<span><input type="radio" name="sex" id="men" checked="checked" /><label for="men">男</label></span><span><input  name="sex" id="women"  type="radio" /><label for="women">女</label></span></p></li>
-                <li><p>所属关系：<input type="text"/></p></li>
-                -->
+                <li><p><strong><img src="/images/icon/icon_num.png" /></strong><input name="student_num" placeholder="学生学号" type="text"/><b></b></p></li>
+                <li><p><strong><img src="/images/icon/icon_phone.png" /></strong><input placeholder="手机号" name="phone" type="text"/><b></b></p></li>
+                <li><p><strong><img src="/images/icon/icon_check.png" /></strong><input name="check_num"  placeholder="手机验证码" class="input_check" type="text"/><b></b><input class="check_btn" type="button" value="获取验证码" /></p></li>
             </ul>
             <p>
-                <!--<a class="bind_btn" href="user_parent.html">立即绑定</a>-->
                 <input class="bind_btn" type="submit" value="立即绑定" />
             </p>
         </form>
@@ -54,44 +47,36 @@
                 ajaxpost('bind_parent', '', '', 'onerror');
             },
             rules: {
-                student_name: {
+                student_num: {
                     required: true,
                 },
-                school_name: {
+                phone: {
                     required: true,
+                    digits:true,
+                    rangelength:[11,11]
                 },
-                class_name: {
+                check_num: {
                     required: true,
                     number:true
                 },
-
-                student_num: {
-                    required: true,
-                },
-                birthday: {
-                    required: true,
-                },
             },
             messages: {
-                student_name: {
-                    required: '此项不能为空',
-                },
-                school_name: {
-                    required: '此项不能为空',
-                },
-                class_name: {
-                    required: '此项不能为空',
-                },
                 student_num: {
-                    required: '此项不能为空',
-                    number: '请填写数字',
+                    required: '此项不能为空！',
                 },
-                birthday: {
-                    required: '此项不能为空',
+                phone: {
+                    required: '此项不能为空！',
+                    digits:'您填写的手机号格式有误！',
+                    rangelength:'您填写的手机号格式有误！',
+                },
+                check_num: {
+                    required: '此项不能为空！',
+                    number: '请填写正确的验证码！'
                 },
             }
         });
     });
 </script>
+
 </body>
 </html>
