@@ -21,12 +21,14 @@
     <div class="grade_box">
         <ul>
             @foreach($firstScores as $score)
-            <li>
-                <a href="grade_subject.html">
-                    <p class="grade_num">{{ $score->val }}</p>
-                    <p class="grade_subject">{{ $score->course->name }}</p>
-                </a>
-            </li>
+                @if($student->id == $score->student_id)
+                    <li>
+                        <a href="grade_subject.html">
+                            <p class="grade_num">{{ $score->val }}</p>
+                            <p class="grade_subject">{{ $score->course->name }}</p>
+                        </a>
+                    </li>
+                @endif
             @endforeach
         </ul>
     </div>
