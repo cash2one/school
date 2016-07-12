@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Family;
 
 
 use App\Models\Exam;
+use App\Models\Score;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -34,13 +35,16 @@ class StudentController extends FamilyController
      * @param Student $student
      * @return mixed
      */
-    public function detail(Request $request,Student $student,Exam $exam)
+    public function detail(Request $request,Student $student,Exam $exam,Score $score)
     {
         $student = $student->findOrFail($request->id);
 
         $exam = $exam->where('classes_id',$student->classes_id)->first();
 
-        $firstScores = $exam->scores->where('student_id',$student->id)->get();
+        $firstScores = $score->where([
+            'student_id' => $student->id,
+            'exam_id' => $exam->id
+        ])->get();
 
         return view('family.student.detail',[
             'student' => $student,
