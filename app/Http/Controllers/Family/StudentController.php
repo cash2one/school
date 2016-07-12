@@ -74,11 +74,32 @@ class StudentController extends FamilyController
             }
         }
 
+        $exams = $exam->where([
+
+            'classes_id' => $student->classes->id
+
+        ])->orderBy('id','desc')->get()->take(5);
+
+        $totals = [];
+
+        $total_name = [];
+
+        $i = 0;
+
+        foreach ($exams as $item)
+        {
+            $total_name[$i] = $item->name;
+
+            $totals[$i] = $item->scores->where('student_id',$student->id)->sum('val');
+        }
+
         return view('family.student.detail',[
             'student' => $student,
             'firstScores' => $firstScores,
             'firstSort' => $firstSort,
-            'firstTotal' => $firstScoresTotal
+            'firstTotal' => $firstScoresTotal,
+            'totals' => $totals,
+            'total_name' => $total_name
         ]);
     }
 }

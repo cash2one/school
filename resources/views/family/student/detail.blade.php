@@ -60,8 +60,16 @@
 <script>
     var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
 
-    var x = ["一质测","二质测","期中","四质测","五质测","期末"];
-    var y1 = [80,88,78,94,100,88,80];
+    var x = [
+            @foreach($total_name as $item)
+        "{{ $item }}",
+            @endforeach
+    ];
+    var y1 = [
+        @foreach($total as $value)
+        {{ $value }},
+            @endforeach
+    ];
     var config1 = ['rgba(151,187,205,0.2)','rgba(151,187,205,1)','rgba(151,187,205,1)','#fff','#fff','rgba(151,187,205,1)'];
 
 
