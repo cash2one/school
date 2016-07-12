@@ -90,7 +90,10 @@ class StudentController extends FamilyController
         {
             $total_name[$i] = $ite->name;
 
-            $totals[$i] = $ite->scores->where('student_id',$student->id)->sum('val');
+            $totals[$i] = $score->where([
+                'exam_id' => $ite->id,
+                'student_id' => $student->id
+            ])->sum('val');
 
             $i++;
         }
