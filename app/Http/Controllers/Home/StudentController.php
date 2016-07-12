@@ -85,25 +85,17 @@ class StudentController extends HomeController
 
         try
         {
-            $user->email = $student->famiil_mobile.'@dyy.name';
-
-            $user->password = bcrypt($student->famiil_mobile);
-
-            $user->name = $request->name;
-
-            $user->save();
-
             $parents->name = $request->name;
 
             $parents->auth_time = time();
 
-            $parents->user_id = $user->id;
+            $parents->user_id = $this->user->id;
 
             $parents->save();
 
             $parents->students()->save($student);
 
-            $user->attachRole(6);
+            $this->user->attachRole(6);
 
             DB::commit();
 
