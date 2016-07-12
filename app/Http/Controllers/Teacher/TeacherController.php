@@ -17,10 +17,15 @@ class TeacherController  extends Controller
 
     public function __construct(Request $request)
     {
-        $user = session('wechat.oauth_user');
-
-        dd($user);
+        $wechatUser = session('wechat.oauth_user');
 
         $this->user = $request->user();
+
+        if($this->user->hasRole('teacher') && !$this->user->openid)
+        {
+            $this->user->openid = $wechatUser->openid;
+
+            $this->user->save();
+        }
     }
 }
