@@ -41,7 +41,7 @@ class TaskController extends TeacherController
     {
         $this->validate($request,[
             'course_id' => 'required',
-            'detail' => 'detail'
+            'detail' => 'required'
         ]);
 
         $course = $course->findOrFail($request->course_id);
