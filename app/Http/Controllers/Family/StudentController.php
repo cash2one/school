@@ -9,6 +9,9 @@
 namespace App\Http\Controllers\Family;
 
 
+use App\Models\Student;
+use Illuminate\Http\Request;
+
 class StudentController extends FamilyController
 {
     /**
@@ -21,6 +24,21 @@ class StudentController extends FamilyController
 
         return view('family.student.index',[
             'students' => $students
+        ]);
+    }
+
+    /**
+     * 学生详情
+     * @param Request $request
+     * @param Student $student
+     * @return mixed
+     */
+    public function detail(Request $request,Student $student)
+    {
+        $student = $student->findOrFail($request->id);
+
+        return view('family.student.detail',[
+            'student' => $student
         ]);
     }
 }

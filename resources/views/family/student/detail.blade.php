@@ -1,0 +1,127 @@
+<!DOCTYPE html >
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>总成绩单</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css" >
+    <link rel="stylesheet" type="text/css" href="/css/school.css" >
+</head>
+<body>
+<div class="warp_bg">
+    <div class="stud_top">
+        <div class="top_img fl"><img src="/images/face.png" /></div>
+        <div class="top_cont">
+            <p>{{ $student->name }}</p>
+            <p>{{ $student->grade->name }}{{ $student->classes->name }}</p>
+        </div>
+    </div>
+    <div class="grade_box">
+        <ul>
+            <li>
+                <a href="grade_subject.html">
+                    <p class="grade_num">120</p>
+                    <p class="grade_subject">语文</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <p class="grade_num">120</p>
+                    <p class="grade_subject">数学</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <p class="grade_num">98</p>
+                    <p class="grade_subject">英语</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <p class="grade_num">86</p>
+                    <p class="grade_subject">物理</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <p class="grade_num">70</p>
+                    <p class="grade_subject">化学</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <p class="grade_num">80</p>
+                    <p class="grade_subject">生物</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="agg">
+        <ul>
+            <li><span>总分：268</span></li>
+            <li><span>班级排名：25</span></li>
+            <li><span>年级排名：32</span></li>
+        </ul>
+    </div>
+    <style>
+
+    </style>
+    <div class="graph_title"><span></span>学情分析
+        <ul  class="graph_type">
+            <li><a href="#"><i></i>分数</a></li>
+            <li><a href="#"><i></i>班级排名</a></li>
+            <li><a href="#"><i></i>年级排名</a></li>
+        </ul>
+    </div>
+    <div class="graph">
+        <div class="graph_box">
+            <canvas id="grades"></canvas>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/Chart.js"></script>
+
+<script>
+    var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+    var x = ["一质测","二质测","期中","四质测","五质测","期末"];
+    var y1 = [80,88,78,94,100,88,80];
+    var config1 = ['rgba(151,187,205,0.2)','rgba(151,187,205,1)','rgba(151,187,205,1)','#fff','#fff','rgba(151,187,205,1)'];
+
+
+    cart('grades',x,y1,config1);
+
+    function cart(id,x , y,config)
+    {
+        this.fillColor = config[0];
+        this.strokeColor = config[1];
+        this.pointColor = config[2];
+        this.pointStrokeColor = config[3];
+        this.pointHighlightFill = config[4];
+        this.pointHighlightStroke = config[5];
+        var lineCharData = {
+            labels : x,
+            datasets:[
+                {
+                    fillColor : this.fillColor,
+                    strokeColor : this.strokeColor,
+                    pointColor : this.pointColor,
+                    pointStrokeColor : this.pointStrokeColor,
+                    pointHighlightFill : this.pointHighlightFill,
+                    pointHighlightStroke : this.pointHighlightStroke,
+                    data : y
+                }
+            ]
+        };
+
+        var ctx = document.getElementById(id).getContext("2d");
+        window.myLine = new Chart(ctx).Line(lineCharData, {
+            responsive: true
+        });
+    }
+</script>
+
+</body>
+</html>

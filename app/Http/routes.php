@@ -48,6 +48,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::get('/','StudentController@index');
 
+            Route::get('detail/{id}','StudentController@detail');
+
         });
 
     });
