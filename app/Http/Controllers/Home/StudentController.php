@@ -46,7 +46,7 @@ class StudentController extends HomeController
             ]);
         }
 
-        $res = $manager->requestVerifySms($student,60);
+        $res = $manager->requestVerifySms($student->family_mobile,60);
 
         if($res['success'])
         {
@@ -57,8 +57,8 @@ class StudentController extends HomeController
         }
 
         return response()->json([
-            'code' => 'success',
-            'msg' => '成功'
+            'code' => 'error',
+            'msg' => '短信发送失败'
         ]);
     }
 }
