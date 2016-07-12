@@ -55,5 +55,7 @@ class Kernel extends HttpKernel
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
         'teacher' => \App\Http\Middleware\HasTeacher::class,
         'family' => \App\Http\Middleware\HasFamily::class,
+
+        'wechat.oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
     ];
 }

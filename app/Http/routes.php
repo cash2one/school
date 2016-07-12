@@ -42,7 +42,7 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
     /**
      * 教师中心
      */
-    Route::group(['prefix' => '/teacher','namespace' => 'Teacher','middleware' => ['teacher']],function(){
+    Route::group(['prefix' => '/teacher','namespace' => 'Teacher','middleware' => ['teacher','wechat.oauth']],function(){
 
         Route::get('/','IndexController@index');
 
