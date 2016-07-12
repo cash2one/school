@@ -136,7 +136,7 @@ class ActivityController extends TeacherController
         $scores = $score->where([
             'activity_id' => $activity->id,
             'score' => $request->score
-        ])->get();
+        ])->paginate(20);
 
         return view('teacher.activity.detail',[
             'activity' => $activity,
