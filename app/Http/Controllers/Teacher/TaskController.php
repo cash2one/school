@@ -24,7 +24,7 @@ class TaskController extends TeacherController
     {
         $tasks = $task->where('teacher_id',$this->user->id)->paginate(30);
 
-        return view('admin.task.index',[
+        return view('teacher.task.index',[
             'tasks' => $tasks
         ]);
     }
