@@ -106,6 +106,8 @@ class StudentController extends AdminController
 
             $student->name = $request->name;
 
+            $student->family_mobile = $request->family_mobile;
+
             $student->save();
 
             DB::commit();

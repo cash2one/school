@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label class="control-label col-lg-2">家长手机：</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control input-sm" {{ $student->family_mobile }} name="family_mobile" >
+                            <input type="text" class="form-control input-sm" value="{{ $student->family_mobile }}" name="family_mobile" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
