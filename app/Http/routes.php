@@ -75,6 +75,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::post('add','TaskController@store');
 
+            Route::get('detail/{id}','TaskController@detail');
+
         });
 
     });
