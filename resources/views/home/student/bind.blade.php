@@ -80,7 +80,6 @@
     });
 </script>
 <script>
-    /*
     $("#getCode").bind('click',function(e){
 
         var student_id = $('#student_id').val();
@@ -97,6 +96,8 @@
             },
             success: function(data){
 
+                console.log(data);
+
                 if(data.code == 'success')
                 {
 
@@ -109,18 +110,6 @@
             }
         });
 
-    });
-    */
-
-    $("#getCode").sms({
-        //laravel csrf token
-        token           : "{{csrf_token()}}",
-        //定义如何获取mobile的值
-        mobile_selector : 'input[name=family_mobile]',
-        //手机号的检测规则
-        mobile_rule     : 'mobile_required',
-        //请求间隔时间
-        interval        : 60
     });
 </script>
 

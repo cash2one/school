@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Toplan\Sms\SmsManager;
 
 class StudentController extends HomeController
 {
@@ -30,7 +31,7 @@ class StudentController extends HomeController
      * @param Student $student
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getCode(Request $request,Student $student)
+    public function getCode(Request $request,Student $student,SmsManager $manager)
     {
         $student = $student->where([
             'student_id' => $request->student_id,
@@ -42,6 +43,16 @@ class StudentController extends HomeController
             return response()->json([
                 'code' => 'error',
                 'msg' => '找不到学生'
+            ]);
+        }
+
+        $res = $manager->requestVerifySms($student,60);
+
+        if($res->success)
+        {
+            return response()->json([
+                'code' => 'success',
+                'msg' => '短信已成功发送'
             ]);
         }
 
