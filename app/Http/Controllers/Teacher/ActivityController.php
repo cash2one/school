@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Teacher;
 
 
 use App\Models\Activity;
+use App\Models\ActivityScore;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
@@ -118,6 +119,28 @@ class ActivityController extends TeacherController
 
         return view('teacher.activity.detail',[
             'activity' => $activity
+        ]);
+    }
+
+    /**
+     * 活动评分详情
+     * @param Request $request
+     * @param Activity $activity
+     * @param ActivityScore $score
+     * @return mixed
+     */
+    public function score(Request $request,Activity $activity,ActivityScore $score)
+    {
+        $activity = $activity->findOrFail($request->id);
+
+        $scores = $score->where([
+            'activity_id' => $activity->id,
+            'score' => $request->score
+        ])->get();
+
+        return view('teacher.activity.detail',[
+            'activity' => $activity,
+            'scores' => $scores
         ]);
     }
 }
