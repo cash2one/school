@@ -94,6 +94,17 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         });
 
+        /**
+         * 活动
+         */
+        Route::group(['prefix' => 'activity'],function(){
+
+            Route::get('add/{id}','ActivityController@add');
+
+            Route::post('add','ActivityController@store');
+
+        });
+
     });
 
 
