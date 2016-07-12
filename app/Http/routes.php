@@ -28,6 +28,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::post('getCode','StudentController@getCode');
 
+            Route::post('bind','StudentController@store');
+
         });
 
     });

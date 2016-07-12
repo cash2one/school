@@ -13,7 +13,7 @@
 <body>
 <div class="frame">
     <div class="bind">
-        <form id="bind_parent">
+        <form id="bind_parent" method="post" action="{{ url('/student/bind') }}">
             <div class="portrait">
                 <p class="por_img fillet"><img src="/images/icon/icon_camera.gif" /></p>
             </div>
@@ -21,6 +21,7 @@
                 <li><p><strong><img src="/images/icon/icon_num.png" /></strong><input id="student_id" name="student_id" placeholder="学生学号" type="text"/><b></b></p></li>
                 <li><p><strong><img src="/images/icon/icon_phone.png" /></strong><input id="family_mobile" placeholder="手机号" name="family_mobile" type="text"/><b></b></p></li>
                 <li><p><strong><img src="/images/icon/icon_check.png" /></strong><input name="check_num"  placeholder="手机验证码" class="input_check" type="text"/><b></b><input id="getCode" class="check_btn" type="button" value="获取验证码" /></p></li>
+                <li><p><strong><img src="/images/icon/icon_num.png" /></strong><input name="name" placeholder="您的姓名" type="text"/><b></b></p></li>
             </ul>
             <p>
                 <input class="bind_btn" type="submit" value="立即绑定" />
