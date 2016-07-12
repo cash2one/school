@@ -18,7 +18,7 @@
         <div class="habit_cont">
             <p><span>任务</span><br/>{{ $activity->name }}</p>
             <p><span>执行时间</span><br/>{{ date('Y-m-d',$activity->start_at) }} 至 {{ date('Y-m-d',$activity->end_at) }}</p>
-            <p><span>参与人数</span><b><i>23</i>人</b></p>
+            <p><span>参与对象</span><b>{{ $activity->grade->name }} {{ $activity->classes->name }}</b></p>
         </div>
         <p class="split"><span class="split_left"></span><span class="split_right"></span></p>
         <div class="rate">
@@ -33,9 +33,6 @@
             </ul>
         </div>
         <p class="split"><span class="split_left"></span><span class="split_right"></span></p>
-        <div class="link_btn">
-            <a href="habit_day.html">查看每天星级分析</a>
-        </div>
     </div>
 </div>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
