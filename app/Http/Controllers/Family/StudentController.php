@@ -92,7 +92,7 @@ class StudentController extends FamilyController
 
             $totals[$i] = $item->scores->where('student_id',$student->id)->sum('val');
 
-            dd($item->scores->where('student_id',$student->id)->toSql());
+            $i++;
         }
 
         return view('family.student.detail',[
