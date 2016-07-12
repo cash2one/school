@@ -45,6 +45,7 @@
             <th>学号</th>
             <th>姓名</th>
             <th>性别</th>
+            <th>家校手机号</th>
             <th>家校绑定数</th>
             <th>操作</th>
         </tr>
@@ -55,6 +56,7 @@
             <td>{{ $student->student_id }}</td>
             <td>{{ $student->name }}</td>
             <td>{{ $student->sex->name }}</td>
+            <td>{{ $student->family_mobile }}</td>
             <td>{{ count($student->parents) }}</td>
             <td class="nscs-table-handle">
                 <span><a href="{{ url('/admin/student/detail',['id' => $student->id]) }}" class="btn-blue"><i class="fa fa-search"></i><p>查看</p></a></span>
