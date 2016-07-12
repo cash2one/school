@@ -35,9 +35,9 @@
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 
 <!--date-js-->
-<script src="../js/date/mobiscroll_002.js" type="text/javascript"></script>
-<script src="../js/date/mobiscroll_004.js" type="text/javascript"></script>
-<script src="../js/date/mobiscroll.js" type="text/javascript"></script>
+<script src="/js/date/mobiscroll_002.js" type="text/javascript"></script>
+<script src="/js/date/mobiscroll_004.js" type="text/javascript"></script>
+<script src="/js/date/mobiscroll.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
         var currYear = (new Date()).getFullYear();
