@@ -45,8 +45,6 @@ class StudentController extends HomeController
             ]);
         }
 
-
-
         return response()->json([
             'code' => 'success',
             'msg' => '成功'
