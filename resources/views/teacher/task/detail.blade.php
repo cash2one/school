@@ -6,8 +6,8 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title>作业内容</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css" >
-    <link rel="stylesheet" type="text/css" href="css/style.css" >
+    <link rel="stylesheet" type="text/css" href="/css/common.css" >
+    <link rel="stylesheet" type="text/css" href="/css/style.css" >
 </head>
 <body>
 <div class="warp_bg">
