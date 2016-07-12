@@ -99,6 +99,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
          */
         Route::group(['prefix' => 'activity'],function(){
 
+            Route::get('/','ActivityController@index');
+
             Route::get('add/{id}','ActivityController@add');
 
             Route::post('add','ActivityController@store');
