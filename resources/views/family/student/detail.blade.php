@@ -66,7 +66,7 @@
             @endforeach
     ];
     var y1 = [
-        @foreach($total as $value)
+        @foreach($totals as $value)
         {{ $value }},
             @endforeach
     ];
