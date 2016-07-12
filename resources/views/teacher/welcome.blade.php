@@ -24,7 +24,7 @@
     <div class="module">
         <ul>
             <li>
-                <a href="../task.html"><span><img src="/images/icon/icon_subject.png" /></span><i></i>作业</a>
+                <a href="{{ url('/teacher/task') }}"><span><img src="/images/icon/icon_subject.png" /></span><i></i>作业</a>
             </li>
             <li>
                 <a href="grade_single_table.html"><span><img src="/images/icon/icon_grade.png" /></span><i></i>成绩查询</a>

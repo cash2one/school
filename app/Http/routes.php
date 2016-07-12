@@ -69,6 +69,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
          */
         Route::group(['prefix' => 'task'],function(){
 
+            Route::get('/','TaskController@index');
+
             Route::get('add/{id}','TaskController@add');
 
             Route::post('add','TaskController@store');

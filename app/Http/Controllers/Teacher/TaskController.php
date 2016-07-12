@@ -16,6 +16,20 @@ use Illuminate\Http\Request;
 class TaskController extends TeacherController
 {
     /**
+     * 作业列表
+     * @param Task $task
+     * @return mixed
+     */
+    public function index(Task $task)
+    {
+        $tasks = $task->where('teacher_id',$this->user->id)->paginate(30);
+
+        return view('admin.task.index',[
+            'tasks' => $tasks
+        ]);
+    }
+
+    /**
      * 发布作业
      * @param Request $request
      * @param Course $course
