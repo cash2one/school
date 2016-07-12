@@ -21,7 +21,7 @@
         <ul>
             @foreach($tasks as $task)
             <li>
-                <a href="{{ url('/teacher/detail',['id']) }}">
+                <a href="{{ url('/teacher/task/detail',['id' => $task->id]) }}">
                     <div class="notice_cont">
                         <h3>{{ $task->name }}</h3>
                         <p><span class="fl">{{ $task->created_at }}</span>{{ $task->grade->name }} {{ $task->classes->name }}</p>
