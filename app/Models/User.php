@@ -100,9 +100,9 @@ class User extends Authenticatable
      * 未读消息数量
      * @return mixed
      */
-    public function getUnReadMessageNumber()
+    public function getUnReadMessage()
     {
-        return $this->hasMany('App\Models\Message','to_user_id','id')->where('looked_at',0)->count();
+        return $this->hasMany('App\Models\Message','to_user_id','id')->where('looked_at',0);
     }
 
     /**
