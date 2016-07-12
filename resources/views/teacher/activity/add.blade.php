@@ -8,6 +8,10 @@
     <title>发起活动</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <!--date-css-->
+    <link href="/css/date/mobiscroll_002.css" rel="stylesheet" type="text/css">
+    <link href="/css/date/mobiscroll.css" rel="stylesheet" type="text/css">
+    <link href="/css/date/mobiscroll_003.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="warp_bg">
@@ -17,8 +21,8 @@
     <form id="edit_active" method="post" action="{{ url('/teacher/activity/add') }}">
         <div class="cover_box">
             <p><input type="text" name="name" placeholder="活动主题" /><b></b></p>
-            <p><input type="text" name="start_time" placeholder="活动开始时间" /><b></b></p>
-            <p><input type="text" name="end_time" placeholder="活动结束时间" /><b></b></p>
+            <p><input placeholder="活动开始时间" readonly="readonly" name="start_time" class="appDate" type="text"><b></b></p>
+            <p><input placeholder="活动结束时间" readonly="readonly" name="end_time" class="appDate" type="text"><b></b></p>
             <div class="text_cont"><textarea name="detail" placeholder="活动简介"></textarea></div>
         </div>
         <div class="cover_btn">
@@ -27,7 +31,36 @@
         </div>
     </form>
 </div>
+
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
+
+<!--date-js-->
+<script src="../js/date/mobiscroll_002.js" type="text/javascript"></script>
+<script src="../js/date/mobiscroll_004.js" type="text/javascript"></script>
+<script src="../js/date/mobiscroll.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var currYear = (new Date()).getFullYear();
+        var opt={};
+        opt.date = {preset : 'date'};
+        opt.datetime = {preset : 'datetime'};
+        opt.time = {preset : 'time'};
+        opt.default = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'modal', //显示方式
+            mode: 'scroller', //日期选择模式
+            dateFormat: 'yyyy-mm-dd',
+            lang: 'zh',
+            showNow: true,
+            nowText: "今天",
+            startYear: currYear - 10, //开始年份
+            endYear: currYear + 10 //结束年份
+        };
+
+        $(".appDate").mobiscroll($.extend(opt['date'], opt['default']));
+    });
+</script>
+
 <script language="javascript" type="text/javascript" src="/js/jquery.validation.min.js"></script>
 <script>
     $(document).ready(function(){
@@ -41,24 +74,24 @@
                 ajaxpost('edit_active', '', '', 'onerror');
             },
             rules: {
-                active_name: {
+                name: {
                     required: true,
                 },
-                date_start: {
+                start_time: {
                     required: true,
                 },
-                date_end: {
+                end_time: {
                     required: true,
                 },
             },
             messages: {
-                active_name: {
+                name: {
                     required: '此项不能为空',
                 },
-                date_start: {
+                start_time: {
                     required: '此项不能为空',
                 },
-                date_end: {
+                end_time: {
                     required: '此项不能为空',
                 },
             }
