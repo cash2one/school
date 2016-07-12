@@ -107,6 +107,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::get('detail/{id}','ActivityController@detail');
 
+            Route::get('score/{id}/{score}','ActivityController@score');
+
         });
 
     });

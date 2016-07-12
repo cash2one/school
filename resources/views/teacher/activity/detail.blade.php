@@ -24,12 +24,12 @@
         <div class="rate">
             <div class="rate_top"><span></span><i>综合分析</i></div>
             <ul>
-                <li><a href="#"><span>5人<i>50%</i></span><p></p></a></li>
-                <li><a href="#"><span>8人<i>50%</i></span><p class="one"></p></a></li>
-                <li><a href="#"><span>10人<i>50%</i></span><p class="two"></p></a></li>
-                <li><a href="#"><span>5人<i>50%</i></span><p class="three"></p></a></li>
-                <li><a href="#"><span>8人<i>50%</i></span><p class="four"></p></a></li>
-                <li><a href="#"><span>10人<i>50%</i></span><p class="five"></p></a></li>
+                <li><a href="{{ url('/teacher/activity/score',['id' => $activity->id,'score' => 0]) }}"><span>5人<i>50%</i></span><p></p></a></li>
+                <li><a href="{{ url('/teacher/activity/score',['id' => $activity->id,'score' => 1]) }}"><span>8人<i>50%</i></span><p class="one"></p></a></li>
+                <li><a href="{{ url('/teacher/activity/score',['id' => $activity->id,'score' => 2]) }}"><span>10人<i>50%</i></span><p class="two"></p></a></li>
+                <li><a href="{{ url('/teacher/activity/score',['id' => $activity->id,'score' => 3]) }}"><span>5人<i>50%</i></span><p class="three"></p></a></li>
+                <li><a href="{{ url('/teacher/activity/score',['id' => $activity->id,'score' => 4]) }}"><span>8人<i>50%</i></span><p class="four"></p></a></li>
+                <li><a href="{{ url('/teacher/activity/score',['id' => $activity->id,'score' => 5]) }}"><span>10人<i>50%</i></span><p class="five"></p></a></li>
             </ul>
         </div>
         <p class="split"><span class="split_left"></span><span class="split_right"></span></p>
