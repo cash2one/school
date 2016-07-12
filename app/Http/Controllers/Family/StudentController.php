@@ -49,6 +49,11 @@ class StudentController extends FamilyController
 
         foreach ($firstScores as $score)
         {
+            if(!isset($studentScore[$score->student_id]))
+            {
+                $studentScore[$score->student_id] = 0;
+            }
+
             $studentScore[$score->student_id] += $score->val;
 
             if($student->id == $score->student_id)
