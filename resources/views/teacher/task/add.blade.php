@@ -17,7 +17,6 @@
         <div class="text_cont"><textarea name="detail" placeholder="作业内容"></textarea></div>
     </div>
     <div class="cover_btn">
-        <input type="hidden" name="classes_id" value="{{ $course->classes->id }}">
         <input type="hidden" name="course_id" value="{{ $course->id }}">
         <input class="fr sure_btn" type="submit" value="发布" />
         <p>发送给：{{ $course->grade->name }} {{ $course->classes->name }}</p>
