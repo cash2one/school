@@ -14,18 +14,18 @@
     <div class="course">
         <ul>
             @foreach($courses as $course)
-            <li>
-                <a href="{{ url('/teacher/course/detail',['id' => $course->id]) }}">
-                    <p>
-                        <span>{{ $course->grade->name }}（{{ $course->classes->name }}）</span>
-                        <sapn>任课：{{ $course->name}}</sapn>
-                    </p>
-                </a>
-                <p>
-                    <a href="{{ url('/teacher/task/add',['id' => $course->id]) }}">发布作业</a>
-                    <a href="{{ url('/teacher/act/add',['id' => $course->id]) }}">发布活动</a>
-                </p>
-            </li>
+                <li>
+                    <div class="course_box">
+                        <a href="{{ url('/teacher/course/detail',['id' => $course->id]) }}">
+                            <span>{{ $course->grade->name }}（{{ $course->classes->name }}）</span>
+                            <span>任课：{{ $course->name}}</span>
+                        </a>
+                        <p>
+                            <a class="work" href="{{ url('/teacher/task/add',['id' => $course->id]) }}">发布作业</a>
+                            <a class="task" href="{{ url('/teacher/act/add',['id' => $course->id]) }}">发布任务</a>
+                        </p>
+                    </div>
+                </li>
             @endforeach
         </ul>
     </div>

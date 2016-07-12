@@ -41,6 +41,23 @@ class StudentController extends AdminController
     }
 
     /**
+     * 编辑学生
+     * @param Request $request
+     * @param Student $student
+     * @param Classes $classes
+     * @return mixed
+     */
+    public function edit(Request $request,Student $student,Classes $classes)
+    {
+
+        $student = $student->findOrFail($request->id);
+
+        return view('admin.student.edit',[
+            'student' => $student
+        ]);
+    }
+
+    /**
      * 存储学生
      * @param Request $request
      * @param Student $student

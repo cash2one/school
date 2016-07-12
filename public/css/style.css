@@ -9,11 +9,12 @@
 .teach_btn{ display: block; width: 5rem; height: 3.6rem; color: #fff; line-height: 3.6rem; text-align: center; padding-left: 2rem; background: #00AC92 url(../images/icon/leave.png) no-repeat .5rem; background-size: 2rem; border-radius: .3rem; margin: 1.2rem 0}
 /*老师任课班级列表*/
 .course{}
-.course li{ float: left; width: 50%; line-height: 2.6rem; text-align: center;}
-.course li a{ display: block; padding: 1rem; }
-.course li p{ box-shadow: 2px  2px 2px #eee; border: 1px solid #eee; padding: 1rem; border-radius: .5rem; height: 6rem; overflow: hidden;}
-.course li span{ display: block;}
-.course li p.more_class{ line-height: 6rem; color: #00AC92;}
+.course li{ float: left; width: 50%; line-height: 2.6rem; text-align: center; box-sizing: border-box; padding: .5rem; font-size: 1.4rem;}
+.course li .course_box{ box-shadow: 2px  2px 2px #eee; border: 1px solid #ddd; padding: 1rem; border-radius: .3rem;}
+.course li span{ display: block; line-height: 1.6rem; margin: .5rem 0}
+.course li .more_class{ line-height: 6rem; color: #00AC92;}
+.course li p{ text-align: center;}
+.course p a{ display: inline-block; border-radius: .3rem; line-height: 3rem; margin: .5rem .5rem; padding: 0 .5rem; background: #00AC92; color: #fff; font-size: 1.2rem;}
 /*绑定学生列表*/
 .child_list{ padding:0 1rem;}
 .child_list li{ border-radius: .3rem; box-shadow: 0 0 8px #bbb; position: relative;  padding: 1rem; margin: 2rem 0 }

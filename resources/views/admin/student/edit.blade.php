@@ -19,29 +19,36 @@
                     <div class="form-group">
                         <label class="control-label col-lg-2">学生姓名：</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control input-sm" name="name" >
+                            <input type="text" class="form-control input-sm" value="{{ $student->name }}" name="name" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
                         <label class="control-label col-lg-2">学号：</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control input-sm" name="student_id" >
+                            <input type="text" class="form-control input-sm" value="{{ $student->student_id }}" name="student_id" >
+                        </div><!-- /.col -->
+                    </div><!-- /form-group -->
+                    <div class="form-group">
+                        <label class="control-label col-lg-2">家长手机：</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control input-sm" {{ $student->family_mobile }} name="family_mobile" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="form-group">
                         <label class="control-label col-lg-2">性别：</label>
                         <div class="col-lg-10">
                             <label style="position:relative; float:left; margin-right:20px;">
-                                <input  type="radio" name="sex" value="1" checked id="RadioGroup1_0">男
+                                <input  type="radio" name="sex" value="1" @if($student->sex_id == 1) checked @endif id="RadioGroup1_0">男
                             </label>
                             &nbsp;&nbsp;&nbsp;
                             <label style="position:relative; float:left">
-                                <input type="radio" name="sex" value="2" id="RadioGroup1_1">女
+                                <input type="radio" name="sex" value="2" @if($student->sex_id == 2) checked @endif id="RadioGroup1_1">女
                             </label>
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
                     <div class="text-center m-top-md">
-                        <input type="hidden" value="{{ $classes->id }}" name="classes_id" />
+                        <input type="hidden" value="{{ $student->id }}" name="id" />
+                        <input type="hidden" value="{{ $student->classes->id }}" name="classes_id" />
                         <button type="submit" class="btn btn-info">提交</button>
                     </div>
                 </form>
