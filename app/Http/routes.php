@@ -33,9 +33,9 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
     /**
      * 家庭中心
      */
-    Route::group(['prefix'=>'/family','middleware' => ['family']],function (){
+    Route::group(['prefix'=>'/family','namespace' => 'Family','middleware' => ['family']],function (){
 
-        Route::get('/','FamilyController@index');
+        Route::get('/','IndexController@index');
 
     });
 
