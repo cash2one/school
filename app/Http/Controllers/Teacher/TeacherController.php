@@ -17,6 +17,10 @@ class TeacherController  extends Controller
 
     public function __construct(Request $request)
     {
+        $user = session('wechat.oauth_user');
+
+        dd($user);
+
         $this->user = $request->user();
     }
 }
