@@ -39,10 +39,13 @@ class MessageController extends TeacherController
     {
         $message = $message->findOrFail($request->id);
 
-        $message->looked_at = time();
+        if($message->looked_at == 0)
+        {
+            $message->looked_at = time();
 
-        $message->save();
-
+            $message->save();
+        }
+        
         return view('teacher.message.detail',[
             'message' => $message
         ]);
