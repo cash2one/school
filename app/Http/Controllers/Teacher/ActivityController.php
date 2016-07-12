@@ -62,6 +62,18 @@ class ActivityController extends TeacherController
             'end_time' => 'required'
         ]);
 
+        $start_time = strtotime($request->start_time);
+
+        $end_time = strtotime($request->end_time.' 23:59:59');
+
+        if($end_time < $start_time)
+        {
+            return redirect()->back()->with('status',[
+                'code' => 'error',
+                'msg' => '时间段是错误的'
+            ]);
+        }
+
         $activity->name = $request->name;
 
         $activity->user_id = $this->user->id;
@@ -76,9 +88,9 @@ class ActivityController extends TeacherController
 
         $activity->detail = $request->detail;
 
-        $activity->start_at = $request->start_time;
+        $activity->start_at = $start_time;
 
-        $activity->end_at = $request->end_time;
+        $activity->end_at = $end_time;
 
         if($activity->save())
         {
