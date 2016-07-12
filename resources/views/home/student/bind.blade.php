@@ -36,7 +36,7 @@
 </div>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="/js/jquery.validation.min.js"></script>
-<script src="/js/laravel-sms.js"></script>
+<script language="javascript" type="text/javascript" src="/js/jquery.noty.packaged.min.js"></script>
 <script>
     $(document).ready(function(){
 
@@ -95,13 +95,13 @@
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             },
             success: function(data){
+                noty({
+                    text: data.msg,
+                    type: data.code,
+                    layout: 'center',
+                    timeout: '1500'
+                });
 
-                console.log(data);
-
-                if(data.code == 'success')
-                {
-
-                }
             },
             error: function(xhr, type){
 
