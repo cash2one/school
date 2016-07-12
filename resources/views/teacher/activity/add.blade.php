@@ -19,6 +19,7 @@
         <p><img src="/images/add_cover.png" /><input type="file" /></p>
     </div>
     <form id="edit_active" method="post" action="{{ url('/teacher/activity/add') }}">
+        {!! csrf_field() !!}
         <div class="cover_box">
             <p><input type="text" name="name" placeholder="活动主题" /><b></b></p>
             <p><input placeholder="活动开始时间" readonly="readonly" name="start_time" class="appDate" type="text"><b></b></p>
