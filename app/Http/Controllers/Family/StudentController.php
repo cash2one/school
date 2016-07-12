@@ -43,9 +43,37 @@ class StudentController extends FamilyController
 
         $firstScores = $exam->scores;
 
+        $studentScore = [];
+
+        $firstScoresTotal = 0;
+
+        foreach ($firstScores as $score)
+        {
+            $studentScore[$score->student_id] += $score->val;
+
+            if($student->id == $score->student_id)
+            {
+                $firstScoresTotal += $score->val;
+            }
+        }
+
+        rsort($studentScore);
+
+        $firstSort = 0;
+
+        foreach ($studentScore as $key => $item)
+        {
+            if($item == $firstScoresTotal)
+            {
+                $firstSort = $key;
+            }
+        }
+
         return view('family.student.detail',[
             'student' => $student,
-            'firstScores' => $firstScores
+            'firstScores' => $firstScores,
+            'firstSort' => $firstSort,
+            'firstTotal' => $firstScoresTotal
         ]);
     }
 }

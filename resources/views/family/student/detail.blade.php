@@ -34,9 +34,9 @@
     </div>
     <div class="agg">
         <ul>
-            <li><span>总分：268</span></li>
-            <li><span>班级排名：25</span></li>
-            <li><span>年级排名：32</span></li>
+            <li><span>总分：{{ $firstTotal }}</span></li>
+            <li><span>班级排名：{{ $firstSort }}</span></li>
+            <li><span>年级排名：暂无</span></li>
         </ul>
     </div>
     <style>
