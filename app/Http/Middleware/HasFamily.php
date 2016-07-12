@@ -12,7 +12,7 @@ class HasFamily
      */
     public function handle($request, Closure $next)
     {
-        if(!$request->user()->hasRole('family'))
+        if(!$request->user()->hasRole('parents'))
         {
             return redirect('/student/bind');
         }
