@@ -19,7 +19,8 @@ class TeacherController  extends Controller
     {
         $wechatUser = session('wechat.oauth_user');
 
-        dd($wechatUser->openid);
+        $wechatUser = $wechatUser->getOriginal();
+        
         $this->user = $request->user();
 
         if($this->user->hasRole('teacher') && !$this->user->openid)
