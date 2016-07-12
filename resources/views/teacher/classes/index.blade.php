@@ -21,6 +21,10 @@
                         <sapn>任课：{{ $course->name}}</sapn>
                     </p>
                 </a>
+                <p>
+                    <a href="{{ url('/teacher/task/add',['id' => $course->id]) }}">发布作业</a>
+                    <a href="{{ url('/teacher/act/add',['id' => $course->id]) }}">发布活动</a>
+                </p>
             </li>
             @endforeach
         </ul>

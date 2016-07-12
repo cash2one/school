@@ -11,6 +11,7 @@
 </head>
 <body>
 <div class="warp_bg">
+    <form method="post" action="{{ url('/teacher/task/add') }}">
     <div class="up_img">
         <ul>
             <li><img src="/images/icon/icon_add.png" /></li>
@@ -23,8 +24,9 @@
     </div>
     <div class="cover_btn">
         <input class="fr sure_btn" type="submit" value="发布" />
-        <p>科目:<select><option>语文</option><option>数学</option><option>英语</option></select></p>
+        <p>发送给：{{ $course->grade->name }} {{ $course->classes->name }}</p>
     </div>
+    </form>
 </div>
 </body>
 </html>

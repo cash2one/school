@@ -28,20 +28,6 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         });
 
-        Route::group(['prefix' => 'news'],function(){
-
-
-        });
-
-        /**
-         * 作业
-         */
-        Route::group(['prefix' => 'task'],function(){
-
-            Route::get('add','TaskController@add');
-
-        });
-
     });
 
     /**
@@ -60,15 +46,27 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         Route::get('/','IndexController@index');
 
+        /**
+         * 班级
+         */
         Route::group(['prefix' => 'classes'],function(){
 
             Route::get('/','ClassesController@index');
 
         });
 
+        /**
+         * 课程
+         */
         Route::group(['prefix' => 'course'],function(){
 
             Route::get('detail/{id}','CourseController@detail');
+
+        });
+
+        Route::group(['prefix' => 'task'],function(){
+
+            Route::get('add/{id}','TaskController@add');
 
         });
 
