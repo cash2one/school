@@ -17,8 +17,8 @@
                 <p class="por_img fillet"><img src="/images/icon/icon_camera.gif" /></p>
             </div>
             <ul class="bind_mgs">
-                <li><p><strong><img src="/images/icon/icon_num.png" /></strong><input name="student_num" placeholder="学生学号" type="text"/><b></b></p></li>
-                <li><p><strong><img src="/images/icon/icon_phone.png" /></strong><input placeholder="手机号" name="phone" type="text"/><b></b></p></li>
+                <li><p><strong><img src="/images/icon/icon_num.png" /></strong><input name="student_id" placeholder="学生学号" type="text"/><b></b></p></li>
+                <li><p><strong><img src="/images/icon/icon_phone.png" /></strong><input placeholder="手机号" name="family_mobile" type="text"/><b></b></p></li>
                 <li><p><strong><img src="/images/icon/icon_check.png" /></strong><input name="check_num"  placeholder="手机验证码" class="input_check" type="text"/><b></b><input class="check_btn" type="button" value="获取验证码" /></p></li>
             </ul>
             <p>
@@ -47,10 +47,10 @@
                 ajaxpost('bind_parent', '', '', 'onerror');
             },
             rules: {
-                student_num: {
+                student_id: {
                     required: true,
                 },
-                phone: {
+                family_mobile: {
                     required: true,
                     digits:true,
                     rangelength:[11,11]
@@ -61,10 +61,10 @@
                 },
             },
             messages: {
-                student_num: {
+                student_id: {
                     required: '此项不能为空！',
                 },
-                phone: {
+                family_mobile: {
                     required: '此项不能为空！',
                     digits:'您填写的手机号格式有误！',
                     rangelength:'您填写的手机号格式有误！',
