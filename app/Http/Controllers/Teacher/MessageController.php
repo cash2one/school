@@ -59,7 +59,7 @@ class MessageController extends TeacherController
 
         return view('teacher.message.index',[
             'messages' => $messages,
-            'type' => 2
+            'type' => 3
         ]);
     }
 
@@ -74,7 +74,7 @@ class MessageController extends TeacherController
 
         return view('teacher.message.index',[
             'messages' => $messages,
-            'type' => 3
+            'type' => 2
         ]);
     }
 }
