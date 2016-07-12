@@ -153,7 +153,14 @@
 .poem .time b{ display: block; float: right; margin-left: .5rem; transition: all .5s; width: 1.5rem; height: 6rem; }
 .poem .time b img{ margin: 2rem auto}
 .poem .time b.open{ transform: rotate(180deg);}
-.poem_text h3{ line-height: 4rem;}
+.poem_text h3{ line-height: 4rem; font-weight: normal; font-size: 1.6rem;}
+.poem_time{ line-height: 1.5rem; float: right; font-size:1.2rem;}
+.poem .star{ width: 150px; height: 21px; background: url(../images/icon/icon_start.gif) -5px -5px no-repeat; margin: 0 0 1rem; float: right;}
+.poem .star.star01{ background-position: -5px -36px}
+.poem .star.star02{ background-position: -5px -67px}
+.poem .star.star03{ background-position: -5px -98px}
+.poem .star.star04{ background-position: -5px -129px}
+.poem .star.star05{ background-position: -5px -160px}
 .pure{ clear: both; display: none;}
 .pure dl{ height: 4rem; line-height: 4rem; clear: both;}
 .pure dd:nth-child(1){ width:6rem; float: left;}
