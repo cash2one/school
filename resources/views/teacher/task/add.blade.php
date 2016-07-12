@@ -12,6 +12,7 @@
 <body>
 <div class="warp_bg">
     <form method="post" action="{{ url('/teacher/task/add') }}">
+        {!! csrf_field() !!}
     <div class="cover_box">
         <div class="text_cont"><textarea name="detail" placeholder="作业内容"></textarea></div>
     </div>
