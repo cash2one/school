@@ -20,11 +20,11 @@
     </div>
     <div class="notice">
         <ul>
-            @foreach($exams as $exam)
+            @foreach($tasks as $task)
                 <li>
-                    <a href="{{ url('/family/exam/detail',['id' => $exam->id,'sid' => $student->id]) }}">
+                    <a href="{{ url('/family/task/detail',['id' => $task->id]) }}">
                         <div class="notice_cont">
-                            <h3>{{ $exam->name }}</h3>
+                            <h3>{{ $task->name }}</h3>
                             <p><span class="fl">{{ $exam->created_at }}</span>{{ $exam->grade->name }} {{ $exam->classes->name }}</p>
                         </div>
                     </a>
