@@ -26,7 +26,7 @@ class TaskController extends FamilyController
         $student = $student->findOrFail($request->id);
 
         $tasks = $task->where([
-            'classes_id' => $student->id
+            'classes_id' => $student->class_id
         ])->orderBy('id','desc')->paginate(10);
 
         return view('family.task.index',[
