@@ -46,7 +46,7 @@ class MessageController extends FamilyController
             $message->save();
         }
 
-        return view('teacher.message.detail',[
+        return view('family.message.detail',[
             'message' => $message
         ]);
     }
