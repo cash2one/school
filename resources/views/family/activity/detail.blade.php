@@ -31,7 +31,16 @@
             <div class="rate_top"><span></span><i>家长评价</i></div>
             <ul>
                 @foreach($scores as $score)
-                <li><span>{{ substr($score->created_at,0,10) }}</span><p class="two"><b class="a_one"></b><b class="a_two"></b><b class="a_three"></b><b class="a_four"></b><b class="a_five"></b></p></li>
+                <li>
+                    <span>{{ substr($score->created_at,0,10) }}</span>
+                    <p class="@if($score->score > 0)two@else zone @endif"  >
+                        <b class="a_one"></b>
+                        <b class="a_two"></b>
+                        <b class="a_three"></b>
+                        <b class="a_four"></b>
+                        <b class="a_five"></b>
+                    </p>
+                </li>
                 @endforeach
             </ul>
         </div>
