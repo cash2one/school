@@ -128,11 +128,11 @@
 .rate li span{ float: right;}
 .rate li i{ margin-left: 1rem; font-size: 1.4rem; font-style: normal; color: #ED7B7B;}
 .rate p{ width: 155px; height: 21px; background: url(../images/icon/icon_start.gif) -5px -5px no-repeat;}
-.rate p.one{ background-position: -5px -36px}
-.rate p.two{ background-position: -5px -67px}
-.rate p.three{ background-position: -5px -98px}
-.rate p.four{ background-position: -5px -129px}
-.rate p.five{ background-position: -5px -160px}
+.rate p.starc1{ background-position: -5px -36px}
+.rate p.starc2{ background-position: -5px -67px}
+.rate p.starc3{ background-position: -5px -98px}
+.rate p.starc4{ background-position: -5px -129px}
+.rate p.starc5{ background-position: -5px -160px}
 .rate b{ display: inline-block; width: 21px; float: left; height: 21px; cursor: pointer; margin-right: 10px;}
 .rate a:focus{ outline: none; text-decoration: none;}
 .rate_top{ position: relative; height: 4rem; margin-bottom: 3rem;}

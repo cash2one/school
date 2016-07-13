@@ -35,17 +35,7 @@
                 <li>
                     <span>{{ substr($score->created_at,0,10) }}</span>
                     @if($score->score > 0)
-                        @if($score->score == 1)
-                        <p class="one">
-                        @elseif($score->score == 2)
-                            <p class="two">
-                        @elseif($score->score == 3)
-                            <p class="three">
-                        @elseif($score->score == 4)
-                            <p class="four">
-                        @elseif($score->score == 5)
-                            <p class="five">
-                        @endif
+                        <p class="starc{{ $score->score }}">
                     @else
                     <p class="zone">
                     @endif
@@ -84,13 +74,13 @@
 
     $('.zone b').bind('click',function(){
 
-        console.log($(this).attr('data-val'));
-
         var student_id = '{{ $student->id }}';
 
         var activity_id = '{{ $activity->id }}';
 
         var score = $(this).attr('data-val');
+
+        var dom = $(this);
 
         $.ajax({
             type: 'POST',
@@ -101,6 +91,11 @@
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             },
             success: function(data){
+
+                if(data.code = 'success')
+                {
+                    dom.parent().css('starc'+score)
+                }
 
                 noty({
                     text: data.msg,
