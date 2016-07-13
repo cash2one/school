@@ -38,6 +38,8 @@ class CreateActivityScore extends Job implements ShouldQueue
     {
         $students = $this->classes->students;
 
+        dd($students);
+
         foreach ($students as $student)
         {
             DB::table('activity_score')->insert([
