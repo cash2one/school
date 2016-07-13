@@ -9,7 +9,30 @@
 namespace App\Http\Controllers\Family;
 
 
+use App\Models\Exam;
+use App\Models\Student;
+use Illuminate\Http\Request;
+
 class ExamController extends FamilyController
 {
-    
+    /**
+     * 学生考试
+     * @param Request $request
+     * @param Student $student
+     * @param Exam $exam
+     * @return mixed
+     */
+    public function student(Request $request,Student $student,Exam $exam)
+    {
+        $student = $student->findOrFail($request->id);
+
+        $exams = $exam->where([
+            'classes_id' => $student->class_id
+        ])->paginate(20);
+
+        return view('family.exam.index',[
+            'student' => $student,
+            'exams'   => $exams
+        ]);
+    }
 }

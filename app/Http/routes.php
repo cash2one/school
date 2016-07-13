@@ -52,6 +52,15 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         });
 
+        /**
+         * 考试
+         */
+        Route::group(['prefix' => 'exam'],function(){
+
+            Route::get('student','ExamController@student');
+
+        });
+
     });
 
     /**
