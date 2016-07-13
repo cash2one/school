@@ -21,7 +21,7 @@
         <ul>
             @foreach($exams as $exam)
                 <li>
-                    <a href="{{ url('/family/exam/detail',['id' => $exam->id]) }}">
+                    <a href="{{ url('/family/exam/detail',['id' => $exam->id,'sid' => $student->id]) }}">
                         <div class="notice_cont">
                             <h3>{{ $exam->name }}</h3>
                             <p><span class="fl">{{ $exam->created_at }}</span>{{ $exam->grade->name }} {{ $exam->classes->name }}</p>
