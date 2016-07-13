@@ -21,7 +21,7 @@
     <div class="sign-in-wrapper">
         <div class="sign-in-inner">
             <div class="login-brand text-center">
-                <i class="fa fa-database m-right-xs"></i><strong class="text-skin">口袋家校</strong> 管理后台
+                <i class="fa fa-database m-right-xs"></i><strong class="text-skin">口袋家校</strong> 账户系统
             </div>
             <form method="post" action="{{ url('/login') }}">
                 {{ csrf_field() }}
