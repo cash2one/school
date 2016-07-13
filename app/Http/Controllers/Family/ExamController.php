@@ -48,7 +48,7 @@ class ExamController extends FamilyController
         $student = $student->findOrFail($request->sid);
 
         $exam = $exam->where([
-            'exam_id'    => $request->id
+            'id'    => $request->id
         ])->first();
 
         $scores = $exam->scores->where('student_id',$student->id)->get();
