@@ -6,15 +6,15 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title>家长评价</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css" >
-    <link rel="stylesheet" type="text/css" href="css/style.css" >
+    <link rel="stylesheet" type="text/css" href="/css/common.css" >
+    <link rel="stylesheet" type="text/css" href="/css/style.css" >
 </head>
 <body>
 <style>
 
 </style>
 <div class="habit_bg">
-    <div class="habit_men"><img src="images/face.png" /></div>
+    <div class="habit_men"><img src="/images/face.png" /></div>
     <div class="habit">
         <h3>{{ $student->name }}</h3>
         <div class="habit_cont">
@@ -37,7 +37,7 @@
         </div>
     </div>
 </div>
-<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript">
     $(".a_one").click(function(){
         $(this).parents("li p").attr("class","one")
