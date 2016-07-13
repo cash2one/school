@@ -63,11 +63,25 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         });
 
+        /**
+         * 作业
+         */
         Route::group(['prefix' => 'task'],function(){
 
             Route::get('student/{id}','TaskController@student');
 
             Route::get('detail/{id}','TaskController@detail');
+
+        });
+
+        /**
+         * 活动
+         */
+        Route::group(['prefix' => 'activity'],function(){
+
+            Route::get('student/{id}','ActivityController@student');
+
+            Route::get('detail/{id}','ActivityController@detail');
 
         });
 
