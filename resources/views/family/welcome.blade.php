@@ -19,7 +19,7 @@
     <div class="module">
         <ul>
             <li>
-                <a href="{{ url('/family/news') }}"><span><img src="/images/icon/icon_news.png" /></span><i></i>通知</a>
+                <a href="javascript:void(0);"><span><img src="/images/icon/icon_news.png" /></span><i></i>通知</a>
             </li>
             <li>
                 <a href="{{ url('/family/message') }}"><span><img src="/images/icon/leave_user.png" /></span><i></i>我的留言</a>
@@ -63,5 +63,18 @@
         </ul>
     </div>
 </div>
+<script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="/js/jquery.noty.packaged.min.js"></script>
+<script>
+    function notic()
+    {
+        noty({
+            text: '通知系统维护中',
+            type: 'warning',
+            layout: 'center',
+            timeout: '1500'
+        });
+    }
+</script>
 </body>
 </html>
