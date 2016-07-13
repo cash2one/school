@@ -26,7 +26,9 @@ class ActivityController extends FamilyController
     {
         $student = $student->findOrFail($request->id);
 
-        $activitys = $activity->where()->paginate(20);
+        $activitys = $activity->where([
+            'classes_id' => $student->class_id
+        ])->paginate(20);
 
         return view('family.activity.index',[
             'student' => $student,
