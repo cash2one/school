@@ -126,6 +126,8 @@ class ScoreController extends AdminController
 
         if(!$score)
         {
+            $score = new Score();
+
             $score->exam_id = $exam->id;
 
             $score->student_id = $student->id;
