@@ -133,7 +133,7 @@
 .rate p.three{ background-position: -5px -98px}
 .rate p.four{ background-position: -5px -129px}
 .rate p.five{ background-position: -5px -160px}
-.rate b{ display: inline-block; width: 21px; height: 21px; cursor: pointer; margin-right: 10px;}
+.rate b{ display: inline-block; width: 21px; float: left; height: 21px; cursor: pointer; margin-right: 10px;}
 .rate a:focus{ outline: none; text-decoration: none;}
 .rate_top{ position: relative; height: 4rem; margin-bottom: 3rem;}
 .rate_top span{ position: absolute; display: block; width: 80%; left: 10%; top: 0; margin-left: -2px; background: #00AC92; color: #fff; font-size: 1.8rem; text-align: center; line-height: 4rem; height: 4rem; -moz-transform: rotate(-3deg);  -webkit-transform: rotate(-3deg);  -o-transform: rotate(-3deg); transform: rotate(-3deg);  }
