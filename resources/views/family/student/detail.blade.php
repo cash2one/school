@@ -18,6 +18,22 @@
             <p>{{ $student->grade->name }}{{ $student->classes->name }}</p>
         </div>
     </div>
+
+    <div class="grade_type_cc clearfix">
+        <ul>
+            <li><a href="#"><img src="/images/icon/leave_user.png"><p>发留言</p></a></li>
+            <li><a href="#"><img src="/images/icon/icon_subject.png"><p>作业查询</p></a></li>
+            <li><a href="#"><img src="/images/icon/icon_grade.png"><p>成绩查询</p></a></li>
+            <li><a href="#"><img src="/images/icon/icon_habit_user.png"><p>习惯养成</p></a></li>
+        </ul>
+    </div>
+    <style>
+        .grade_type_cc{ width:100%; display:block; margin:0rem 0 3rem;}
+        .grade_type_cc li{ width:25%; float:left; padding:2rem 0; box-sizing:border-box; border-right:1px solid #f0f0f0; border-bottom:1px solid #f0f0f0;}
+        .grade_type_cc li a{ width:100%; text-align:center; display:block; color:inherit; font-size:1.4rem;}
+        .grade_type_cc li a img{width:40%;}
+    </style>
+
     <div class="grade_box">
         <ul>
             @foreach($firstScores as $score)
