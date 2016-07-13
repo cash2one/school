@@ -43,6 +43,8 @@
             layout: 'center',
             timeout: '1500'
         });
+
+        return false;
     }
 </script>
 </body>
