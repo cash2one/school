@@ -31,10 +31,8 @@
             <div class="rate_top"><span></span><i>家长评价</i></div>
             <ul>
                 @foreach($scores as $score)
-                <li><span>{{ date('Y-m-d',$score->period) }}</span><p class="two"><b class="a_one"></b><b class="a_two"></b><b class="a_three"></b><b class="a_four"></b><b class="a_five"></b></p></li>
+                <li><span>{{ substr($score->created_at,0,10) }}</span><p class="two"><b class="a_one"></b><b class="a_two"></b><b class="a_three"></b><b class="a_four"></b><b class="a_five"></b></p></li>
                 @endforeach
-                <li><span>2015-05-12</span><p class="four"><b class="a_one"></b><b class="a_two"></b><b class="a_three"></b><b class="a_four"></b><b class="a_five"></b></p></li>
-                <li><span>2015-05-12</span><p><b class="a_one"></b><b class="a_two"></b><b class="a_three"></b><b class="a_four"></b><b class="a_five"></b></p></li>
             </ul>
         </div>
     </div>
