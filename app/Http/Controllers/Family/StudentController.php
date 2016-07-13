@@ -78,7 +78,7 @@ class StudentController extends FamilyController
 
             'classes_id' => $student->classes->id
 
-        ])->orderBy('id','desc')->get()->take(5);
+        ])->orderBy('id','asc')->get()->take(5);
 
         $totals = [];
 
