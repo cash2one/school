@@ -13,7 +13,7 @@
 <div class="warp_bg">
     <div class="notice_type">
         <ul>
-            <li class="cur"><a href="{{ url('/family/task/student',['id' => $student->id]) }}">成绩</a></li>
+            <li class="cur"><a href="{{ url('/family/exam/student',['id' => $student->id]) }}">成绩</a></li>
             <li><a href="{{ url('/family/task/student',['id' => $student->id]) }}">作业</a></li>
             <li><a href="{{ url('/family/activity/student',['id' => $student->id]) }}">活动</a></li>
         </ul>

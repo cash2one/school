@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <title>{{ $student->name }}</title>
+    <title>成绩单</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/school.css" >
 </head>
@@ -19,14 +19,6 @@
         </div>
     </div>
 
-    <div class="grade_type_cc clearfix">
-        <ul>
-            <li><a href="{{ url('/family/message/add',['sid' => $student->id]) }}"><img src="/images/icon/leave_user.png"><p>发留言</p></a></li>
-            <li><a href="{{ url('family/task/student',['id' => $student->id]) }}"><img src="/images/icon/icon_subject.png"><p>作业查询</p></a></li>
-            <li><a href="{{ url('family/exam/student',['id' => $student->id]) }}"><img src="/images/icon/icon_grade.png"><p>成绩查询</p></a></li>
-            <li><a href="{{ url('family/activity/student',['id' => $student->id]) }}"><img src="/images/icon/icon_habit_user.png"><p>习惯养成</p></a></li>
-        </ul>
-    </div>
     <style>
         .grade_type_cc{ width:100%; display:block; margin:0rem 0 3rem;}
         .grade_type_cc li{ width:25%; float:left; padding:2rem 0; box-sizing:border-box; border-right:1px solid #f0f0f0; border-bottom:1px solid #f0f0f0;}
@@ -36,22 +28,20 @@
 
     <div class="grade_box">
         <ul>
-            @foreach($firstScores as $score)
-                @if($student->id == $score->student_id)
-                    <li>
-                        <a href="grade_subject.html">
-                            <p class="grade_num">{{ $score->val }}</p>
-                            <p class="grade_subject">{{ $score->course->name }}</p>
-                        </a>
-                    </li>
-                @endif
+            @foreach($scores as $score)
+                <li>
+                    <a href="grade_subject.html">
+                        <p class="grade_num">{{ $score->val }}</p>
+                        <p class="grade_subject">{{ $score->course->name }}</p>
+                    </a>
+                </li>
             @endforeach
         </ul>
     </div>
     <div class="agg">
         <ul>
-            <li><span>总分：{{ $firstTotal }}</span></li>
-            <li><span>班级排名：{{ $firstSort }}</span></li>
+            <li><span>总分：1</span></li>
+            <li><span>班级排名：2</span></li>
             <li><span>年级排名：暂无</span></li>
         </ul>
     </div>
@@ -77,14 +67,14 @@
     var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
 
     var x = [
-            @foreach($total_name as $item)
-        "{{ $item }}",
-            @endforeach
+        @foreach($scores as $score)
+                "{{ $score->course->name }}",
+        @endforeach
     ];
     var y1 = [
-        @foreach($totals as $value)
-        {{ $value }},
-            @endforeach
+        @foreach($scores as $item)
+        {{ $item->val }},
+        @endforeach
     ];
     var config1 = ['rgba(151,187,205,0.2)','rgba(151,187,205,1)','rgba(151,187,205,1)','#fff','#fff','rgba(151,187,205,1)'];
 

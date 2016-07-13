@@ -35,4 +35,29 @@ class ExamController extends FamilyController
             'exams'   => $exams
         ]);
     }
+
+    /**
+     * 成绩单
+     * @param Exam $exam
+     * @param Request $request
+     * @param Student $student
+     * @return mixed
+     */
+    public function detail(Exam $exam,Request $request,Student $student)
+    {
+        $student = $student->findOrFail($request->id);
+
+        $exam = $exam->where([
+            'student_id' => $student->id,
+            'exam_id'    => $request->id
+        ])->first();
+
+        $scores = $exam->scores;
+
+        return view('family.exam.detail',[
+            'student' => $student,
+            'exam' => $exam,
+            'scores' => $scores
+        ]);
+    }
 }
