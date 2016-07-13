@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Family;
 use App\Models\Activity;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Jobs\CreateActivityScore;
 
 class ActivityController extends FamilyController
 {
@@ -46,6 +47,10 @@ class ActivityController extends FamilyController
      */
     public function detail(Request $request,Student $student,Activity $activity)
     {
+        $job = (new CreateActivityScore($activity));
+
+        $this->dispatchNow($job);
+
         $student = $student->findOrFail($request->sid);
 
 
@@ -59,6 +64,6 @@ class ActivityController extends FamilyController
 
     public function score(Request $request,Student $student,Activity $activity)
     {
-        
+
     }
 }
