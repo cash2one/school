@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="warp_bg">
-    <form method="post" action="{{ url('/teacher/message/add') }}">
+    <form method="post" action="{{ url('/family/message/add') }}">
         {!! csrf_field() !!}
         <div class="cover_box">
             <div class="text_cont">
