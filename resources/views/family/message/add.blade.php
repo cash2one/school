@@ -16,9 +16,9 @@
         <div class="cover_box">
             <div class="text_cont">
                 <select class="maseg_name">
-                    <option>张三</option>
-                    <option>李四</option>
-                    <option>王五</option>
+                    @foreach($student->classes->courses as $course)
+                    <option value="{{ $course->teacher->user->id }}">{{ $course->teacher->name }}（{{ $course->name }}）</option>
+                    @endforeach
                 </select>
                 <textarea class="maseg_textar" role="6" name="detail" placeholder="留言内容"></textarea>
             </div>
