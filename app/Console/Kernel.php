@@ -4,9 +4,14 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\Activity;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use App\Jobs\CreateActivityScore;
 
 class Kernel extends ConsoleKernel
 {
+    use DispatchesJobs;
+
     /**
      * The Artisan commands provided by your application.
      *
@@ -24,7 +29,23 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function(){
+
+            $activity = new Activity();
+
+            $activitys = $activity->where('start_at','<=',time())->where('end_at','<=',time())->get();
+
+            $i = 1;
+
+            foreach ($activitys as $activity)
+            {
+                $createdActivityScore = (new CreateActivityScore($activity))->delay($i);
+
+                $this->dispatch($createdActivityScore);
+
+                $i++;
+            }
+
+        })->dailyAt('15:07');
     }
 }
