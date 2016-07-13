@@ -48,6 +48,7 @@
 </div>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript">
+    /*
     $(".a_one").click(function(){
         $(this).parents("li p").attr("class","one")
     });
@@ -63,6 +64,7 @@
     $(".a_five").click(function(){
         $(this).parents("li p").attr("class","five")
     });
+    */
 
     $('.zone b').bind('click',function(){
 
