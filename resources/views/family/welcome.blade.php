@@ -18,7 +18,7 @@
     </div>
     <div class="module">
         <ul>
-            <li>
+            <li onclick="notic();">
                 <a href="javascript:void(0);"><span><img src="/images/icon/icon_news.png" /></span><i></i>通知</a>
             </li>
             <li>
