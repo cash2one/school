@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
 
             $activity = new Activity();
 
-            $activitys = $activity->where('start_at','<=',time())->where('end_at','<=',time())->get();
+            $activitys = $activity->where('start_at','<=',time())->where('end_at','>=',time())->get();
 
             $i = 1;
 
