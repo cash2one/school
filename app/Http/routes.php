@@ -63,6 +63,12 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         });
 
+        Route::group(['prefix' => 'task'],function(){
+
+            Route::get('student/{cid}','TaskController@student');
+
+        });
+
     });
 
     /**
