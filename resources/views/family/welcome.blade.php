@@ -24,6 +24,7 @@
             <li>
                 <a href="{{ url('/family/message') }}"><span><img src="/images/icon/leave_user.png" /></span><i></i>我的留言</a>
             </li>
+            <!--
             <li>
                 <a href="{{ url('/family/task') }}"><span><img src="/images/icon/icon_subject.png" /></span><i></i>作业查询</a>
             </li>
@@ -36,6 +37,7 @@
             <li>
                 <a href="{{ url('/family/student') }}"><span><img src="/images/icon/icon_set.png" /></span><i></i><b>{{ count($user->family->students) }}</b>我的孩子</a>
             </li>
+            -->
         </ul>
     </div>
 
