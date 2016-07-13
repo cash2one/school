@@ -34,11 +34,11 @@
                 <li>
                     <span>{{ substr($score->created_at,0,10) }}</span>
                     <p class="@if($score->score > 0)two@else zone @endif"  >
-                        <b class="a_one"></b>
-                        <b class="a_two"></b>
-                        <b class="a_three"></b>
-                        <b class="a_four"></b>
-                        <b class="a_five"></b>
+                        <b class="a_one" data-val = 1></b>
+                        <b class="a_two" data-val = 2></b>
+                        <b class="a_three" data-val = 3></b>
+                        <b class="a_four" data-val = 4></b>
+                        <b class="a_five" data-val = 5></b>
                     </p>
                 </li>
                 @endforeach
@@ -62,6 +62,12 @@
     });
     $(".a_five").click(function(){
         $(this).parents("li p").attr("class","five")
+    });
+
+    $('.zone b').bind('click',function(){
+
+        console.log($(this).attr('data-val'));
+
     });
 </script>
 </body>
