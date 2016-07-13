@@ -56,7 +56,8 @@ class ActivityController extends FamilyController
 
         return view('family.activity.detail',[
             'student' => $student,
-            'activity' => $activity
+            'activity' => $activity,
+            'scores' => $scores
         ]);
     }
 

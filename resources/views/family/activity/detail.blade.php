@@ -30,7 +30,9 @@
         <div class="rate">
             <div class="rate_top"><span></span><i>家长评价</i></div>
             <ul>
-                <li><span>2015-05-12</span><p class="two"><b class="a_one"></b><b class="a_two"></b><b class="a_three"></b><b class="a_four"></b><b class="a_five"></b></p></li>
+                @foreach($scores as $score)
+                <li><span>{{ date('Y-m-d',$score->period) }}</span><p class="two"><b class="a_one"></b><b class="a_two"></b><b class="a_three"></b><b class="a_four"></b><b class="a_five"></b></p></li>
+                @endforeach
                 <li><span>2015-05-12</span><p class="four"><b class="a_one"></b><b class="a_two"></b><b class="a_three"></b><b class="a_four"></b><b class="a_five"></b></p></li>
                 <li><span>2015-05-12</span><p><b class="a_one"></b><b class="a_two"></b><b class="a_three"></b><b class="a_four"></b><b class="a_five"></b></p></li>
             </ul>
