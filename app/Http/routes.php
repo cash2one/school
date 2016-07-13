@@ -67,6 +67,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::get('student/{id}','TaskController@student');
 
+            Route::get('detail/{id}','TaskController@detail');
+
         });
 
     });
