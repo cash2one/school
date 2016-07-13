@@ -22,9 +22,7 @@
             <p><span>执行时间</span><br/>{{ date('Y-m-d',$activity->start_at) }} 至 {{ date('Y-m-d',$activity->end_at) }}</p>
         </div>
         <div class="part_btn">
-            <a class="join_btn">报名参与</a>
-            <!--<a class="part_end">活动结束</a>-->
-            <!--<a class="part_join">已报名</a>-->
+            {{ $activity->detail }}
         </div>
         <p class="split"><span class="split_left"></span><span class="split_right"></span></p>
         <div class="rate">
