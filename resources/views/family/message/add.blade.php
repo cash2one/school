@@ -20,13 +20,20 @@
                     <option>李四</option>
                     <option>王五</option>
                 </select>
-                <textarea class="maseg_textar" name="detail" placeholder="留言内容"></textarea>
+                <textarea class="maseg_textar" role="6" name="detail" placeholder="留言内容"></textarea>
             </div>
         </div>
         <div class="cover_btn">
-            <input class="fr sure_btn" type="submit" value="发布" />
+            <input class="fr sure_btn maseg_buto" type="submit" value="发布" />
         </div>
     </form>
 </div>
+<style>
+    .maseg_name{ background:none; margin-bottom:1rem;width:100%; border:1px solid #f0f0f0;-moz-border-radius:1rem;-webkit-border-radius:1rem;border-radius:1rem; padding:0 1rem; height:4rem; line-height:4rem;box-sizing:border-box; font-size:1.6rem;}
+    .cover_box .text_cont .maseg_textar{box-sizing:border-box;width:100%; border:1px solid #f0f0f0;-moz-border-radius:1rem;-webkit-border-radius:1rem;border-radius:1rem; padding:0 1rem; font-size:1.8rem; padding:1rem;}
+    .cover_btn .maseg_buto{ width:100%; float:none; height:5rem; font-size:2rem}
+
+    .cover_btn{ padding:0 1.5rem;}
+</style>
 </body>
 </html>
