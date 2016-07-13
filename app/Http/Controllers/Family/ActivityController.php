@@ -13,7 +13,6 @@ use App\Models\Activity;
 use App\Models\ActivityScore;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use App\Jobs\CreateActivityScore;
 
 class ActivityController extends FamilyController
 {
@@ -61,8 +60,38 @@ class ActivityController extends FamilyController
         ]);
     }
 
-    public function score(Request $request,Student $student,Activity $activity)
+    /**
+     * 评分
+     * @param Request $request
+     * @param Student $student
+     * @param Activity $activity
+     * @param ActivityScore $activityScore
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function score(Request $request,Student $student,Activity $activity,ActivityScore $activityScore)
     {
+        $student = $student->findOrFail($request->student_id);
 
+        $activity = $activity->findOrFail($request->activity_id);
+
+        $activityScore = $activityScore->where([
+            'student_id' => $student->id,
+            'activity_id' => $activity->id
+        ])->first();
+
+        $activityScore->score = $request->score;
+
+        if($activityScore->save())
+        {
+            return response()->json([
+                'code' => 'success',
+                'msg'  => '评分成功'
+            ]);
+        }
+
+        return response()->json([
+            'code' => 'error',
+            'msg'  => '评分失败'
+        ]);
     }
 }

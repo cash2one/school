@@ -8,6 +8,7 @@
     <title>家长评价</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <meta name="_token" content="{{ csrf_token() }}"/>
 </head>
 <body>
 <style>
@@ -22,7 +23,7 @@
             <p><span>执行时间</span><br/>{{ date('Y-m-d',$activity->start_at) }} 至 {{ date('Y-m-d',$activity->end_at) }}</p>
         </div>
         <div class="part_btn">
-            <a class="join_btn">报名参与</a>
+            <!--<a class="join_btn">报名参与</a>-->
             <!--<a class="part_end">活动结束</a>-->
             <!--<a class="part_join">已报名</a>-->
         </div>
@@ -73,6 +74,40 @@
     $('.zone b').bind('click',function(){
 
         console.log($(this).attr('data-val'));
+
+        var student_id = '{{ $student->id }}';
+
+        var activity_id = '{{ $activity->id }}';
+
+        var score = $(this).attr('data-val');
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ url('/family/activity/score') }}',
+            data: {student_id:student_id,activity_id:activity_id,score:score},
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            },
+            success: function(data){
+
+                noty({
+                    text: data.msg,
+                    type: data.code,
+                    layout: 'center',
+                    timeout: '1500'
+                });
+
+            },
+            error: function(xhr, type){
+                noty({
+                    text: '请求失败',
+                    type: 'error',
+                    layout: 'center',
+                    timeout: '3000'
+                });
+            }
+        });
 
     });
 </script>
