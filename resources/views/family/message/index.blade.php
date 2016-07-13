@@ -13,9 +13,9 @@
 <div class="warp_bg">
     <div class="notice_type">
         <ul>
-            <li @if($type == 1)class="cur"@endif><a href="{{ url('/teacher/message') }}">全部</a></li>
-            <li @if($type == 2)class="cur"@endif><a href="{{ url('/teacher/message/unread') }}">未读</a></li>
-            <li @if($type == 3)class="cur"@endif><a href="{{ url('/teacher/message/read') }}">已读</a></li>
+            <li @if($type == 1)class="cur"@endif><a href="{{ url('/family/message') }}">全部</a></li>
+            <li @if($type == 2)class="cur"@endif><a href="{{ url('/family/message/unread') }}">未读</a></li>
+            <li @if($type == 3)class="cur"@endif><a href="{{ url('/family/message/read') }}">已读</a></li>
         </ul>
     </div>
     <div class="remark">
