@@ -124,6 +124,15 @@ class ScoreController extends AdminController
             'course_id' => $request->course_id
         ])->first();
 
+        if(!$score)
+        {
+            $score->exam_id = $exam->id;
+
+            $score->student_id = $student->id;
+
+            $score->course_id = $request->course_id;
+        }
+
         $score->val = $request->val;
 
         if($score->save())
