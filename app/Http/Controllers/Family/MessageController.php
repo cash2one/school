@@ -50,4 +50,34 @@ class MessageController extends FamilyController
             'message' => $message
         ]);
     }
+
+    /**
+     * 已读消息
+     * @param Message $message
+     * @return mixed
+     */
+    public function read(Message $message)
+    {
+        $messages = $message->where('to_user_id',$this->user->id)->where('looked_at','>',0)->paginate(10);
+
+        return view('family.message.index',[
+            'messages' => $messages,
+            'type' => 3
+        ]);
+    }
+
+    /**
+     * 未读消息
+     * @param Message $message
+     * @return mixed
+     */
+    public function unread(Message $message)
+    {
+        $messages = $message->where('to_user_id',$this->user->id)->where('looked_at',0)->paginate(10);
+
+        return view('family.message.index',[
+            'messages' => $messages,
+            'type' => 2
+        ]);
+    }
 }
