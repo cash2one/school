@@ -57,7 +57,7 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
          */
         Route::group(['prefix' => 'exam'],function(){
 
-            Route::get('student','ExamController@student');
+            Route::get('student/{id}','ExamController@student');
 
         });
 
