@@ -21,10 +21,10 @@
 
     <div class="grade_type_cc clearfix">
         <ul>
-            <li><a href="#"><img src="/images/icon/leave_user.png"><p>发留言</p></a></li>
-            <li><a href="#"><img src="/images/icon/icon_subject.png"><p>作业查询</p></a></li>
-            <li><a href="#"><img src="/images/icon/icon_grade.png"><p>成绩查询</p></a></li>
-            <li><a href="#"><img src="/images/icon/icon_habit_user.png"><p>习惯养成</p></a></li>
+            <li><a href="{{ url('/family/message/add',['sid' => $student->id]) }}"><img src="/images/icon/leave_user.png"><p>发留言</p></a></li>
+            <li><a href="{{ url('family/task/student',['id' => $student->id]) }}"><img src="/images/icon/icon_subject.png"><p>作业查询</p></a></li>
+            <li><a href="{{ url('family/exam/student',['id' => $student->id]) }}"><img src="/images/icon/icon_grade.png"><p>成绩查询</p></a></li>
+            <li><a href="{{ url('family/activity/student',['id' => $student->id]) }}"><img src="/images/icon/icon_habit_user.png"><p>习惯养成</p></a></li>
         </ul>
     </div>
     <style>
