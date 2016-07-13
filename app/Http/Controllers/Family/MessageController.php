@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Family;
 
 
 use App\Models\Message;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class MessageController extends FamilyController
@@ -78,6 +79,49 @@ class MessageController extends FamilyController
         return view('family.message.index',[
             'messages' => $messages,
             'type' => 2
+        ]);
+    }
+
+    /**
+     * 发送留言
+     * @param Request $request
+     * @param Student $student
+     * @return mixed
+     */
+    public function add(Request $request,Student $student)
+    {
+        $student = $student->findOrFail($request->id);
+
+        return view('family.message.add',[
+            'student' => $student
+        ]);
+    }
+
+    /**
+     * 存储留言
+     * @param Request $request
+     * @param Message $message
+     * @return mixed
+     */
+    public function store(Request $request,Message $message)
+    {
+        $message->user_id = $this->user->id;
+
+        $message->to_user_id = $request->to_user_id;
+
+        $message->detail = $request->detail;
+
+        if($message->save())
+        {
+            return redirect('/family')->with('status',[
+                'code' => 'success',
+                'msg'  => '发送成功'
+            ]);
+        }
+
+        return redirect()->back()->with('status',[
+            'code' => 'error',
+            'msg'  => '发送成功'
         ]);
     }
 }
