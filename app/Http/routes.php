@@ -87,6 +87,26 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         });
 
+        /**
+         * 消息
+         */
+        Route::group(['prefix' => 'message'],function(){
+
+            Route::get('/','MessageController@index');
+
+            Route::get('add/{id}','MessageController@add');
+
+        });
+
+        /**
+         * 新闻
+         */
+        Route::group(['prefix' => 'news'],function (){
+
+            Route::get('/','NewsController@index');
+
+        });
+
     });
 
     /**

@@ -9,7 +9,21 @@
 namespace App\Http\Controllers\Family;
 
 
-class MessageController
-{
+use App\Models\Message;
 
+class MessageController extends FamilyController
+{
+    /**
+     * 消息列表
+     * @param Message $message
+     * @return mixed
+     */
+    public function index(Message $message)
+    {
+        $messages = $message->where('to_user_id',$this->user->id)->orderBy('id','desc')->paginate(15);
+
+        return view('family.message.index',[
+            'messages' => $messages
+        ]);
+    }
 }
