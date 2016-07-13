@@ -173,6 +173,11 @@ class ScoreController extends AdminController
             'exam_id' => $exam_id
         ])->first();
 
+        if(!$score)
+        {
+            return 0;
+        }
+
         return $score->val;
     }
 
