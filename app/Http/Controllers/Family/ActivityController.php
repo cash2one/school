@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Family;
 
 
 use App\Models\Activity;
+use App\Models\ActivityScore;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Jobs\CreateActivityScore;
@@ -45,16 +46,13 @@ class ActivityController extends FamilyController
      * @param Activity $activity
      * @return mixed
      */
-    public function detail(Request $request,Student $student,Activity $activity)
+    public function detail(Request $request,Student $student,Activity $activity,ActivityScore $activityScore)
     {
         $student = $student->findOrFail($request->sid);
 
-
         $activity = $activity->findOrFail($request->id);
 
-        $job = (new CreateActivityScore($activity));
-
-        $this->dispatchNow($job);
+        $scores = $activity->scores->where('student_id',$student->id)->get();
 
         return view('family.activity.detail',[
             'student' => $student,

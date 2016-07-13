@@ -39,4 +39,9 @@ class Activity extends Common
     {
         return $this->hasOne('App\Models\School','id','school_id');
     }
+
+    public function scores()
+    {
+        return $this->hasMany('App\Models\ActivityScore','activity_id','id');
+    }
 }
