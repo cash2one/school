@@ -26,9 +26,9 @@
                 <td><a href="#">{{ $exam->name }}</a></td>
                 <td>{{ $exam->created_at }}</td>
                 <td class="nscs-table-handle">
-                    <span><a href="{{ url('/admin/score/add',['id' => $exam->id]) }}" class="btn-blue"><i class="fa fa-edit"></i><p>成绩录入</p></a></span>
+                    <!--<span><a href="{{ url('/admin/score/add',['id' => $exam->id]) }}" class="btn-blue"><i class="fa fa-edit"></i><p>成绩录入</p></a></span>-->
                     <span><a href="{{ url('/admin/exam/edit',['id' => $exam->id]) }}" class="btn-blue"><i class="fa fa-edit"></i><p>编辑</p></a></span>
-                    <span><a href="{{ url('/admin/exam/detail',['id' => $exam->id]) }}" class="btn-blue"><i class="fa fa-search"></i><p>查看</p></a></span>
+                    <span><a href="{{ url('/admin/exam/detail',['id' => $exam->id]) }}" class="btn-blue"><i class="fa fa-search"></i><p>成绩查看</p></a></span>
                     <span><a href="{{ url('/admin/exam/delete',['id' => $exam->id]) }}" class="btn-red"><i class="fa fa-trash-o"></i><p>删除</p></a></span>
                 </td>
             </tr>
