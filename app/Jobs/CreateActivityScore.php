@@ -36,7 +36,7 @@ class CreateActivityScore extends Job implements ShouldQueue
      */
     public function handle()
     {
-        $students = $this->classes->students;
+        $students = $this->classes;
 
         dd($students);
 
