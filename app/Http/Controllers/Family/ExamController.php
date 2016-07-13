@@ -51,7 +51,7 @@ class ExamController extends FamilyController
             'id'    => $request->id
         ])->first();
 
-        $scores = $exam->scores->where('student_id',$student->id)->get();
+        $scores = $exam->scores()->where('student_id',$student->id)->get();
 
         return view('family.exam.detail',[
             'student' => $student,
