@@ -14,7 +14,14 @@
     <form method="post" action="{{ url('/teacher/task/add') }}">
         {!! csrf_field() !!}
         <div class="cover_box">
-            <div class="text_cont"><textarea name="detail" placeholder="留言内容"></textarea></div>
+            <div class="text_cont">
+                <select class="maseg_name">
+                    <option>张三</option>
+                    <option>李四</option>
+                    <option>王五</option>
+                </select>
+                <textarea class="maseg_textar" name="detail" placeholder="留言内容"></textarea>
+            </div>
         </div>
         <div class="cover_btn">
             <input class="fr sure_btn" type="submit" value="发布" />

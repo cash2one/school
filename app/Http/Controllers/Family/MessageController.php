@@ -7,8 +7,6 @@
  */
 
 namespace App\Http\Controllers\Family;
-
-
 use App\Models\Message;
 use App\Models\Student;
 use Illuminate\Http\Request;

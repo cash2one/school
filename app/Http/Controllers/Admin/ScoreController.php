@@ -57,6 +57,11 @@ class ScoreController extends AdminController
 
                 $scoreArr[$i]['exam_id'] = $request->exam_id;
 
+                if($item == '')
+                {
+                    $item = 0;
+                }
+
                 $scoreArr[$i]['val'] = $item;
 
                 $scoreArr[$i]['created_at'] = time();
