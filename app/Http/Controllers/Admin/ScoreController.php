@@ -189,4 +189,39 @@ class ScoreController extends AdminController
             }
         }
     }
+
+    /**
+     * 获取成绩排名
+     * @param Exam $exam
+     * @param Student $student
+     * @return int|string
+     */
+    public static function getExamStudentSort(Exam $exam,Student $student)
+    {
+        $scores = $exam->scores;
+
+        $total = [];
+
+        foreach ($scores as $score)
+        {
+            if(!isset($total[$score->student_id]))
+            {
+                $total[$score->student_id] = 0;
+            }
+
+            $total[$score->student_id] += $score->val;
+        }
+
+        rsort($total);
+
+        foreach ($total as $key => $item)
+        {
+            if($item == $total[$student->id])
+            {
+                return $key + 1;
+            }
+        }
+
+        return 0;
+    }
 }
