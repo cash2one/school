@@ -46,6 +46,6 @@ class Kernel extends ConsoleKernel
                 $i++;
             }
 
-        })->dailyAt('15:48');
+        })->dailyAt('15:50');
     }
 }
