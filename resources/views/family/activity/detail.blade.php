@@ -74,8 +74,6 @@
 
     $('.zone b').bind('click',function(){
 
-        console.log($(this));
-
         var student_id = '{{ $student->id }}';
 
         var activity_id = '{{ $activity->id }}';
@@ -93,10 +91,9 @@
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             },
             success: function(data){
-                console.log($(this));
                 if(data.code == 'success')
                 {
-                    dom.parent().css('starc'+score)
+                    dom.parents("li p").attr("class","starc"+score);
                 }
 
                 noty({
