@@ -224,4 +224,34 @@ class ScoreController extends AdminController
 
         return 0;
     }
+
+    /**
+     * 获取学生考试成绩
+     * @param Exam $exam
+     * @param Student $student
+     * @return int|mixed
+     */
+    public static function getExamStudentTotal(Exam $exam,Student $student)
+    {
+        $scores = $exam->scores;
+
+        $total = [];
+
+        foreach ($scores as $score)
+        {
+            if(!isset($total[$score->student_id]))
+            {
+                $total[$score->student_id] = 0;
+            }
+
+            $total[$score->student_id] += $score->val;
+        }
+
+        if(isset($total[$student->id]))
+        {
+            return $total[$student->id];
+        }
+
+        return 0;
+    }
 }

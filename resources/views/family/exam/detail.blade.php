@@ -40,7 +40,7 @@
     </div>
     <div class="agg">
         <ul>
-            <li><span>总分：{{ Score::getExamStudentSort($exam,$student) }}</span></li>
+            <li><span>总分：{{ Score::getExamStudentTotal($exam,$student) }}</span></li>
             <li><span>班级排名：{{ Score::getExamStudentSort($exam,$student) }}</span></li>
             <li><span>年级排名：暂无</span></li>
         </ul>
