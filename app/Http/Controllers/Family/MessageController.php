@@ -23,7 +23,8 @@ class MessageController extends FamilyController
         $messages = $message->where('to_user_id',$this->user->id)->orderBy('id','desc')->paginate(15);
 
         return view('family.message.index',[
-            'messages' => $messages
+            'messages' => $messages,
+            'type' => 1
         ]);
     }
 }
