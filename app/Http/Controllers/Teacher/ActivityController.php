@@ -117,8 +117,11 @@ class ActivityController extends TeacherController
     {
         $activity = $activity->findOrFail($request->id);
 
+        $scores = $activity->scores()->orderBy('id','desc')->get();
+
         return view('teacher.activity.detail',[
-            'activity' => $activity
+            'activity' => $activity,
+            'scores' => $scores
         ]);
     }
 

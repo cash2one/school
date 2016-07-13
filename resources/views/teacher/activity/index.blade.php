@@ -21,7 +21,7 @@
         <ul>
             @foreach($activitys as $activity)
                 <li>
-                    <a href="{{ url('/teacher/activity/detail',['id' => $activity->id]) }}">
+                    <a href="{{ url('/teacher/activity/detail',['id' => $activity->id]) }}" onclick="notic()">
                         <div class="notice_cont">
                             <h3>{{ $activity->name }}</h3>
                             <p><span class="fl">{{ $activity->created_at }}</span>{{ $activity->grade->name }} {{ $activity->classes->name }}</p>
@@ -32,5 +32,18 @@
         </ul>
     </div>
 </div>
+<script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="/js/jquery.noty.packaged.min.js"></script>
+<script>
+    function notic()
+    {
+        noty({
+            text: '通知系统维护中',
+            type: 'warning',
+            layout: 'center',
+            timeout: '1500'
+        });
+    }
+</script>
 </body>
 </html>
