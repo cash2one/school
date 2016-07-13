@@ -48,7 +48,7 @@ class ExamController extends FamilyController
         $student = $student->findOrFail($request->id);
 
         $exam = $exam->where([
-            'student_id' => $student->id,
+            'student_id' => $student->sid,
             'exam_id'    => $request->id
         ])->first();
 

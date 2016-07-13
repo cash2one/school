@@ -59,6 +59,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::get('student/{id}','ExamController@student');
 
+            Route::get('detail/{id}/{sid}','ExamController@detail');
+
         });
 
     });
