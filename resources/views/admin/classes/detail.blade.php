@@ -59,7 +59,9 @@
             <td>{{ $student->family_mobile }}</td>
             <td>{{ count($student->parents) }}</td>
             <td class="nscs-table-handle">
+                <!--
                 <span><a href="{{ url('/admin/student/detail',['id' => $student->id]) }}" class="btn-blue"><i class="fa fa-search"></i><p>查看</p></a></span>
+                -->
                 <span><a href="{{ url('/admin/student/edit',['id' => $student->id]) }}" class="btn-blue"><i class="fa fa-edit"></i><p>编辑</p></a></span>
                 <span><a href="{{ url('/admin/student/delete',['id' => $student->id]) }}" nctype="btn_del_account" data-seller-id="1" class="btn-red"><i class="fa fa-trash-o"></i><p>删除</p></a></span>
             </td>
