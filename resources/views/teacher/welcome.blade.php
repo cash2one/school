@@ -20,9 +20,11 @@
             <li>
                 <a href="{{ url('/teacher/task') }}"><span><img src="/images/icon/icon_subject.png" /></span><i></i>作业</a>
             </li>
+            <!--
             <li>
                 <a href="{{ url('/teacher/exam') }}"><span><img src="/images/icon/icon_grade.png" /></span><i></i>成绩查询</a>
             </li>
+            -->
             <li>
                 <a href="{{ url('/teacher/classes') }}"><span><img src="/images/icon/icon_class.png" /></span><i></i><b>{{ count($teacher->courses) }}</b>任教班级</a>
             </li>
