@@ -21,7 +21,8 @@
         <ul>
             @foreach($activitys as $activity)
                 <li>
-                    <a href="{{ url('/teacher/activity/detail',['id' => $activity->id]) }}" onclick="notic()">
+                    <!--{{ url('/teacher/activity/detail',['id' => $activity->id]) }}-->
+                    <a href="javascript:void(0)" onclick="notic()">
                         <div class="notice_cont">
                             <h3>{{ $activity->name }}</h3>
                             <p><span class="fl">{{ $activity->created_at }}</span>{{ $activity->grade->name }} {{ $activity->classes->name }}</p>
@@ -38,7 +39,7 @@
     function notic()
     {
         noty({
-            text: '通知系统维护中',
+            text: '暂无足够数据',
             type: 'warning',
             layout: 'center',
             timeout: '1500'
