@@ -11,11 +11,11 @@
 </head>
 <body>
 <div class="warp_bg">
-    <form method="post" action="{{ url('/teacher/task/add') }}">
+    <form method="post" action="{{ url('/teacher/message/add') }}">
         {!! csrf_field() !!}
         <div class="cover_box">
             <div class="text_cont">
-                <select class="maseg_name">
+                <select class="maseg_name" name="to_user_id">
                     @foreach($student->classes->courses as $course)
                     <option value="{{ $course->teacher->user->id }}">{{ $course->teacher->name }}（{{ $course->name }}）</option>
                     @endforeach

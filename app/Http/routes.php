@@ -96,6 +96,8 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::get('add/{id}','MessageController@add');
 
+            Route::post('add','MessageController@store');
+
             Route::get('detail/{id}','MessageController@detail');
 
             Route::get('read','MessageController@read');
