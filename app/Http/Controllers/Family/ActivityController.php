@@ -47,14 +47,14 @@ class ActivityController extends FamilyController
      */
     public function detail(Request $request,Student $student,Activity $activity)
     {
-        $job = (new CreateActivityScore($activity));
-
-        $this->dispatchNow($job);
-
         $student = $student->findOrFail($request->sid);
 
 
         $activity = $activity->findOrFail($request->id);
+
+        $job = (new CreateActivityScore($activity));
+
+        $this->dispatchNow($job);
 
         return view('family.activity.detail',[
             'student' => $student,
