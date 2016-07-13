@@ -45,10 +45,10 @@ class ExamController extends FamilyController
      */
     public function detail(Exam $exam,Request $request,Student $student)
     {
-        $student = $student->findOrFail($request->id);
+        $student = $student->findOrFail($request->sid);
 
         $exam = $exam->where([
-            'student_id' => $student->sid,
+            'student_id' => $student->id,
             'exam_id'    => $request->id
         ])->first();
 
