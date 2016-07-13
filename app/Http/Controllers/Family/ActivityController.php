@@ -35,4 +35,25 @@ class ActivityController extends FamilyController
             'activitys' => $activitys
         ]);
     }
+
+
+    /**
+     * 活动详情
+     * @param Request $request
+     * @param Student $student
+     * @param Activity $activity
+     * @return mixed
+     */
+    public function detail(Request $request,Student $student,Activity $activity)
+    {
+        $student = $student->findOrFail($request->sid);
+
+
+        $activity = $activity->findOrFail($request->id);
+
+        return view('family.activity.detail',[
+            'student' => $student,
+            'activity' => $activity
+        ]);
+    }
 }

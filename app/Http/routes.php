@@ -81,7 +81,7 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
             Route::get('student/{id}','ActivityController@student');
 
-            Route::get('detail/{id}','ActivityController@detail');
+            Route::get('detail/{id}/{sid}','ActivityController@detail');
 
         });
 
