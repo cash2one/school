@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Family;
 
 
+use App\Models\Student;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -20,14 +21,17 @@ class TaskController extends FamilyController
      * @param Task $task
      * @return mixed
      */
-    public function student(Request $request,Task $task)
+    public function student(Request $request,Task $task,Student $student)
     {
+        $student = $student->findOrFail($request->id);
+
         $tasks = $task->where([
-            'classes_id' => $request->cid
+            'classes_id' => $student->id
         ])->orderBy('id','desc')->paginate(10);
 
         return view('family.task.index',[
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'student' => $student
         ]);
     }
 }

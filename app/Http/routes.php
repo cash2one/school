@@ -65,7 +65,7 @@ Route::group(['prefix' => '/','middleware' => ['auth']],function(){
 
         Route::group(['prefix' => 'task'],function(){
 
-            Route::get('student/{cid}','TaskController@student');
+            Route::get('student/{id}','TaskController@student');
 
         });
 
