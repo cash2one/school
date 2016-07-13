@@ -56,4 +56,9 @@ class ActivityController extends FamilyController
             'activity' => $activity
         ]);
     }
+
+    public function score(Request $request,Student $student,Activity $activity)
+    {
+        
+    }
 }
