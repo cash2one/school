@@ -39,7 +39,7 @@ class StudentController extends FamilyController
     {
         $student = $student->findOrFail($request->id);
 
-        $exam = $exam->where('classes_id',$student->classes->id)->first();
+        $exam = $exam->where('classes_id',$student->classes->id)->orderBy('id','desc')->first();
 
         $firstScores = $exam->scores;
 
