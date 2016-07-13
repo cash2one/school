@@ -200,23 +200,6 @@
                     </li>
                     @endrole
 
-                    <li class="openable bg-palette3">
-                        <a href="#">
-                            <span class="menu-content block">
-                                <span class="menu-icon"><i class="block fa fa-shopping-cart fa-lg"></i></span>
-                                <span class="text m-left-sm">文章</span>
-                                <span class="submenu-icon"></span>
-                            </span>
-                            <span class="menu-content-hover block">
-                                文章
-                            </span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="article_list.html"><span class="submenu-label">文章管理</span></a></li>
-                            <li><a href="article_type.html"><span class="submenu-label">文章类型</span></a></li>
-                        </ul>
-                    </li>
-
                     @role('administrator')
                     <li class="bg-palette4">
                         <a href="{{ url('/admin/role') }}">
