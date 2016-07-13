@@ -33,7 +33,11 @@
                 @foreach($scores as $score)
                 <li>
                     <span>{{ substr($score->created_at,0,10) }}</span>
-                    <p class="@if($score->score > 0)two@else zone @endif"  >
+                    @if($score->score > 0)
+                    <p class="two">
+                    @else
+                    <p class="zone">
+                    @endif
                         <b class="a_one" data-val = 1></b>
                         <b class="a_two" data-val = 2></b>
                         <b class="a_three" data-val = 3></b>
