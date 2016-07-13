@@ -52,7 +52,7 @@ class ActivityController extends FamilyController
 
         $activity = $activity->findOrFail($request->id);
 
-        $scores = $activity->scores->where('student_id',$student->id)->get();
+        $scores = $activity->scores()->where('student_id',$student->id)->get();
 
         return view('family.activity.detail',[
             'student' => $student,
