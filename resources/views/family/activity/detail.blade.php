@@ -35,7 +35,17 @@
                 <li>
                     <span>{{ substr($score->created_at,0,10) }}</span>
                     @if($score->score > 0)
-                    <p class="two">
+                        @if($score->score == 1)
+                        <p class="one">
+                        @elseif($score->score == 2)
+                            <p class="two">
+                        @elseif($score->score == 3)
+                            <p class="three">
+                        @elseif($score->score == 4)
+                            <p class="four">
+                        @elseif($score->score == 5)
+                            <p class="five">
+                        @endif
                     @else
                     <p class="zone">
                     @endif
