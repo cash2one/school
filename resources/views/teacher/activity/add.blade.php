@@ -14,7 +14,7 @@
     <link href="/css/date/mobiscroll_003.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="warp_bg" style="margin-bottom: 5rem;">
+<div class="warp_bg">
     <form id="edit_active" method="post" action="{{ url('/teacher/activity/add') }}">
         {!! csrf_field() !!}
         <div class="cover_box">
