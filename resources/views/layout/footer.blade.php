@@ -50,15 +50,16 @@
             layout: 'center',
             timeout: '1500'
         });
-
-        function notic()
-        {
-            noty({
-                text: '通知系统维护中',
-                type: 'warning',
-                layout: 'center',
-                timeout: '1500'
-            });
-        }
     </script>
 @endif
+<script>
+    function notic()
+    {
+        noty({
+            text: '通知系统维护中',
+            type: 'warning',
+            layout: 'center',
+            timeout: '1500'
+        });
+    }
+</script>
