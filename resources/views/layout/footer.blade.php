@@ -2,34 +2,34 @@
     <ul>
         <li>
             <a href="@if(session('identity') == 'teacher'){{ url('/teacher') }}@else{{url('/family')}}@endif">
-                <i><img src="/images/icon/icon_user.png" /></i>
+                <i><img src="/images/icon/icon_user_hui.png" /></i>
                 <p>我的</p>
             </a>
         </li>
         @if(session('identity') == 'teacher')
             <li>
                 <a href="{{ url('/teacher/classes') }}">
-                    <i><img src="/images/icon/icon_user.png" /></i>
+                    <i><img src="/images/icon/icon_rk_hui.png" /></i>
                     <p>任课</p>
                 </a>
             </li>
         @else
             <li>
                 <a href="{{ url('/family/student') }}">
-                    <i><img src="/images/icon/icon_user.png" /></i>
+                    <i><img src="/images/icon/icon_child_hui.png" /></i>
                     <p>孩子</p>
                 </a>
             </li>
         @endif
         <li>
             <a href="@if(session('identity') == 'teacher'){{ url('/teacher/message') }}@else{{url('/family/message')}}@endif">
-                <i><img src="/images/icon/icon_user.png" /></i>
+                <i><img src="/images/icon/icon_xx_hui.png" /></i>
                 <p>消息</p>
             </a>
         </li>
         <li>
             <a href="javascript:void(0)" onclick="notic()">
-                <i><img src="/images/icon/icon_user.png" /></i>
+                <i><img src="/images/icon/icon_tz_hui.png" /></i>
                 <p>通知</p>
             </a>
         </li>
