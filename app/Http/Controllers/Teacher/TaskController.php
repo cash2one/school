@@ -22,7 +22,7 @@ class TaskController extends TeacherController
      */
     public function index(Task $task)
     {
-        $tasks = $task->where('teacher_id',$this->user->id)->paginate(30);
+        $tasks = $task->where('teacher_id',$this->user->id)->orderBy('id','desc')->paginate(30);
 
         return view('teacher.task.index',[
             'tasks' => $tasks
