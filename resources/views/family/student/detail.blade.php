@@ -61,8 +61,8 @@
     <div class="graph_title"><span></span>学情分析
         <ul  class="graph_type">
             <li><a href="#"><i></i>分数</a></li>
-            <li><a href="#"><i></i>班级排名</a></li>
-            <li><a href="#"><i></i>年级排名</a></li>
+            <li><a href="#"><i></i>班级</a></li>
+            <li><a href="#"><i></i>年级</a></li>
         </ul>
     </div>
     <div class="graph">
