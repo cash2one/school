@@ -35,7 +35,7 @@
         </li>
     </ul>
 </div>
-@if(Auth::user()->hasRole('teacher') && Auth::user()->hasOne('parents'))
+@if(Auth::user()->hasRole('teacher') && Auth::user()->hasRole('parents'))
 <div class="fix_btn">
     <a href="{{ url('/') }}">身份选择</a>
 </div>
