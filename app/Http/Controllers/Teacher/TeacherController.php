@@ -22,6 +22,8 @@ class TeacherController  extends Controller
 
         $wechatUser = $wechatUser->getOriginal();
         */
+
+        session('identity','parents');
         
         $this->user = $request->user();
 

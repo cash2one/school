@@ -16,6 +16,8 @@ class FamilyController extends Controller
 
     public function __construct(Request $request)
     {
+        session('identity','parents');
+
         $this->user = $request->user();
     }
 }
