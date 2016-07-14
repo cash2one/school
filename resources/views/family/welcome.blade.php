@@ -64,17 +64,6 @@
     </div>
 </div>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
-<script language="javascript" type="text/javascript" src="/js/jquery.noty.packaged.min.js"></script>
-<script>
-    function notic()
-    {
-        noty({
-            text: '通知系统维护中',
-            type: 'warning',
-            layout: 'center',
-            timeout: '1500'
-        });
-    }
-</script>
+@include('layout.footer')
 </body>
 </html>
