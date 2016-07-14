@@ -30,7 +30,7 @@
         <ul>
             @foreach($scores as $score)
                 <li>
-                    <a href="grade_subject.html">
+                    <a href="javascript:void(0);">
                         <p class="grade_num">{{ $score->val }}</p>
                         <p class="grade_subject">{{ $score->course->name }}</p>
                     </a>
