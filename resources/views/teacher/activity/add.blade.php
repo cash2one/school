@@ -14,7 +14,7 @@
     <link href="/css/date/mobiscroll_003.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="warp_bg">
+<div class="warp_bg" style="margin-bottom: 5rem;">
     <div class="add_cover">
         <p><img src="/images/add_cover.png" /><input type="file" /></p>
     </div>
@@ -27,6 +27,9 @@
             <div class="text_cont"><textarea name="detail" placeholder="活动简介"></textarea></div>
         </div>
         <div class="cover_btn">
+
+        </div>
+        <div class="edit_btn">
             <input type="hidden" name="course_id" value="{{ $course->id }}">
             <input class="fr sure_btn" type="submit" value="发布" />
         </div>
