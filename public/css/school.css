@@ -62,7 +62,7 @@
 .grade_box li .grade_subject{ line-height: 4rem; background: #00AC92; color: #fff;}
 .graph_box{ width: 80%; margin: 2rem 10%;}
 .agg li{ width: 33.3%; float: left; text-align: center;}
-.agg li span{ display: inline-block; text-align: center; width: 10rem; background: #00AC92; color: #fff; font-size: 1.4rem; line-height: 3.6rem; border-radius: .3rem;}
+.agg li span{ display: inline-block; text-align: center; width: 8rem; background: #00AC92; color: #fff; font-size: 1.4rem; line-height: 3.6rem; border-radius: .3rem;}
 /*单科成绩表（老师）*/
 .single_grade{}
 .single_grade li{ float: left; width: 50%; text-align: center; margin: 1rem 0 0}
