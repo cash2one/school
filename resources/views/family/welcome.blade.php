@@ -14,7 +14,7 @@
 <div class="warp_bg">
     <div class="user_top">
         <div class="user_img"><img src="/images/face.png" /></div>
-        <p>欢饮您：{{ $user->name }}</p>
+        <p>欢迎您：{{ $user->name }}</p>
     </div>
     <div class="module">
         <ul>
@@ -55,11 +55,13 @@
                     </a>
                 </li>
             @endforeach
+            <!--
             <li class="add_more">
                 <a href="{{ url('/student/bind') }}">
                     绑定新学生
                 </a>
             </li>
+            -->
         </ul>
     </div>
 </div>
