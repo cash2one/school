@@ -33,7 +33,7 @@
     </form>
 </div>
 
-<script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
+@include('layout.footer')
 
 <!--date-js-->
 <script src="/js/date/mobiscroll_002.js" type="text/javascript"></script>

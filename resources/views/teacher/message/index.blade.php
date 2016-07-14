@@ -38,6 +38,6 @@
         </ul>
     </div>
 </div>
-<script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
+@include('layout.footer')
 </body>
 </html>

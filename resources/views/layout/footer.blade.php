@@ -41,6 +41,7 @@
     .bot_nav i{ display: inline-block; width: 2rem; height: 2rem;}
     .bot_nav p{ line-height: 1.6rem; height: 1.6rem;  font-size: 1.4rem; }
 </style>
+<script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="/js/jquery.noty.packaged.min.js"></script>
 @if (session('status'))
     <script>

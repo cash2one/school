@@ -51,8 +51,7 @@
         </div>
     </div>
 </div>
-<script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
-<script language="javascript" type="text/javascript" src="/js/jquery.noty.packaged.min.js"></script>
+@include('layout.footer')
 <script type="text/javascript">
     /*
     $(".a_one").click(function(){

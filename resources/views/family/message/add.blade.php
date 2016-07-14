@@ -37,5 +37,6 @@
 
     .cover_btn{ padding:0 1.5rem;}
 </style>
+@include('layout.footer')
 </body>
 </html>

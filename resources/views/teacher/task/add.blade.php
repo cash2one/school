@@ -23,5 +23,6 @@
         </div>
     </form>
 </div>
+@include('layout.footer')
 </body>
 </html>
