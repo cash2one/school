@@ -47,7 +47,7 @@
     .bot_nav p{ line-height: 1.6rem; height: 1.6rem;  font-size: 1.4rem; }
     .fix_btn{ position: fixed; bottom: 10rem; right: 0; border-top-left-radius: .5rem;
         border-bottom-left-radius: .5rem; background: rgba(0,172,146,0.7); border: .1rem solid #00AC92; width: 2rem; text-align: center; padding: 1rem .5rem;
-        color: #fff; line-height: 1.5rem;font-size: 1.2rem; height: 6rem;}
+        color: #fff; line-height: 1.5rem;font-size: 1.4rem; height: 6rem;}
 </style>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="/js/jquery.noty.packaged.min.js"></script>
