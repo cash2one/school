@@ -23,7 +23,7 @@ class TeacherController  extends Controller
         $wechatUser = $wechatUser->getOriginal();
         */
 
-        session('identity','parents');
+        $request->session()->put('identity','teacher');
 
         var_dump(session('identity'));
         
