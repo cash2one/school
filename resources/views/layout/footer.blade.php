@@ -1,4 +1,4 @@
-<div class="bot_nav">
+<div class="bot_nav" style="margin-bottom: 5rem;">
     <ul>
         <li>
             <a href="@if(session('identity') == 'teacher'){{ url('/teacher') }}@else{{url('/family')}}@endif">
