@@ -1,4 +1,3 @@
-{{ dd(session('identity')) }}
 <div class="bot_nav">
     <ul>
         <li>

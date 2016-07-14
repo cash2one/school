@@ -24,6 +24,8 @@ class TeacherController  extends Controller
         */
 
         session('identity','parents');
+
+        var_dump(session('identity'));
         
         $this->user = $request->user();
 
