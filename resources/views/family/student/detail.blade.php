@@ -51,8 +51,8 @@
     <div class="agg">
         <ul>
             <li><span>总分：{{ $firstTotal }}</span></li>
-            <li><span>班级排名：{{ $firstSort }}</span></li>
-            <li><span>年级排名：暂无</span></li>
+            <li><span>班级：{{ $firstSort }}</span></li>
+            <li><span>年级：暂无</span></li>
         </ul>
     </div>
     <style>
