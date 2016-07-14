@@ -25,11 +25,13 @@
                 </a>
             </li>
             @endforeach
+            <!--
             <li class="add_more">
                 <a href="{{ url('/student/bind') }}">
                     绑定新学生
                 </a>
             </li>
+            -->
         </ul>
     </div>
 </div>
