@@ -17,6 +17,8 @@ class HasFamily
             return redirect('/student/bind');
         }
 
+        session('identity','parents');
+
         return $next($request);
     }
 }

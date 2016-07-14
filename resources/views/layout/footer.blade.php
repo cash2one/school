@@ -1,12 +1,12 @@
 <div class="bot_nav">
     <ul>
         <li>
-            <a href="@if(Auth::user()->hasRole('teacher')){{ url('/teacher') }}@else{{url('/family')}}@endif">
+            <a href="@if(session('identity') == 'teacher'){{ url('/teacher') }}@else{{url('/family')}}@endif">
                 <i><img src="/images/icon/icon_user.png" /></i>
                 <p>我的</p>
             </a>
         </li>
-        @if(Auth::user()->hasRole('teacher'))
+        @if(session('identity') == 'teacher')
             <li>
                 <a href="{{ url('/teacher/classes') }}">
                     <i><img src="/images/icon/icon_user.png" /></i>
@@ -22,7 +22,7 @@
             </li>
         @endif
         <li>
-            <a href="@if(Auth::user()->hasRole('teacher')){{ url('/teacher/message') }}@else{{url('/family/message')}}@endif">
+            <a href="@if(session('identity') == 'teacher'){{ url('/teacher/message') }}@else{{url('/family/message')}}@endif">
                 <i><img src="/images/icon/icon_user.png" /></i>
                 <p>消息</p>
             </a>

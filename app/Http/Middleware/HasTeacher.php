@@ -21,6 +21,8 @@ class HasTeacher
             return redirect('/teacher/bind');
         }
 
+        session('identity','teacher');
+
         return $next($request);
     }
 }
