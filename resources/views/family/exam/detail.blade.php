@@ -62,7 +62,7 @@
     </div>
 </div>
 @include('layout.footer')
-
+<script type="text/javascript" src="/js/Chart.js"></script>
 <script>
     var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
 
