@@ -15,9 +15,6 @@
 </head>
 <body>
 <div class="warp_bg" style="margin-bottom: 5rem;">
-    <div class="add_cover">
-        <p><img src="/images/add_cover.png" /><input type="file" /></p>
-    </div>
     <form id="edit_active" method="post" action="{{ url('/teacher/activity/add') }}">
         {!! csrf_field() !!}
         <div class="cover_box">
@@ -25,9 +22,6 @@
             <p><input placeholder="活动开始时间" readonly="readonly" name="start_time" class="appDate" type="text"><b></b></p>
             <p><input placeholder="活动结束时间" readonly="readonly" name="end_time" class="appDate" type="text"><b></b></p>
             <div class="text_cont"><textarea name="detail" placeholder="活动简介"></textarea></div>
-        </div>
-        <div class="cover_btn">
-
         </div>
         <div class="edit_btn">
             <input type="hidden" name="course_id" value="{{ $course->id }}">
