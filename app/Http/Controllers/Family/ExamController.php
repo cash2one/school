@@ -28,7 +28,7 @@ class ExamController extends FamilyController
 
         $exams = $exam->where([
             'classes_id' => $student->class_id
-        ])->paginate(20);
+        ])->orderBy('id','desc')->paginate(20);
 
         return view('family.exam.index',[
             'student' => $student,
