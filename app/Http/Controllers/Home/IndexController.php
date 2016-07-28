@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Models\Role;
+use DB;
 
 class IndexController extends HomeController
 {
@@ -19,7 +20,7 @@ class IndexController extends HomeController
      */
     public function index(Role $role)
     {
-        $roles = $role->where('user_id',$this->user->id)->get();
+        $roles = DB::table('role_user')->where('user_id',$this->user->id)->get();
 
         if(count($roles) == 2 || count($roles) == 0)
         {
