@@ -13,8 +13,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
+    protected $oauthUser;
+
     public function __construct(Request $request)
     {
-        var_dump(session('wechat.oauth_user'));
+        $this->oauthUser = session('wechat.oauth_user');
     }
 }
