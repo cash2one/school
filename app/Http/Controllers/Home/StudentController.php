@@ -99,9 +99,7 @@ class StudentController extends HomeController
             ]);
         }
 
-        $moblieSms = DB::table('laravel_sms')->where('to',$request->mobile)->orderBy('id','desc')->first();
-
-        dd($moblieSms);
+        $moblieSms = DB::table('laravel_sms')->where('to',$request->family_mobile)->orderBy('id','desc')->first();
 
         if((time() - $moblieSms->sent_time) > 300)
         {
