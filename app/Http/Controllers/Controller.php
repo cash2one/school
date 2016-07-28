@@ -10,7 +10,6 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Auth;
-use Closure;
 
 class Controller extends BaseController
 {
@@ -26,9 +25,8 @@ class Controller extends BaseController
      * 初始化使用微信登录
      * Controller constructor.
      * @param Request $request
-     * @param Closure $next
      */
-    public function __construct(Request $request,Closure $next)
+    public function __construct(Request $request)
     {
         $this->oauthUser = session('wechat.oauth_user');
 
