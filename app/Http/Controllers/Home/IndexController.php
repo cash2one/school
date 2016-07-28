@@ -8,18 +8,32 @@
 
 namespace App\Http\Controllers\Home;
 
-
-use Illuminate\Http\Request;
+use App\Models\Role;
 
 class IndexController extends HomeController
 {
     /**
      * 前台选择控制器
-     * @param Request $request
+     * @param Role $role
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index(Role $role)
     {
-        return view('welcome');
+        $roles = $role->where('user_id',$this->user->id)->get();
+
+        if(count($roles) == 2 || count($roles) == 0)
+        {
+            return view('welcome');
+        }
+
+        if($this->user->hasRole('teacher'))
+        {
+            return redirect('/teacher');
+        }
+
+        if($this->user->hasRole('parents'))
+        {
+            return redirect('/family');
+        }
     }
 }
