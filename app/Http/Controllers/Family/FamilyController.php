@@ -8,16 +8,15 @@
  */
 namespace App\Http\Controllers\Family;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FamilyController extends Controller
 {
-    protected $user;
-
     public function __construct(Request $request)
     {
-        $request->session()->put('identity','parents');
+        parent::__construct($request);
 
-        $this->user = $request->user();
+        $request->session()->put('identity','parents');
     }
 }

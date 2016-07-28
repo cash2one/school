@@ -8,17 +8,15 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Models\Role;
 use DB;
 
 class IndexController extends HomeController
 {
     /**
-     * 前台选择控制器
-     * @param Role $role
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 前台选择控制器，用户分流
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function index(Role $role)
+    public function index()
     {
         $roles = DB::table('role_user')->where('user_id',$this->user->id)->get();
 

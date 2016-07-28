@@ -37,6 +37,14 @@ class StudentController extends HomeController
      */
     public function getCode(Request $request,Student $student,SmsManager $manager)
     {
+        if(session('endTime') >= time())
+        {
+            return response()->json([
+                'code' => 'error',
+                'msg' => '请一分钟后再试'
+            ]);
+        }
+
         $student = $student->where([
             'student_id' => $request->student_id,
             'family_mobile' => $request->family_mobile
@@ -54,6 +62,8 @@ class StudentController extends HomeController
 
         if($res['success'])
         {
+            $request->session()->put('endTime',time()+60);
+
             return response()->json([
                 'code' => 'success',
                 'msg' => '短信已成功发送'
