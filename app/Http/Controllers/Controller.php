@@ -34,12 +34,10 @@ class Controller extends BaseController
 
         $user = $this->storeUser($this->oauthUser->getOriginal());
 
-        if($this->authUser($user,$this->oauthUser->getOrigubal()))
+        if(!$this->authUser($user,$this->oauthUser->getOrigubal()))
         {
-            return $next($request);
+            abort(403);
         }
-
-        abort(403);
     }
 
     /**
