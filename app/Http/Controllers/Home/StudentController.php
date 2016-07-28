@@ -101,7 +101,7 @@ class StudentController extends HomeController
 
         $moblieSms = DB::table('laravel_sms')->where('to',$request->family_mobile)->orderBy('id','desc')->first();
 
-        if((time() - $moblieSms->sent_time) > 300)
+        if((time() - $moblieSms->sent_time) > 3600)
         {
             return redirect()->back()->with('status',[
                 'code' => 'error',
