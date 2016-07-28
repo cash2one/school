@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
@@ -13,10 +14,48 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
+    /**
+     * 用于存储微信用户对象
+     * @var mixed
+     */
     protected $oauthUser;
 
+    /**
+     * 初始化使用微信登录
+     * Controller constructor.
+     * @param Request $request
+     */
     public function __construct(Request $request)
     {
         $this->oauthUser = session('wechat.oauth_user');
+
+        $this->storeUser($this->oauthUser->getOriginal());
+    }
+
+    /**
+     * 存储用户
+     * @param $data
+     * @return User
+     */
+    private function storeUser($data)
+    {
+        $user = new User();
+
+        $user = $user->where('openid',$data['openid'])->first();
+
+        if(!$user)
+        {
+            $user->name = '游客';
+
+            $user->email = $data['openid'].'@sanchi.xin';
+
+            $user->password = bcrypt($data['openid']);
+
+            $user->openid = $data['openid'];
+
+            $user->save();
+        }
+
+        return $user;
     }
 }
