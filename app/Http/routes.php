@@ -13,7 +13,7 @@
 
 Route::auth();
 
-Route::group(['prefix' => '/','middleware' => ['oauth','auth']],function(){
+Route::group(['prefix' => '/','middleware' => ['oauth']],function(){
 
     /**
      * 前台路由
