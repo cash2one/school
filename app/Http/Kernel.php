@@ -56,6 +56,6 @@ class Kernel extends HttpKernel
         'teacher' => \App\Http\Middleware\HasTeacher::class,
         'family' => \App\Http\Middleware\HasFamily::class,
 
-        'wechat.oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
+        'oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
     ];
 }
