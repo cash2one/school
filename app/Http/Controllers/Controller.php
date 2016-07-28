@@ -9,6 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
+use Auth;
+use Closure;
 
 class Controller extends BaseController
 {
@@ -24,16 +26,24 @@ class Controller extends BaseController
      * 初始化使用微信登录
      * Controller constructor.
      * @param Request $request
+     * @param Closure $next
      */
-    public function __construct(Request $request)
+    public function __construct(Request $request,Closure $next)
     {
         $this->oauthUser = session('wechat.oauth_user');
 
-        $this->storeUser($this->oauthUser->getOriginal());
+        $user = $this->storeUser($this->oauthUser->getOriginal());
+
+        if($this->authUser($user,$this->oauthUser->getOrigubal()))
+        {
+            $next($request);
+        }
+
+        abort(403);
     }
 
     /**
-     * 存储用户
+     * 存储用户并返回一个用户对象
      * @param $data
      * @return User
      */
@@ -57,5 +67,19 @@ class Controller extends BaseController
         }
 
         return $user;
+    }
+
+    /**
+     * 用户认证
+     * @param User $user
+     * @param $data
+     * @return bool
+     */
+    private function authUser(User $user,$data)
+    {
+        return Auth::attempt([
+            'email' => $user->email,
+            'password' => $data['openid']
+        ]);
     }
 }
