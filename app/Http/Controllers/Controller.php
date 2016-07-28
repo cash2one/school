@@ -30,7 +30,7 @@ class Controller extends BaseController
     {
         $this->oauthUser = session('wechat.oauth_user');
 
-        dd($this->oauthUser->openid);
+        dd($this->oauthUser->getOriginal());
 
         $user = $this->storeUser($this->oauthUser->getOriginal());
 
