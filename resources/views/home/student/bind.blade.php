@@ -114,6 +114,15 @@
 
     });
 </script>
-
+@if (session('status'))
+    <script>
+        noty({
+            text: '{{ session('status.msg') }}',
+            type: '{{ session('status.code') }}',
+            layout: 'center',
+            timeout: '1500'
+        });
+    </script>
+@endif
 </body>
 </html>
