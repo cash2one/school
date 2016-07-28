@@ -47,12 +47,12 @@ class Controller extends BaseController
      */
     private function storeUser($data)
     {
-        $user = new User();
-
-        $user = $user->where('openid',$data['openid'])->first();
+        $user = User::where('openid',$data['openid'])->first();
 
         if(!$user)
         {
+            $user = new User();
+
             $user->name = '游客';
 
             $user->email = $data['openid'].'@sanchi.xin';
