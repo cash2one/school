@@ -29,10 +29,10 @@ class Controller extends BaseController
     public function __construct(Request $request)
     {
         $this->oauthUser = session('wechat.oauth_user');
-        dd($this->oauthUser);
+        //dd($this->oauthUser);
         $user = $this->storeUser($this->oauthUser->getOriginal());
 
-        if(!$this->authUser($user,$this->oauthUser->getOrigubal()))
+        if(!$this->authUser($user,$this->oauthUser->getOriginal()))
         {
             abort(403);
         }
