@@ -36,7 +36,7 @@ class Controller extends BaseController
 
         if($this->authUser($user,$this->oauthUser->getOrigubal()))
         {
-            $next($request);
+            return $next($request);
         }
 
         abort(403);
