@@ -13,7 +13,7 @@
 
 Route::auth();
 
-Route::group(['prefix' => '/'],function(){
+Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
     Route::group(['middleware' => 'oauth'],function(){
     /**

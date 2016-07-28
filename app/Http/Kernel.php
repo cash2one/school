@@ -57,5 +57,7 @@ class Kernel extends HttpKernel
         'family' => \App\Http\Middleware\HasFamily::class,
 
         'oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
+
+        'hasClient' => \App\Http\Middleware\HasClient::class
     ];
 }
