@@ -75,3 +75,8 @@ form label.error { color: red; margin-left: 5px;  font-size:1.6rem; padding-left
     body{ width:760px; margin:0 auto; background:#fff;}
 
 }
+
+.pay_tip{ width: 80%; margin: 0 10%; box-sizing: border-box; background: #fff; top: 30%; position: absolute; border-radius: .3rem; -webkit-border-radius: .3rem; -moz-border-radius: .3rem;}
+.pay_tip h3{ text-align: center;  color: #FAA951; font-size: 1.6rem; font-weight: normal; line-height: 4rem; border-bottom: .1rem solid #ddd;}
+.pay_tip p{ padding: 2rem; text-align: center; font-size: 1.4rem; line-height: 1.8rem;}
+.pay_tip a{ display: block; width: 10rem; text-align: center; margin: 0 auto 2rem; line-height: 3rem; color: #fff; background: #FAA951; border-radius: .3rem; -webkit-border-radius: .3rem; -moz-border-radius: .3rem;}

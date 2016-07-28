@@ -71,6 +71,13 @@
         </div>
     </div>
 </div>
+<div class="blank_bg" style="display: block;">
+    <div class="pay_tip">
+        <h3>温馨提醒</h3>
+        <p>服务已到期！请续费！</p>
+        <a class="btn" href="#">去续费</a>
+    </div>
+</div>
 @include('layout.footer')
 <script type="text/javascript" src="/js/Chart.js"></script>
 <script>
