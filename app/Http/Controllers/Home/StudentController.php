@@ -135,6 +135,10 @@ class StudentController extends HomeController
 
             $this->user->attachRole(6);
 
+            $this->user->name = $request->name;
+
+            $this->user->save();
+
             DB::commit();
 
             return redirect('/family')->with('status',[
