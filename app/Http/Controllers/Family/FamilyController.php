@@ -13,10 +13,14 @@ use Illuminate\Http\Request;
 
 class FamilyController extends Controller
 {
+    protected $user;
+
     public function __construct(Request $request)
     {
         parent::__construct($request);
 
         $request->session()->put('identity','parents');
+
+        $this->user = $request->user();
     }
 }
