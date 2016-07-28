@@ -76,6 +76,14 @@ class StudentController extends HomeController
         ]);
     }
 
+    /**
+     * 存储绑定信息
+     * @param Request $request
+     * @param Student $student
+     * @param User $user
+     * @param Parents $parents
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request,Student $student,User $user,Parents $parents)
     {
         $student = $student->where([
@@ -88,6 +96,26 @@ class StudentController extends HomeController
             return redirect()->back()->with('status',[
                 'code' => 'error',
                 'msg'  => '找不到相应的学生'
+            ]);
+        }
+
+        $moblieSms = DB::table('laravel_sms')->where('to',$request->mobile)->orderBy('id','desc')->first();
+
+        if((time() - $moblieSms->sent_time) > 300)
+        {
+            return redirect()->back()->with('status',[
+                'code' => 'error',
+                'msg'  => '验证码已过期'
+            ]);
+        }
+
+        $smsData = json_decode($moblieSms->data,true);
+
+        if($request->check_num != $smsData['code'])
+        {
+            return redirect()->back()->with('status',[
+                'code' => 'error',
+                'msg'  => '验证码不正确'
             ]);
         }
 
