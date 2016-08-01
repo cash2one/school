@@ -21,6 +21,12 @@ use Illuminate\Routing\Controller as BaseController;
 
 class PayController extends BaseController
 {
+    /**
+     * 微信支付
+     * @param Request $request
+     * @param Order $order
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     */
     public function wechat(Request $request,Order $order)
     {
         $app = new Application(config('wechat'));
@@ -60,6 +66,13 @@ class PayController extends BaseController
         ]);
     }
 
+    /**
+     * 支付结果
+     * @param Request $request
+     * @param Order $order
+     * @param Pay $pay
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function notify(Request $request,Order $order,Pay $pay)
     {
         $app = new Application(config('wechat'));
