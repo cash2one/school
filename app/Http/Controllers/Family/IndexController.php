@@ -17,11 +17,9 @@ class IndexController extends FamilyController
 
         if(count($students) == 1)
         {
-            dd($students[0]);
-
             return view('family.welcome1',[
                 'user' => $this->user,
-                'student' => $students
+                'student' => $students[0]
             ]);
         }
 
