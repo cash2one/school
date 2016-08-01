@@ -33,7 +33,7 @@
 </div>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript">
-    $("label").click(function(){
+    $("label").touch(function(){
         $(this).addClass("cur").siblings().removeClass("cur");
     })
 </script>
