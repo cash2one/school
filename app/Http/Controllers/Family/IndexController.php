@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Family;
 
 use App\Models\Student;
 use App\Models\User;
+use DB;
 
 class IndexController extends FamilyController
 {
