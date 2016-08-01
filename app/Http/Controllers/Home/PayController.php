@@ -7,14 +7,17 @@
  */
 
 namespace App\Http\Controllers\Home;
-
-
 use App\Models\Order;
+use Illuminate\Http\Request;
 
 class PayController extends HomeController
 {
-    public function wechat(Order $order)
+    public function wechat(Request $request,Order $order)
     {
+        $order = $order->findOrFail($request->id);
 
+        return view('home.pay.wehchat',[
+            'order' => $order
+        ]);
     }
 }
