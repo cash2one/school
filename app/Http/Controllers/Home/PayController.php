@@ -16,7 +16,7 @@ class PayController extends HomeController
     {
         $order = $order->findOrFail($request->id);
 
-        return view('home.pay.wehchat',[
+        return view('home.pay.wechat',[
             'order' => $order
         ]);
     }
