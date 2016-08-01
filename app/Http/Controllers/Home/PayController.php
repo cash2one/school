@@ -62,6 +62,7 @@ class PayController extends BaseController
 
     public function notify(Request $request,Order $order)
     {
+        Log::alert('接收到请求');
         $app = new Application(config('wechat'));
 
         $response = $app->payment->handleNotify(function($notify, $successful){
@@ -82,6 +83,7 @@ class PayController extends BaseController
 
             if ($successful)
             {
+                Log::alert('开始更新订单');
                 DB::beginTransaction();
 
                 try
@@ -129,6 +131,7 @@ class PayController extends BaseController
 
             return true; // 或者错误消息
         });
+
         return $response;
     }
 
