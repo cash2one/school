@@ -36,7 +36,7 @@ class PayController extends HomeController
 
         if ($result->return_code != 'SUCCESS' || $result->result_code != 'SUCCESS')
         {
-            abort(500);
+            dd($result);
         }
 
         $prepayId = $result->prepay_id;
