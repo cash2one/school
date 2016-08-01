@@ -71,13 +71,15 @@
         </div>
     </div>
 </div>
+@if($status['code'] == 'fail')
 <div class="blank_bg" style="display: block;">
     <div class="pay_tip">
         <h3>温馨提醒</h3>
-        <p>服务已到期！请续费！</p>
-        <a class="btn" href="#">去续费</a>
+        <p>{{ $status['msg'] }}</p>
+        <a class="btn" href="{{ url('/order/buy',['id' => $student->id]) }}">去付费</a>
     </div>
 </div>
+@endif
 @include('layout.footer')
 <script type="text/javascript" src="/js/Chart.js"></script>
 <script>
