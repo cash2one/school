@@ -15,6 +15,6 @@ class Order extends Common
 
     public function student()
     {
-        return $this->hasOne('App/Models/Student','id','student_id');
+        return $this->hasOne('App\Models\Student','id','student_id');
     }
 }
