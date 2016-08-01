@@ -27,7 +27,7 @@ class IndexController extends FamilyController
             return view('family.welcome1',[
                 'user' => $this->user,
                 'student' => $students[0],
-                'status' =>
+                'status' => ''
             ]);
         }
 
