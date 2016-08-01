@@ -29,7 +29,7 @@ class PayController extends HomeController
 
         $attributes = [
             'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
-            'openid'           => $this->user->openid,
+            'openid'           => $request->user()->openid,
             'body'             => $order->name,
             'detail'           => $order->name,
             'out_trade_no'     => $order->number,

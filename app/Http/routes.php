@@ -13,6 +13,8 @@
 
 Route::auth();
 
+Route::any('/pay/notice','Home\PayController@notice');
+
 Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
     Route::group(['middleware' => 'oauth'],function(){
@@ -48,7 +50,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
                 Route::get('wechat/{id}','PayController@wechat');
 
-                Route::any('notice','PayController@notice');
+
 
             });
 
