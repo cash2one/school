@@ -22,18 +22,19 @@
     .recharge label.cur b{ display: inline-block;}
     .give_btn input{width: 100%; border: none; color: #fff; background: #00BEFF; border-radius: .3rem; -moz-border-radius: .3rem; -webkit-border-radius: .3rem; height: 5rem; font-size: 2rem;}
 </style>
-<p class="recharge_title">选择充值类型</p>
+<p class="recharge_title">选择付费</p>
 <div class="recharge">
-    <form id="recharge_form">
-        <label class="cur"><input type="radio" name="pay_type" checked /><i><b></b></i><span>10元/月</span></label>
-        <label><input type="radio" name="pay_type" /><i><b></b></i><span>10元/月</span></label>
-        <label><input type="radio" name="pay_type" /><i><b></b></i><span>10元/月</span></label>
+    <form id="recharge_form" method="post" action="{{ url('/order/buy') }}">
+        <label class="cur"><input type="radio" name="total" checked /><i><b></b></i><span>30元/三个月</span></label>
+        <label><input type="radio" name="total" /><i><b></b></i><span>60元/6个月</span></label>
+        <label><input type="radio" name="total" /><i><b></b></i><span>120元/12个月</span></label>
         <div class="give_btn"><input type="submit" value="确认付款"></div>
+        <input type="hidden" name="student_id" value="{{ $student->id }}">
     </form>
 </div>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript">
-    $("label").touch(function(){
+    $("label").click(function(){
         $(this).addClass("cur").siblings().removeClass("cur");
     })
 </script>
