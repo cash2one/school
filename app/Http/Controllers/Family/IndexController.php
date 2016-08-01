@@ -20,10 +20,14 @@ class IndexController extends FamilyController
 
         if(count($students) == 1)
         {
+            $status = $this->hasStudentEndTime($student,$user);
+
+            dd($status);
+
             return view('family.welcome1',[
                 'user' => $this->user,
                 'student' => $students[0],
-                'status' => $this->hasStudentEndTime($student,$user)
+                'status' =>
             ]);
         }
 
