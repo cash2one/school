@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use EasyWeChat\Foundation\Application;
@@ -16,8 +17,9 @@ use DB;
 use Exception;
 use App\Models\Pay;
 use Log;
+use Illuminate\Routing\Controller as BaseController;
 
-class PayController extends HomeController
+class PayController extends BaseController
 {
     public function wechat(Request $request,Order $order)
     {
