@@ -60,17 +60,16 @@ class PayController extends BaseController
         ]);
     }
 
-    public function notify(Request $request,Order $order)
+    public function notify(Request $request,Order $order,Pay $pay)
     {
         Log::alert('接收到请求');
         $app = new Application(config('wechat'));
 
-        $response = $app->payment->handleNotify(function($notify, $successful){
-
-            $order = new Order();
+        $response = $app->payment->handleNotify(function($notify, $successful)use($order,$pay){
 
             $order = $order->where('number',$notify->transaction_id)->first();
 
+            Log::alert('查找订单');
             if(!$order)
             {
                 return 'order fail';
@@ -90,7 +89,6 @@ class PayController extends BaseController
                 {
                     $order->status_id = 1;
                     $order->save();
-                    $pay = new Pay();
 
                     $pay->order_id = $order->id;
                     $pay->pay_type_id = 1;
@@ -103,7 +101,7 @@ class PayController extends BaseController
 
                     $endTime = 60*60*24*30*$month;
 
-                    $ParentStudent = DB::table('parent_student')->where([
+                    DB::table('parent_student')->where([
                         'parent_id' =>$order->user->family->id,
                         'student_id' => $order->student_id
                     ])->increment('end_time',$endTime);
