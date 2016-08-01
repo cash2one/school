@@ -13,8 +13,7 @@
 <style>
     .recharge{ padding: 2rem;}
     .recharge_title{ line-height: 3rem; color: #FAA951; border-bottom: .1rem solid #ddd; margin: 2rem 2rem 0;}
-    .recharge label{ display: block; width: 50%; margin-bottom: 2rem; position: relative; float: left; box-sizing: border-box; padding: 0 2rem; border-right: .1rem solid #ddd;}
-    .recharge label:nth-child(2n){ border: none;}
+    .recharge label{ display: block; margin-bottom: 2rem; position: relative; box-sizing: border-box; padding: 0 2rem; }
     .recharge span{ line-height: 3rem;}
     .recharge i{ position: relative; width: 1.6rem; height: 1.6rem; background: none; border: .1rem solid #ddd; border-radius: 50%; -webkit-border-radius: 50%; -moz-border-radius: 50%; float: left; margin-top: .7rem; margin-right: .5rem;}
     .recharge input[type=radio]{ width: 1.6rem; height: 1.6rem; position: absolute; left: 0; top: .7rem; opacity: 0; }
