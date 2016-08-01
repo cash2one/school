@@ -25,6 +25,7 @@
 <p class="recharge_title">选择付费</p>
 <div class="recharge">
     <form id="recharge_form" method="post" action="{{ url('/order/buy') }}">
+        {!! csrf_field() !!}
         <label class="cur"><input type="radio" name="total" checked /><i><b></b></i><span>30元/3个月</span></label>
         <label><input type="radio" name="total" /><i><b></b></i><span>60元/6个月</span></label>
         <label><input type="radio" name="total" /><i><b></b></i><span>120元/12个月</span></label>
