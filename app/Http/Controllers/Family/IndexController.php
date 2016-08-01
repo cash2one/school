@@ -15,6 +15,16 @@ class IndexController extends FamilyController
     {
         $students = $this->user->family->students;
 
+        if(count($students) == 1)
+        {
+            dd($students);
+
+            return view('family.welcome1',[
+                'user' => $this->user,
+                'student' => $students
+            ]);
+        }
+
         return view('family.welcome',[
             'user' => $this->user,
             'students' => $students
