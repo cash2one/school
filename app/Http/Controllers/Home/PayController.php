@@ -107,7 +107,9 @@ class PayController extends BaseController
                     DB::table('parent_student')->where([
                         'parent_id' =>$order->user->family->id,
                         'student_id' => $order->student_id
-                    ])->update('end_time',$endTime);
+                    ])->update([
+                        'end_time' => $endTime
+                    ]);
 
                     DB::commit();
 
