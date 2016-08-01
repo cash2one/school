@@ -17,4 +17,9 @@ class Order extends Common
     {
         return $this->hasOne('App\Models\Student','id','student_id');
     }
+
+    public function user()
+    {
+        return $this->hasOne('App\Models\User','id','user_id');
+    }
 }
