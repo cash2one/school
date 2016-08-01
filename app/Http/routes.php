@@ -33,6 +33,17 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
             });
 
+            /**
+             * 订单
+             */
+            Route::group(['prefix' => 'order'],function(){
+
+                Route::get('buy/{id}','OrderController@buy');
+
+                Route::post('buy','OrderController@save');
+
+            });
+
         });
 
         /**
