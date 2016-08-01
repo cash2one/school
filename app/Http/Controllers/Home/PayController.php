@@ -67,9 +67,10 @@ class PayController extends BaseController
 
         $response = $app->payment->handleNotify(function($notify, $successful)use($order,$pay){
 
-            $order = $order->where('number',$notify->transaction_id)->first();
+            $order = $order->where('number',$notify->out_trade_no)->first();
 
             Log::alert('查找订单');
+
             if(!$order)
             {
                 return 'order fail';
