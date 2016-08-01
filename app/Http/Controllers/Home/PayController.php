@@ -145,7 +145,7 @@ class PayController extends BaseController
 
         $status = $app->payment->query($order->number);
 
-        dd($status);
+        dd($status->return_code);
 
         return view('home.pay.status',[
             'status' => $status
