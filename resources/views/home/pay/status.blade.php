@@ -13,7 +13,6 @@
     .opera{ padding: 2rem;}
     .opera_img{ width: 10rem; height: 10rem; margin: 0 auto;}
     .opera .opera_text{ line-height: 2rem; padding: 2rem 0; text-align: center;}
-    .opera_link{}
     .opera_link a{ display: block;  width: 10rem; margin: 1rem auto; height: 4rem; line-height: 4rem; color: #fff; background: #11CD6E; border-radius: .3rem; -webkit-border-radius: .3rem; -moz-border-radius: .3rem; text-align: center;}
 </style>
 <div class="opera">
