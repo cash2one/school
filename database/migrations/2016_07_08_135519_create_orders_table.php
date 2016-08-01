@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->comment('用户id');
             $table->integer('student_id')->comment('学生id');
+            $table->integer('class_id')->comment('班级id');
             $table->integer('grade_id')->comment('年级id');
             $table->integer('school_id')->comment('学校id');
             $table->integer('order_type_id')->comment('订单类型');
