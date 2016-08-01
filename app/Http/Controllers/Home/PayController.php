@@ -62,14 +62,11 @@ class PayController extends BaseController
 
     public function notify(Request $request,Order $order,Pay $pay)
     {
-        Log::alert('接收到请求');
         $app = new Application(config('wechat'));
 
         $response = $app->payment->handleNotify(function($notify, $successful)use($order,$pay){
 
             $order = $order->where('number',$notify->out_trade_no)->first();
-
-            Log::alert('查找订单');
 
             if(!$order)
             {
@@ -83,9 +80,7 @@ class PayController extends BaseController
 
             if ($successful)
             {
-                Log::alert('开始更新订单');
                 DB::beginTransaction();
-
                 try
                 {
                     $order->status_id = 1;
@@ -99,9 +94,7 @@ class PayController extends BaseController
                     $pay->save();
 
                     $month = 3;//$notify->total_fee / 1000;
-
                     $endTime = 60*60*24*30*$month;
-
                     $endTime = time() + $endTime;
 
                     DB::table('parent_student')->where([
@@ -138,8 +131,22 @@ class PayController extends BaseController
         return $response;
     }
 
-    public function status()
+    /**
+     * 订单状态
+     * @param Request $request
+     * @param Order $order
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function status(Request $request,Order $order)
     {
+        $app = new Application(config('wechat'));
 
+        $order = $order->findOrFail($request->id);
+
+        $status = $app->payment->query($order->number);
+
+        return view('home.pay.status',[
+            'status' => $status
+        ]);
     }
 }

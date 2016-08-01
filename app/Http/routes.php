@@ -50,7 +50,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
                 Route::get('wechat/{id}','PayController@wechat');
 
-
+                Route::get('status/{id}','PayController@status');
 
             });
 
