@@ -23,8 +23,34 @@
     <p>对象：<span>{{ $order->student->name }}</span></p>
     <p>费用：<span><i>{{ $order->total }}</i>元</span></p>
     <p>支付方式：<span>微信支付</span></p>
-    <div class="give_btn"><input type="submit" value="确认付款" /></div>
+    <div class="give_btn"><input type="submit" value="确认付款" onclick="WXPayment()" /></div>
 </div>
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript">
+    var WXPayment = function() {
+        if( typeof WeixinJSBridge === 'undefined' ) {
+            alert('请在微信在打开页面！');
+            return false;
+        }
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', <?php echo $json; ?>, function(res) {
+                    switch(res.err_msg) {
+                        case 'get_brand_wcpay_request:cancel':
+                            alert('您取消了支付！');
+                            break;
+                        case 'get_brand_wcpay_request:fail':
+                            alert('支付失败！（'+res.err_desc+'）');
+                            break;
+                        case 'get_brand_wcpay_request:ok':
+                            alert('支付成功！');
+                            window.location.href = '/pay/status/'+'{{ $order->id }}'
+                            break;
+                        default:
+                            alert(JSON.stringify(res));
+                            break;
+                    }
+                });
+    }
+</script>
 </body>
 </html>

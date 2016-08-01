@@ -52,6 +52,7 @@ return [
          'key'                => 'b8047b9919212ddc6067ecf5c6a78017',
          'cert_path'          => env('WECHAT_PAYMENT_CERT_PATH', 'path/to/your/cert.pem'), // XXX: 绝对路径！！！！
          'key_path'           => env('WECHAT_PAYMENT_KEY_PATH', 'path/to/your/key'),      // XXX: 绝对路径！！！！
+         'notify_url'         => 'http://school.91lsk.com/pay/notify',
          // 'device_info'     => env('WECHAT_PAYMENT_DEVICE_INFO', ''),
          // 'sub_app_id'      => env('WECHAT_PAYMENT_SUB_APP_ID', ''),
     //     // 'sub_merchant_id' => env('WECHAT_PAYMENT_SUB_MERCHANT_ID', ''),
