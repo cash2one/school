@@ -12,4 +12,9 @@ namespace App\Models;
 class Order extends Common
 {
     protected $table = 'orders';
+
+    public function student()
+    {
+        return $this->hasOne('App/Models/Student','id','student_id');
+    }
 }

@@ -20,8 +20,8 @@
 </style>
 <div class="give">
     <div class="logo"><img src="/images/icon/logo2.png" /></div>
-    <p>对象：<span>李一飞</span></p>
-    <p>费用：<span><i>10.00</i>元/月</span></p>
+    <p>对象：<span>{{ $order->student->id }}</span></p>
+    <p>费用：<span><i>{{ $order->total }}</i>元</span></p>
     <p>支付方式：<span>微信支付</span></p>
     <div class="give_btn"><input type="submit" value="确认付款" /></div>
 </div>
