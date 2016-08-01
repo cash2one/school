@@ -58,7 +58,7 @@ class PayController extends HomeController
         ]);
     }
 
-    public function notice(Request $request,Order $order)
+    public function notify(Request $request,Order $order)
     {
         $app = new Application(config('wechat'));
 

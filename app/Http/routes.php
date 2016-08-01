@@ -13,7 +13,7 @@
 
 Route::auth();
 
-Route::any('/pay/notice','Home\PayController@notice');
+Route::any('/pay/notify','Home\PayController@notify');
 
 Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
