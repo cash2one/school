@@ -98,14 +98,16 @@ class PayController extends BaseController
                     $pay->total = $notify->total_fee;
                     $pay->save();
 
-                    $month = $notify->total_fee / 1000;
+                    $month = 3;//$notify->total_fee / 1000;
 
                     $endTime = 60*60*24*30*$month;
+
+                    $endTime = time() + $endTime;
 
                     DB::table('parent_student')->where([
                         'parent_id' =>$order->user->family->id,
                         'student_id' => $order->student_id
-                    ])->increment('end_time',$endTime);
+                    ])->update('end_time',$endTime);
 
                     DB::commit();
 
