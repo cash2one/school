@@ -40,7 +40,7 @@ class OrderController extends HomeController
      */
     public function save(Request $request,Student $student,Order $order)
     {
-        $student = $student->findOrFail($request->id);
+        $student = $student->findOrFail($request->student_id);
 
         $order->user_id = $this->user->id;
 
