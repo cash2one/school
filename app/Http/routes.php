@@ -35,11 +35,11 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
             });
 
-            Route::group(['prefix' => 'bind'],function(){
+            Route::group(['prefix' => 'teacher'],function(){
 
-                Route::get('teacher','TeacherController@bind');
+                Route::get('bind','TeacherController@bind');
 
-                Route::post('teacher','TeacherController@save');
+                Route::post('bind','TeacherController@save');
 
             });
 

@@ -18,7 +18,7 @@ class HasTeacher
     {
         if(!$request->user()->hasRole('teacher'))
         {
-            return redirect('/bind/teacher');
+            return redirect('/teacher/bind');
         }
 
         session('identity','teacher');
