@@ -14,7 +14,11 @@ use DB;
 
 class IndexController extends FamilyController
 {
-    public function index(User $user,Student $student)
+    /**
+     * 首页
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
     {
         $students = $this->user->family->students;
 

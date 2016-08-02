@@ -51,7 +51,7 @@ class Controller extends BaseController
         {
             $user = new User();
 
-            $user->name = '游客';
+            $user->name = $data['nickname'];
 
             $user->email = $data['openid'].'@sanchi.xin';
 

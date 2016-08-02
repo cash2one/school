@@ -18,8 +18,8 @@
     </div>
     <div class="module">
         <ul>
-            <li>
-                <a href="../notice.html"><span><img src="/images/icon/icon_news.png" /></span><i></i>通知</a>
+            <li onclick="notic();">
+                <a href="javascript:void(0);"><span><img src="/images/icon/icon_news.png" /></span><i></i>通知</a>
             </li>
             <li>
                 <a href="{{ url('/family/message') }}"><span><img src="/images/icon/leave_user.png" /></span><i></i>我的留言</a>
