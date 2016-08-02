@@ -75,7 +75,7 @@ class Controller extends BaseController
     {
         return Auth::attempt([
             'email' => $user->email,
-            'password' => $data['openid']
+            'password' => $user->openid
         ]);
     }
 }
