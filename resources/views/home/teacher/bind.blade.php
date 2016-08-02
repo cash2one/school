@@ -13,6 +13,7 @@
 <div class="frame">
     <div class="bind">
         <form id="bind_teacher" method="post" action="{{ url('/teacher/bind') }}">
+            {!! csrf_field() !!}
             <div class="portrait">
                 <p class="por_img fillet"><img src="/images/icon/icon_camera.gif" /></p>
             </div>
