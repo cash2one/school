@@ -44,7 +44,7 @@ class TeacherController extends HomeController
     public function save(Request $request,User $user)
     {
 
-        dd($request->all());
+        //dd($request->all());
 
         DB::beginTransaction();
 
