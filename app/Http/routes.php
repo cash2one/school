@@ -150,7 +150,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
         /**
          * 教师中心
          */
-        Route::group(['prefix' => '/teacher','namespace' => 'Teacher','middleware' => ['teacher']],function(){
+        Route::group(['prefix' => '/teacher','namespace' => 'Teacher','middleware' => []],function(){
 
             Route::get('/','IndexController@index');
 
