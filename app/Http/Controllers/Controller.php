@@ -49,6 +49,7 @@ class Controller extends BaseController
 
         if(!$user)
         {
+            /*
             $user = new User();
 
             $user->name = $data['nickname'];
@@ -60,6 +61,7 @@ class Controller extends BaseController
             $user->openid = $data['openid'];
 
             $user->save();
+            */
         }
 
         return $user;
