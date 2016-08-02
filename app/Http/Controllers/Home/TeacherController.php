@@ -43,16 +43,21 @@ class TeacherController extends HomeController
      */
     public function save(Request $request,User $user)
     {
+
+        var_dump($request->all());
+
         DB::beginTransaction();
 
         try
         {
             if(Auth::attempt(['email' => $request->email,'password' => bcrypt($request->password)]))
             {
+                var_dump(123);
                 $user = $user->where(['email' => $request->email])->first();
 
                 if($user->hasRole('teacher'))
                 {
+                    var_dump(456);
                     $user->openid = $this->user->openid;
 
                     $user->name = $user->teacher->name;
@@ -73,6 +78,7 @@ class TeacherController extends HomeController
                 ]);
             }
 
+            var_dump(789);
             return back()->with('status',[
                 'code' => 'fail',
                 'msg'  => '账号或密码错误'
@@ -81,7 +87,7 @@ class TeacherController extends HomeController
         catch(Exception $exception)
         {
             DB::rollBack();
-
+            dd($exception);
             return back()->with('status',[
                 'code' => 'fail',
                 'msg'  => '系统异常错误代码：'.$exception->getCode()
