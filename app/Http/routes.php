@@ -152,7 +152,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
          */
         Route::group(['prefix' => '/teacher','namespace' => 'Teacher','middleware' => ['teacher']],function(){
 
-            Route::get('index','IndexController@index');
+            Route::get('/','IndexController@index');
 
             /**
              * 班级
