@@ -27,6 +27,16 @@
         </form>
     </div>
 </div>
+@if (session('status'))
+    <script>
+        noty({
+            text: '{{ session('status.msg') }}',
+            type: '{{ session('status.code') }}',
+            layout: 'center',
+            timeout: '1500'
+        });
+    </script>
+@endif
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="/js/jquery.validation.min.js"></script>
 <script>
