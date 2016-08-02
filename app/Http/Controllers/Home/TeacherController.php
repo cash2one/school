@@ -50,21 +50,17 @@ class TeacherController extends HomeController
 
         try
         {
-            if(Auth::attempt(['email' => $request->email,'password' => bcrypt($request->password)]))
+            if(Auth::attempt(['email' => $request->email,'password' => $request->password]))
             {
-                dd(123);
                 $user = $user->where(['email' => $request->email])->first();
 
                 if($user->hasRole('teacher'))
                 {
-                    dd(456);
                     $user->openid = $this->user->openid;
 
                     $user->name = $user->teacher->name;
 
                     $user->save();
-
-                    dd($user);
 
                     DB::commit();
 
@@ -72,14 +68,13 @@ class TeacherController extends HomeController
                 }
                 DB::rollBack();
 
-                return back()->with('status',[
+                return redirect()->back()->with('status',[
                     'code' => 'fail',
                     'msg'  => '您不具备老师身份'
                 ]);
             }
 
-            dd(789);
-            return back()->with('status',[
+            return redirect()->back()->with('status',[
                 'code' => 'fail',
                 'msg'  => '账号或密码错误'
             ]);
@@ -87,8 +82,8 @@ class TeacherController extends HomeController
         catch(Exception $exception)
         {
             DB::rollBack();
-            dd($exception);
-            return back()->with('status',[
+
+            return redirect()->back()->with('status',[
                 'code' => 'fail',
                 'msg'  => '系统异常错误代码：'.$exception->getCode()
             ]);
