@@ -19,4 +19,13 @@ class TeacherController extends HomeController
             'teacher' => $teacher
         ]);
     }
+
+    /**
+     * 绑定教师界面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function bind()
+    {
+        return view('home.teacher.bind');
+    }
 }

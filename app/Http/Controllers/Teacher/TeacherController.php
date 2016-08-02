@@ -17,6 +17,8 @@ class TeacherController  extends Controller
 
     public function __construct(Request $request)
     {
+        parent::__construct($request);
+
         $request->session()->put('identity','teacher');
         
         $this->user = $request->user();

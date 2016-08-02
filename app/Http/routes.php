@@ -35,6 +35,14 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
             });
 
+            Route::group(['prefix' => 'teacher'],function(){
+
+                Route::get('bind','TeacherController@bind');
+
+                Route::post('bind','TeacherController@save');
+
+            });
+
             /**
              * 订单
              */
