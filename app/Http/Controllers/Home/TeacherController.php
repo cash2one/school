@@ -59,6 +59,8 @@ class TeacherController extends HomeController
 
                     $user->save();
 
+                    dd($user);
+
                     DB::commit();
 
                     return redirect('/teacher');
