@@ -49,6 +49,8 @@ class Controller extends BaseController
 
         if(!$user)
         {
+            dd($user);
+
             $user = new User();
 
             $user->name = $data['nickname'];
