@@ -12,12 +12,12 @@
 <body>
 <div class="frame">
     <div class="bind">
-        <form id="bind_teacher">
+        <form id="bind_teacher" method="post" action="{{ url('/teacher/bind') }}">
             <div class="portrait">
                 <p class="por_img fillet"><img src="/images/icon/icon_camera.gif" /></p>
             </div>
             <ul class="bind_mgs">
-                <li><p><strong><img src="/images/icon/icon_user.png" /></strong><input placeholder="账号" name="teacher_name" type="text"/><b></b></p></li>
+                <li><p><strong><img src="/images/icon/icon_user.png" /></strong><input placeholder="账号" name="email" type="text"/><b></b></p></li>
                 <li><p><strong><img src="/images/icon/icon_password.png" /></strong><input placeholder="密码"  name="password" type="password"/><b></b></p></li>
             </ul>
             <p>
@@ -40,20 +40,20 @@
                 ajaxpost('bind_teacher', '', '', 'onerror');
             },
             rules: {
-                teacher_name: {
-                    required: true,
+                email: {
+                    required: true
                 },
                 password: {
-                    required: true,
-                },
+                    required: true
+                }
             },
             messages: {
-                teacher_name: {
-                    required: '此项不能为空',
+                email: {
+                    required: '此项不能为空'
                 },
                 password: {
-                    required: '此项不能为空',
-                },
+                    required: '此项不能为空'
+                }
             }
         });
     });
