@@ -45,8 +45,7 @@ class TaskController extends TeacherController
      * 存储作业
      * @param Request $request
      * @param Course $course
-     * @param Task $task
-     * @return mixed
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request,Course $course)
     {
@@ -64,7 +63,6 @@ class TaskController extends TeacherController
                 $course = $course->findOrFail($request->course_id);
 
                 $task = Task::create([
-                    'classes_id' => $course->classes_id,
                     'teacher_id' => $this->user->id,
                     'grade_id' => $course->grade_id,
                     'school_id' => $course->school_id,
