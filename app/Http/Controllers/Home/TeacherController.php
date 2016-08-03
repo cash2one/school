@@ -63,6 +63,8 @@ class TeacherController extends HomeController
 
                     Auth::logout();
 
+                    Auth::login($user);
+
                     DB::commit();
 
                     return redirect('/teacher');
