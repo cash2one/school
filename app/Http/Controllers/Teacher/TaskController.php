@@ -75,8 +75,6 @@ class TaskController extends TeacherController
                     'detail' => $request->detail,
                 ]);
 
-                var_dump($task->id);
-
                 $this->sendNotic($task);
             }
 
@@ -125,7 +123,7 @@ class TaskController extends TeacherController
 
         foreach ($classes->students as $key => $student)
         {
-            $job = (new SendTaskNotice($student,$task->teacher,$task))->delay($key);
+            $job = (new SendTaskNotice($student,$this->user->teacher,$task))->delay($key);
 
             $this->dispatch($job);
         }
