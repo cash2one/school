@@ -20,9 +20,9 @@
         <div class="select_grade">
             <p class="title">选择班级：</p>
             <ul>
-                <li class="now"><img src="../images/icon/icon_select_now.png" /><p><i>高一（5）班</i><span>语文</span></p></li>
-                <li><img src="../images/icon/icon_select_now.png" /><p><i>高一（5）班</i><span>语文</span></p></li>
-                <li><img src="../images/icon/icon_select_now.png" /><p><i>高一（3）班</i><span>语文</span></p></li>
+                <li class="now"><img src="/images/icon/icon_select_now.png" /><p><i>高一（5）班</i><span>语文</span></p></li>
+                <li><img src="/images/icon/icon_select_now.png" /><p><i>高一（5）班</i><span>语文</span></p></li>
+                <li><img src="/images/icon/icon_select_now.png" /><p><i>高一（3）班</i><span>语文</span></p></li>
             </ul>
             <p class="clear"></p>
         </div>
@@ -30,6 +30,11 @@
         <script type="text/javascript">
             $(".select_grade li").click(function(){
                 $(this).toggleClass("now");
+
+                if($(this).hasClass('now'))
+                {
+
+                }
             })
         </script>
     </form>
