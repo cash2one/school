@@ -72,7 +72,7 @@ class TaskController extends TeacherController
                     'detail' => $request->detail,
                 ]);
 
-                $this->sendNotic($task);
+                //$this->sendNotic($task);
             }
 
             DB::commit();
