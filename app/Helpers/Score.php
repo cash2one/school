@@ -36,10 +36,8 @@ class Score extends Common
             $total[$score->student_id] += $score->val;
         }
 
-        dd($total);
-
         rsort($total);
-
+        dd($total);
         foreach ($total as $key => $item)
         {
             if($item == $total[$student->id])
