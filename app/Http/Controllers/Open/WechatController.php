@@ -118,7 +118,7 @@ class WechatController extends OpenController
 
         $userId = 'ouDOyw_S1t5qxUMZVQ3saX13P8LE';
 
-        $templateId = 'ngqIpbwh8bUfcSsECmogfXcV14J0tQlEpBO27izEYtY';
+        $templateId = 'AH2UxOHfvQV9YR1HPD80A6TgcYthl-wuKPOnKDweRMs';
 
         $url = 'http://kdjx.sanchi.xin';
 
