@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Teacher;
 use App\Models\Course;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use App\Jobs\SendTaskNotice;
 
 class TaskController extends TeacherController
 {
@@ -76,6 +77,8 @@ class TaskController extends TeacherController
 
         if($task->save())
         {
+            $this->sendNotic($task);    //发送作业通知
+
             return redirect('/teacher')->with('status',[
                 'code' => 'success',
                 'msg'  => '成功'
@@ -101,5 +104,21 @@ class TaskController extends TeacherController
         return view('teacher.task.detail',[
             'task' => $task
         ]);
+    }
+
+    /**
+     * 发送通知
+     * @param Task $task
+     */
+    private function sendNotic(Task $task)
+    {
+        $classes = $task->classes;
+
+        foreach ($classes->students as $key => $student)
+        {
+            $job = (new SendTaskNotice($student,$task->teacher,$task))->delay($key);
+
+            $this->dispatch($job);
+        }
     }
 }
