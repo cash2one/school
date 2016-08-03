@@ -55,7 +55,6 @@ return [
          'notify_url'         => 'http://kdjx.sanchi.xin/pay/notify',
          // 'device_info'     => env('WECHAT_PAYMENT_DEVICE_INFO', ''),
          // 'sub_app_id'      => env('WECHAT_PAYMENT_SUB_APP_ID', ''),
-    //     // 'sub_merchant_id' => env('WECHAT_PAYMENT_SUB_MERCHANT_ID', ''),
-    //     // ...
+         // 'sub_merchant_id' => env('WECHAT_PAYMENT_SUB_MERCHANT_ID', ''),
      ],
 ];

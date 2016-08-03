@@ -48,5 +48,6 @@
         </div>
     </div>
 @endif
+@include('layout.footer')
 </body>
 </html>
