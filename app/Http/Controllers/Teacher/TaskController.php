@@ -48,6 +48,8 @@ class TaskController extends TeacherController
      */
     public function store(Request $request,Course $course,Task $task)
     {
+        dd($request->all());
+
         $this->validate($request,[
             'course_id' => 'required',
             'detail' => 'required'

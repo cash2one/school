@@ -39,7 +39,11 @@
 
                 if($(this).hasClass('now'))
                 {
+                    var input = $("<input name='course_id[]'>");
 
+                    input.val($(this).attr('data-id'));
+
+                    $(this).append(input);
                 }
             })
         </script>
