@@ -38,9 +38,7 @@ class SendActivityNotice extends Job implements ShouldQueue
     }
 
     /**
-     * Execute the job.
-     *
-     * @return void
+     * 运行任务
      */
     public function handle()
     {
