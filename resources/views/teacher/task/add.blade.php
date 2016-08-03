@@ -8,6 +8,7 @@
     <title>发布作业</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
 <div class="warp_bg">
@@ -18,9 +19,23 @@
         </div>
         <div class="cover_btn">
             <input type="hidden" name="course_id" value="{{ $course->id }}">
-            <input class="fr sure_btn" type="submit" value="发布" />
             <p>发送给：{{ $course->grade->name }} {{ $course->classes->name }}</p>
         </div>
+        <div class="select_grade">
+            <p class="title">选择班级：</p>
+            <ul>
+                <li class="now"><img src="../images/icon/icon_select_now.png" /><p><i>高一（5）班</i><span>语文</span></p></li>
+                <li><img src="../images/icon/icon_select_now.png" /><p><i>高一（5）班</i><span>语文</span></p></li>
+                <li><img src="../images/icon/icon_select_now.png" /><p><i>高一（3）班</i><span>语文</span></p></li>
+            </ul>
+            <p class="clear"></p>
+        </div>
+        <div class="edit_btn"><input class="fr sure_btn" type="submit" value="发布" /></div>
+        <script type="text/javascript">
+            $(".select_grade li").click(function(){
+                $(this).toggleClass("now");
+            })
+        </script>
     </form>
 </div>
 @include('layout.footer')

@@ -190,3 +190,14 @@
 .result_analyse .star.four{ background-position: -5px -129px}
 .result_anaalyse .star.five{ background-position: -5px -160px}
 .link_btn a{ width: 80%; margin: 0 10% 1rem; display: inline-block; text-align: center; color: #fff; background: #ED7B7B; line-height: 4rem; border-radius: .3rem;}
+
+
+.select_grade{ padding: 1rem;}
+.select_grade .title{ line-height: 4rem; height: 4rem;}
+.select_grade li{ width: 80%; border: .1rem solid #ddd; position: relative; height: 4rem; text-align: center; box-sizing: border-box; margin: 1rem auto;}
+.select_grade li p{ border: .1rem solid #fff; line-height: 3.8rem; height: 3.8rem; width: 100%; box-sizing: border-box;}
+.select_grade li img{ width: 1.5rem; height: 1.5rem; position: absolute; right: .1rem; bottom: .1rem; display: none;}
+.select_grade li.now{ border: .1rem solid #00AC92; color: #00AC92;}
+.select_grade li.now img{ display: inline-block;}
+.select_grade li.now p{ border: .1rem solid #00AC92;}
+.select_grade li i{ font-style: normal; margin-right: 2rem;}
