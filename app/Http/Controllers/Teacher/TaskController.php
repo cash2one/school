@@ -44,10 +44,9 @@ class TaskController extends TeacherController
     /**
      * 存储作业
      * @param Request $request
-     * @param Course $course
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request,Course $course)
+    public function store(Request $request)
     {
         $this->validate($request,[
             'course_id' => 'required',
@@ -61,6 +60,8 @@ class TaskController extends TeacherController
             foreach ($request->course_id as $item)
             {
                 $course = Course::findOrFail($item);
+
+                var_dump($course);
 
                 $task = Task::create([
                     'classes_id' => $course->classes_id,
