@@ -109,6 +109,6 @@ class WechatController extends OpenController
             ],
         ];
 
-        $menu->add($buttons);
+        dd($menu->add($buttons));
     }
 }
