@@ -16,15 +16,11 @@ class WechatController extends OpenController
 {
     private $app;
 
-    private $server;
-
     public function __construct(Request $request)
     {
         parent::__construct($request);
 
         $this->app = new Application(config('wechat'));
-
-        $this->server = $this->app->server;
     }
 
     /**
@@ -32,12 +28,42 @@ class WechatController extends OpenController
      */
     public function index()
     {
-        $this->server->setMessageHandler(function($message){
+        $server = $this->app->server;
 
-            return '欢迎关注';
+        $server->setMessageHandler(function($message){
 
+            switch($message->MsgType)
+            {
+                case 'event':
+                    # 事件消息...
+                    break;
+                case 'text':
+                    return '接收到文字消息';
+                    break;
+                case 'image':
+                    # 图片消息...
+                    break;
+                case 'voice':
+                    # 语音消息...
+                    break;
+                case 'video':
+                    # 视频消息...
+                    break;
+                case 'location':
+                    # 坐标消息...
+                    break;
+                case 'link':
+                    # 链接消息...
+                    break;
+                // ... 其它消息
+                default:
+                    return 'null';
+                    break;
+            }
         });
 
-       $this->server->serve()->send();
+        $response = $server->serve();
+
+        return $response;
     }
 }
