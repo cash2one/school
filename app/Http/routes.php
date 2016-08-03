@@ -19,12 +19,12 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
     Route::group(['middleware' => 'oauth'],function(){
 
-        dd(123);
-
         /**
          * 前台路由
          */
         Route::group(['prefix' => '/','namespace' => 'Home'],function(){
+
+            dd(123);
 
             Route::get('/','IndexController@index');
 
