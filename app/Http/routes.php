@@ -54,6 +54,9 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
             });
 
+            /**
+             * 支付
+             */
             Route::group(['prefix' => 'pay'],function(){
 
                 Route::get('wechat/{id}','PayController@wechat');

@@ -61,7 +61,7 @@ class TeacherController extends HomeController
 
                     $this->user->delete();
 
-                    $this->user = $user;
+                    Auth::logout();
 
                     DB::commit();
 
