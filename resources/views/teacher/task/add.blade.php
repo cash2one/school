@@ -17,10 +17,6 @@
         <div class="cover_box">
             <div class="text_cont"><textarea name="detail" placeholder="作业内容"></textarea></div>
         </div>
-        <div class="cover_btn">
-            <input type="hidden" name="course_id" value="{{ $course->id }}">
-            <p>发送给：{{ $course->grade->name }} {{ $course->classes->name }}</p>
-        </div>
         <div class="select_grade">
             <p class="title">选择班级：</p>
             <ul>
