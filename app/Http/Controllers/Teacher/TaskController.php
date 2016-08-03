@@ -75,7 +75,7 @@ class TaskController extends TeacherController
                     'detail' => $request->detail,
                 ]);
 
-                var_dump($task);
+                var_dump($task->id);
 
                 $this->sendNotic($task);
             }
