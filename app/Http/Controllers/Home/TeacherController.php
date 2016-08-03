@@ -59,10 +59,15 @@ class TeacherController extends HomeController
 
                     $user->save();
 
+                    $this->user->delete();
+
+                    $this->user = $user;
+
                     DB::commit();
 
                     return redirect('/teacher/index');
                 }
+
                 DB::rollBack();
 
                 return redirect()->back()->with('status',[
