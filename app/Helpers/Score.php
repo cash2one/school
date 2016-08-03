@@ -9,6 +9,7 @@
 namespace App\Helpers;
 use App\Models\Exam;
 use App\Models\Student;
+use App\Models\Score as Scor;
 
 class Score extends Common
 {
@@ -86,7 +87,7 @@ class Score extends Common
      */
     public static function getVal($course_id,$student_id,$exam_id)
     {
-        $score = new Score();
+        $score = new Scor();
 
         $score = $score->where([
             'course_id' => $course_id,
