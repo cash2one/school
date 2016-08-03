@@ -30,15 +30,12 @@ class TaskController extends TeacherController
 
     /**
      * 发布作业
-     * @param Course $course
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function add(Course $course)
+    public function add()
     {
-        $courses = $course->where('teacher_id',$this->user->id)->get();
-
         return view('teacher.task.add',[
-            'courses' => $courses
+            'courses' => $this->user->teacher->courses
         ]);
     }
 
