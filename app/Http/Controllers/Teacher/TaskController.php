@@ -60,7 +60,7 @@ class TaskController extends TeacherController
         {
             foreach ($request->course_id as $item)
             {
-                $course = $course->findOrFail($item);
+                $course = Course::findOrFail($item);
 
                 $task = Task::create([
                     'classes_id' => $course->classes_id,
