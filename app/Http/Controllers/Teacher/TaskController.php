@@ -61,12 +61,9 @@ class TaskController extends TeacherController
         {
             foreach ($request->course_id as $item)
             {
-                echo $item.'<br/>';
                 $course = new Course();
 
                 $course = $course->where('id',$item)->first();
-
-                var_dump($course->classes_id);
 
                 $task = Task::create([
                     'classes_id' => $course->classes_id,

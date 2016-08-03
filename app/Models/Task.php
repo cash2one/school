@@ -13,6 +13,8 @@ class Task extends Common
 {
     protected $table = 'tasks';
 
+    protected $fillable = ['classes_id','teacher_id','grade_id','school_id','course_id','name','detail'];
+
     /**
      * 班级
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
