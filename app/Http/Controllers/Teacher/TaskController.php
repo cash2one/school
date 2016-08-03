@@ -61,7 +61,7 @@ class TaskController extends TeacherController
             {
                 $course = Course::findOrFail($item);
 
-                var_dump($course);
+                var_dump($course->name);
 
                 $task = Task::create([
                     'classes_id' => $course->classes_id,
