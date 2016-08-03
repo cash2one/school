@@ -18,8 +18,8 @@ return [
      */
     'app_id'  => 'wxc3b49aefbaa030fa',         // AppID
     'secret'  => 'b8047b9919212ddc6067ecf5c6a78017',     // AppSecret
-    'token'   => 'b8047b9919212ddc6067ecf5c6a78017',          // Token
-    'aes_key' => 'b8047b9919212ddc6067ecf5c6a78017',                    // EncodingAESKey
+    'token'   => 'gQ2zwIss8wvU2WN9UQ8iHOH4NZsO48q2',          // Token
+    'aes_key' => 'yYlOlNoLoWnn808NnlVOO7z08W3oY8S8a81Yn3o03VV',                    // EncodingAESKey
 
     /**
      * 日志配置
