@@ -59,7 +59,9 @@ class TaskController extends TeacherController
         {
             foreach ($request->course_id as $item)
             {
-                $course = Course::findOrFail($item);
+                $course = new Course();
+
+                $course = $course->where('id',$item)->first();
 
                 var_dump($course->name);
 
@@ -73,7 +75,7 @@ class TaskController extends TeacherController
                     'detail' => $request->detail,
                 ]);
 
-                //$this->sendNotic($task);
+                $this->sendNotic($task);
             }
 
             DB::commit();
