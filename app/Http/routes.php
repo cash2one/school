@@ -24,9 +24,9 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
          */
         Route::group(['prefix' => '/','namespace' => 'Home'],function(){
 
-            dd(123);
-
-            Route::get('/','IndexController@index');
+            Route::get('/',function(){
+                dd(123456);
+            });
 
             Route::group(['prefix' => 'student'],function(){
 
