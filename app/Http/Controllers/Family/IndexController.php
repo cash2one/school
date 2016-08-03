@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers\Family;
 
+use App\Helper\Score;
 use App\Models\Student;
 use App\Models\User;
 use DB;
