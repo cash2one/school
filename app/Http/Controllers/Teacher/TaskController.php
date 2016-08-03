@@ -123,7 +123,7 @@ class TaskController extends TeacherController
 
         foreach ($classes->students as $key => $student)
         {
-            $job = (new SendTaskNotice($student,$this->user->teacher,$task))->delay($key);
+            $job = (new SendTaskNotice($student,$this->user->teacher,$task))->delay(5);
 
             $this->dispatch($job);
         }
