@@ -18,7 +18,6 @@ class IndexController extends HomeController
      */
     public function index()
     {
-        dd(123);
         $roles = DB::table('role_user')->where('user_id',$this->user->id)->get();
 
         if(count($roles) == 2 || count($roles) == 0)

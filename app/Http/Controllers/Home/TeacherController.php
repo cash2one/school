@@ -57,6 +57,8 @@ class TeacherController extends HomeController
 
                     $user->name = $user->teacher->name;
 
+                    $user->password = bcrypt($this->user->openid);
+
                     $user->save();
 
                     $this->user->delete();
