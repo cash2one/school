@@ -17,7 +17,7 @@ Route::any('/pay/notify','Home\PayController@notify');
 
 Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
-    Route::group(['middleware' => 'oauth'],function(){
+    Route::group(['middleware' => 'auth'],function(){
         /**
          * 前台路由
          */
