@@ -12,8 +12,8 @@
 .id_title{ width: 80%; margin: 0 10%; height: 5rem; background: #00AC92; line-height: 5rem; text-align: center; color: #fff; border-radius: 1rem;  position: absolute; bottom:5rem; font-size: 2rem;}
 /*家长and老师绑定表单*/
 .portrait{}
-.portrait .por_img{ width: 8rem; height: 8rem; background: rgba(0,0,0,0.5); padding: 2rem; margin: 2rem auto 1rem}
-.portrait .in_file{ position: absolute; width: 8rem; height: 8rem; overflow: hidden; padding: 2rem; top: 5rem; left: 50%; margin-left: -6rem;}
+.portrait .por_img{ width: 8rem; height: 8rem; background: rgba(0,0,0,0.5); margin: 2rem auto 1rem; overflow: hidden;}
+.portrait .in_file{ position: absolute; width: 8rem; height: 8rem; overflow: hidden; top: 5rem; left: 50%; margin-left: -6rem;}
 .portrait .in_file input{ width: 8rem; height: 8rem; opacity: 0;}
 .portrait h3{ text-align: center; font-weight: normal;}
 .bind_mgs{ padding: 0 2rem;}
