@@ -11,6 +11,8 @@ use App\Models\Course;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Jobs\SendTaskNotice;
+use DB;
+use Exception;
 
 class TaskController extends TeacherController
 {
@@ -46,45 +48,52 @@ class TaskController extends TeacherController
      * @param Task $task
      * @return mixed
      */
-    public function store(Request $request,Course $course,Task $task)
+    public function store(Request $request,Course $course)
     {
-        dd($request->all());
-
         $this->validate($request,[
             'course_id' => 'required',
             'detail' => 'required'
         ]);
 
-        $course = $course->findOrFail($request->course_id);
+        DB::beginTransaction();
 
-        $task->classes_id = $course->classes_id;
-
-        $task->teacher_id = $this->user->id;
-
-        $task->grade_id = $course->grade_id;
-
-        $task->school_id = $course->school_id;
-
-        $task->course_id = $course->id;
-
-        $task->name = date('Y-m-d').$course->name.'作业';
-
-        $task->detail = $request->detail;
-
-        if($task->save())
+        try
         {
-            $this->sendNotic($task);    //发送作业通知
+            foreach ($request->course_id as $item)
+            {
+                $course = $course->findOrFail($request->course_id);
+
+                $task = Task::create([
+                    'classes_id' => $course->classes_id,
+                    'teacher_id' => $this->user->id,
+                    'grade_id' => $course->grade_id,
+                    'school_id' => $course->school_id,
+                    'course_id' => $item,
+                    'name' => $course->name,
+                    'detail' => $request->detail,
+                ]);
+
+                $this->sendNotic($task);
+            }
+
+            DB::commit();
 
             return redirect('/teacher')->with('status',[
                 'code' => 'success',
                 'msg'  => '成功'
             ]);
         }
+        catch(Exception $e)
+        {
+            DB::rollBack();
 
-        return redirect()->back()->with('status',[
-            'code' => 'error',
-            'msg'  => '失败'
-        ]);
+            dd($e);
+
+            return redirect()->back()->with('status',[
+                'code' => 'error',
+                'msg'  => '失败'
+            ]);
+        }
     }
 
     /**
