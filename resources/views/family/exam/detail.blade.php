@@ -38,13 +38,6 @@
             @endforeach
         </ul>
     </div>
-    <div class="agg">
-        <ul>
-            <li><span>总分：{{ Score::getExamStudentTotal($exam,$student) }}</span></li>
-            <li><span>班级：{{ Score::getExamStudentSort($exam,$student) }}</span></li>
-            <li><span>年级：暂无</span></li>
-        </ul>
-    </div>
     <style>
 
     </style>
