@@ -39,7 +39,7 @@
 
                 if($(this).hasClass('now'))
                 {
-                    var input = $("<input name='course_id[]' type='text'>");
+                    var input = $("<input name='course_id[]' type='hidden'>");
 
                     input.val($(this).attr('data-id'));
 
