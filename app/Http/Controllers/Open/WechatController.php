@@ -38,8 +38,6 @@ class WechatController extends OpenController
 
         });
 
-        $response = $this->server->serve()->send();
-
-        return $response;
+       $this->server->serve()->send();
     }
 }
