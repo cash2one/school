@@ -93,6 +93,7 @@ class StudentController extends HomeController
 
         if(!$student)
         {
+            dd(1234);
             return redirect('/student/bind')->with('status',[
                 'code' => 'error',
                 'msg'  => '找不到相应的学生'
@@ -103,6 +104,7 @@ class StudentController extends HomeController
 
         if((time() - $moblieSms->sent_time) > 3600)
         {
+            dd(123);
             return redirect('/student/bind')->with('status',[
                 'code' => 'error',
                 'msg'  => '验证码已过期'
@@ -144,7 +146,7 @@ class StudentController extends HomeController
             $this->user->save();
 
             DB::commit();
-
+            dd($this->user);
             return redirect('/family')->with('status',[
                 'code' => 'success',
                 'msg'  => '认证成功'
@@ -153,6 +155,7 @@ class StudentController extends HomeController
         }
         catch (Exception $e)
         {
+            dd($e);
             return redirect('/student/bind')->with('status',[
                 'code' => 'error',
                 'msg'  => '认证失败'.$e->getCode()
