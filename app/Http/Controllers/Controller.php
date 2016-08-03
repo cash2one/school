@@ -36,6 +36,8 @@ class Controller extends BaseController
         {
             abort(403);
         }
+
+        view()->share('wechatUser',$this->oauthUser->getOriginal());
     }
 
     /**
