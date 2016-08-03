@@ -29,6 +29,8 @@ Route::group(['prefix' => '/open','namespace' => 'Open'],function(){
 
         Route::get('menu','WechatController@menu');
 
+        Route::get('test','WechatController@test');
+
     });
 
 });
