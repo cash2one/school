@@ -66,4 +66,49 @@ class WechatController extends OpenController
 
         return $response;
     }
+
+    public function menu()
+    {
+        $menu = $this->app->menu;
+
+        $buttons = [
+            [
+                "type" => "view",
+                "name" => "微校园",
+                "url"  => "http://kdjx.sanchi.xin"
+            ],
+            [
+                "type" => "view",
+                "name" => "家校通",
+                "url"  => "http://kdjx.sanchi.xin"
+            ],
+            [
+                "name"       => "服务台",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "关于产品",
+                        "url"  => "http://kdjx.sanchi.xin"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "联系我们",
+                        "url"  => "http://kdjx.sanchi.xin"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "我要体验",
+                        "url" => "http://kdjx.sanchi.xin"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "家庭教育",
+                        "url" => "http://kdjx.sanchi.xin"
+                    ],
+                ],
+            ],
+        ];
+
+        $menu->add($buttons);
+    }
 }
