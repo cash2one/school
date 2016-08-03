@@ -50,4 +50,13 @@ class Task extends Common
     {
         return $this->hasOne('App\Models\Course','id','course_id');
     }
+
+    /**
+     * 教师
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function teacher()
+    {
+        return $this->hasOne('App\Models\Teacher','id','teacher_id');
+    }
 }
