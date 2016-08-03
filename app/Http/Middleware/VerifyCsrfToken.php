@@ -12,6 +12,7 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        '/pay/notify'   //忽略通知接口的csrf 验证
+        '/pay/notify',   //忽略通知接口的csrf 验证
+        '/open/*'
     ];
 }

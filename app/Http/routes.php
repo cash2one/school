@@ -15,6 +15,22 @@ Route::auth();
 
 Route::any('/pay/notify','Home\PayController@notify');
 
+/**
+ * 开放平台路由组
+ */
+Route::group(['prefix' => '/open','namespace' => 'Open'],function(){
+
+    /**
+     * 微信开放平台
+     */
+    Route::group(['prefix' => 'wechat'],function(){
+
+        Route::any('/','WechatController@index');
+
+    });
+
+});
+
 Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
     Route::group(['middleware' => 'oauth'],function(){
