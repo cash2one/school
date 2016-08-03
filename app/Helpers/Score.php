@@ -6,7 +6,7 @@
  * Time: 14:53
  */
 
-namespace App\Helper;
+namespace App\Helpers;
 use App\Models\Exam;
 use App\Models\Student;
 

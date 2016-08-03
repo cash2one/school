@@ -6,7 +6,7 @@
  * Date: 2016/8/3
  * Time: 14:52
  */
-namespace App\Helper;
+namespace App\Helpers;
 
 class Common
 {
