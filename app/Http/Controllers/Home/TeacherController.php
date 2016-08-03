@@ -65,7 +65,7 @@ class TeacherController extends HomeController
 
                     DB::commit();
 
-                    return redirect('/teacher/index');
+                    return redirect('/teacher');
                 }
 
                 DB::rollBack();
