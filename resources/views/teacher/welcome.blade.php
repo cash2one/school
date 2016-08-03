@@ -12,7 +12,7 @@
 <body>
 <div class="warp_bg">
     <div class="user_top">
-        <div class="user_img"><img src="/images/face.png" /></div>
+        <div class="user_img"><img src="{{ $wechatUser['headimgurl'] }}" /></div>
         <p>欢迎您：{{ $teacher->name }} 老师</p>
     </div>
     <div class="module">
