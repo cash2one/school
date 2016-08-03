@@ -230,6 +230,7 @@ return [
         'Wechat' => Overtrue\LaravelWechat\Facade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Score' => App\Helper\Score::class,
         'PhpSms' => Toplan\PhpSms\Facades\Sms::class,
         'SmsManager' => Toplan\Sms\Facades\SmsManager::class
     ],
