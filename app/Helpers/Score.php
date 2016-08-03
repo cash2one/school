@@ -27,7 +27,7 @@ class Score extends Common
 
         foreach ($scores as $score)
         {
-            dd($score->student_id);
+
             if(!isset($total[$score->student_id]))
             {
                 $total[$score->student_id] = 0;
@@ -35,6 +35,8 @@ class Score extends Common
 
             $total[$score->student_id] += $score->val;
         }
+
+        dd($total);
 
         rsort($total);
 
