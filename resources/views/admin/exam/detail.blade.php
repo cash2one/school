@@ -41,10 +41,10 @@
                     <td>{{ $student->student_id }}</td>
                     <td>{{ $student->name }}</td>
                     @foreach($exam->classes->courses as $course)
-                        <td><input type="text" data-student="{{ $student->id }}" data-course="{{ $course->id }}" value="{{ Score::getVal($course->id,$student->id,$exam->id) }}" class="form-control input-sm score" /></td>
+                        <td><input type="text" data-student="{{ $student->id }}" data-course="{{ $course->id }}" value="0" class="form-control input-sm score" /></td>
                     @endforeach
                     <td><input type="text" name="total[{{ $student->id }}]" value="@if(isset($total[$student->id])) {{$total[$student->id]}} @else 0 @endif" class="form-control input-sm total_{{ $student->id }}" /></td>
-                    <td><input type="text" name="sort[{{ $student->id }}]" value="@if(isset($total[$student->id])) {{ Score::getSort($total[$student->id],$total) }} @else 暂无 @endif" class="form-control input-sm sort_{{ $student->id }}" /></td>
+                    <td><input type="text" name="sort[{{ $student->id }}]" value="@if(isset($total[$student->id])) {{ 0 }} @else 暂无 @endif" class="form-control input-sm sort_{{ $student->id }}" /></td>
                 </tr>
             @endforeach
             </tbody>
