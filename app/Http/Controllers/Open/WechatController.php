@@ -122,8 +122,6 @@ class WechatController extends OpenController
 
         $url = 'http://kdjx.sanchi.xin';
 
-        //$color = '#FF0000';
-
         $data = [
             'first' => '您有一个新的任务',
             'keyword1' => '测试学校',
