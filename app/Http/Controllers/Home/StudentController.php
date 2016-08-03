@@ -113,6 +113,10 @@ class StudentController extends HomeController
 
         if($request->check_num != $smsData['code'])
         {
+
+            var_dump($smsData);
+
+            dd($request->check_num);
             return redirect('/student/bind')->with('status',[
                 'code' => 'error',
                 'msg'  => '验证码不正确'
