@@ -15,7 +15,7 @@
         <form id="bind_teacher" method="post" action="{{ url('/bind/teacher') }}">
             {!! csrf_field() !!}
             <div class="portrait">
-                <p class="por_img fillet"><img src="/images/icon/icon_camera.gif" /></p>
+                <p class="por_img fillet"><img src="{{ $wechatUser['headimgurl'] }}" /></p>
             </div>
             <ul class="bind_mgs">
                 <li><p><strong><img src="/images/icon/icon_user.png" /></strong><input placeholder="账号" name="email" type="text"/><b></b></p></li>

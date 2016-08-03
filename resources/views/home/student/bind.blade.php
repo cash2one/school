@@ -16,7 +16,7 @@
         <form id="bind_parent" method="post" action="{{ url('/student/bind') }}">
             {!! csrf_field() !!}
             <div class="portrait">
-                <p class="por_img fillet"><img src="/images/icon/icon_camera.gif" /></p>
+                <p class="por_img fillet"><img src="{{ $wechatUser['headimgurl'] }}" /></p>
             </div>
             <ul class="bind_mgs">
                 <li><p><strong><img src="/images/icon/icon_num.png" /></strong><input id="student_id" name="student_id" placeholder="学生学号" type="text"/><b></b></p></li>
