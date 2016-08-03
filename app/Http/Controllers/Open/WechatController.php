@@ -111,4 +111,30 @@ class WechatController extends OpenController
 
         dd($menu->add($buttons));
     }
+
+    public function test()
+    {
+        $notice = $this->app->notice;
+
+        $userId = 'ouDOyw_S1t5qxUMZVQ3saX13P8LE';
+
+        $templateId = 'ngqIpbwh8bUfcSsECmogfXcV14J0tQlEpBO27izEYtY';
+
+        $url = 'http://kdjx.sanchi.xin';
+
+        //$color = '#FF0000';
+
+        $data = [
+            'first' => '您有一个新的任务',
+            'keyword1' => '测试学校',
+            'keyword2' => '张老师',
+            'keyword3' => '放学按时写作业',
+            'keyword4' => date('Y-m-d H:i:s',time()),
+            'remark' => '请及时完成作业'
+        ];
+
+        $messageId = $notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
+
+        dd($messageId);
+    }
 }
