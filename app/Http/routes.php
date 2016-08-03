@@ -203,7 +203,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
                 Route::get('/','TaskController@index');
 
-                Route::get('add/{id}','TaskController@add');
+                Route::get('add','TaskController@add');
 
                 Route::post('add','TaskController@store');
 

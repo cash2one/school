@@ -20,9 +20,15 @@
         <div class="select_grade">
             <p class="title">选择班级：</p>
             <ul>
-                <li class="now"><img src="/images/icon/icon_select_now.png" /><p><i>高一（5）班</i><span>语文</span></p></li>
-                <li><img src="/images/icon/icon_select_now.png" /><p><i>高一（5）班</i><span>语文</span></p></li>
-                <li><img src="/images/icon/icon_select_now.png" /><p><i>高一（3）班</i><span>语文</span></p></li>
+                @foreach($courses as $course)
+                <li data-id="{{ $course->id }}">
+                    <img src="/images/icon/icon_select_now.png" />
+                    <p>
+                        <i>{{ $course->grade->name }}{{ $course->classes->name }}</i>
+                        <span>{{ $course->name }}</span>
+                    </p>
+                </li>
+                @endforeach
             </ul>
             <p class="clear"></p>
         </div>

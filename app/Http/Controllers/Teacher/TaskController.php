@@ -7,8 +7,6 @@
  */
 
 namespace App\Http\Controllers\Teacher;
-
-
 use App\Models\Course;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -32,16 +30,15 @@ class TaskController extends TeacherController
 
     /**
      * 发布作业
-     * @param Request $request
      * @param Course $course
-     * @return mixed
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function add(Request $request,Course $course)
+    public function add(Course $course)
     {
-        $course = $course->findOrFail($request->id);
+        $courses = $course->where('teacher_id',$this->user->id)->get();
 
         return view('teacher.task.add',[
-            'course' => $course
+            'courses' => $courses
         ]);
     }
 
