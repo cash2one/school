@@ -20,7 +20,6 @@ class Score extends Common
      */
     public static function getExamStudentSort(Exam $exam,Student $student)
     {
-        return 0;
         $scores = $exam->scores;
 
         $total = [];
@@ -56,7 +55,6 @@ class Score extends Common
      */
     public static function getExamStudentTotal(Exam $exam,Student $student)
     {
-        return 0;
         $scores = $exam->scores;
 
         $total = [];
@@ -88,7 +86,6 @@ class Score extends Common
      */
     public static function getVal($course_id,$student_id,$exam_id)
     {
-        return 0;
         $score = new Score();
 
         $score = $score->where([
@@ -113,7 +110,6 @@ class Score extends Common
      */
     public static function getSort($score,$total)
     {
-        return 0;
         rsort($total);
 
         foreach ($total as $key => $item)

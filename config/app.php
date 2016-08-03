@@ -231,7 +231,8 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'PhpSms' => Toplan\PhpSms\Facades\Sms::class,
-        'SmsManager' => Toplan\Sms\Facades\SmsManager::class
+        'SmsManager' => Toplan\Sms\Facades\SmsManager::class,
+        'Score' => App\Helpers\Score::class
     ],
 
 ];
