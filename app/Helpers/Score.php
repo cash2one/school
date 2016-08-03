@@ -39,6 +39,7 @@ class Score extends Common
 
         foreach ($total as $key => $item)
         {
+            dd($student->id);
             if($item == $total[$student->id])
             {
                 return $key + 1;
