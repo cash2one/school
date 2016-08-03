@@ -37,9 +37,10 @@ class Score extends Common
 
         rsort($total);
 
+        dd($total);
+
         foreach ($total as $key => $item)
         {
-            dd($student->id);
             if($item == $total[$student->id])
             {
                 return $key + 1;
