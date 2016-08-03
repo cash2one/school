@@ -15,6 +15,13 @@
         <div class="user_img"><img src="{{ $wechatUser['headimgurl'] }}" /></div>
         <p>欢迎您：{{ $teacher->name }} 老师</p>
     </div>
+    <div class="all_edit">
+        <ul>
+            <li><a href="edit_news.html">发布<br/>通知</a></li>
+            <li><a href="edit_mark.html">发布<br/>作业</a></li>
+            <li><a href="edit_active.html">发布<br/>活动</a></li>
+        </ul>
+    </div>
     <div class="module">
         <ul>
             <li>
