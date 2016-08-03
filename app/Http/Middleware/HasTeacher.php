@@ -16,8 +16,6 @@ class HasTeacher
      */
     public function handle($request, Closure $next)
     {
-        dd($request->user());
-
         if(!$request->user()->hasRole('teacher'))
         {
             return redirect('/bind/teacher');
