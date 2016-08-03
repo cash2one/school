@@ -47,7 +47,7 @@
                 }
                 else
                 {
-                    $(this).find('<input>').remove();
+                    $(this).find('input').remove();
                 }
             })
         </script>
