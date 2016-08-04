@@ -46,16 +46,6 @@ class TaskController extends FamilyController
     {
         $task = $task->findOrFail($request->id);
 
-        $classes = $task->classes;
-
-        foreach ($classes->students as $key => $student)
-        {
-            $job = new SendTaskNotice($student,$this->user->teacher,$task);
-
-            var_dump($this->dispatchNow($job));
-        }
-
-
         return view('family.task.detail',[
             'task' => $task
         ]);
