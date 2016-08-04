@@ -123,7 +123,7 @@ class TaskController extends TeacherController
         {
             $job = (new SendTaskNotice($student,$this->user->teacher,$task))->delay(5);
 
-            $this->dispatch($job);
+            $this->dispatchNow($job);
         }
     }
 }
