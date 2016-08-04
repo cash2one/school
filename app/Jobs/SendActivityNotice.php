@@ -48,6 +48,7 @@ class SendActivityNotice extends Job implements ShouldQueue
 
         foreach ($parents as $item)
         {
+            var_dump($item);
             $notice = $app->notice;
 
             $userId = $item->user->openid;
