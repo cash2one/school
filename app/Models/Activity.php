@@ -57,6 +57,6 @@ class Activity extends Common
      */
     public function teacher()
     {
-        return $this->hasOne('App\Models\teacher','id','teacher_id');
+        return $this->hasOne('App\Models\Teacher','id','teacher_id');
     }
 }
