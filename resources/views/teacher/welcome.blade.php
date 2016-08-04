@@ -39,6 +39,11 @@
             <li>
                 <a href="{{ url('/teacher/message') }}"><span><img src="/images/icon/leave_user.png" /></span><i></i><b>{{ count(Auth::user()->getUnReadMessage) }}</b>我的留言</a>
             </li>
+            @if(!Auth::user()->hasRole('parents'))
+            <li>
+                <a href="{{ url('/student/bind') }}"><span><img src="/images/icon/icon_bind.png" /></span><i></i>成为家长</a>
+            </li>
+            @endif
         </ul>
     </div>
 </div>

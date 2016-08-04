@@ -36,6 +36,11 @@
             <li>
                 <a href="{{ url('/family/message/add',['sid' => $student->id]) }}"><span><img src="/images/icon/icon_teacher.png" /></span><i></i>给老师留言</a>
             </li>
+            @if(!Auth::user()->hasRole('teacher'))
+                <li>
+                    <a href="{{ url('/bind/teacher') }}"><span><img src="/images/icon/icon_bind.png" /></span><i></i>成为老师</a>
+                </li>
+            @endif
         </ul>
     </div>
 </div>
