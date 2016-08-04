@@ -56,8 +56,6 @@ class SendTaskNotice extends Job implements ShouldQueue
 
             $templateId = 'n1bU1cnadeUL2BLcWvYwdS0e6wQr1AbYL_QD88WPQac';
 
-            //$url = 'http://kdjx.sanchi.xin/family/task/detail/'.$this->task->id;
-
             $url = url('/family/task/detail',['id' => $this->task->id]);
 
             $data = [

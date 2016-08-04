@@ -53,8 +53,6 @@ class TaskController extends TeacherController
             'detail' => 'required'
         ]);
 
-        var_dump($request->course_id);
-
         DB::beginTransaction();
 
         try
