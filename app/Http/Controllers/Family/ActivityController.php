@@ -13,7 +13,6 @@ use App\Models\Activity;
 use App\Models\ActivityScore;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use App\Jobs\SendActivityNotice;
 
 class ActivityController extends FamilyController
 {
@@ -22,7 +21,7 @@ class ActivityController extends FamilyController
      * @param Request $request
      * @param Student $student
      * @param Activity $activity
-     * @return mixed
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function student(Request $request,Student $student,Activity $activity)
     {
@@ -44,19 +43,15 @@ class ActivityController extends FamilyController
      * @param Request $request
      * @param Student $student
      * @param Activity $activity
-     * @return mixed
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function detail(Request $request,Student $student,Activity $activity,ActivityScore $activityScore)
+    public function detail(Request $request,Student $student,Activity $activity)
     {
         $student = $student->findOrFail($request->sid);
 
         $activity = $activity->findOrFail($request->id);
 
         $scores = $activity->scores()->where('student_id',$student->id)->get();
-
-        $job = new SendActivityNotice($student,$activity->teacher,$activity);
-
-        $this->dispatchNow($job);
 
         return view('family.activity.detail',[
             'student' => $student,

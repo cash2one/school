@@ -48,8 +48,6 @@ class SendActivityNotice extends Job implements ShouldQueue
 
         foreach ($parents as $item)
         {
-            var_dump($item);
-
             $notice = $app->notice;
 
             $userId = $item->user->openid;
@@ -68,8 +66,6 @@ class SendActivityNotice extends Job implements ShouldQueue
             ];
 
             $notice = $notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
-
-            var_dump($notice);
         }
     }
 }
