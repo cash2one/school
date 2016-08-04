@@ -56,7 +56,7 @@ class ActivityController extends FamilyController
 
         $job = new SendActivityNotice($student,$activity->teacher,$activity);
 
-        $this->dispatch($job);
+        $this->dispatchNow($job);
 
         return view('family.activity.detail',[
             'student' => $student,
