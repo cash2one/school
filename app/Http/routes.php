@@ -233,7 +233,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
                 Route::get('/','ActivityController@index');
 
-                Route::get('add/{id}','ActivityController@add');
+                Route::get('add','ActivityController@add');
 
                 Route::post('add','ActivityController@store');
 

@@ -54,7 +54,7 @@ class SendActivityNotice extends Job implements ShouldQueue
 
             $templateId = 'AH2UxOHfvQV9YR1HPD80A6TgcYthl-wuKPOnKDweRMs';
 
-            $url = 'http://kdjx.sanchi.xin/family/activity/detail/'.$this->activity->id.'/'.$this->student->id;
+            $url = url('/family/activity/detail',['id' => $this->activity->id,'sid' => $this->student->id]);
 
             $data = [
                 'first' => $this->student->name.'有一个新的任务',
