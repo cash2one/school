@@ -46,12 +46,12 @@ class SendTaskNotice extends Job implements ShouldQueue
     {
         $parents = $this->student->parents;
 
-        dd($parents);
-
         $app = new Application(config('wechat'));
 
         foreach ($parents as $item)
         {
+            dd($item->user);
+
             $notice = $app->notice;
 
             $userId = $item->user->openid;
