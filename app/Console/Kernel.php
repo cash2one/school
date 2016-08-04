@@ -7,6 +7,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Models\Activity;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use App\Jobs\CreateActivityScore;
+use Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -30,6 +31,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function(){
+
+            Log::info('来水计划任务');
 
             $activity = new Activity();
 
