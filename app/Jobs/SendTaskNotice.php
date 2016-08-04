@@ -50,7 +50,7 @@ class SendTaskNotice extends Job implements ShouldQueue
 
         foreach ($parents as $item)
         {
-            dd($item->user);
+            echo $item->user->openid;
 
             $notice = $app->notice;
 

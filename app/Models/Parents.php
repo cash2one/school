@@ -21,4 +21,13 @@ class Parents extends Common
     {
         return $this->belongsToMany('App\Models\Student','parent_student','parent_id','student_id');
     }
+
+    /**
+     * 获取相关用户
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne('App\Models\User','id','user_id');
+    }
 }
