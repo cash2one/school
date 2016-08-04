@@ -50,4 +50,13 @@ class Activity extends Common
     {
         return $this->hasMany('App\Models\ActivityScore','activity_id','id');
     }
+
+    /**
+     * 所属教师
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function teacher()
+    {
+        return $this->hasOne('App\Models\teacher','id','teacher_id');
+    }
 }
