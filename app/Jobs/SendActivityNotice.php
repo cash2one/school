@@ -42,13 +42,12 @@ class SendActivityNotice extends Job implements ShouldQueue
      */
     public function handle()
     {
-        $parents = $this->student->parents();
+        $parents = $this->student->parents;
 
         $app = new Application(config('wechat'));
 
         foreach ($parents as $item)
         {
-            var_dump($item);
             $notice = $app->notice;
 
             $userId = $item->user->openid;
