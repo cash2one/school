@@ -44,7 +44,7 @@ class SendTaskNotice extends Job implements ShouldQueue
      */
     public function handle()
     {
-        $parents = $this->student->parents();
+        $parents = $this->student->parents;
 
         dd($parents);
 
