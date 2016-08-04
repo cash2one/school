@@ -65,7 +65,7 @@ class SendTaskNotice extends Job implements ShouldQueue
                 'name' => $this->student->name,
                 'subject' => $this->task->course->name,
                 'content' => $this->task->detail,
-                'remark' => "完成截止时间：".date('Y-m-d H:i:s',$this->task->completed_at)
+                'remark' => "请督促学生独立完成作业。"
             ];
 
             $notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
