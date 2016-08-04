@@ -19,7 +19,7 @@ class Student extends Common
      */
     public function school()
     {
-        return $this->hasOne('App\Models\School','id','schoole_id');
+        return $this->hasOne('App\Models\School','id','school_id');
     }
 
     /**
