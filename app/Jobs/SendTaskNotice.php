@@ -38,9 +38,7 @@ class SendTaskNotice extends Job implements ShouldQueue
     }
 
     /**
-     * Execute the job.
-     *
-     * @return void
+     * 开始任务作业
      */
     public function handle()
     {
