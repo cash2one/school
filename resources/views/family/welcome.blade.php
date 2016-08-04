@@ -38,6 +38,11 @@
                 <a href="{{ url('/family/student') }}"><span><img src="/images/icon/icon_set.png" /></span><i></i><b>{{ count($user->family->students) }}</b>我的孩子</a>
             </li>
             -->
+            @if(!Auth::user()->hasRole('teacher'))
+                <li>
+                    <a href="{{ url('/bind/teacher') }}"><span><img src="/images/icon/icon_bind.png" /></span><i></i>成为老师</a>
+                </li>
+            @endif
         </ul>
     </div>
 
