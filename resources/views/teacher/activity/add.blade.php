@@ -12,6 +12,8 @@
     <link href="/css/date/mobiscroll_002.css" rel="stylesheet" type="text/css">
     <link href="/css/date/mobiscroll.css" rel="stylesheet" type="text/css">
     <link href="/css/date/mobiscroll_003.css" rel="stylesheet" type="text/css">
+
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
 <div class="warp_bg">
@@ -109,6 +111,25 @@
             }
         });
     });
+</script>
+
+<script type="text/javascript">
+    $(".select_grade li").click(function(){
+        $(this).toggleClass("now");
+
+        if($(this).hasClass('now'))
+        {
+            var input = $("<input name='course_id[]' type='hidden'>");
+
+            input.val($(this).attr('data-id'));
+
+            $(this).append(input);
+        }
+        else
+        {
+            $(this).find('input').remove();
+        }
+    })
 </script>
 </body>
 </html>

@@ -42,6 +42,10 @@ class Activity extends Common
         return $this->hasOne('App\Models\School','id','school_id');
     }
 
+    /**
+     * 评分
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function scores()
     {
         return $this->hasMany('App\Models\ActivityScore','activity_id','id');
