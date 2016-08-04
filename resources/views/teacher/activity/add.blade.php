@@ -23,8 +23,22 @@
             <p><input placeholder="活动结束时间" readonly="readonly" name="end_time" class="appDate" type="text"><b></b></p>
             <div class="text_cont"><textarea name="detail" placeholder="活动简介"></textarea></div>
         </div>
+        <div class="select_grade">
+            <p class="title">选择班级：</p>
+            <ul>
+                @foreach($courses as $course)
+                    <li data-id="{{ $course->id }}">
+                        <img src="/images/icon/icon_select_now.png" />
+                        <p>
+                            <i>{{ $course->grade->name }}{{ $course->classes->name }}</i>
+                            <span>{{ $course->name }}</span>
+                        </p>
+                    </li>
+                @endforeach
+            </ul>
+            <p class="clear"></p>
+        </div>
         <div class="edit_btn">
-            <input type="hidden" name="course_id" value="{{ $course->id }}">
             <input class="fr sure_btn" type="submit" value="发布" />
         </div>
     </form>

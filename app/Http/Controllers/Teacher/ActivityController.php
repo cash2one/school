@@ -32,16 +32,12 @@ class ActivityController extends TeacherController
 
     /**
      * 发布活动
-     * @param Request $request
-     * @param Course $course
-     * @return mixed
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function add(Request $request,Course $course)
+    public function add()
     {
-        $course = $course->findOrFail($request->id);
-
-        return view('teacher.activity.add',[
-            'course' => $course
+        return view('teacher.task.add',[
+            'courses' => $this->user->teacher->courses
         ]);
     }
 
