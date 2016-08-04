@@ -13,6 +13,8 @@ class Activity extends Common
 {
     protected $table = 'activitys';
 
+    protected $fillable = ['name', 'user_id', 'classes_id', 'grade_id', 'school_id', 'teacher_id', 'start_at', 'end_at', 'detail'];
+
     /**
      * 班级
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

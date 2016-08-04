@@ -13,6 +13,9 @@ use App\Models\Activity;
 use App\Models\ActivityScore;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use DB;
+use Exception;
+use App\Jobs\SendActivityNotice;
 
 class ActivityController extends TeacherController
 {
@@ -45,13 +48,10 @@ class ActivityController extends TeacherController
      * 存储活动信息
      * @param Request $request
      * @param Course $course
-     * @param Activity $activity
-     * @return mixed
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request,Course $course,Activity $activity)
+    public function store(Request $request,Course $course)
     {
-        $course = $course->findOrFail($request->course_id);
-
         $this->validate($request,[
             'name' => 'required',
             'detail' => 'required',
@@ -71,37 +71,66 @@ class ActivityController extends TeacherController
             ]);
         }
 
-        $activity->name = $request->name;
+        DB::beginTransaction();
 
-        $activity->user_id = $this->user->id;
-
-        $activity->classes_id = $course->classes_id;
-
-        $activity->grade_id = $course->grade_id;
-
-        $activity->school_id = $course->school_id;
-
-        $activity->teacher_id = $course->teacher_id;
-
-        $activity->detail = $request->detail;
-
-        $activity->start_at = $start_time;
-
-        $activity->end_at = $end_time;
-
-        if($activity->save())
+        try
         {
-            return redirect('/teacher/activity')->with('status',[
+            foreach ($request->course_id as $item)
+            {
+                $course = new Course();
+
+                $course = $course->where('id',$item)->first();
+
+                $activity = Activity::create([
+                    'name' => $request->name,
+                    'user_id' => $this->user->id,
+                    'classes_id' => $course->classes_id,
+                    'grade_id' => $course->grade_id,
+                    'school_id' => $course->school_id,
+                    'teacher_id' => $course->teacher_id,
+                    'start_at' => $start_time,
+                    'end_at' => $end_time,
+                    'detail' => $request->detail
+                ]);
+
+                $this->sendNotice($activity);
+            }
+
+            DB::commit();
+
+            return redirect('/teacher')->with('status',[
                 'code' => 'success',
-                'msg' => '发布成功'
+                'msg'  => '成功'
+            ]);
+        }
+        catch(Exception $e)
+        {
+            DB::rollBack();
+
+            return redirect()->back()->with('status',[
+                'code' => 'error',
+                'msg'  => '失败'
             ]);
         }
 
-        return redirect()->back()->with('status',[
-            'code' => 'error',
-            'msg' => '发布失败'
-        ]);
     }
+
+    /**
+     * 发送通知
+     * @param Activity $activity
+     */
+    private function sendNotice(Activity $activity)
+    {
+        $students = $activity->classes->students;
+
+        foreach ($students as $student)
+        {
+            $job = (new SendActivityNotice($student,$this->user->teacher,$activity))->delay(5);
+
+            $this->dispatch($job);
+        }
+    }
+
 
     /**
      * 活动详情
