@@ -36,7 +36,6 @@ class ActivityController extends TeacherController
      */
     public function add()
     {
-        var_dump(123);
         return view('teacher.activity.add',[
             'courses' => $this->user->teacher->courses
         ]);
