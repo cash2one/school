@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Family;
 use App\Models\Student;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use App\Jobs\SendTaskNotice;
 
 class TaskController extends FamilyController
 {
@@ -44,6 +45,16 @@ class TaskController extends FamilyController
     public function detail(Request $request,Task $task)
     {
         $task = $task->findOrFail($request->id);
+
+        $classes = $task->classes;
+
+        foreach ($classes->students as $key => $student)
+        {
+            $job = new SendTaskNotice($student,$this->user->teacher,$task);
+
+            var_dump($this->dispatchNow($job));
+        }
+
 
         return view('family.task.detail',[
             'task' => $task
