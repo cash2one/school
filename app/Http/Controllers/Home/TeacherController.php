@@ -55,21 +55,28 @@ class TeacherController extends HomeController
 
                 if($user->hasRole('teacher'))
                 {
-                    $user->openid = $this->user->openid;
+                    if($this->user->hasRole('parents'))
+                    {
+                        $this->user->attachRole(4);
+                    }
+                    else
+                    {
+                        $user->openid = $this->user->openid;
 
-                    $user->name = $user->teacher->name;
+                        $user->name = $user->teacher->name;
 
-                    $user->password = bcrypt($this->user->openid);
+                        $user->password = bcrypt($this->user->openid);
 
-                    $user->save();
+                        $user->save();
 
-                    $this->user->delete();
+                        $this->user->delete();
 
-                    Auth::logout();
+                        Auth::logout();
 
-                    Auth::login($user);
+                        Auth::login($user);
 
-                    DB::commit();
+                        DB::commit();
+                    }
 
                     return redirect('/teacher');
                 }
