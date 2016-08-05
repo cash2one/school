@@ -30,19 +30,6 @@
                             <input type="text" name="mobile" class="form-control input-sm" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
-
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">账号：</label>
-                        <div class="col-lg-10">
-                            <input type="text" name="email" class="form-control input-sm" >
-                        </div><!-- /.col -->
-                    </div><!-- /form-group -->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">密码：</label>
-                        <div class="col-lg-10">
-                            <input type="text" name="password" class="form-control input-sm" >
-                        </div><!-- /.col -->
-                    </div><!-- /form-group -->
                     <div class="text-center m-top-md">
                         <button type="submit" class="btn btn-info">提交</button>
                     </div>

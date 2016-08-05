@@ -88,22 +88,8 @@ class TeacherController extends AdminController
             {
                 $teacher = $teacher->findOrFail($request->id);
             }
-            else
-            {
-                $this->validate($request,[
-                    'email' => 'required|email',
-                    'password' => 'required'
-                ]);
 
-                $user->name = $request->name;
-                $user->email = $request->email;
-                $user->password = bcrypt($request->password);
-                $user->save();
-                $user->attachRole(4);
-
-                $teacher->user_id = $user->id;
-            }
-
+            $teacher->user_id = 0;
             $teacher->name = $request->name;
             $teacher->school_id = $school->id;
             $teacher->teacher_id = $request->teacher_id;
