@@ -136,7 +136,11 @@ class StudentController extends HomeController
 
             $parents->students()->save($student);
 
-            $this->user->attachRole(6);
+            //若不存在该角色，则添加
+            if(!$this->user->hasRole('parents'))
+            {
+                $this->user->attachRole(6);
+            }
 
             $this->user->name = $request->name;
 
