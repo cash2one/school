@@ -8,6 +8,8 @@
     <title>我的留言</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/miss.js"></script>
 </head>
 <body>
 <div class="warp_bg">
@@ -38,6 +40,9 @@
         </ul>
     </div>
 </div>
+<!--返回顶部-->
+<div class="gotop"><a onclick="gotoTop();return false;"><img src="/images/icon/icon_top.png" /></a></div>
+<!--返回顶部 end-->
 @include('layout.footer')
 </body>
 </html>
