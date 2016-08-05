@@ -88,7 +88,7 @@ class TeacherController extends HomeController
         catch(Exception $exception)
         {
             DB::rollBack();
-
+            dd($exception);
             return redirect()->back()->with('status',[
                 'code' => 'fail',
                 'msg'  => '系统异常错误代码：'.$exception->getCode()
