@@ -35,7 +35,23 @@ class SendActivityTodayNotic extends Job implements ShouldQueue
         {
             foreach ($student->parents as $item)
             {
+                $notice = $app->notice;
 
+                $userId = $item->user->openid;
+
+                $templateId = 'nGehn5j_W4RlEPKBlZZVu8-Fn24MR6ahUiiccPQXGB8';
+
+                $url = url('/family/activity/detail',['id' => $this->activity->id,'sid' => $item->id]);
+
+                $data = [
+                    'first' => $student->name.'的学习任务需要您评价',
+                    'keyword1' => $this->activity->name,
+                    'keyword2' => date('Y-m-d H:i:s'),
+                    'keyword3' => '等待评价',
+                    'remark' => '请在当日24点前完成评价！'
+                ];
+
+                $notice = $notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
             }
         }
     }

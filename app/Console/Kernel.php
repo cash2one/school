@@ -8,6 +8,7 @@ use App\Models\Activity;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use App\Jobs\CreateActivityScore;
 use Log;
+use App\Jobs\SendActivityTodayNotic;
 
 class Kernel extends ConsoleKernel
 {
@@ -44,9 +45,13 @@ class Kernel extends ConsoleKernel
 
                 $this->dispatch($createdActivityScore);
 
+                $sendActivityNotic = (new SendActivityTodayNotic($activity))->delay($i);
+
+                $this->dispatch($sendActivityNotic);
+
                 $i++;
             }
 
-        })->dailyAt('14:36');
+        })->dailyAt('14:20');
     }
 }
