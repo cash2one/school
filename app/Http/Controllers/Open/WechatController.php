@@ -32,7 +32,7 @@ class WechatController extends OpenController
 
         $server->setMessageHandler(function($message){
 
-            return 'null';
+            return null;
         });
 
         $response = $server->serve();
