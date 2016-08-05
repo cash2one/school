@@ -89,25 +89,25 @@
             },
             rules: {
                 name: {
-                    required: true,
+                    required: true
                 },
                 start_time: {
-                    required: true,
+                    required: true
                 },
                 end_time: {
-                    required: true,
-                },
+                    required: true
+                }
             },
             messages: {
                 name: {
-                    required: '此项不能为空',
+                    required: '此项不能为空'
                 },
                 start_time: {
-                    required: '此项不能为空',
+                    required: '此项不能为空'
                 },
                 end_time: {
-                    required: '此项不能为空',
-                },
+                    required: '此项不能为空'
+                }
             }
         });
     });
