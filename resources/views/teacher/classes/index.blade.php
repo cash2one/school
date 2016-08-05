@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <title>老师任课班级列表</title>
+    <title>任课班级列表</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
 </head>
@@ -20,10 +20,12 @@
                             <span>{{ $course->grade->name }}（{{ $course->classes->name }}）</span>
                             <span>任课：{{ $course->name}}</span>
                         </a>
+                        <!--
                         <p>
                             <a class="work" href="{{ url('/teacher/task/add',['id' => $course->id]) }}">发布作业</a>
                             <a class="task" href="{{ url('/teacher/activity/add',['id' => $course->id]) }}">发布任务</a>
                         </p>
+                        -->
                     </div>
                 </li>
             @endforeach
