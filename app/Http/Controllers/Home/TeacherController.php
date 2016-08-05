@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Home;
 
 
+use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -41,61 +42,54 @@ class TeacherController extends HomeController
      * @param User $user
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function save(Request $request,User $user)
+    public function save(Request $request,User $user,Teacher $teacher)
     {
         DB::beginTransaction();
 
         try
         {
-            if(Auth::attempt(['email' => $request->email,'password' => $request->password]))
+            $teacher = $teacher->where(['teacher_id' => $request->teacher_id,'mobile' => $request->mobile])->first();
+
+            if($teacher)
             {
-                $user = $user->where(['email' => $request->email])->first();
-
-                if($user->hasRole('teacher'))
+                if($this->user->hasRole('parents'))
                 {
-                    if($this->user->hasRole('parents'))
-                    {
-                        $this->user->attachRole(4);
-                    }
-                    else
-                    {
-                        $user->openid = $this->user->openid;
+                    $this->user->attachRole(4);
 
-                        $user->name = $user->teacher->name;
+                    $teacher->user_id = $this->user->id;
 
-                        $user->password = bcrypt($this->user->openid);
+                    $teacher->save();
+                }
+                else
+                {
+                    $this->user->name = $teacher->name;
 
-                        $user->save();
+                    $teacher->user_id = $this->user->id;
 
-                        $this->user->delete();
+                    $this->user->save();
 
-                        Auth::logout();
-
-                        Auth::login($user);
-
-                        DB::commit();
-                    }
-
-                    return redirect('/teacher');
+                    $teacher->save();
                 }
 
-                DB::rollBack();
+                DB::commit();
 
-                return redirect()->back()->with('status',[
-                    'code' => 'fail',
-                    'msg'  => '您不具备老师身份'
+                return redirect('/teacher')->with('status',[
+                    'code' => 'success',
+                    'msg'  => '绑定成功'
                 ]);
             }
 
+            DB::rollBack();
+
             return redirect()->back()->with('status',[
                 'code' => 'fail',
-                'msg'  => '账号或密码错误'
+                'msg'  => '您不具备老师身份'
             ]);
         }
         catch(Exception $exception)
         {
             DB::rollBack();
-            dd($exception);
+
             return redirect()->back()->with('status',[
                 'code' => 'fail',
                 'msg'  => '系统异常错误代码：'.$exception->getCode()

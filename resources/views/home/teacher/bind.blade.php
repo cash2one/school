@@ -18,8 +18,8 @@
                 <p class="por_img fillet"><img src="{{ $wechatUser['headimgurl'] }}" /></p>
             </div>
             <ul class="bind_mgs">
-                <li><p><strong><img src="/images/icon/icon_user.png" /></strong><input placeholder="账号" name="email" type="text"/><b></b></p></li>
-                <li><p><strong><img src="/images/icon/icon_password.png" /></strong><input placeholder="密码"  name="password" type="password"/><b></b></p></li>
+                <li><p><strong><img src="/images/icon/icon_user.png" /></strong><input placeholder="教师工号" name="teacher_id" type="text"/><b></b></p></li>
+                <li><p><strong><img src="/images/icon/icon_password.png" /></strong><input placeholder="手机号"  name="mobile" type="text"/><b></b></p></li>
             </ul>
             <p>
                 <input class="bind_btn" type="submit" value="登录" />
