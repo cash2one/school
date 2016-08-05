@@ -32,34 +32,7 @@ class WechatController extends OpenController
 
         $server->setMessageHandler(function($message){
 
-            switch($message->MsgType)
-            {
-                case 'event':
-                    # 事件消息...
-                    break;
-                case 'text':
-                    return '接收到文字消息';
-                    break;
-                case 'image':
-                    # 图片消息...
-                    break;
-                case 'voice':
-                    # 语音消息...
-                    break;
-                case 'video':
-                    # 视频消息...
-                    break;
-                case 'location':
-                    # 坐标消息...
-                    break;
-                case 'link':
-                    # 链接消息...
-                    break;
-                // ... 其它消息
-                default:
-                    return 'null';
-                    break;
-            }
+            return 'null';
         });
 
         $response = $server->serve();
