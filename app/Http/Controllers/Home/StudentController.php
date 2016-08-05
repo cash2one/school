@@ -123,13 +123,20 @@ class StudentController extends HomeController
 
         try
         {
-            $parents->name = $request->name;
+            if(!$this->user->hasRole('parents'))
+            {
+                $parents->name = $request->name;
 
-            $parents->auth_time = time();
+                $parents->auth_time = time();
 
-            $parents->user_id = $this->user->id;
+                $parents->user_id = $this->user->id;
 
-            $parents->save();
+                $parents->save();
+            }
+            else
+            {
+                $parents = $this->user->family;
+            }
 
             $parents->students()->save($student);
 
