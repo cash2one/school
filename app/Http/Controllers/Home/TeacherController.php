@@ -32,6 +32,8 @@ class TeacherController extends HomeController
      */
     public function bind()
     {
+        dd($this->user);
+
         return view('home.teacher.bind');
     }
 
