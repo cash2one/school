@@ -56,7 +56,7 @@
                             <h3>{{ $student->name }}</h3>
                             <p>{{ $student->grade->name }} {{ $student->classes->name }}</p>
                         </div>
-                        <span class="now_child"><img src="/images/icon/icon_now.png" /></span>
+                        <!--<span class="now_child"><img src="/images/icon/icon_now.png" /></span>-->
                     </a>
                 </li>
             @endforeach
