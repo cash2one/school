@@ -9,12 +9,12 @@
 .teach_btn{ display: block; width: 5rem; height: 3.6rem; color: #fff; line-height: 3.6rem; text-align: center; padding-left: 2rem; background: #00AC92 url(../images/icon/leave.png) no-repeat .5rem; background-size: 2rem; border-radius: .3rem; margin: 1.2rem 0}
 /*老师任课班级列表*/
 .course{}
-.course li{ float: left; width: 50%; line-height: 2.6rem; text-align: center; box-sizing: border-box; padding: .5rem; font-size: 1.4rem;}
+.course li{ width: 100%; line-height: 2.6rem; text-align: center; box-sizing: border-box; padding: .5rem; font-size: 1.4rem;}
 .course li .course_box{ box-shadow: 2px  2px 2px #eee; border: 1px solid #ddd; padding: 1rem; border-radius: .3rem;}
 .course li span{ display: block; line-height: 1.6rem; margin: .5rem 0}
 .course li .more_class{ line-height: 6rem; color: #00AC92;}
 .course li p{ text-align: center;}
-.course p a{ display: inline-block; border-radius: .3rem; line-height: 3rem; margin: .5rem .5rem; padding: 0 .5rem; background: #00AC92; color: #fff; font-size: 1.2rem;}
+.course p a{ display: inline-block; border-radius: .3rem; line-height: 3rem; margin: .5rem; padding: 0 1rem; background: #00AC92; color: #fff; font-size: 1.4rem;}
 /*绑定学生列表*/
 .child_list{ padding:0 1rem;}
 .child_list li{ border-radius: .3rem; box-shadow: 0 0 8px #bbb; position: relative;  padding: 1rem; margin: 2rem 0 }
@@ -42,9 +42,9 @@
 /*通知列表（老师）*/
 .notice_type{ text-align: center; border-bottom: 1px solid #d7d7d7;}
 .notice_type ul{ line-height: 3.6rem; height: 3.6rem;  border:1px solid #00AC92; border-radius: .5rem; overflow: hidden; display: inline-block; margin: 1rem auto;}
-.notice_type li{ width: 8rem; border-right: .1rem solid #fff; background: #00AC92; color: #fff; float: left; box-sizing: border-box;}
+.notice_type li{ width: 8rem; border-right: .1rem solid #fff; background: #fff; color: #00AC92; float: left; box-sizing: border-box;}
 .notice_type li:last-child{ border-right: none;}
-.notice_type li.cur{ background: #fff; color: #00AC92;}
+.notice_type li.cur{ background: #00AC92; color: #fff;}
 .notice_history{}
 .notice_history li{ padding: 1rem; border-bottom: 1px dashed #d7d7d7;}
 .notice_history li.read{ color: #999}
@@ -79,13 +79,13 @@
 .cover_box p input{ border: none;  height: 5rem; width: 100%; font-size: 1.6rem;}
 .cover_box p label{ position: absolute; right: 0; top: 0;}
 .cover_box h3 input{ border: none;  height: 5rem; width: 100%; font-size: 1.6rem; font-weight: bolder}
-.cover_box .text_cont { padding: 0 .5rem;}
+.cover_box .text_cont { padding: 0 .5rem; border: .1rem solid #ddd;}
 .cover_box .text_cont textarea{ width: 100%; min-height: 10rem; line-height: 2.6rem; border: none; font-size: 2rem; padding: 1rem 0}
 .cover_btn{ padding: 0 1rem;}
 .cover_btn .sure_btn{ width: 7rem; background: #00AC92; color: #fff; height: 3rem; border-radius: .3rem; font-size: 1.4rem; border: none;}
 .cover_btn p select{ height: 3rem; width: 7rem; background: #fff; margin-left: 1rem; border-radius: .3rem; border: 1px solid #00AC92;}
-.edit_btn{ height: 7rem;}
-.edit_btn .sure_btn{ width: 80%; margin: 2rem 10%; background: #00AC92; color: #fff; height: 3rem; border-radius: .3rem; font-size: 1.4rem; border: none;}
+.edit_btn{ height: 4rem;  padding: 2rem;}
+.edit_btn .sure_btn{ width: 100%; background: #00AC92; color: #fff; height: 4rem; border-radius: .3rem; font-size: 1.6rem; border: none;}
 .up_img{ padding: 1rem;  border-bottom: 1px solid #d7d7d7; height: 6rem;}
 .up_img li{ float: left; width: 25%;}
 .up_img li img{ width: 6rem; height: 6rem; margin: 0 auto; border: 1px dashed #d7d7d7;}
