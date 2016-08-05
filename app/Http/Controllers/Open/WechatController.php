@@ -88,7 +88,7 @@ class WechatController extends OpenController
                     [
                         "type" => "view",
                         "name" => "关于产品",
-                        "url"  => "http://kdjx.sanchi.xin"
+                        "url"  => "http://www.hnixue.com/Html/Pro/kdjx/"
                     ],
                     [
                         "type" => "view",
