@@ -18,6 +18,7 @@
             <p><span>班&nbsp;&nbsp;&nbsp;级：</span>{{ $course->grade->name }}（{{ $course->classes->name }}）</p>
         </div>
     </div>
+    @if(isset($scores))
     <div class="single_grade">
         <dl>
             <dt>学号</dt>
@@ -34,6 +35,7 @@
         </dl>
         @endforeach
     </div>
+    @endif
 </div>
 @include('layout.footer')
 </body>

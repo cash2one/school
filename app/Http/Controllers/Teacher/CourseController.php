@@ -28,6 +28,13 @@ class CourseController extends TeacherController
 
         $exam = $exam->where('classes_id',$course->classes->id)->orderBy('created_at','desc')->first();
 
+        if(!$exam)
+        {
+            return view('teacher.course.detail',[
+                'course' => $course,
+            ]);
+        }
+
         $scores = $exam->scores()->where([
             'course_id' => $course->id
         ])->get();
