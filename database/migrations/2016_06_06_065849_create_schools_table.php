@@ -22,6 +22,8 @@ class CreateSchoolsTable extends Migration
             $table->text('content')->nullable()->comment('学校内容');
             $table->string('address')->nullable()->comment('学校地址');
             $table->integer('people_number')->default(0)->comment('学校人数');
+            $table->decimal('service_charges',18,2)->default(10)->comment('服务费/月');
+            $table->integer('free_days')->default(0)->comment('免费天数');
             $table->integer('created_at')->comment('创建时间');
             $table->integer('updated_at')->comment('更新时间');
             $table->integer('deleted_at')->nullable()->comment('删除时间');

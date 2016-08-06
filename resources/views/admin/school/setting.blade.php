@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label class="control-label col-lg-2">学校名称：</label>
                         <div class="col-lg-10">
-                            <input type="text" name="name" property="请输入学校名称" value="" class="form-control input-sm" >
+                            <input type="text" name="name" property="请输入学校名称" value="{{ $school->name }}" class="form-control input-sm" >
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
 
