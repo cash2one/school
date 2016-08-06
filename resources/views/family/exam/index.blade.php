@@ -24,7 +24,7 @@
     @if(count($exams) == 0)
         <div class="grade_none">
             <p class="img"><img src="/images/icon/icon_none.png" /></p>
-            <p class="text">暂无内容</p>
+            <p class="text">暂无考试</p>
         </div>
     @else
     <div class="notice">

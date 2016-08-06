@@ -17,7 +17,7 @@
     @if(count($students) == 0)
         <div class="grade_none">
             <p class="img"><img src="/images/icon/icon_none.png" /></p>
-            <p class="text">还未绑定学生</p>
+            <p class="text">未绑定学生</p>
         </div>
     @else
     <div class="child_list">
