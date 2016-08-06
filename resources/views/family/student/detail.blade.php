@@ -68,7 +68,10 @@
         </div>
     </div>
     @else
-
+        <div class="grade_none">
+            <p class="img"><img src="/images/icon/icon_none.png" /></p>
+            <p class="text">暂无内容</p>
+        </div>
     @endif
 </div>
 @if($status['code'] == 'fail')
