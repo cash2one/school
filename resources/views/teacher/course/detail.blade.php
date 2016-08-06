@@ -35,6 +35,10 @@
         </dl>
         @endforeach
     </div>
+    @else
+        <div class="single_grade">
+            暂无考试
+        </div>
     @endif
 </div>
 @include('layout.footer')
