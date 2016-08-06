@@ -44,6 +44,14 @@ class StudentController extends FamilyController
 
         $exam = $exam->where('classes_id',$student->classes->id)->orderBy('id','desc')->first();
 
+        if(!$exam)
+        {
+            return view('family.student.detail',[
+                'student' => $student,
+                'status' => $this->hasStudentEndTime($student,$this->user)
+            ]);
+        }
+
         $firstScores = $exam->scores;
 
         $studentScore = [];

@@ -33,7 +33,7 @@
         .grade_type_cc li a{ width:100%; text-align:center; display:block; color:inherit; font-size:1.4rem;}
         .grade_type_cc li a img{width:40%;}
     </style>
-
+    @if(isset($firstScores))
     <div class="grade_box">
         <ul>
             @foreach($firstScores as $score)
@@ -55,9 +55,6 @@
             <li><span>年级：暂无</span></li>
         </ul>
     </div>
-    <style>
-
-    </style>
     <div class="graph_title"><span></span>学情分析
         <ul  class="graph_type">
             <li><a href="#"><i></i>分数</a></li>
@@ -70,6 +67,9 @@
             <canvas id="grades"></canvas>
         </div>
     </div>
+    @else
+
+    @endif
 </div>
 @if($status['code'] == 'fail')
 <div class="blank_bg" style="display: block;">
