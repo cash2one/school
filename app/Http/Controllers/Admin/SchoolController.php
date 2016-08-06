@@ -175,8 +175,32 @@ class SchoolController extends AdminController
         ]);
     }
 
+    /**
+     * 保存设置
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function saveSetting(Request $request)
     {
+        $school = $this->user->school;
 
+        $school->name = $request->name;
+
+        $school->service_charges = $request->service_charges;
+
+        $school->free_days = $request->free_days;
+
+        if($school->save())
+        {
+            return redirect()->back()->with('status',[
+                'code' => 'success',
+                'msg'  => '保存成功'
+            ]);
+        }
+
+        return redirect()->back()->with('status',[
+            'code' => 'fail',
+            'msg'  => '保存失败'
+        ]);
     }
 }
