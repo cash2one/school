@@ -26,9 +26,18 @@
                     </div><!-- /form-group -->
 
                     <div class="form-group">
-                        <label class="control-label col-lg-2">免费体验时间：</label>
-                        <div class="col-lg-10">
-                            <input type="text" name="free_days" property="请输入可以免费试用的天数" value="{{ $school->free_days }}" class="form-control input-sm" >
+                        <label class="control-label col-lg-2">免费时间：</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control input-sm appDate" readonly="readonly" name="date_start"  >
+                            <span class="help-block"></span>
+                        </div><!-- /.col -->
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control input-sm appDate" readonly="readonly" name="date_end" >
+                            <span class="help-block"></span>
+                        </div><!-- /.col -->
+                        <label class="control-label col-lg-1">共计（天）：</label>
+                        <div class="col-lg-1">
+                            <span class="help-block text-danger">123</span>
                         </div><!-- /.col -->
                     </div><!-- /form-group -->
 
