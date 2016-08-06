@@ -13,6 +13,13 @@
 </head>
 <body>
 <div class="warp_bg">
+
+    @if(count($students) == 0)
+        <div class="grade_none">
+            <p class="img"><img src="/images/icon/icon_none.png" /></p>
+            <p class="text">还未绑定学生</p>
+        </div>
+    @else
     <div class="child_list">
         <ul>
             @foreach($students as $student)
@@ -34,6 +41,7 @@
             </li>
         </ul>
     </div>
+    @endif
 </div>
 <!--返回顶部-->
 <div class="gotop"><a onclick="gotoTop();return false;"><img src="/images/icon/icon_top.png" /></a></div>
