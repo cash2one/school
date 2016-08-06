@@ -81,6 +81,7 @@
 </div>
 @endif
 @include('layout.footer')
+@if(isset($firstScores))
 <script type="text/javascript" src="/js/Chart.js"></script>
 <script>
     var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
@@ -129,6 +130,6 @@
         });
     }
 </script>
-
+@endif
 </body>
 </html>
