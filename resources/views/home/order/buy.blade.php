@@ -25,9 +25,9 @@
 <div class="recharge">
     <form id="recharge_form" method="post" action="{{ url('/order/buy') }}">
         {!! csrf_field() !!}
-        <label class="cur"><input type="radio" value="0.01" name="total" checked /><i><b></b></i><span>30元/3个月</span></label>
-        <label><input type="radio" value="60" name="total" /><i><b></b></i><span>60元/6个月</span></label>
-        <label><input type="radio" name="total" value="120" /><i><b></b></i><span>120元/12个月</span></label>
+        <label class="cur"><input type="radio" value="{{ $student->school->service_charges * 3 }}" name="total" checked /><i><b></b></i><span>{{ $student->school->service_charges * 3 }} 元/3个月</span></label>
+        <label><input type="radio" value="{{ $student->school->service_charges * 6 }}" name="total" /><i><b></b></i><span>{{ $student->school->service_charges * 6 }}元/6个月</span></label>
+        <label><input type="radio" name="total" value="{{ $student->school->service_charges * 120 }}" /><i><b></b></i><span>{{ $student->school->service_charges * 12 }}元/12个月</span></label>
         <div class="give_btn"><input type="submit" value="确认付款"></div>
         <input type="hidden" name="student_id" value="{{ $student->id }}">
     </form>
