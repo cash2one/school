@@ -20,6 +20,13 @@
             <li><a href="{{ url('/family/activity/student',['id' => $student->id]) }}">活动</a></li>
         </ul>
     </div>
+
+    @if(count($exams) == 0)
+        <div class="grade_none">
+            <p class="img"><img src="/images/icon/icon_none.png" /></p>
+            <p class="text">暂无内容</p>
+        </div>
+    @else
     <div class="notice">
         <ul>
             @foreach($exams as $exam)
@@ -34,6 +41,7 @@
             @endforeach
         </ul>
     </div>
+    @endif
 </div>
 <!--返回顶部-->
 <div class="gotop"><a onclick="gotoTop();return false;"><img src="/images/icon/icon_top.png" /></a></div>
