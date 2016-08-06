@@ -272,6 +272,10 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
             Route::get('detail/{id}','SchoolController@detail');
 
+            Route::get('setting','SchoolController@setting');
+
+            Route::post('setting','SchoolController@saveSetting');
+
         });
 
         /**

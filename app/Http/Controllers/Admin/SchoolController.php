@@ -163,4 +163,20 @@ class SchoolController extends AdminController
             ]);
         }
     }
+
+    /**
+     * 学校设置
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function setting()
+    {
+        return view('admin.school.setting',[
+            'school' => $this->user->school
+        ]);
+    }
+
+    public function saveSetting(Request $request)
+    {
+
+    }
 }

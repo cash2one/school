@@ -200,6 +200,21 @@
                     </li>
                     @endrole
 
+
+                    @role('school')
+                    <li class="bg-palette2">
+                        <a href="{{ url('/admin/school/setting') }}">
+                            <span class="menu-content block">
+                                <span class="menu-icon"><i class="block fa fa-puzzle-piece fa-lg"></i></span>
+                                <span class="text m-left-sm">学校设置</span>
+                            </span>
+                            <span class="menu-content-hover block">
+                                教师
+                            </span>
+                        </a>
+                    </li>
+                    @endrole
+
                     @role('administrator')
                     <li class="bg-palette4">
                         <a href="{{ url('/admin/role') }}">
