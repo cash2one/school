@@ -138,7 +138,12 @@ class StudentController extends HomeController
                 $parents = $this->user->family;
             }
 
-            $parents->students()->save($student);
+            DB::table('parent_student')->insert([
+                'parent_id' => $parents->id,
+                'student_id' => $student->id,
+                'bind_time' => time(),
+                'end_time' => time() + ($student->school->free_days * 86400),
+            ]);
 
             //若不存在该角色，则添加
             if(!$this->user->hasRole('parents'))
