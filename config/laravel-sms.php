@@ -93,7 +93,7 @@ return [
     | 验证码有效时间长度，单位为分钟(minutes)
     |
     */
-    'verifySmsContent' => '【美购网】亲爱的用户，您的验证码是%s。有效期为%s分钟，请尽快验证',
+    'verifySmsContent' => '【口袋家校】亲爱的用户，您的验证码是%s。有效期为%s分钟，请尽快验证',
     'codeLength'       => 5,
     'codeValidMinutes' => 5,
 
