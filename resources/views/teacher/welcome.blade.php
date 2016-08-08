@@ -17,7 +17,7 @@
     </div>
     <div class="all_edit">
         <ul>
-            <li><a href="{{ url('/teacher/news/add') }}">发布<br/>通知</a></li>
+            <li onclick="notic()"><a href="javascript:void(0);">发布<br/>通知</a></li>
             <li><a href="{{ url('/teacher/task/add') }}">发布<br/>作业</a></li>
             <li><a href="{{ url('/teacher/activity/add') }}">发布<br/>活动</a></li>
         </ul>

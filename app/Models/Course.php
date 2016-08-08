@@ -39,4 +39,12 @@ class Course extends Common
     {
         return $this->hasOne('App\Models\Classes','id','classes_id');
     }
+
+    /**
+     * 学校信息
+     */
+    public function school()
+    {
+        return $this->hasOne('App\Models\School','id','school_id');
+    }
 }
