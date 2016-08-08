@@ -247,6 +247,8 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
                 Route::get('add','NewsController@add');
 
+                Route::post('add','NewsController@store');
+
             });
 
         });
