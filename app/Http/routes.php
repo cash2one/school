@@ -243,6 +243,12 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
             });
 
+            Route::group(['prefix' => 'news'],function(){
+
+                Route::get('add','NewsController@add');
+
+            });
+
         });
     });
 
