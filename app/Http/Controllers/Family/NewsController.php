@@ -32,7 +32,7 @@ class NewsController extends FamilyController
         {
             if($sql == '')
             {
-                $sql = 'classes_id = '.$student->classes_id;
+                $sql = "classes_id = ".$student->classes_id;
             }
             else
             {
