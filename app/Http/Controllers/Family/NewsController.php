@@ -26,11 +26,11 @@ class NewsController extends FamilyController
     {
         $students = $this->user->family->students;
 
-        $news = $news->whereExists(function($query)use($students){
+        $news = $news->where(function($query)use($students){
 
             foreach ($students as $student)
             {
-                $query->orWhere('school_id',$student->id);
+                $query->orWhere('classes_id',$student->classes_id);
             }
 
         })->paginate(25);
