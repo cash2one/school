@@ -32,6 +32,7 @@ class NewsController extends TeacherController
      * 存储通知信息
      * @param Request $request
      * @param Course $course
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request,Course $course)
     {
@@ -56,12 +57,20 @@ class NewsController extends TeacherController
             }
 
             DB::commit();
+
+            return redirect('/teacher')->with('status',[
+                'code' => 'success',
+                'msg'  => '发布成功'
+            ]);
         }
         catch (Exception $e)
         {
             DB::rollBack();
 
-            dd($e);
+            return redirect()->back()->with('status',[
+                'code' => 'error',
+                'msg'  => '发布失败'
+            ]);
         }
     }
 }
