@@ -28,7 +28,7 @@ class NewsController extends FamilyController
 
         $news = $news->where([
             'school_id' => $student->school_id
-        ])->orderBy('id','desc')->paginate(25);
+        ])->orderBy('id','desc')->get();
 
         foreach ($news as $item)
         {
