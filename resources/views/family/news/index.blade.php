@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <title>/通知新闻列表</title>
+    <title>全部通知</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
 <div class="warp_bg">
@@ -30,10 +31,37 @@
                         <p><span class="fl">{{ $item->created_at }}</span>{{ $item->detail }}</p>
                     </div>
                 </a>
+                <div class="blank_bg">
+                    <div class="mark_tip">
+                        <div class="mark_tip_men">
+                            <i class="close"></i>
+                            <div class="tip_men_cont">
+                                <h3>{{ $item->name }}</h3>
+                            </div>
+                        </div>
+                        <div class="mark_mgs">
+                            <p>{{ $item->detail }}</p>
+                        </div>
+                    </div>
+                </div>
             </li>
+
             @endforeach
+
+
         </ul>
     </div>
 </div>
+<script>
+
+    $(".notice ul li").click(function(){
+        //$(".blank_bg").show();
+
+        $(this).find('.blank_bg').show();
+    });
+    $(".mark_tip_men .close").click(function(){
+        $(this).parents('li').find('.blank_bg').hide();
+    });
+</script>
 </body>
 </html>

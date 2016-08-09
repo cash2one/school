@@ -33,7 +33,7 @@
 
     $(".incited_btn a").bind('click',function(){
 
-
+        $(".jump_box").show();
 
     })
 </script>

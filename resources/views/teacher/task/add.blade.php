@@ -15,10 +15,10 @@
 <div class="warp_bg">
     <form method="post" action="{{ url('/teacher/task/add') }}">
         <div class="up_img">
-            <ul style="float: left;">
+            <ul>
 
             </ul>
-            <div style="width: 5rem; float: left;">
+            <div class="img_btn">
                 <img src="/images/icon/icon_add.png" />
             </div>
         </div>
