@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Jobs\SendTaskNotice;
 use DB;
 use Exception;
+use EasyWeChat\Foundation\Application;
 
 class TaskController extends TeacherController
 {

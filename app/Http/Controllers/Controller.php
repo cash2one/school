@@ -10,6 +10,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Auth;
+use EasyWeChat\Foundation\Application;
 
 class Controller extends BaseController
 {
@@ -37,7 +38,18 @@ class Controller extends BaseController
             abort(403);
         }
 
-        view()->share('wechatUser',$this->oauthUser->getOriginal());
+        $app = new Application(config('wechat'));
+
+        $js = $app->js;
+
+        //view()->share('wechatUser',$this->oauthUser->getOriginal());
+
+        view()->share([
+            'wechatUser' => $this->oauthUser->getOriginal(),
+            'wechatJs' => $js,
+        ]);
+
+
     }
 
     /**

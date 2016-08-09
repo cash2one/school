@@ -13,6 +13,13 @@
 <body>
 <div class="warp_bg">
     <form method="post" action="{{ url('/teacher/task/add') }}">
+        <div class="up_img">
+            <ul>
+                <li><img src="/images/icon/icon_add.png" /></li>
+                <li><img src="/images/icon/icon_add.png" /></li>
+                <li><img src="/images/icon/icon_add.png" /></li>
+            </ul>
+        </div>
         {!! csrf_field() !!}
         <div class="cover_box">
             <div class="text_cont"><textarea name="detail" placeholder="作业内容"></textarea></div>
