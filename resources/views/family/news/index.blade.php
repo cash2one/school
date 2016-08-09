@@ -55,7 +55,14 @@
         $(this).find('.blank_bg').show();
     });
     $(".close").click(function(){
-        $("#"+$(this).attr('data-id')).hide();
+        $(".blank_bg").each(function(){
+
+            if($(this).isShown)
+            {
+                $(this).hide();
+            }
+
+        });
     });
 </script>
 </body>
