@@ -15,15 +15,15 @@
 <div class="warp_bg">
     <form method="post" action="{{ url('/teacher/task/add') }}">
         <div class="up_img">
-            <ul>
+            <ul style="float: left;">
 
             </ul>
-            <div>
+            <div style="width: 5rem; float: left;">
                 <img src="/images/icon/icon_add.png" />
             </div>
         </div>
         {!! csrf_field() !!}
-        <div class="cover_box">
+        <div class="cover_box clear">
             <div class="text_cont"><textarea name="detail" placeholder="作业内容"></textarea></div>
         </div>
         <div class="select_grade">
