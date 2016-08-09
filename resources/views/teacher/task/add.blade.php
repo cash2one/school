@@ -64,7 +64,7 @@
 
     $(".up_img ul li").bind('click',function(){
 
-        var dom = $(this);
+        var dom = $(".up_img ul");
 
         wx.chooseImage({
             count: 4, // 默认9
