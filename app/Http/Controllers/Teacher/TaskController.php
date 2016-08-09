@@ -64,11 +64,6 @@ class TaskController extends TeacherController
 
             $temporary = $app->material_temporary;
 
-            if (!is_dir('./upload/task'))
-            {
-                mkdir('./upload/task');
-            }
-
             foreach ($request->course_id as $item)
             {
                 $course = new Course();
@@ -87,11 +82,15 @@ class TaskController extends TeacherController
 
                 foreach ($request->images as $image)
                 {
-                    $temporary->download($image, "./upload/task", $image.".jpg");
+                    $savePath = "./uploads/tasks";
+
+                    $saveName = $image.".jpg";
+
+                    $temporary->download($image,$savePath,$saveName);
 
                     DB::table('task_image')->insert([
                         'task_id' => $task->id,
-                        'local_url' => '/upload/task/'.$image.'.jpg',
+                        'local_url' => $savePath.'/'.$saveName,
                         'origin_url' => $image,
                         'created_at' => time(),
                         'updated_at' => time(),
