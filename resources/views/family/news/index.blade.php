@@ -45,22 +45,17 @@
                     </div>
                 </div>
             </li>
-
             @endforeach
-
-
         </ul>
     </div>
 </div>
 <script>
 
     $(".notice ul li").click(function(){
-        //$(".blank_bg").show();
-
         $(this).find('.blank_bg').show();
     });
-    $(".mark_tip_men .close").click(function(){
-        $(this).parent().parent().parent().hide();
+    $(".close").click(function(){
+        $(this).parents('.blank_bg').hide();
     });
 </script>
 </body>
