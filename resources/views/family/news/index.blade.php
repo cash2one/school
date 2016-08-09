@@ -60,7 +60,7 @@
         $(this).find('.blank_bg').show();
     });
     $(".mark_tip_men .close").click(function(){
-        $(this).parents('.blank_bg').hide();
+        $(this).parent().parent().parent().hide();
     });
 </script>
 </body>
