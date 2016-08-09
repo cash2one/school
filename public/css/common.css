@@ -94,9 +94,10 @@ form label.error { color: red; margin-left: 5px;  font-size:1.6rem; padding-left
 .in_bind{ background:url(../images/gd.jpg) no-repeat center; background-size: cover; overflow: hidden;}
 .in_mind{ line-height: 2rem;padding: 1rem 0; border-bottom: .1rem dashed #00AC92; margin-bottom: 2rem; font-size: 1.4rem;}
 .in_mind span{ color: #f60; margin: 0 .5rem;}
-.student{ width: 90%; margin: 3rem auto 0; padding: 2rem 1rem; background: rgba(255,255,255,.7); position: relative; height: auto; box-sizing: border-box; border-radius: .3rem; }
-.student_list{ clear: both; margin-bottom: 2rem; padding: 1rem}
+.student_list{ clear: both; margin-bottom: 2rem; padding: 1rem; position: relative;}
 .student_list.cur{ border: .1rem dashed #00AC92;}
+.student_list i{ position: absolute; width: 2rem; height: 2rem; right: 0; bottom: 0; background: url(images/icon/icon_select_now.png) no-repeat; background-size: 2rem; display: none;}
+.student_list.cur i{ display: block;}
 .in_bind .student{margin: 3rem auto 0; padding: 2rem;}
 .student_poto{  width: 6rem; height: 6rem; border-radius: 50%; border: .2rem solid #fff; overflow: hidden; float: left; margin-right: 1rem; }
 .student_msg h3{ font-weight: normal; font-size: 1.4rem; line-height: 2rem;}
