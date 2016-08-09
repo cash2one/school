@@ -31,7 +31,8 @@ class NewsController extends FamilyController
         ])->orderBy('id','desc')->paginate(25);
 
         return view('family.news.index',[
-            'news' => $news
+            'news' => $news,
+            'student' => $student
         ]);
     }
 }
