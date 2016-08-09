@@ -30,6 +30,8 @@ class NewsController extends FamilyController
             'school_id' => $student->school_id
         ])->orderBy('id','desc')->paginate(25);
 
+        dd($news);
+
         return view('family.news.index',[
             'news' => $news,
             'student' => $student
