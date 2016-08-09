@@ -14,6 +14,8 @@ use App\Jobs\SendTaskNotice;
 use DB;
 use Exception;
 use EasyWeChat\Foundation\Application;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class TaskController extends TeacherController
 {
@@ -58,6 +60,15 @@ class TaskController extends TeacherController
 
         try
         {
+            $app = new Application(config('wechat'));
+
+            $temporary = $app->material_temporary;
+
+            if (!is_dir('./upload/task'))
+            {
+                mkdir('./upload/task');
+            }
+
             foreach ($request->course_id as $item)
             {
                 $course = new Course();
@@ -73,6 +84,19 @@ class TaskController extends TeacherController
                     'name' => $course->name,
                     'detail' => $request->detail,
                 ]);
+
+                foreach ($request->images as $image)
+                {
+                    $temporary->download($image, "./upload/task", $image.".jpg");
+
+                    DB::table('task_image')->insert([
+                        'task_id' => $task->id,
+                        'local_url' => '/upload/task/'.$image.'.jpg',
+                        'origin_url' => $image,
+                        'created_at' => time(),
+                        'updated_at' => time(),
+                    ]);
+                }
 
                 $this->sendNotic($task);
             }
