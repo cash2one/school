@@ -92,6 +92,8 @@
 
                             li.append(img);
 
+                            li.append(input);
+
                             dom.append(li);
                         }
                     });
