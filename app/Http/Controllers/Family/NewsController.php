@@ -35,4 +35,19 @@ class NewsController extends FamilyController
             'student' => $student
         ]);
     }
+
+    /**
+     * 新闻详情
+     * @param Request $request
+     * @param News $news
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function detail(Request $request,News $news)
+    {
+        $news = $news->findOrFail($request->id);
+
+        return view('family.news.detail',[
+            'news' => $news
+        ]);
+    }
 }

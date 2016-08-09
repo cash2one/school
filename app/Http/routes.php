@@ -167,6 +167,8 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
                 Route::get('student/{id}','NewsController@index');
 
+                Route::get('detail/{id}','NewsController@detail');
+
             });
 
         });

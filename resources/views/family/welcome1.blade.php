@@ -41,6 +41,9 @@
                     <a href="{{ url('/bind/teacher') }}"><span><img src="/images/icon/icon_bind.png" /></span><i></i>成为老师</a>
                 </li>
             @endif
+            <li>
+                <a href="{{ url('/family/student/invited',['sid' => $student->id]) }}"><span><img src="/images/icon/icon_teacher.png" /></span><i></i>给老师留言</a>
+            </li>
         </ul>
     </div>
 </div>
