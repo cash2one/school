@@ -42,7 +42,7 @@
                 </li>
             @endif
             <li>
-                <a href="{{ url('/family/student/invited',['sid' => $student->id]) }}"><span><img src="/images/icon/icon_teacher.png" /></span><i></i>邀请绑定</a>
+                <a href="{{ url('/family/student/invited') }}"><span><img src="/images/icon/icon_teacher.png" /></span><i></i>邀请绑定</a>
             </li>
         </ul>
     </div>

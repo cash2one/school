@@ -104,6 +104,8 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
                 Route::get('detail/{id}','StudentController@detail');
 
+                Route::get('invited','StudentController@invited');
+
             });
 
             /**

@@ -154,4 +154,15 @@ class StudentController extends FamilyController
             'msg' => '服务正常'
         ];
     }
+
+    /**
+     * 邀请绑定
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function invited()
+    {
+        return view('family.student.invited',[
+            'students' => $this->user->parent->students
+        ]);
+    }
 }
