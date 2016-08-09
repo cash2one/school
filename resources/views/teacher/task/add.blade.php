@@ -88,11 +88,13 @@
 
                             var img = $('<img src="'+ res.localId+'" />');
 
-                            var input = $('<input name="images[]" value="'+ res.serverId +'" />');
+                            var input = $('<input name="images[]" type="hidden" value="'+ res.serverId +'" />');
 
-                            li.append(img);
+                            var del = $('<i class="del" />');
 
-                            li.append(input);
+                            li.append(img).append(del).append(input);
+
+                            //li.append(input);
 
                             dom.append(li);
                         }
