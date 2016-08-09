@@ -30,7 +30,7 @@ class NewsController extends FamilyController
 
             foreach ($students as $student)
             {
-                $query->where('school_id',$student->id);
+                $query->orWhere('school_id',$student->id);
             }
 
         })->paginate(25);
