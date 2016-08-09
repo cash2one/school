@@ -162,7 +162,7 @@ class StudentController extends FamilyController
     public function invited()
     {
         return view('family.student.invited',[
-            'students' => $this->user->parent->students
+            'students' => $this->user->family->students
         ]);
     }
 }
