@@ -81,11 +81,11 @@
                         success: function (res) {
                             var serverId = res.serverId; // 返回图片的服务器端ID
 
-                            var li = $("<li class='c'>")
+                            var li = $("<li class='c' />");
 
-                            var img = $("<img>")
+                            var img = $('<img src="'+ res.localId+'" />');
 
-                            img.attr("src",res.localld);
+                            var input = $('<input name="images[]" value="'+ res.serverId +'" />');
 
                             li.append(img);
 
