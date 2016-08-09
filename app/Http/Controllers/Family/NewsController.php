@@ -33,17 +33,12 @@ class NewsController extends FamilyController
             $arr[count($arr)] = $student->class_id;
         }
 
-        var_dump($arr);
-
         $news = $news->whereIn('classes_id',$arr)->toSql();
 
-        var_dump($news);
-        /*
         return view('family.news.index',[
             'news' => $news,
             'student' => $student
         ]);
-        */
     }
 
     /**
