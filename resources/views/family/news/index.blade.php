@@ -56,7 +56,7 @@
     });
 
     $(".close").bind('click',function(){
-        $(this).parent().hide();
+        $(this).parent().parent().hide();
     });
 </script>
 </body>
