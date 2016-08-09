@@ -19,7 +19,7 @@
     <div class="module">
         <ul>
             <li>
-                <a href="{{ url('/family/news/student',['id' => $student->id]) }}"><span><img src="/images/icon/icon_news.png" /></span><i></i>通知</a>
+                <a href="{{ url('/family/news/') }}"><span><img src="/images/icon/icon_news.png" /></span><i></i>通知</a>
             </li>
             <li>
                 <a href="{{ url('/family/message') }}"><span><img src="/images/icon/leave_user.png" /></span><i></i>我的留言</a>
@@ -42,7 +42,7 @@
                 </li>
             @endif
             <li>
-                <a href="{{ url('/family/student/invited',['sid' => $student->id]) }}"><span><img src="/images/icon/icon_teacher.png" /></span><i></i>给老师留言</a>
+                <a href="{{ url('/family/student/invited',['sid' => $student->id]) }}"><span><img src="/images/icon/icon_teacher.png" /></span><i></i>邀请绑定</a>
             </li>
         </ul>
     </div>

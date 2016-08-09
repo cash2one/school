@@ -29,7 +29,7 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void(0)" onclick="notic()">
+            <a href="{{ url('/family/news') }}">
                 <i><img src="/images/icon/icon_tz_hui.png" /></i>
                 <p>通知</p>
             </a>

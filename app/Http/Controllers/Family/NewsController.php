@@ -24,11 +24,16 @@ class NewsController extends FamilyController
      */
     public function index(Request $request,News $news,Student $student)
     {
-        $student = $student->findOrFail($request->id);
+        $students = $this->user->parent->students;
 
-        $news = $news->where([
-            'school_id' => $student->school_id
-        ])->orderBy('id','desc')->paginate(25);
+        $news = $news->whereExists(function($query)use($students){
+
+            foreach ($students as $student)
+            {
+                $query->where('school_id',$student->id);
+            }
+
+        })->paginate(25);
 
         return view('family.news.index',[
             'news' => $news,
