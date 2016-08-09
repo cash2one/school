@@ -24,7 +24,7 @@
         <ul>
             @foreach($news as $item)
             <li>
-                <a href="{{ url('/family/news/detail',['id' => $item->id]) }}">
+                <a href="javascript:void(0);">
                     <div class="notice_img"><img src="/images/face.png" /></div>
                     <div class="notice_cont">
                         <h3>{{ $item->name }}</h3>
