@@ -16,8 +16,11 @@
     <form method="post" action="{{ url('/teacher/task/add') }}">
         <div class="up_img">
             <ul>
-                <li><img src="/images/icon/icon_add.png" /></li>
+
             </ul>
+            <div>
+                <img src="/images/icon/icon_add.png" />
+            </div>
         </div>
         {!! csrf_field() !!}
         <div class="cover_box">
