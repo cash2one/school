@@ -33,6 +33,8 @@ class NewsController extends FamilyController
             array_add($arr,$key,$student->classes_id);
         }
 
+        var_dump($arr);
+
         $news = $news->whereIn('classes_id',$arr)->toSql();
 
         var_dump($news);
