@@ -16,6 +16,7 @@ use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
+use EasyWeChat\Foundation\Application;
 
 class StudentController extends FamilyController
 {

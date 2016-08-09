@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/school.css" >
     <script src="/js/jquery.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
 <div class="invited">
@@ -20,12 +21,21 @@
             <p>学校：{{ $student->school->name }}</p>
             <p>班级：{{ $student->grade->name }}{{ $student->classes->name }}</p>
         </div>
-        <div class="incited_btn"><a href="javascript:void(0);">邀请其他家长</a></div>
+        <div class="incited_btn"><a data-id="{{ $student->id }}" href="javascript:void(0);">邀请其他家长</a></div>
     </div>
     @endforeach
 </div>
 <div class="jump_box" style="display: none;">
     <p><span class="arrow"><img src="/images/arrow.png" /></span>点击右上角发给好友！</p>
 </div>
+<script>
+    wx.config(<?php echo $wechatJs->config(array('onMenuShareAppMessage','uploadImage'), false) ?>);
+
+    $(".incited_btn a").bind('click',function(){
+
+
+
+    })
+</script>
 </body>
 </html>

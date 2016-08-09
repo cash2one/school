@@ -24,7 +24,7 @@ class NewsController extends FamilyController
      */
     public function index(Request $request,News $news,Student $student)
     {
-        $students = $this->user->parent->students;
+        $students = $this->user->family->students;
 
         $news = $news->whereExists(function($query)use($students){
 
