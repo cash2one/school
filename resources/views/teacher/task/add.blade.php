@@ -65,7 +65,7 @@
 <script>
     wx.config(<?php echo $wechatJs->config(array('chooseImage','uploadImage'), true) ?>);
 
-    $(".up_img ul li").bind('click',function(){
+    $(".up_img div img").bind('click',function(){
 
         var dom = $(".up_img ul");
 
