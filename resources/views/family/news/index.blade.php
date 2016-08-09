@@ -56,7 +56,7 @@
     });
 
     $(".blank_bg").bind('click',function(){
-        $(this).hide();
+        $(this).css('display','none');
     });
 </script>
 </body>
