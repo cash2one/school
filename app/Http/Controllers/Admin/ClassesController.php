@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Classes;
 use App\Models\Grade;
+use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
