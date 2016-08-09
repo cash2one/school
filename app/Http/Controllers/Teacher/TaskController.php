@@ -82,7 +82,7 @@ class TaskController extends TeacherController
 
                 foreach ($request->images as $image)
                 {
-                    $savePath = "./uploads/tasks";
+                    $savePath = "/uploads/tasks";
 
                     $saveName = $image.".jpg";
 
