@@ -90,7 +90,7 @@ class TaskController extends TeacherController
 
                     DB::table('task_image')->insert([
                         'task_id' => $task->id,
-                        'local_url' => $savePath.$saveName,
+                        'local_url' => substr($savePath.$saveName,1),
                         'origin_url' => $image,
                         'created_at' => time(),
                         'updated_at' => time(),
