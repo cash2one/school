@@ -48,7 +48,7 @@ class NewsController extends TeacherController
                     'school_id' => $course->school_id,
                     'grade_id' => $course->grade_id,
                     'classes_id' => $course->classes_id,
-                    'category_id' => $course->category_id,
+                    'category_id' => 1,
                     'name' => $request->name,
                     'descs' => $request->name,
                     'detail' => $request->detail
