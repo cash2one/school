@@ -54,8 +54,11 @@
     $(".notice ul li").click(function(){
         $(this).find('.blank_bg').show();
     });
-    $(".close").click(function(){
+
+    $(".close").bind('click',function(){
+
         $(this).parents('div.blank_bg').hide();
+
     });
 </script>
 </body>
