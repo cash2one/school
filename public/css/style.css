@@ -35,10 +35,10 @@
 .notice_cont p span{ float: right; margin-left: 1rem; font-size: 1.2rem;}
 .notice .active h3{ height: 4rem; line-height: 2rem; overflow : hidden; text-overflow: ellipsis; display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical; font-size: 1.6rem; font-weight: normal; }
 .notice .active p { height: 2rem; line-height: 2rem; font-size: 1.4rem; color: #999}
-.news_cont{ padding: 1rem 2rem; font-size: 1.8rem;}
-.news_cont h3{ margin-bottom: 1rem; font-size: 2rem;}
-.news_cont{}
+.news_cont{ padding: 1rem 2rem; font-size: 1.6rem;}
+.news_cont h3{ margin-bottom: 1rem; font-size: 1.6rem; font-weight: normal; color: #333; line-height: 2rem;}
 .news_cont p{ text-indent: 2em;}
+.news_tip{ color: #999; font-size: 1.4rem; margin-bottom: 1rem;}
 /*通知列表（老师）*/
 .notice_type{ text-align: center; border-bottom: 1px solid #d7d7d7;}
 .notice_type ul{ line-height: 3.6rem; height: 3.6rem;  border:1px solid #00AC92; border-radius: .5rem; overflow: hidden; display: inline-block; margin: 1rem auto;}
