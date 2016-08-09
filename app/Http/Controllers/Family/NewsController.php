@@ -26,7 +26,7 @@ class NewsController extends FamilyController
     {
         $students = $this->user->family->students;
 
-        $news = $news->where(function($query)use($students){
+        $news = $news->orWhere(function($query)use($students){
 
             foreach ($students as $student)
             {
