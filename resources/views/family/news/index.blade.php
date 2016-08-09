@@ -51,7 +51,7 @@
 </div>
 <script>
 
-    $(".notice ul li").click(function(){
+    $(".notice ul li a").click(function(){
         $(this).find('.blank_bg').show();
     });
 
