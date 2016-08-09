@@ -57,7 +57,7 @@
 
     $(".close").bind('click',function(){
 
-        $(this).parents('div.blank_bg').hide();
+        $(this).hide();
 
     });
 </script>
