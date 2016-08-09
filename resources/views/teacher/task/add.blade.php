@@ -94,8 +94,6 @@
 
                             li.append(img).append(del).append(input);
 
-                            //li.append(input);
-
                             dom.append(li);
                         }
                     });
