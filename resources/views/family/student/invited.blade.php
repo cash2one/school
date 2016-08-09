@@ -31,6 +31,10 @@
     <p><span class="arrow"><img src="/images/arrow.png" /></span>点击右上角发给好友！</p>
 </div>
 <script>
+    $(function () {
+        $(".student_list").first().addClass('cur');
+    });
+
     wx.config(<?php echo $wechatJs->config(array('onMenuShareAppMessage','uploadImage'), false) ?>);
 
     $(".incited_btn a").bind('click',function(){
