@@ -60,6 +60,8 @@ class NewsController extends TeacherController
         catch (Exception $e)
         {
             DB::rollBack();
+
+            dd($e);
         }
     }
 }
