@@ -24,7 +24,7 @@
         <ul>
             @foreach($news as $item)
             <li>
-                <div class="li">
+                <div class="item-li">
                 <a href="javascript:void(0);">
                     <div class="notice_img"><img src="/images/face.png" /></div>
                     <div class="notice_cont">
@@ -53,8 +53,8 @@
 </div>
 <script>
 
-    $(".notice ul li .li").click(function(){
-        $(this).find('.blank_bg').show();
+    $(".item-li").click(function(){
+        $(this).parent().find('.blank_bg').show();
     });
 
     $(".blank_bg").bind('click',function(){
