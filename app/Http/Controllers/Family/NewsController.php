@@ -30,7 +30,7 @@ class NewsController extends FamilyController
 
         foreach ($students as $key => $student)
         {
-            $arr[count($arr)] = $student->classes_id;
+            $arr[count($arr)] = $student->class_id;
         }
 
         var_dump($arr);
