@@ -33,7 +33,7 @@ class NewsController extends FamilyController
             array_add($arr,$key,$student->classes_id);
         }
 
-        $news = $news->whereIn('classes_id',$arr)->paginate(25);
+        $news = $news->whereIn('classes_id',$arr)->toSql();
 
         return view('family.news.index',[
             'news' => $news,
