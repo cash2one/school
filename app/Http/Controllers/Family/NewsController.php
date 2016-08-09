@@ -10,7 +10,7 @@ namespace App\Http\Controllers\Family;
 
 
 use App\Models\Student;
-use EasyWeChat\Message\News;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends FamilyController
@@ -28,11 +28,11 @@ class NewsController extends FamilyController
 
         $news = $news->where([
             'school_id' => $student->school_id
-        ])->orderBy('id','desc')->get();
+        ])->orderBy('id','desc')->paginate(25);
 
-        foreach ($news as $item)
-        {
-            var_dump($item->id);
-        }
+        return view('family.news.index',[
+            'news' => $news,
+            'student' => $student
+        ]);
     }
 }
