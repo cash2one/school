@@ -26,21 +26,14 @@ class NewsController extends FamilyController
     {
         $students = $this->user->family->students;
 
-        $sql = "";
+        $arr = [];
 
-        foreach ($students as $student)
+        foreach ($students as $key => $student)
         {
-            if($sql == '')
-            {
-                $sql = "classes_id = ".$student->classes_id;
-            }
-            else
-            {
-                $sql .= 'or classes_id = '.$student->classes_id;
-            }
+            array_add($arr,$key,$student->classes_id);
         }
 
-        $news = $news->whereRaw($sql)->paginate(25);
+        $news = $news->whereIn('classes_id',$arr)->paginate(25);
 
         return view('family.news.index',[
             'news' => $news,
