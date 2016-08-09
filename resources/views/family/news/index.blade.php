@@ -57,8 +57,8 @@
         $(this).parent().find('.blank_bg').show();
     });
 
-    $(".blank_bg").bind('click',function(){
-        $(this).hide();
+    $(".close").bind('click',function(){
+        $(this).parent().parent().parent().hide();
     });
 </script>
 </body>
