@@ -12,6 +12,8 @@ namespace App\Http\Controllers\Teacher;
 use App\Models\Course;
 use App\Models\News;
 use Illuminate\Http\Request;
+use DB;
+use Exception;
 
 class NewsController extends TeacherController
 {
@@ -26,24 +28,38 @@ class NewsController extends TeacherController
         ]);
     }
 
+    /**
+     * 存储通知信息
+     * @param Request $request
+     * @param Course $course
+     */
     public function store(Request $request,Course $course)
     {
-        foreach ($request->course_id as $item)
+        DB::beginTransaction();
+
+        try
         {
-            $course = $course->where('id',$item)->first();
+            foreach ($request->course_id as $item)
+            {
+                $course = $course->where('id', $item)->first();
 
-            $news = News::create([
-                'user_id' => $this->user->id,
-                'school_id' => $course->school_id,
-                'grade_id' => $course->grade_id,
-                'classes_id' => $course->classes_id,
-                'category_id' => $course->category_id,
-                'name' => $request->name,
-                'descs' => $request->name,
-                'detail' => $request->detail
-            ]);
+                $news = News::create([
+                    'user_id' => $this->user->id,
+                    'school_id' => $course->school_id,
+                    'grade_id' => $course->grade_id,
+                    'classes_id' => $course->classes_id,
+                    'category_id' => $course->category_id,
+                    'name' => $request->name,
+                    'descs' => $request->name,
+                    'detail' => $request->detail
+                ]);
+            }
 
-
+            DB::commit();
+        }
+        catch (Exception $e)
+        {
+            DB::rollBack();
         }
     }
 }

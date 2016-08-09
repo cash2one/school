@@ -243,6 +243,9 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
             });
 
+            /**
+             * 新闻通知
+             */
             Route::group(['prefix' => 'news'],function(){
 
                 Route::get('add','NewsController@add');
