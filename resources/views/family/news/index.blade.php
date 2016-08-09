@@ -31,10 +31,10 @@
                         <p><span class="fl">{{ $item->created_at }}</span>{{ $item->detail }}</p>
                     </div>
                 </a>
-                <div class="blank_bg">
+                <div class="blank_bg" id="{{ $item->id }}">
                     <div class="mark_tip">
                         <div class="mark_tip_men">
-                            <i class="close"></i>
+                            <i class="close" data-id="{{ $item->id }}"></i>
                             <div class="tip_men_cont">
                                 <h3>{{ $item->name }}</h3>
                             </div>
@@ -57,7 +57,7 @@
 
     $(".close").bind('click',function(){
 
-        $(this).hide();
+        $('"#'+$(this).attr('data-id')+'"').hide();
 
     });
 </script>
