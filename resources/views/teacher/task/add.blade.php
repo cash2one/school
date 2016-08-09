@@ -17,8 +17,6 @@
         <div class="up_img">
             <ul>
                 <li><img src="/images/icon/icon_add.png" /></li>
-                <li><img src="/images/icon/icon_add.png" /></li>
-                <li><img src="/images/icon/icon_add.png" /></li>
             </ul>
         </div>
         {!! csrf_field() !!}
@@ -66,6 +64,8 @@
 
     $(".up_img ul li").bind('click',function(){
 
+        var dom = $(this);
+
         wx.chooseImage({
             count: 4, // 默认9
             sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -81,7 +81,15 @@
                         success: function (res) {
                             var serverId = res.serverId; // 返回图片的服务器端ID
 
-                            //alert(serverId);
+                            var li = $("<li class='c'>")
+
+                            var img = $("<img>")
+
+                            img.attr("src",res.localld);
+
+                            li.append(img);
+
+                            dom.append(li);
                         }
                     });
                 }
