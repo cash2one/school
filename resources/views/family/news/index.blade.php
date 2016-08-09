@@ -55,8 +55,8 @@
         $(this).find('.blank_bg').show();
     });
 
-    $(".blank_bg").bind('click',function(){
-        $(this).css('display','none');
+    $(".close").bind('click',function(){
+        $(this).parent().parent();
     });
 </script>
 </body>
