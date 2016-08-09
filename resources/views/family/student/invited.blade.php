@@ -20,7 +20,7 @@
             <p>学校：{{ $student->school->name }}</p>
             <p>班级：{{ $student->grade->name }}{{ $student->classes->name }}</p>
         </div>
-        <div class="incited_btn"><a href="javascript:void(0);">邀请绑定</a></div>
+        <div class="incited_btn"><a href="javascript:void(0);">邀请其他家长</a></div>
     </div>
     @endforeach
 </div>
