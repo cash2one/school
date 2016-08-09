@@ -16,6 +16,7 @@
     <div class="student">
         @foreach($students as $student)
         <div class="student_list">
+            <i></i>
             <div class="student_poto"><img src="/images/face.png" /></div>
             <div class="student_msg">
                 <h3>姓名：<span>{{ $student->name }}</span></h3>
