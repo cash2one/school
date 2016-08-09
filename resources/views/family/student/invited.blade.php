@@ -13,17 +13,19 @@
 </head>
 <body>
 <div class="invited">
-    @foreach($students as $student)
     <div class="student">
-        <div class="student_poto"><img src="/images/face.png" /></div>
-        <div class="student_msg">
-            <h3>姓名：<span>{{ $student->name }}</span></h3>
-            <p>学校：{{ $student->school->name }}</p>
-            <p>班级：{{ $student->grade->name }}{{ $student->classes->name }}</p>
+        @foreach($students as $student)
+        <div class="student_list">
+            <div class="student_poto"><img src="/images/face.png" /></div>
+            <div class="student_msg">
+                <h3>姓名：<span>{{ $student->name }}</span></h3>
+                <p>学校：{{ $student->school->name }}</p>
+                <p>班级：{{ $student->grade->name }}{{ $student->classes->name }}</p>
+            </div>
         </div>
-        <div class="incited_btn"><a data-id="{{ $student->id }}" href="javascript:void(0);">邀请其他家长</a></div>
+        @endforeach
+        <div class="incited_btn"><a href="javascript:void(0);">邀请其他家长</a></div>
     </div>
-    @endforeach
 </div>
 <div class="jump_box" style="display: none;">
     <p><span class="arrow"><img src="/images/arrow.png" /></span>点击右上角发给好友！</p>
