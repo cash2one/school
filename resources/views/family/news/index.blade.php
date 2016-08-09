@@ -31,7 +31,7 @@
                         <p><span class="fl">{{ $item->created_at }}</span>{{ $item->detail }}</p>
                     </div>
                 </a>
-                <div class="blank_bg" >
+                <div class="blank_bg">
                     <div class="mark_tip">
                         <div class="mark_tip_men">
                             <i class="close"></i>
@@ -55,7 +55,7 @@
         $(this).find('.blank_bg').show();
     });
     $(".close").click(function(){
-        $(this)
+        $(this).parents('div.blank_bg').hide();
     });
 </script>
 </body>
