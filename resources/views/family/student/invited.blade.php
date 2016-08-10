@@ -36,6 +36,12 @@
         $(".student_list").first().addClass('cur');
     });
 
+    $(".jump_box").bind('click',function(){
+
+        $(this).hide();
+
+    });
+
     wx.config(<?php echo $wechatJs->config(array('onMenuShareAppMessage','uploadImage'), false) ?>);
 
     $(".incited_btn a").bind('click',function(){
