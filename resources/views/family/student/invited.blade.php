@@ -88,13 +88,13 @@
 
         var imageUrl = '{{ url('/') }}'+'image/icon/logo2.png';
 
-        alert(imageUrl);
+        //alert(imageUrl);
 
         wx.onMenuShareAppMessage({
             title: '邀请你成为家长', // 分享标题
             desc: '邀请你成为学生的家长', // 分享描述
             link: url, // 分享链接
-            imgUrl: '/image/icon/logo2.png', // 分享图标
+            imgUrl: imageUrl, // 分享图标
             type: 'link', // 分享类型,music、video或link，不填默认为link
             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
             success: function () {

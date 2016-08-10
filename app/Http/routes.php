@@ -54,6 +54,8 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
                 Route::post('bind','StudentController@store');
 
+                Route::get('invited','StudentController@invited');
+
             });
 
             Route::group(['prefix' => 'bind'],function(){

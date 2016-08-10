@@ -171,4 +171,21 @@ class StudentController extends HomeController
             ]);
         }
     }
+
+    /**
+     * 绑定学生
+     * @param Request $request
+     * @param Student $student
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function invited(Request $request,Student $student)
+    {
+        $ids = explode(',',$request->id);
+
+        $students = $student->whereIn('id',$ids)->get();
+
+        return view('home.student.invited',[
+            'students' => $students
+        ]);
+    }
 }
