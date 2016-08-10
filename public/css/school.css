@@ -34,6 +34,7 @@
 .user_top .user_img{ width: 6rem; height: 6rem; border-radius: 2rem; margin: 0 auto; overflow: hidden; border: 2px solid #fff; }
 .user_top p{ display: inline-block; line-height: 3rem; margin: 1rem  1rem 0}
 .module li{ display: block; border-bottom: 1px solid #f0f0f0; line-height: 6rem; color: #888;}
+.module{margin-bottom: 5rem;}
 .module li a{ display: block;}
 .module li span{ display: inline-block; width: 6rem; height: 6rem; float: left;}
 .module span img{ width: 2.4rem; margin: 1.8rem;}
