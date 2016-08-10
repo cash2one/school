@@ -15,7 +15,7 @@
 <div class="invited">
     <div class="student">
         @foreach($students as $student)
-        <div class="student_list">
+        <div class="student_list" data-id="{{ $student->id }}">
             <i></i>
             <div class="student_poto"><img src="/images/face.png" /></div>
             <div class="student_msg">
@@ -32,6 +32,9 @@
     <p><span class="arrow"><img src="/images/arrow.png" /></span>点击右上角发给好友！</p>
 </div>
 <script>
+
+    var students = '';
+
     $(function () {
         $(".student_list").first().addClass('cur');
     });
@@ -40,6 +43,29 @@
 
         $(this).hide();
 
+    });
+
+    $(".student_list").bind('click',function(){
+
+        var btnStatus = false;
+
+        $(this).toggleClass('cur');
+
+        $(".student_list").each(function(){
+            if($(this).hasClass('cur'))
+            {
+                btnStatus = true;
+            }
+        });
+
+        if(btnStatus)
+        {
+            $(this).show();
+        }
+        else
+        {
+            $(this).hide();
+        }
     });
 
     wx.config(<?php echo $wechatJs->config(array('onMenuShareAppMessage','uploadImage'), false) ?>);
