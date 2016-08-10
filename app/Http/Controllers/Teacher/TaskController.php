@@ -84,7 +84,7 @@ class TaskController extends TeacherController
                 {
                     $savePath = "./uploads/tasks/";
 
-                    $saveName = $image.".jpg";
+                    $saveName = $image;
 
                     $temporary->download($image,$savePath,$saveName);
 
