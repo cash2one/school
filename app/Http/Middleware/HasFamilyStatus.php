@@ -20,9 +20,9 @@ class HasFamilyStatus
             'parent_id' => $request->user()->family->id
         ])->get();
 
-        foreach ($items as $item)
+        if(count($items) == 1)
         {
-            if($item->end_time == 0)
+            if($items[0]->end_time == 0)
             {
                 return redirect('/notice')->with('status',[
                     'code' => 'fail',
@@ -30,7 +30,7 @@ class HasFamilyStatus
                 ]);
             }
 
-            if($item->end_time < 211111111111)
+            if($items[0]->end_time < 211111111111)
             {
                 return redirect('/notice')->with('status',[
                     'code' => 'fail',
