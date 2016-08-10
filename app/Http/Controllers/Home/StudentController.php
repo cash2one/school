@@ -188,4 +188,62 @@ class StudentController extends HomeController
             'students' => $students
         ]);
     }
+
+    public function saveInvited(Request $request,Student $student,Parents $parents)
+    {
+        DB::beginTransaction();
+
+        try
+        {
+            if(!$this->user->hasRole('parents'))
+            {
+                $parents->name = $request->name;
+
+                $parents->auth_time = time();
+
+                $parents->user_id = $this->user->id;
+
+                $parents->save();
+            }
+            else
+            {
+                $parents = $this->user->family;
+            }
+
+            $dataArr = [];
+
+            foreach ($request->students as $key => $item)
+            {
+                $dataArr[$key]['student_id'] = $item;
+                $dataArr[$key]['parent_id'] = $parents->id;
+                $dataArr[$key]['bind_time'] = time();
+                $dataArr[$key]['end_time'] = time() + ($student->school->free_days * 86400);
+            }
+
+            DB::table('parent_student')->insert($dataArr);
+
+            if(!$this->user->hasRole('parents'))
+            {
+                $this->user->name = $request->name;
+
+                $this->user->save();
+            }
+
+            DB::commit();
+
+            return redirect('/family')->with('status',[
+                'code' => 'success',
+                'msg' => '绑定成功'
+            ]);
+        }
+        catch (Exception $e)
+        {
+            DB::rollBack();
+
+            return redirect()->back()->with('status',[
+                'code' => 'error',
+                'msg' => $e->getCode()
+            ]);
+        }
+    }
 }
