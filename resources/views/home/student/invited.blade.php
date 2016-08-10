@@ -15,16 +15,19 @@
     <div class="student">
 
         <div class="in_mind">您的好友<span>令居</span>邀请您绑定学生<span>江小鱼</span></div>
-        <div class="student_poto"><img src="images/face.png" /></div>
+        <div class="student_poto"><img src="/images/face.png" /></div>
         @foreach($students as $student)
         <div class="student_msg">
-            <h3>姓名：<span>{{ $student->id }}</span></h3>
+            <h3>姓名：<span>{{ $student->name }}</span></h3>
             <p>学校：{{ $student->school->name }}</p>
             <p>班级：{{ $student->grade->name }}{{ $student->classes->name }}</p>
         </div>
         @endforeach
         <div class="be_invited clear">
             <form>
+                @foreach($students as $student)
+                    <input type="hidden" value="{{ $student->id }}" name="students[]">
+                @endforeach
                 <p><input type="text" placeholder="姓名" /></p>
                 <p><input type="text" placeholder="手机号" /></p>
                 <div class="be_invited_btn"><input type="submit" value="立即绑定" /></div>
