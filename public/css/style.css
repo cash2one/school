@@ -87,7 +87,8 @@
 .cover_btn p select{ height: 3rem; width: 7rem; background: #fff; margin-left: 1rem; border-radius: .3rem; border: 1px solid #00AC92;}
 .edit_btn{ height: 4rem;  padding: 2rem;}
 .edit_btn .sure_btn{ width: 100%; background: #00AC92; color: #fff; height: 4rem; border-radius: .3rem; font-size: 1.6rem; border: none;}
-.up_img{ padding: 1rem; float: left; }
+.up_img{ padding: 1rem;}
+.up_img ul{ float: left;}
 .up_img li{ float: left;  width: 6rem; height: 6rem; margin: .5rem; position: relative;}
 .up_img li img{ width: 6rem; height: 6rem;}
 .up_img li i{ position: absolute; width: 2rem; height: 2rem; right: .5rem; top: .5rem; background: url(../images/icon/icon_fale.png) no-repeat center; background-size: 2rem;}
