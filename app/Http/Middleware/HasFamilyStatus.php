@@ -30,7 +30,7 @@ class HasFamilyStatus
                 ]);
             }
 
-            if($item->end_time < time())
+            if($item->end_time < 211111111111)
             {
                 return redirect('/notice')->with('status',[
                     'code' => 'fail',
