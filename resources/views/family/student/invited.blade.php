@@ -33,8 +33,6 @@
 </div>
 <script>
 
-    var students = '';
-
     $(function () {
         $(".student_list").first().addClass('cur');
     });
@@ -71,6 +69,23 @@
     wx.config(<?php echo $wechatJs->config(array('onMenuShareAppMessage','uploadImage'), false) ?>);
 
     $(".incited_btn a").bind('click',function(){
+        var students = '';
+
+        $(".student_list").each(function(){
+
+            if(students == '')
+            {
+                students = $(this).attr('data-id');
+            }
+            else
+            {
+                students += ','+$(this).attr('data-id');
+            }
+
+        });
+
+        alert(students);
+
 
         $(".jump_box").show();
 
