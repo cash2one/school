@@ -20,8 +20,7 @@ class HasFamilyStatus
             'parent_id' => $request->user()->family->id
         ])->get();
 
-        if(count($items) == 1)
-        {
+
             if($items[0]->end_time == 0)
             {
                 return redirect('/notice/student')->with('status',[
@@ -37,7 +36,7 @@ class HasFamilyStatus
                     'msg'  => '您的服务已到期'
                 ]);
             }
-        }
+
 
         return $next($request);
     }
