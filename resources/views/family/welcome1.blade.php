@@ -8,6 +8,7 @@
     <title>家长个人中心</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/school.css" >
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
 <div class="warp_bg">
@@ -48,13 +49,21 @@
     </div>
 </div>
 @if($status['code'] == 'fail')
-    <div class="blank_bg" style="display: block;">
+    <div class="blank_bg">
         <div class="pay_tip">
             <h3>温馨提醒</h3>
             <p>{{ $status['msg'] }}</p>
             <a class="btn" href="{{ url('/order/buy',['id' => $student->id]) }}">去付费</a>
         </div>
     </div>
+    <script>
+        $(".module ul li").bind('click',function(){
+
+            $(".blank_bg").show();
+
+            return false;
+        });
+    </script>
 @endif
 @include('layout.footer')
 </body>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/school.css" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
 <div class="warp_bg">
