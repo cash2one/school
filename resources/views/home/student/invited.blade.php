@@ -6,8 +6,8 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title>身份选择</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css" >
-    <link rel="stylesheet" type="text/css" href="css/school.css" >
+    <link rel="stylesheet" type="text/css" href="/css/common.css" >
+    <link rel="stylesheet" type="text/css" href="/css/school.css" >
     <script src="/js/jquery.js"></script>
 </head>
 <body>
