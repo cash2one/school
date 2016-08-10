@@ -91,22 +91,22 @@ input, a, button{ tap-highlight-color: rgba(0,0,0,0);  -webkit-tap-highlight-col
 .in_bind{ background:url(../images/gd.jpg) no-repeat center; background-size: cover; overflow: hidden;}
 .in_mind{ line-height: 2rem;padding: 1rem 0; border-bottom: .1rem dashed #00AC92; margin-bottom: 2rem; font-size: 1.4rem;}
 .in_mind span{ color: #f60; margin: 0 .5rem;}
-.student{ width: 90%; margin: 3rem auto 0; padding: 2rem 1rem; background: rgba(255,255,255,.7); position: relative; height: auto; box-sizing: border-box; border-radius: .3rem; }
+.student{ width: 90%; height: 85%; margin:3rem auto 0; padding: 2rem 1rem; background: rgba(255,255,255,.7); position: relative; box-sizing: border-box; border-radius: .3rem; overflow-y: scroll; }
 .student_list{ clear: both; margin-bottom: 2rem; padding: 1rem; position: relative;}
 .student_list.cur{ border: .1rem dashed #00AC92;}
 .student_list i{ position: absolute; width: 2rem; height: 2rem; right: 0; bottom: 0; background: url(../images/icon/icon_select_now.png) no-repeat; background-size: 2rem; display: none;}
 .student_list.cur i{ display: block;}
 
-.in_bind .student{margin: 3rem auto 0; padding: 2rem;}
+.in_bind .student{margin: 3rem auto 0; overflow-y: scroll;}
 .student_poto{  width: 6rem; height: 6rem; border-radius: 50%; border: .2rem solid #fff; overflow: hidden; float: left; margin-right: 1rem; }
 .student_msg h3{ font-weight: normal; font-size: 1.4rem; line-height: 2rem;}
 .student_msg h3 span{ font-size: 1.6rem;}
 .student_msg p{ font-size: 1.4rem; line-height: 2rem;}
 .incited_btn{ width: 100%; margin: 2rem 0 0; background: #00AC92; color: #fff; text-align: center; height:4rem; border-radius: .3rem; line-height: 4rem;}
+.incited_btn a{ display: block; }
 .jump_box{ position: fixed; background: rgba(0,0,0,0.8); z-index: 111; width: 100%; height: 100%; left: 0; bottom: 0; display: none;}
 .jump_box p{ width: 80%; margin: 8rem auto; color: #fff;}
 .jump_box .arrow{ float: right; width: 6rem;}
-.be_invited{ margin-top: 3rem; padding: 2rem 0; border-top: .1rem dashed #00AC92;}
 .be_invited p{ padding: .5rem 0;}
 .be_invited span{ position: absolute;}
 .be_invited p input[type=text]{ height: 4rem; border: .1rem solid #00AC92; background: none; box-sizing: border-box; border-radius: .3rem; padding: 0 .5rem; width: 100%; font-family: "Microsoft Yahei", "微软雅黑"}
@@ -115,6 +115,10 @@ input, a, button{ tap-highlight-color: rgba(0,0,0,0);  -webkit-tap-highlight-col
 .be_invited_btn input.btn_hui{ background: #ccc;}
 .incited_btn.btn_hui{ background: #ccc;}
 
+.in_bind .student_list{ border-bottom: .1rem dashed #00AC92;}
+.student_link{ width: 100%; clear: both; margin-top: 1rem;}
+.student_link a{ display: block; width: 100%; height: 4rem; border-radius: .3rem; -moz-border-radius: .3rem; -webkit-border-radius: .3rem; background: #00AC92; line-height: 4rem; color: #fff; font-size: 1.6rem; text-align: center;}
+.student_title{ height: 4rem; border-bottom: .1rem dashed #00AC92; text-align: center; }
 /*pagination*/
 .pag_main{display:block; text-align:center; padding-bottom:3rem;}
 .pagination{display:inline-block;padding-left:0;margin:2rem 0 0;border-radius:.4rem}
