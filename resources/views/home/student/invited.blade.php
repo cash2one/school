@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <title>身份选择</title>
+    <title>绑定学生</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/school.css" >
     <script src="/js/jquery.js"></script>
@@ -14,7 +14,7 @@
 <div class="invited in_bind">
     <div class="student">
 
-        <div class="in_mind">您的好友<span>令居</span>邀请您绑定学生<span>江小鱼</span></div>
+        <div class="in_mind">您的好友邀请您绑定学生</div>
         <div class="student_poto"><img src="/images/face.png" /></div>
         @foreach($students as $student)
         <div class="student_msg">
