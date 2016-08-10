@@ -60,11 +60,11 @@
 
         if(btnStatus)
         {
-            $(this).show();
+            $(".incited_btn").show();
         }
         else
         {
-            $(this).hide();
+            $(".incited_btn").hide();
         }
     });
 
