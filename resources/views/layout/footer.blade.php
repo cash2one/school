@@ -28,12 +28,21 @@
                 <p>消息</p>
             </a>
         </li>
-        <li>
-            <a href="{{ url('/family/news') }}">
-                <i><img src="/images/icon/icon_tz_hui.png" /></i>
-                <p>通知</p>
-            </a>
-        </li>
+        @if(session('identity') == 'teacher')
+            <li>
+                <a href="{{ url('/teacher/news') }}">
+                    <i><img src="/images/icon/icon_tz_hui.png" /></i>
+                    <p>通知</p>
+                </a>
+            </li>
+        @else
+            <li>
+                <a href="{{ url('/family/news') }}">
+                    <i><img src="/images/icon/icon_tz_hui.png" /></i>
+                    <p>通知</p>
+                </a>
+            </li>
+        @endif
     </ul>
 </div>
 @if(Auth::user()->hasRole('teacher') && Auth::user()->hasRole('parents'))

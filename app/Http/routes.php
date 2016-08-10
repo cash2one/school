@@ -256,6 +256,8 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
              */
             Route::group(['prefix' => 'news'],function(){
 
+                Route::get('/','NewsController@index');
+
                 Route::get('add','NewsController@add');
 
                 Route::post('add','NewsController@store');

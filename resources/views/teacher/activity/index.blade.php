@@ -15,6 +15,7 @@
 <div class="warp_bg">
     <div class="notice_type">
         <ul>
+            <li><a href="{{ url('/teacher/task') }}">通知</a></li>
             <li><a href="{{ url('/teacher/task') }}">作业</a></li>
             <li class="cur"><a href="{{ url('/teacher/activity') }}">活动</a></li>
         </ul>

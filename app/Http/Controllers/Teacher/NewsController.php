@@ -18,6 +18,20 @@ use Exception;
 class NewsController extends TeacherController
 {
     /**
+     * 通知列表
+     * @param News $news
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index(News $news)
+    {
+        $news = $news->where('user_id',$this->user->id)->paginate(25);
+
+        return view('teacher.news.index',[
+            'news' => $news
+        ]);
+    }
+
+    /**
      * 发布通知
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
