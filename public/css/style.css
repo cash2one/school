@@ -1,4 +1,4 @@
-/*教师列表111*/
+/*教师列表*/
 .teacher_list{padding: 0 1rem;}
 .teacher_list li{ padding:  1rem;  background: #EDF2F6; height: 6rem; border-radius: .5rem; border: 1px solid #00AC92; margin: 1rem 0;}
 .teacher_list .teacher_img{ width: 6rem; height: 6rem; float: left; border-radius: 2rem; overflow: hidden; margin-right: 1rem;}
