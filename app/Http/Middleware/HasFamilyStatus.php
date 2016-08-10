@@ -24,7 +24,7 @@ class HasFamilyStatus
         {
             if($items[0]->end_time == 0)
             {
-                return redirect('/notice')->with('status',[
+                return redirect('/notice/student')->with('status',[
                     'code' => 'fail',
                     'msg'  => '你未付费'
                 ]);
@@ -32,7 +32,7 @@ class HasFamilyStatus
 
             if($items[0]->end_time < time())
             {
-                return redirect('/notice')->with('status',[
+                return redirect('/notice/student')->with('status',[
                     'code' => 'fail',
                     'msg'  => '您的服务已到期'
                 ]);

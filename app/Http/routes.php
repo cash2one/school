@@ -90,6 +90,15 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
             });
 
+            /**
+             * 提醒
+             */
+            Route::group(['prefix' => 'notice'],function(){
+
+                Route::get('student','NoticeController@student');
+
+            });
+
         });
 
         /**
