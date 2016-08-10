@@ -56,6 +56,8 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
                 Route::get('invited','StudentController@invited');
 
+                Route::post('invited','StudentController@saveInvited');
+
             });
 
             Route::group(['prefix' => 'bind'],function(){

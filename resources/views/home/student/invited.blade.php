@@ -24,7 +24,7 @@
         </div>
         @endforeach
         <div class="be_invited clear">
-            <form>
+            <form method="post" action="{{ url('/student/invited') }}">
                 @foreach($students as $student)
                     <input type="hidden" value="{{ $student->id }}" name="students[]">
                 @endforeach
