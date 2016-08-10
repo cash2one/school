@@ -86,6 +86,10 @@
 
         var url = '{{ url('/student/invited') }}'+'/?id='+students;
 
+        var imageUrl = '{{ url('/') }}'+'image/icon/logo2.png';
+
+        alert(imageUrl);
+
         wx.onMenuShareAppMessage({
             title: '邀请你成为家长', // 分享标题
             desc: '邀请你成为学生的家长', // 分享描述
