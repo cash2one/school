@@ -84,8 +84,9 @@
 
         });
 
-        alert(students);
+        var url = '{{ url('/student/invited/id') }}'+students;
 
+        alert(url);
 
         $(".jump_box").show();
 
