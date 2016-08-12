@@ -54,6 +54,16 @@ class NewsController extends TeacherController
 
         try
         {
+            if(count($request->course_id) == 0)
+            {
+                return redirect()->back()->with('status',[
+                    'code' => 'error',
+                    'msg'  => '请选择班级'
+                ]);
+            }
+
+            dd($request->all());
+
             foreach ($request->course_id as $item)
             {
                 $course = $course->where('id', $item)->first();
