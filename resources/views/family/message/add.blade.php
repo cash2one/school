@@ -17,7 +17,9 @@
             <div class="text_cont">
                 <select class="maseg_name" name="to_user_id">
                     @foreach($student->classes->courses as $course)
-
+                        @if(Auth::user()->id != $course->teacher->user->id)
+                            <option value="{{ $course->teacher->user->id }}">{{ $course->teacher->name }}（{{ $course->name }}）</option>
+                        @endif
                     @endforeach
                 </select>
                 <textarea class="maseg_textar" role="6" name="detail" placeholder="留言内容"></textarea>
