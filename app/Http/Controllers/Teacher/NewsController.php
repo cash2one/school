@@ -83,7 +83,7 @@ class NewsController extends TeacherController
 
             return redirect()->back()->with('status',[
                 'code' => 'error',
-                'msg'  => '发布失败'
+                'msg'  => '发布失败'.$e->getMessage()
             ]);
         }
     }
