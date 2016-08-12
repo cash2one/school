@@ -62,8 +62,6 @@ class NewsController extends TeacherController
                 ]);
             }
 
-            //dd($request->all());
-
             foreach ($request->course_id as $item)
             {
                 $course = $course->where('id', $item)->first();
@@ -90,8 +88,6 @@ class NewsController extends TeacherController
         catch (Exception $e)
         {
             DB::rollBack();
-
-            dd($e);
 
             return redirect()->back()->with('status',[
                 'code' => 'error',
