@@ -25,7 +25,7 @@
             @foreach($activitys as $activity)
                 <li>
                     <!--{{ url('/teacher/activity/detail',['id' => $activity->id]) }}-->
-                    <a href="javascript:void(0)" onclick="notic()">
+                    <a href="{{ url('/teacher/activity/detail',['id' => $activity->id]) }}" onclick="notic()">
                         <div class="notice_cont">
                             <h3>{{ $activity->name }}</h3>
                             <p><span class="fl">{{ $activity->created_at }}</span>{{ $activity->grade->name }} {{ $activity->classes->name }}</p>
