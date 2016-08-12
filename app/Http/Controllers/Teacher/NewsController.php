@@ -62,7 +62,7 @@ class NewsController extends TeacherController
                 ]);
             }
 
-            dd($request->all());
+            //dd($request->all());
 
             foreach ($request->course_id as $item)
             {
@@ -74,8 +74,8 @@ class NewsController extends TeacherController
                     'grade_id' => $course->grade_id,
                     'classes_id' => $course->classes_id,
                     'category_id' => 1,
-                    'name' => $request->name,
-                    'descs' => $request->name,
+                    'name' => $request->news_title,
+                    'descs' => $request->news_title,
                     'detail' => $request->detail
                 ]);
             }
