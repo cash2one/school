@@ -80,6 +80,9 @@ class TaskController extends TeacherController
                 ]);
 
 
+                /**
+                 * 判断是否已经传图
+                 */
                 if (count($request->images) > 0)
                 {
                     foreach ($request->images as $image) {
