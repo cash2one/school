@@ -46,5 +46,6 @@
 <!--返回顶部-->
 <div class="gotop"><a onclick="gotoTop();return false;"><img src="/images/icon/icon_top.png" /></a></div>
 <!--返回顶部 end-->
+@include('layout.footer')
 </body>
 </html>
