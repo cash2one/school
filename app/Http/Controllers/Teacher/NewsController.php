@@ -81,6 +81,8 @@ class NewsController extends TeacherController
         {
             DB::rollBack();
 
+            dd($e);
+
             return redirect()->back()->with('status',[
                 'code' => 'error',
                 'msg'  => '发布失败'.$e->getMessage()
