@@ -62,9 +62,8 @@
             if(!$(this).hasClass('teacher_add'))
             {
                 $(".blank_bg").show();
+                return false;
             }
-
-            return false;
         });
     </script>
 @endif
