@@ -64,11 +64,10 @@ class TaskController extends TeacherController
 
             $temporary = $app->material_temporary;
 
-            foreach ($request->course_id as $item)
-            {
+            foreach ($request->course_id as $item) {
                 $course = new Course();
 
-                $course = $course->where('id',$item)->first();
+                $course = $course->where('id', $item)->first();
 
                 $task = Task::create([
                     'classes_id' => $course->classes_id,
@@ -80,21 +79,24 @@ class TaskController extends TeacherController
                     'detail' => $request->detail,
                 ]);
 
-                foreach ($request->images as $image)
+
+                if (count($request->images) > 0)
                 {
-                    $savePath = "./uploads/tasks/";
+                    foreach ($request->images as $image) {
+                        $savePath = "./uploads/tasks/";
 
-                    $saveName = $image.'.jpg';
+                        $saveName = $image . '.jpg';
 
-                    $temporary->download($image,$savePath,$saveName);
+                        $temporary->download($image, $savePath, $saveName);
 
-                    DB::table('task_image')->insert([
-                        'task_id' => $task->id,
-                        'local_url' => substr($savePath.$saveName,1),
-                        'origin_url' => $image,
-                        'created_at' => time(),
-                        'updated_at' => time(),
-                    ]);
+                        DB::table('task_image')->insert([
+                            'task_id' => $task->id,
+                            'local_url' => substr($savePath . $saveName, 1),
+                            'origin_url' => $image,
+                            'created_at' => time(),
+                            'updated_at' => time(),
+                        ]);
+                    }
                 }
 
                 $this->sendNotic($task);
