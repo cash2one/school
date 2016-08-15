@@ -69,10 +69,12 @@
 .single_grade li p{ border: 1px solid #00AC92; border-radius: .3rem; height: 4rem; overflow: hidden; width: 15rem; line-height: 4rem; margin: 0 auto;}
 .single_grade p i{ display: inline-block; background: #00AC92; color: #fff; font-style: normal; width: 9rem;}
 .single_grade p span{ display: inline-block; width: 6rem;}
-.single_grade dt,.single_grade dd{ float: left; line-height: 4rem; text-align: center; width: 25%; border-bottom: 1px solid #d7d7d7;}
-.single_grade dd i{ display: inline-block; width: 1rem; height: 1rem; margin-left: .5rem; }
-.single_grade dd i.up{ background: url(../images/icon/icon_arrow_up.png) no-repeat center; background-size: 1rem;}
-.single_grade dd i.down{ background: url(../images/icon/icon_arrow_down.png) no-repeat center; background-size: 1rem;}
+.single_grade tr th,.single_grade tr td{  text-align: center;}
+.single_grade tbody tr:nth-child(2n){ background: #eee;}
+.single_grade tfoot{ display: none;}
+.single_grade td i{ display: inline-block; width: 1rem; height: 1rem; margin-left: .5rem; }
+.single_grade td i.up{ background: url(../images/icon/icon_arrow_up.png) no-repeat center; background-size: 1rem;}
+.single_grade td i.down{ background: url(../images/icon/icon_arrow_down.png) no-repeat center; background-size: 1rem;}
 /*曲线类别*/
 .graph_title{ padding: 0 1rem; line-height: 4rem; font-size: 2rem; margin: 1rem 0;}
 .graph_title span{ float: left; display: block; width: 2rem; height: 2rem; padding: 1rem 0; margin-right: 1rem; background: url(../images/icon/icon_graph.png) no-repeat center; background-size: 2rem;}
