@@ -8,9 +8,8 @@
     <title>班级成绩单</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/school.css" >
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-    <script src="/js/jquery.js"></script>
-    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
+
 </head>
 <body>
 <div class="warp_bg">
@@ -46,7 +45,7 @@
                 <td>{{ $score->student->student_id }}</td>
                 <td>{{ $score->student->name }}</td>
                 <td>{{ $score->val }}</td>
-                <td>{{ $score->sortVal($scores,$score->val) }}<!--<i class="up"></i>--></td>
+                <td>{{ $score->sortVal($scores,$score->val) }}</td>
             </tr>
             @endforeach
             </tbody>
@@ -58,7 +57,8 @@
         </div>
     @endif
 </div>
-@include('layout.footer')
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#example').dataTable({
@@ -71,5 +71,7 @@
         });
     });
 </script>
+@include('layout.footer')
+
 </body>
 </html>
