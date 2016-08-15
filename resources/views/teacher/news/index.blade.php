@@ -14,10 +14,9 @@
 <div class="warp_bg">
     <div class="notice_type">
         <ul>
-            <li class="cur"><a href="{{ url('/family/news') }}">通知</a></li>
-            <li><a href="{{ url('/family/exam/student',['id' => $student->id]) }}">成绩</a></li>
-            <li><a href="{{ url('/family/task/student',['id' => $student->id]) }}">作业</a></li>
-            <li><a href="{{ url('/family/activity/student',['id' => $student->id]) }}">活动</a></li>
+            <li class="cur"><a href="{{ url('/teacher/news') }}">通知</a></li>
+            <li><a href="{{ url('/teacher/task') }}">作业</a></li>
+            <li><a href="{{ url('/teacher/activity') }}">活动</a></li>
         </ul>
     </div>
     @if(count($news) == 0)
@@ -29,30 +28,30 @@
     <div class="notice">
         <ul>
             @foreach($news as $item)
-            <li>
-                <div class="item-li">
-                <a href="javascript:void(0);">
-                    <div class="notice_img"><img src="/images/face.png" /></div>
-                    <div class="notice_cont">
-                        <h3>{{ $item->name }}</h3>
-                        <p><span class="fl">{{ $item->created_at }}</span>{{ $item->detail }}</p>
-                    </div>
-                </a>
-                </div>
-                <div class="blank_bg">
-                    <div class="mark_tip">
-                        <div class="mark_tip_men">
-                            <i class="close"></i>
-                            <div class="tip_men_cont">
+                <li>
+                    <div class="item-li">
+                        <a href="javascript:void(0);">
+                            <div class="notice_img"><img src="/images/face.png" /></div>
+                            <div class="notice_cont">
                                 <h3>{{ $item->name }}</h3>
+                                <p><span class="fl">{{ $item->created_at }}</span>{{ $item->detail }}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="blank_bg">
+                        <div class="mark_tip">
+                            <div class="mark_tip_men">
+                                <i class="close"></i>
+                                <div class="tip_men_cont">
+                                    <h3>{{ $item->name }}</h3>
+                                </div>
+                            </div>
+                            <div class="mark_mgs">
+                                <p>{{ $item->detail }}</p>
                             </div>
                         </div>
-                        <div class="mark_mgs">
-                            <p>{{ $item->detail }}</p>
-                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
             @endforeach
         </ul>
     </div>

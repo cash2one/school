@@ -76,7 +76,8 @@ class ActivityController extends FamilyController
 
         $activityScore = $activityScore->where([
             'student_id' => $student->id,
-            'activity_id' => $activity->id
+            'activity_id' => $activity->id,
+            'period' => $request->period,
         ])->first();
 
         $activityScore->score = $request->score;

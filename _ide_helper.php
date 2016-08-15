@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.39 on 2016-07-08.
+ * Generated for Laravel 5.2.43 on 2016-08-15.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1193,6 +1193,17 @@ namespace {
         public static function bootstrap(){
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
             \App\Console\Kernel::bootstrap();
+        }
+        
+        /**
+         * Dispatch a command to its appropriate handler in the current process.
+         *
+         * @param mixed $job
+         * @return mixed 
+         * @static 
+         */
+        public static function dispatchNow($job){
+            return \App\Console\Kernel::dispatchNow($job);
         }
         
     }
@@ -3722,17 +3733,6 @@ namespace {
         }
         
         /**
-         * Get the deeply nested relations for a given top-level relation.
-         *
-         * @param string $relation
-         * @return array 
-         * @static 
-         */
-        public static function nestedRelations($relation){
-            return \Illuminate\Database\Eloquent\Builder::nestedRelations($relation);
-        }
-        
-        /**
          * Apply the callback's query changes if the given "value" is true.
          *
          * @param bool $value
@@ -3886,6 +3886,17 @@ namespace {
         }
         
         /**
+         * Add the given scopes to the current builder instance.
+         *
+         * @param array $scopes
+         * @return mixed 
+         * @static 
+         */
+        public static function scopes($scopes){
+            return \Illuminate\Database\Eloquent\Builder::scopes($scopes);
+        }
+        
+        /**
          * Apply the scopes to the Eloquent builder instance and return it.
          *
          * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -3898,7 +3909,7 @@ namespace {
         /**
          * Get the underlying query builder instance.
          *
-         * @return \Illuminate\Database\Query\Builder|static 
+         * @return \Illuminate\Database\Query\Builder 
          * @static 
          */
         public static function getQuery(){
@@ -4481,6 +4492,33 @@ namespace {
          */
         public static function orWhereDate($column, $operator, $value){
             return \Illuminate\Database\Query\Builder::orWhereDate($column, $operator, $value);
+        }
+        
+        /**
+         * Add a "where time" statement to the query.
+         *
+         * @param string $column
+         * @param string $operator
+         * @param int $value
+         * @param string $boolean
+         * @return \Illuminate\Database\Query\Builder|static 
+         * @static 
+         */
+        public static function whereTime($column, $operator, $value, $boolean = 'and'){
+            return \Illuminate\Database\Query\Builder::whereTime($column, $operator, $value, $boolean);
+        }
+        
+        /**
+         * Add an "or where time" statement to the query.
+         *
+         * @param string $column
+         * @param string $operator
+         * @param int $value
+         * @return \Illuminate\Database\Query\Builder|static 
+         * @static 
+         */
+        public static function orWhereTime($column, $operator, $value){
+            return \Illuminate\Database\Query\Builder::orWhereTime($column, $operator, $value);
         }
         
         /**
@@ -5756,7 +5794,7 @@ namespace {
         }
         
         /**
-         * Get a guard instance for the given user.
+         * Get a gate instance for the given user.
          *
          * @param \Illuminate\Contracts\Auth\Authenticatable|mixed $user
          * @return static 
@@ -6832,15 +6870,15 @@ namespace {
         }
         
         /**
-         * Set the encrypter instance.
+         * Set the encrypter implementation.
          *
-         * @param \Illuminate\Contracts\Encryption\Encrypter $crypt
+         * @param \Illuminate\Contracts\Encryption\Encrypter $encrypter
          * @return void 
          * @static 
          */
-        public static function setEncrypter($crypt){
+        public static function setEncrypter($encrypter){
             //Method inherited from \Illuminate\Queue\Queue            
-            \Illuminate\Queue\DatabaseQueue::setEncrypter($crypt);
+            \Illuminate\Queue\DatabaseQueue::setEncrypter($encrypter);
         }
         
     }
@@ -7372,7 +7410,7 @@ namespace {
          *
          * @param string $key
          * @param mixed $default
-         * @return \Symfony\Component\HttpFoundation\File\UploadedFile|array|null 
+         * @return \Illuminate\Http\UploadedFile|array|null 
          * @static 
          */
         public static function file($key = null, $default = null){
@@ -7873,7 +7911,7 @@ namespace {
         /**
          * Gets the list of trusted proxies.
          *
-         * @return array An array of trusted proxies.
+         * @return array An array of trusted proxies
          * @static 
          */
         public static function getTrustedProxies(){
@@ -7897,7 +7935,7 @@ namespace {
         /**
          * Gets the list of trusted host patterns.
          *
-         * @return array An array of trusted host patterns.
+         * @return array An array of trusted host patterns
          * @static 
          */
         public static function getTrustedHosts(){
@@ -8461,7 +8499,7 @@ namespace {
         /**
          * Sets the request format.
          *
-         * @param string $format The request format.
+         * @param string $format The request format
          * @static 
          */
         public static function setRequestFormat($format){
@@ -8527,7 +8565,7 @@ namespace {
         /**
          * Checks if the request method is of specified type.
          *
-         * @param string $method Uppercase request method (GET, POST etc).
+         * @param string $method Uppercase request method (GET, POST etc)
          * @return bool 
          * @static 
          */
@@ -8551,7 +8589,7 @@ namespace {
          * Returns the request body content.
          *
          * @param bool $asResource If true, a resource will be returned
-         * @return string|resource The request body content or a resource to read the body stream.
+         * @return string|resource The request body content or a resource to read the body stream
          * @throws \LogicException
          * @static 
          */
@@ -9738,7 +9776,7 @@ namespace {
         /**
          * Starts the session storage.
          *
-         * @return bool True if session started.
+         * @return bool True if session started
          * @throws \RuntimeException If session fails to start.
          * @static 
          */
@@ -9749,7 +9787,7 @@ namespace {
         /**
          * Returns the session ID.
          *
-         * @return string The session ID.
+         * @return string The session ID
          * @static 
          */
         public static function getId(){
@@ -9780,7 +9818,7 @@ namespace {
         /**
          * Returns the session name.
          *
-         * @return mixed The session name.
+         * @return mixed The session name
          * @static 
          */
         public static function getName(){
@@ -9807,7 +9845,7 @@ namespace {
          *                      will leave the system settings unchanged, 0 sets the cookie
          *                      to expire with browser session. Time is in seconds, and is
          *                      not a Unix timestamp.
-         * @return bool True if session invalidated, false if error.
+         * @return bool True if session invalidated, false if error
          * @static 
          */
         public static function invalidate($lifetime = null){
@@ -9818,12 +9856,12 @@ namespace {
          * Migrates the current session to a new session id while maintaining all
          * session attributes.
          *
-         * @param bool $destroy Whether to delete the old session or leave it to garbage collection.
+         * @param bool $destroy Whether to delete the old session or leave it to garbage collection
          * @param int $lifetime Sets the cookie lifetime for the session cookie. A null value
          *                       will leave the system settings unchanged, 0 sets the cookie
          *                       to expire with browser session. Time is in seconds, and is
          *                       not a Unix timestamp.
-         * @return bool True if session migrated, false if error.
+         * @return bool True if session migrated, false if error
          * @static 
          */
         public static function migrate($destroy = false, $lifetime = null){
@@ -9879,7 +9917,7 @@ namespace {
          * Returns an attribute.
          *
          * @param string $name The attribute name
-         * @param mixed $default The default value if not found.
+         * @param mixed $default The default value if not found
          * @return mixed 
          * @static 
          */
@@ -9955,6 +9993,30 @@ namespace {
          */
         public static function push($key, $value){
             \Illuminate\Session\Store::push($key, $value);
+        }
+        
+        /**
+         * Increment the value of an item in the session.
+         *
+         * @param string $key
+         * @param int $amount
+         * @return mixed 
+         * @static 
+         */
+        public static function increment($key, $amount = 1){
+            return \Illuminate\Session\Store::increment($key, $amount);
+        }
+        
+        /**
+         * Decrement the value of an item in the session.
+         *
+         * @param string $key
+         * @param int $amount
+         * @return int 
+         * @static 
+         */
+        public static function decrement($key, $amount = 1){
+            return \Illuminate\Session\Store::decrement($key, $amount);
         }
         
         /**
@@ -10601,11 +10663,12 @@ namespace {
         /**
          * Get the URL for the previous request.
          *
+         * @param mixed $fallback
          * @return string 
          * @static 
          */
-        public static function previous(){
-            return \Illuminate\Routing\UrlGenerator::previous();
+        public static function previous($fallback = false){
+            return \Illuminate\Routing\UrlGenerator::previous($fallback);
         }
         
         /**
@@ -11720,8 +11783,8 @@ namespace {
          * @return \Maatwebsite\Excel\LaravelExcelReader 
          * @static 
          */
-        public static function load($file, $callback = null, $encoding = null, $noBasePath = false){
-            return \Maatwebsite\Excel\Excel::load($file, $callback, $encoding, $noBasePath);
+        public static function load($file, $callback = null, $encoding = null, $noBasePath = false, $callbackConfigReader = null){
+            return \Maatwebsite\Excel\Excel::load($file, $callback, $encoding, $noBasePath, $callbackConfigReader);
         }
         
         /**
@@ -11821,7 +11884,389 @@ namespace {
     }
 
 
-    class Score extends \App\Http\Controllers\Admin\ScoreController{
+    class PhpSms extends \Toplan\PhpSms\Facades\Sms{
+        
+        /**
+         * Boot balancing task for send SMS/voice verify.
+         *
+         * @static 
+         */
+        public static function bootstrap(){
+            return \Toplan\PhpSms\Sms::bootstrap();
+        }
+        
+        /**
+         * Get or generate a balancing task instance for send SMS/voice verify.
+         *
+         * @return \Toplan\PhpSms\Task 
+         * @static 
+         */
+        public static function getTask(){
+            return \Toplan\PhpSms\Sms::getTask();
+        }
+        
+        /**
+         * Get a sms agent instance by agent name,
+         * if null, will try to create a new agent instance.
+         *
+         * @param string $name
+         * @throws PhpSmsException
+         * @return mixed 
+         * @static 
+         */
+        public static function getAgent($name){
+            return \Toplan\PhpSms\Sms::getAgent($name);
+        }
+        
+        /**
+         * Whether to has specified agent.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasAgent($name){
+            return \Toplan\PhpSms\Sms::hasAgent($name);
+        }
+        
+        /**
+         * Set or get the dispatch scheme of agent by name.
+         *
+         * @param mixed $name
+         * @param mixed $scheme
+         * @return mixed 
+         * @static 
+         */
+        public static function scheme($name = null, $scheme = null){
+            return \Toplan\PhpSms\Sms::scheme($name, $scheme);
+        }
+        
+        /**
+         * Set or get configuration information by agent name.
+         *
+         * @param mixed $name
+         * @param mixed $config
+         * @param bool $override
+         * @throws PhpSmsException
+         * @return array 
+         * @static 
+         */
+        public static function config($name = null, $config = null, $override = false){
+            return \Toplan\PhpSms\Sms::config($name, $config, $override);
+        }
+        
+        /**
+         * Tear down agent use scheme and prepare to create and start a new balancing task,
+         * so before do it must destroy old task instance.
+         *
+         * @static 
+         */
+        public static function cleanScheme(){
+            return \Toplan\PhpSms\Sms::cleanScheme();
+        }
+        
+        /**
+         * Tear down all the configuration information of agent.
+         *
+         * @static 
+         */
+        public static function cleanConfig(){
+            return \Toplan\PhpSms\Sms::cleanConfig();
+        }
+        
+        /**
+         * Create a sms instance send SMS,
+         * your can also set SMS templates or content at the same time.
+         *
+         * @param mixed $agentName
+         * @param mixed $tempId
+         * @return \Toplan\PhpSms\Sms 
+         * @static 
+         */
+        public static function make($agentName = null, $tempId = null){
+            return \Toplan\PhpSms\Sms::make($agentName, $tempId);
+        }
+        
+        /**
+         * Create a sms instance send voice verify,
+         * your can also set verify code at the same time.
+         *
+         * @param int|string|null $code
+         * @return \Toplan\PhpSms\Sms 
+         * @static 
+         */
+        public static function voice($code = null){
+            return \Toplan\PhpSms\Sms::voice($code);
+        }
+        
+        /**
+         * Set whether to use the queue system, and define how to use it.
+         *
+         * @param mixed $enable
+         * @param mixed $handler
+         * @return bool 
+         * @static 
+         */
+        public static function queue($enable = null, $handler = null){
+            return \Toplan\PhpSms\Sms::queue($enable, $handler);
+        }
+        
+        /**
+         * Set the recipient`s mobile number.
+         *
+         * @param string $mobile
+         * @return $this 
+         * @static 
+         */
+        public static function to($mobile){
+            return \Toplan\PhpSms\Sms::to($mobile);
+        }
+        
+        /**
+         * Set the content for content SMS.
+         *
+         * @param string $content
+         * @return $this 
+         * @static 
+         */
+        public static function content($content){
+            return \Toplan\PhpSms\Sms::content($content);
+        }
+        
+        /**
+         * Set the template id for template SMS.
+         *
+         * @param mixed $name
+         * @param mixed $tempId
+         * @return $this 
+         * @static 
+         */
+        public static function template($name, $tempId = null){
+            return \Toplan\PhpSms\Sms::template($name, $tempId);
+        }
+        
+        /**
+         * Set the template data for template SMS.
+         *
+         * @param array $data
+         * @return $this 
+         * @static 
+         */
+        public static function data($data){
+            return \Toplan\PhpSms\Sms::data($data);
+        }
+        
+        /**
+         * Set the first agent by name.
+         *
+         * @param string $name
+         * @return $this 
+         * @static 
+         */
+        public static function agent($name){
+            return \Toplan\PhpSms\Sms::agent($name);
+        }
+        
+        /**
+         * Start send SMS/voice verify.
+         * 
+         * If give a true parameter, this system will immediately start request to send SMS/voice verify whatever whether to use the queue.
+         * if you are already pushed sms instance to the queue, you can recall the method `send()` in queue system without `true` parameter,
+         * so this mechanism in order to make you convenient use the method `send()` in queue system.
+         *
+         * @param bool $immediately
+         * @return mixed 
+         * @static 
+         */
+        public static function send($immediately = false){
+            return \Toplan\PhpSms\Sms::send($immediately);
+        }
+        
+        /**
+         * Push to the queue by a custom method.
+         *
+         * @throws \Exception | PhpSmsException
+         * @return mixed 
+         * @static 
+         */
+        public static function push(){
+            return \Toplan\PhpSms\Sms::push();
+        }
+        
+        /**
+         * Get all the data of SMS/voice verify.
+         *
+         * @param null|string $name
+         * @return mixed 
+         * @static 
+         */
+        public static function getData($name = null){
+            return \Toplan\PhpSms\Sms::getData($name);
+        }
+        
+    }
+
+
+    class SmsManager extends \Toplan\Sms\Facades\SmsManager{
+        
+        /**
+         * 是否可发送短信/语音
+         *
+         * @param int $interval
+         * @return bool 
+         * @static 
+         */
+        public static function validateSendable($interval){
+            return \Toplan\Sms\SmsManager::validateSendable($interval);
+        }
+        
+        /**
+         * 验证数据
+         *
+         * @param array $data
+         * @return array 
+         * @static 
+         */
+        public static function validateFields($data){
+            return \Toplan\Sms\SmsManager::validateFields($data);
+        }
+        
+        /**
+         * 请求验证码短信
+         *
+         * @param string $for
+         * @param int $interval
+         * @return array 
+         * @static 
+         */
+        public static function requestVerifySms($for, $interval){
+            return \Toplan\Sms\SmsManager::requestVerifySms($for, $interval);
+        }
+        
+        /**
+         * 请求语音验证码
+         *
+         * @param string $for
+         * @param int $interval
+         * @return array 
+         * @static 
+         */
+        public static function requestVoiceVerify($for, $interval){
+            return \Toplan\Sms\SmsManager::requestVoiceVerify($for, $interval);
+        }
+        
+        /**
+         * 存储发送状态
+         *
+         * @throws LaravelSmsException
+         * @static 
+         */
+        public static function storeState(){
+            return \Toplan\Sms\SmsManager::storeState();
+        }
+        
+        /**
+         * 从存储器中获取发送状态
+         *
+         * @return array 
+         * @static 
+         */
+        public static function retrieveState(){
+            return \Toplan\Sms\SmsManager::retrieveState();
+        }
+        
+        /**
+         * 从存储器中删除发送状态
+         *
+         * @static 
+         */
+        public static function forgetState(){
+            return \Toplan\Sms\SmsManager::forgetState();
+        }
+        
+        /**
+         * 设置多少秒后才能再次请求
+         *
+         * @param int $interval
+         * @return int 
+         * @static 
+         */
+        public static function setCanResendAfter($interval){
+            return \Toplan\Sms\SmsManager::setCanResendAfter($interval);
+        }
+        
+        /**
+         * 从存储器中获取可再次发送的截止时间
+         *
+         * @return int 
+         * @static 
+         */
+        public static function getCanResendTime(){
+            return \Toplan\Sms\SmsManager::getCanResendTime();
+        }
+        
+        /**
+         * 存储指定字段的指定名称的动态验证规则
+         *
+         * @param string $field
+         * @param string $name
+         * @param string|null $rule
+         * @throws LaravelSmsException
+         * @static 
+         */
+        public static function storeRule($field, $name, $rule = null){
+            return \Toplan\Sms\SmsManager::storeRule($field, $name, $rule);
+        }
+        
+        /**
+         * 从存储中获取指定字段的所有验证规则
+         *
+         * @param string $field
+         * @return array 
+         * @static 
+         */
+        public static function retrieveRules($field){
+            return \Toplan\Sms\SmsManager::retrieveRules($field);
+        }
+        
+        /**
+         * 从存储器中获取指定字段的指定名称的动态验证规则
+         *
+         * @param string $field
+         * @param string $name
+         * @return string 
+         * @static 
+         */
+        public static function retrieveRule($field, $name){
+            return \Toplan\Sms\SmsManager::retrieveRule($field, $name);
+        }
+        
+        /**
+         * 从存储器中删除指定字段的指定名称的动态验证规则
+         *
+         * @param string $field
+         * @param string $name
+         * @throws LaravelSmsException
+         * @static 
+         */
+        public static function forgetRule($field, $name){
+            return \Toplan\Sms\SmsManager::forgetRule($field, $name);
+        }
+        
+        /**
+         * 从存储器中获取用户的所有数据
+         *
+         * @return array 
+         * @static 
+         */
+        public static function retrieveAllData(){
+            return \Toplan\Sms\SmsManager::retrieveAllData();
+        }
+        
+    }
+
+
+    class Score extends \App\Helpers\Score{
         
     }
 

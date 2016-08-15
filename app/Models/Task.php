@@ -59,4 +59,13 @@ class Task extends Common
     {
         return $this->hasOne('App\Models\Teacher','id','teacher_id');
     }
+
+    /**
+     * 作业图片
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany('App\Models\TaskImage','task_id','id');
+    }
 }

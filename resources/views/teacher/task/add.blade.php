@@ -63,7 +63,7 @@
     </form>
 </div>
 <script>
-    wx.config(<?php echo $wechatJs->config(array('chooseImage','uploadImage'), false) ?>);
+    wx.config(<?php echo $wechatJs->config(array('chooseImage','uploadImage','downloadImage'), false) ?>);
 
     $(".up_img div img").bind('click',function(){
 
@@ -82,19 +82,29 @@
                         localId: localIds[i], // 需要上传的图片的本地ID，由chooseImage接口获得
                         isShowProgressTips: 1, // 默认为1，显示进度提示
                         success: function (res) {
-                            var serverId = res.serverId; // 返回图片的服务器端ID
 
-                            var li = $("<li class='c' />");
+                            var serverId = res.serverId;
 
-                            var img = $('<img src="'+ res.localId+'" />');
+                            wx.downloadImage({
+                                serverId: serverId, // 需要下载的图片的服务器端ID，由uploadImage接口获得
+                                isShowProgressTips: 1, // 默认为1，显示进度提示
+                                success: function (res) {
+                                    var localId = res.localId; // 返回图片下载后的本地ID
 
-                            var input = $('<input name="images[]" type="hidden" value="'+ res.serverId +'" />');
+                                    var li = $("<li class='c' />");
 
-                            var del = $('<i class="del" />');
+                                    var img = $('<img src="'+localId+'" />');
 
-                            li.append(img).append(del).append(input);
+                                    var input = $('<input name="images[]" type="hidden" value="'+ res.serverId +'" />');
 
-                            dom.append(li);
+                                    var del = $('<i class="del" onclick="delImg($(this))" />');
+
+                                    li.append(img).append(del).append(input);
+
+                                    dom.append(li);
+                                }
+                            });
+
                         }
                     });
                 }
@@ -102,6 +112,11 @@
         });
 
     })
+
+    function delImg(dom) {
+        console.log(dom);
+        dom.parent().remove();
+    }
 </script>
 @include('layout.footer')
 </body>

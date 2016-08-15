@@ -90,6 +90,15 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
 
             });
 
+            /**
+             * 提醒
+             */
+            Route::group(['prefix' => 'notice'],function(){
+
+                Route::get('student','NoticeController@student');
+
+            });
+
         });
 
         /**
@@ -102,7 +111,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
             /**
              * 学生
              */
-            Route::group(['prefix' => 'student'],function (){
+            Route::group(['prefix' => 'student','middleware' => ['hasFamilyStatus']],function (){
 
                 Route::get('/','StudentController@index');
 
@@ -115,7 +124,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
             /**
              * 考试
              */
-            Route::group(['prefix' => 'exam'],function(){
+            Route::group(['prefix' => 'exam','middleware' => ['hasFamilyStatus']],function(){
 
                 Route::get('student/{id}','ExamController@student');
 
@@ -126,7 +135,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
             /**
              * 作业
              */
-            Route::group(['prefix' => 'task'],function(){
+            Route::group(['prefix' => 'task','middleware' => ['hasFamilyStatus']],function(){
 
                 Route::get('student/{id}','TaskController@student');
 
@@ -137,7 +146,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
             /**
              * 活动
              */
-            Route::group(['prefix' => 'activity'],function(){
+            Route::group(['prefix' => 'activity','middleware' => ['hasFamilyStatus']],function(){
 
                 Route::get('student/{id}','ActivityController@student');
 
@@ -150,7 +159,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
             /**
              * 消息
              */
-            Route::group(['prefix' => 'message'],function(){
+            Route::group(['prefix' => 'message','middleware' => ['hasFamilyStatus']],function(){
 
                 Route::get('/','MessageController@index');
 
@@ -169,7 +178,7 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
             /**
              * 新闻
              */
-            Route::group(['prefix' => 'news'],function (){
+            Route::group(['prefix' => 'news','middleware' => ['hasFamilyStatus']],function (){
 
                 Route::get('/','NewsController@index');
 
@@ -255,6 +264,8 @@ Route::group(['prefix' => '/',['middleware' => 'hasClient']],function(){
              * 新闻通知
              */
             Route::group(['prefix' => 'news'],function(){
+
+                Route::get('/','NewsController@index');
 
                 Route::get('add','NewsController@add');
 

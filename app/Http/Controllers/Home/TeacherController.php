@@ -62,6 +62,8 @@ class TeacherController extends HomeController
                 }
                 else
                 {
+                    $this->user->attachRole(4);
+
                     $this->user->name = $teacher->name;
 
                     $teacher->user_id = $this->user->id;

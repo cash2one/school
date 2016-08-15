@@ -18,6 +18,20 @@ use Exception;
 class NewsController extends TeacherController
 {
     /**
+     * 通知列表
+     * @param News $news
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index(News $news)
+    {
+        $news = $news->where('user_id',$this->user->id)->paginate(25);
+
+        return view('teacher.news.index',[
+            'news' => $news
+        ]);
+    }
+
+    /**
      * 发布通知
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -36,10 +50,24 @@ class NewsController extends TeacherController
      */
     public function store(Request $request,Course $course)
     {
+        $this->validate($request,[
+            'name' => 'required',
+            'detail' => 'required',
+            'course_ud' => 'array'
+        ]);
+
         DB::beginTransaction();
 
         try
         {
+            if(count($request->course_id) == 0)
+            {
+                return redirect()->back()->with('status',[
+                    'code' => 'error',
+                    'msg'  => '请选择班级'
+                ]);
+            }
+
             foreach ($request->course_id as $item)
             {
                 $course = $course->where('id', $item)->first();
@@ -50,8 +78,8 @@ class NewsController extends TeacherController
                     'grade_id' => $course->grade_id,
                     'classes_id' => $course->classes_id,
                     'category_id' => 1,
-                    'name' => $request->name,
-                    'descs' => $request->name,
+                    'name' => $request->news_title,
+                    'descs' => $request->news_title,
                     'detail' => $request->detail
                 ]);
             }
@@ -69,7 +97,7 @@ class NewsController extends TeacherController
 
             return redirect()->back()->with('status',[
                 'code' => 'error',
-                'msg'  => '发布失败'
+                'msg'  => '发布失败'.$e->getMessage()
             ]);
         }
     }

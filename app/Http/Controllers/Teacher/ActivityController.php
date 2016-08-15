@@ -56,7 +56,8 @@ class ActivityController extends TeacherController
             'name' => 'required',
             'detail' => 'required',
             'start_time' => 'required',
-            'end_time' => 'required'
+            'end_time' => 'required',
+            'course_id' => 'array'
         ]);
 
         $start_time = strtotime($request->start_time);

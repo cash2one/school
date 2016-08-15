@@ -8,6 +8,7 @@
     <title>家长个人中心</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/school.css" >
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
 <div class="warp_bg">
@@ -37,7 +38,7 @@
                 <a href="{{ url('/family/message/add',['sid' => $student->id]) }}"><span><img src="/images/icon/icon_teacher.png" /></span><i></i>给老师留言</a>
             </li>
             @if(!Auth::user()->hasRole('teacher'))
-                <li>
+                <li class="teacher_add">
                     <a href="{{ url('/bind/teacher') }}"><span><img src="/images/icon/icon_bind.png" /></span><i></i>成为老师</a>
                 </li>
             @endif
@@ -48,13 +49,23 @@
     </div>
 </div>
 @if($status['code'] == 'fail')
-    <div class="blank_bg" style="display: block;">
+    <div class="blank_bg">
         <div class="pay_tip">
             <h3>温馨提醒</h3>
             <p>{{ $status['msg'] }}</p>
             <a class="btn" href="{{ url('/order/buy',['id' => $student->id]) }}">去付费</a>
         </div>
     </div>
+    <script>
+        $(".module ul li").bind('click',function(){
+
+            if(!$(this).hasClass('teacher_add'))
+            {
+                $(".blank_bg").show();
+                return false;
+            }
+        });
+    </script>
 @endif
 @include('layout.footer')
 </body>

@@ -8,6 +8,9 @@
     <title>作业内容</title>
     <link rel="stylesheet" type="text/css" href="/css/common.css" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <link href="/css/fsgallery.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/fs_forse.js"></script>
 </head>
 <body>
 <div class="warp_bg">
@@ -18,8 +21,14 @@
                 {{ $task->detail }}
             </div>
         </div>
+        <div class="task_img" id="gallery" >
+            <ul>
+                @foreach($task->images as $image)
+                <li><a href="{{ $image->local_url }}"><img src="{{ $image->local_url }}" /></a></li>
+                @endforeach
+            </ul>
+        </div>
     </div>
 </div>
-<script src="/js/jquery.js"></script>
 </body>
 </html>

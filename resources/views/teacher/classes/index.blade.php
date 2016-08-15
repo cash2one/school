@@ -13,6 +13,12 @@
 </head>
 <body>
 <div class="warp_bg">
+    @if(count($courses) == 0)
+        <div class="grade_none">
+            <p class="img"><img src="/images/icon/icon_none.png" /></p>
+            <p class="text">暂无班级</p>
+        </div>
+    @else
     <div class="course">
         <ul>
             @foreach($courses as $course)
@@ -33,6 +39,7 @@
             @endforeach
         </ul>
     </div>
+    @endif
 </div>
 <!--返回顶部-->
 <div class="gotop"><a onclick="gotoTop();return false;"><img src="/images/icon/icon_top.png" /></a></div>

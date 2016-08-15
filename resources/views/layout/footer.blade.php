@@ -1,5 +1,5 @@
 <div style="width: 100%;height: 5rem;"></div>
-<div class="bot_nav">
+<div class="bot_nav" style="height: 4rem; position: fixed; left: 0; bottom: 0; width: 100%; border-top: .1rem solid #ddd; background: #fff; padding: 1rem 0 .5rem;">
     <ul>
         <li>
             <a href="@if(session('identity') == 'teacher'){{ url('/teacher') }}@else{{url('/family')}}@endif">
@@ -28,26 +28,29 @@
                 <p>消息</p>
             </a>
         </li>
-        <li>
-            <a href="{{ url('/family/news') }}">
-                <i><img src="/images/icon/icon_tz_hui.png" /></i>
-                <p>通知</p>
-            </a>
-        </li>
+        @if(session('identity') == 'teacher')
+            <li>
+                <a href="{{ url('/teacher/news') }}">
+                    <i><img src="/images/icon/icon_tz_hui.png" /></i>
+                    <p>通知</p>
+                </a>
+            </li>
+        @else
+            <li>
+                <a href="{{ url('/family/news') }}">
+                    <i><img src="/images/icon/icon_tz_hui.png" /></i>
+                    <p>通知</p>
+                </a>
+            </li>
+        @endif
     </ul>
 </div>
 @if(Auth::user()->hasRole('teacher') && Auth::user()->hasRole('parents'))
-<div class="fix_btn">
+<div class="id_select">
     <a href="{{ url('/') }}">身份选择</a>
 </div>
     <style>
-        .bot_nav{ height: 4rem; position: fixed; left: 0; bottom: 0; width: 100%; border-top: .1rem solid #ddd; background: #fff; padding: 1rem 0 .5rem;}
-        .bot_nav li{ width: 25%; text-align: center;float: left;}
-        .bot_nav i{ display: inline-block; width: 2rem; height: 2rem;}
-        .bot_nav p{ line-height: 1.6rem; height: 1.6rem;  font-size: 1.4rem; }
-        .fix_btn{ position: fixed; bottom: 10rem; right: 0; border-top-left-radius: 0.5rem;
-            border-bottom-left-radius: 0.5rem; background: rgba(0,172,146,0.7); border: .1rem solid #00AC92; width: 2rem; text-align: center; padding: 1rem 0.5rem;
-            color: #fff; line-height: 1.5rem;font-size: 1.4rem; height: 6rem; z-index: 1000}
+
     </style>
 @endif
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
@@ -57,6 +60,16 @@
         noty({
             text: '{{ session('status.msg') }}',
             type: '{{ session('status.code') }}',
+            layout: 'center',
+            timeout: '1500'
+        });
+    </script>
+@endif
+@if(count($errors) > 0)
+    <script>
+        noty({
+            text: '请确保您已经填写完整',
+            type: 'error',
             layout: 'center',
             timeout: '1500'
         });

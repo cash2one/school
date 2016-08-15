@@ -49,15 +49,13 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-
         'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
         'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
         'teacher' => \App\Http\Middleware\HasTeacher::class,
         'family' => \App\Http\Middleware\HasFamily::class,
-
         'oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
-
-        'hasClient' => \App\Http\Middleware\HasClient::class
+        'hasClient' => \App\Http\Middleware\HasClient::class,
+        'hasFamilyStatus' => \App\Http\Middleware\HasFamilyStatus::class
     ];
 }

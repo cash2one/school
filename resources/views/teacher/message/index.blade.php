@@ -23,6 +23,12 @@
             <li @if($type == 3)class="cur"@endif><a href="{{ url('/teacher/message/read') }}">已读</a></li>
         </ul>
     </div>
+    @if(count($messages) == 0)
+        <div class="grade_none">
+            <p class="img"><img src="/images/icon/icon_none.png" /></p>
+            <p class="text">暂无留言</p>
+        </div>
+    @else
     <div class="remark">
         <ul>
             @foreach($messages as $message)
@@ -39,6 +45,7 @@
             @endforeach
         </ul>
     </div>
+    @endif
 </div>
 <!--返回顶部-->
 <div class="gotop"><a onclick="gotoTop();return false;"><img src="/images/icon/icon_top.png" /></a></div>

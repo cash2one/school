@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'zh_cn',
+    'locale' => 'zh_CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -181,6 +181,12 @@ return [
          */
         Toplan\PhpSms\PhpSmsServiceProvider::class,
         Toplan\Sms\SmsManagerServiceProvider::class,
+
+        /**
+         * 语言包
+         */
+        Illuminate\Translation\TranslationServiceProvider::class,
+        Overtrue\LaravelLang\TranslationServiceProvider::class,
 
     ],
 
