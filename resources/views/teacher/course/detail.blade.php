@@ -57,7 +57,7 @@
         </div>
     @endif
 </div>
-<script src="/js/jquery.js"></script>
+<script src="//code.jquery.com/jquery-1.12.3.js"></script>
 <script src="/js/jquery.dataTables.min.js"></script>
 <script>
     $(function(){
