@@ -26,7 +26,7 @@
     @if(count($messages) == 0)
         <div class="grade_none">
             <p class="img"><img src="/images/icon/icon_none.png" /></p>
-            <p class="text">暂无消息</p>
+            <p class="text">暂无留言</p>
         </div>
     @else
     <div class="remark">
