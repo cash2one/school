@@ -69,7 +69,7 @@
         $.ajax({
             type: 'POST',
             url: '{{ url('/family/activity/score') }}',
-            data: {student_id:student_id,activity_id:activity_id,score:score},
+            data: {student_id:student_id,activity_id:activity_id,score:score,period:period},
             dataType: 'json',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
