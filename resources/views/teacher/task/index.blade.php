@@ -23,7 +23,7 @@
     @if(count($tasks) == 0)
         <div class="grade_none">
             <p class="img"><img src="/images/icon/icon_none.png" /></p>
-            <p class="text">暂无通知</p>
+            <p class="text">暂无作业</p>
         </div>
     @else
     <div class="notice">
