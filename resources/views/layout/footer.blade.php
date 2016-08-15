@@ -65,6 +65,16 @@
         });
     </script>
 @endif
+@if(count($errors) > 0)
+    <script>
+        noty({
+            text: '请确保您已经填写完整',
+            type: 'error',
+            layout: 'center',
+            timeout: '1500'
+        });
+    </script>
+@endif
 <script>
     function notic()
     {
