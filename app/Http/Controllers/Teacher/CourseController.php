@@ -30,17 +30,16 @@ class CourseController extends TeacherController
 
         if(!$exam)
         {
-            var_dump(123);
-
             return view('teacher.course.detail',[
                 'course' => $course,
             ]);
         }
 
-        var_dump(456);
         $scores = $exam->scores()->where([
             'course_id' => $course->id
         ])->get();
+
+        var_dump($scores);
 
         return view('teacher.course.detail',[
             'course' => $course,
