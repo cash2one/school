@@ -63,7 +63,7 @@
     </form>
 </div>
 <script>
-    wx.config(<?php echo $wechatJs->config(array('chooseImage','uploadImage','downloadImage'), true) ?>);
+    wx.config(<?php echo $wechatJs->config(array('chooseImage','uploadImage','downloadImage'), false) ?>);
 
     $(".up_img div img").bind('click',function(){
 
