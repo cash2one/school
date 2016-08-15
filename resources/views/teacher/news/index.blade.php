@@ -60,5 +60,6 @@
         $(this).parent().parent().parent().hide();
     });
 </script>
+@include('layout.footer')
 </body>
 </html>
