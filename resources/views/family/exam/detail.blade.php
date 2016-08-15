@@ -26,7 +26,7 @@
         .grade_type_cc li a img{width:40%;}
     </style>
 
-    <div class="grade_box">
+    <div class="grade_box" style="margin-top:2rem;">
         <ul>
             @foreach($scores as $score)
                 <li>
