@@ -50,6 +50,12 @@ class NewsController extends TeacherController
      */
     public function store(Request $request,Course $course)
     {
+        $this->validate($request,[
+            'name' => 'required',
+            'detail' => 'required',
+            'course_ud' => 'array'
+        ]);
+
         DB::beginTransaction();
 
         try
