@@ -1,5 +1,5 @@
 <div style="width: 100%;height: 5rem;"></div>
-<div class="bot_nav">
+<div class="bot_nav" style="height: 4rem; position: fixed; left: 0; bottom: 0; width: 100%; border-top: .1rem solid #ddd; background: #fff; padding: 1rem 0 .5rem;">
     <ul>
         <li>
             <a href="@if(session('identity') == 'teacher'){{ url('/teacher') }}@else{{url('/family')}}@endif">
