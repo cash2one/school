@@ -60,7 +60,7 @@
 <script src="/js/jquery.js"></script>
 <script src="/js/jquery.dataTables.min.js"></script>
 <script>
-    $(document).ready(function() {
+    $(function(){
         $('#example').dataTable({
             "paging":   false,
             "info":     false,
@@ -69,7 +69,7 @@
             "sScrollXInner": "110%",
             "bScrollCollapse": true
         });
-    });
+    })
 </script>
 @include('layout.footer')
 
