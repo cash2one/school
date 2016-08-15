@@ -35,6 +35,7 @@
     </style>
     @if(isset($firstScores))
     <div class="grade_box">
+    <div class="graph_title"><span></span>最新成绩</div>
         <ul>
             @foreach($firstScores as $score)
                 @if($student->id == $score->student_id)
@@ -47,6 +48,7 @@
                 @endif
             @endforeach
         </ul>
+        <p class="clear"></p>
     </div>
     <div class="agg">
         <ul>
@@ -54,6 +56,7 @@
             <li><span>班级：{{ $firstSort }}</span></li>
             <li><span>年级：暂无</span></li>
         </ul>
+        <p class="clear"></p>
     </div>
     <div class="graph_title"><span></span>学情分析
         <ul  class="graph_type">
