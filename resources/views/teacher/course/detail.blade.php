@@ -59,5 +59,17 @@
     @endif
 </div>
 @include('layout.footer')
+<script>
+    $(document).ready(function() {
+        $('#example').dataTable({
+            "paging":   false,
+            "info":     false,
+            "searching": false,
+            "bAutoWidth":false,
+            "sScrollXInner": "110%",
+            "bScrollCollapse": true
+        });
+    });
+</script>
 </body>
 </html>
