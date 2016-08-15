@@ -37,6 +37,7 @@
                 </li>
             @endforeach
         </ul>
+        <p class="clear"></p>
     </div>
     <style>
 
