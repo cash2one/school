@@ -39,8 +39,6 @@ class CourseController extends TeacherController
             'course_id' => $course->id
         ])->get();
 
-        var_dump($scores);
-
         return view('teacher.course.detail',[
             'course' => $course,
             'scores' => $scores
