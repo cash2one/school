@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bcfaa72af31714402c13ab3d2ec3353a",
-    "content-hash": "94184560a2868736ff23aff6f0a3b389",
+    "hash": "bddb4eaa080236d7bb83382a9d8757a5",
+    "content-hash": "38238a3b20832fe44fdd2ce6ae57df50",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -121,6 +121,46 @@
                 }
             ],
             "time": "2016-06-13 19:28:20"
+        },
+        {
+            "name": "caouecs/laravel-lang",
+            "version": "3.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caouecs/Laravel-lang.git",
+                "reference": "812bedaea2c2fcf8bc2219cb0729116cf96380ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/caouecs/Laravel-lang/812bedaea2c2fcf8bc2219cb0729116cf96380ef.zip",
+                "reference": "812bedaea2c2fcf8bc2219cb0729116cf96380ef",
+                "shasum": ""
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.10"
+            },
+            "suggest": {
+                "overtrue/laravel-lang": "Command to add languages in your project"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "caouecs",
+                    "email": "caouecs@caouecs.net"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "time": "2016-08-10 19:34:20"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1493,6 +1533,50 @@
                 "php"
             ],
             "time": "2016-04-19 13:41:41"
+        },
+        {
+            "name": "overtrue/laravel-lang",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/laravel-lang.git",
+                "reference": "f345f5bf4d66ce5207bfdc3691d4617e4c12fbc5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/overtrue/laravel-lang/f345f5bf4d66ce5207bfdc3691d4617e4c12fbc5.zip",
+                "reference": "f345f5bf4d66ce5207bfdc3691d4617e4c12fbc5",
+                "shasum": ""
+            },
+            "require": {
+                "caouecs/laravel-lang": "~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\LaravelLang\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "anzhengchao@gmail.com"
+                }
+            ],
+            "description": "List of 52 languages for Laravel 5",
+            "keywords": [
+                "languages",
+                "laravel",
+                "overtrue"
+            ],
+            "time": "2016-05-30 12:22:46"
         },
         {
             "name": "overtrue/laravel-wechat",
