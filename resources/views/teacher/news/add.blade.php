@@ -12,14 +12,14 @@
 </head>
 <body>
 <div class="warp_bg">
-    <form method="post" action="{{ url('/teacher/news/add') }}">
+    <form id="new_form" method="post" action="{{ url('/teacher/news/add') }}">
         {!! csrf_field() !!}
         <!--<div class="cover_box">
             <div class="text_cont"><input type="text" name="name" placeholder="通知标题" /></div>
         </div>-->
         <div class="cover_box">
             <p><input type="text" name="news_title" placeholder="通知标题" /><b></b></p>
-            <div class="text_cont"><textarea name="detail" placeholder="通知内容"></textarea></div>
+            <div class="text_cont"><textarea name="detail" placeholder="通知内容"></textarea><b></b></div>
         </div>
         <div class="select_grade">
             <p class="title">选择班级：</p>
@@ -64,6 +64,37 @@
 
         $(".select_grade ul li").first().click();
 
+    });
+</script>
+<script language="javascript" type="text/javascript" src="/js/jquery.validation.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+        $('#new_form').validate({
+            onkeyup: false,
+            errorPlacement: function(error, element){
+                element.nextAll('b').first().after(error);
+            },
+            submitHandler:function(form){
+                ajaxpost('new_form', '', '', 'onerror');
+            },
+            rules: {
+                news_title: {
+                    required: true
+                },
+                detail: {
+                    required: true
+                }
+            },
+            messages: {
+                news_title: {
+                    required: '请填写通知标题'
+                },
+                detail: {
+                    required: '请填写通知内容'
+                }
+            }
+        });
     });
 </script>
 </body>

@@ -23,7 +23,7 @@
             <p><input type="text" name="name" placeholder="活动主题" /><b></b></p>
             <p><input placeholder="活动开始时间" readonly="readonly" name="start_time" class="appDate" type="text"><b></b></p>
             <p><input placeholder="活动结束时间" readonly="readonly" name="end_time" class="appDate" type="text"><b></b></p>
-            <div class="text_cont"><textarea name="detail" placeholder="活动简介"></textarea></div>
+            <div class="text_cont"><textarea name="detail" placeholder="活动简介"></textarea><b></b></div>
         </div>
         <div class="select_grade">
             <p class="title">选择班级：</p>
@@ -96,17 +96,23 @@
                 },
                 end_time: {
                     required: true
+                },
+                detail: {
+                    required: true
                 }
             },
             messages: {
                 name: {
-                    required: '此项不能为空'
+                    required: '请填写活动主题'
                 },
                 start_time: {
-                    required: '此项不能为空'
+                    required: '请选择活动开始时间'
                 },
                 end_time: {
-                    required: '此项不能为空'
+                    required: '请选择活动结束时间'
+                },
+                detail: {
+                    required: '请填写活动简介'
                 }
             }
         });

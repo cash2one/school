@@ -63,6 +63,9 @@
                     required: true,
                     number:true
                 },
+                name: {
+                    required: true,
+                 },
             },
             messages: {
                 student_id: {
@@ -76,6 +79,9 @@
                 check_num: {
                     required: '此项不能为空！',
                     number: '请填写正确的验证码！'
+                },
+                name: {
+                    required: '请填写家长姓名！',
                 },
             }
         });

@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="warp_bg">
-    <form method="post" action="{{ url('/teacher/task/add') }}">
+    <form id="task_form" method="post" action="{{ url('/teacher/task/add') }}">
         <div class="up_img">
             <ul>
 
@@ -24,7 +24,7 @@
         </div>
         {!! csrf_field() !!}
         <div class="cover_box clear">
-            <div class="text_cont"><textarea name="detail" placeholder="作业内容"></textarea></div>
+            <div class="text_cont"><textarea name="detail" placeholder="作业内容"></textarea><b></b></div>
         </div>
         <div class="select_grade">
             <p class="title">选择班级：</p>
@@ -122,6 +122,31 @@
 
         $(".select_grade ul li").first().click();
 
+    });
+</script>
+<script language="javascript" type="text/javascript" src="/js/jquery.validation.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+        $('#task_form').validate({
+            onkeyup: false,
+            errorPlacement: function(error, element){
+                element.nextAll('b').first().after(error);
+            },
+            submitHandler:function(form){
+                ajaxpost('task_form', '', '', 'onerror');
+            },
+            rules: {
+                detail: {
+                    required: true
+                }
+            },
+            messages: {
+                detail: {
+                    required: '请填写作业内容'
+                }
+            }
+        });
     });
 </script>
 @include('layout.footer')

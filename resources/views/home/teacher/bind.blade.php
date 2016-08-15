@@ -51,19 +51,19 @@
                 ajaxpost('bind_teacher', '', '', 'onerror');
             },
             rules: {
-                email: {
+                teacher_id: {
                     required: true
                 },
-                password: {
+                mobile: {
                     required: true
                 }
             },
             messages: {
-                email: {
-                    required: '此项不能为空'
+                teacher_id: {
+                    required: '请填写教师工号！'
                 },
-                password: {
-                    required: '此项不能为空'
+                mobile: {
+                    required: '请填写手机号！'
                 }
             }
         });
