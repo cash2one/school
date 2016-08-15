@@ -129,7 +129,12 @@
         {
             $(this).find('input').remove();
         }
-    })
+    });
+    $(function(){
+
+        $(".select_grade ul li").first().click();
+
+    });
 </script>
 </body>
 </html>
