@@ -90,7 +90,7 @@ class TaskController extends TeacherController
 
                         $saveName = $image . '.jpg';
 
-                        $temporary->download($image, $savePath, $saveName);
+                        $temporary->download($image, $savePath,$image);
 
                         DB::table('task_image')->insert([
                             'task_id' => $task->id,

@@ -95,7 +95,7 @@
 
                                     var img = $('<img src="'+localId+'" />');
 
-                                    var input = $('<input name="images[]" type="hidden" value="'+ res.serverId +'" />');
+                                    var input = $('<input name="images[]" type="hidden" value="'+serverId+'" />');
 
                                     var del = $('<i class="del" onclick="delImg($(this))" />');
 
