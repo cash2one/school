@@ -20,6 +20,12 @@
             <li><a href="{{ url('/family/activity/student',['id' => $student->id]) }}">活动</a></li>
         </ul>
     </div>
+    @if(count($news) == 0)
+        <div class="grade_none">
+            <p class="img"><img src="/images/icon/icon_none.png" /></p>
+            <p class="text">暂无通知</p>
+        </div>
+    @else
     <div class="notice">
         <ul>
             @foreach($news as $item)
@@ -50,6 +56,7 @@
             @endforeach
         </ul>
     </div>
+    @endif
 </div>
 <script>
 

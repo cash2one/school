@@ -20,6 +20,12 @@
             <li><a href="{{ url('/teacher/activity') }}">活动</a></li>
         </ul>
     </div>
+    @if(count($tasks) == 0)
+        <div class="grade_none">
+            <p class="img"><img src="/images/icon/icon_none.png" /></p>
+            <p class="text">暂无通知</p>
+        </div>
+    @else
     <div class="notice">
         <ul>
             @foreach($tasks as $task)
@@ -34,6 +40,7 @@
             @endforeach
         </ul>
     </div>
+    @endif
 </div>
 <!--返回顶部-->
 <div class="gotop"><a onclick="gotoTop();return false;"><img src="/images/icon/icon_top.png" /></a></div>
