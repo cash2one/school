@@ -90,12 +90,7 @@
 
                 },
                 error: function(xhr, type){
-                    noty({
-                        text: '请求失败',
-                        type: 'error',
-                        layout: 'center',
-                        timeout: '3000'
-                    });
+
                 }
             });
 
