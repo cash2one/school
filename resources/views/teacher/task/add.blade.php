@@ -102,6 +102,12 @@
         });
 
     })
+
+    $(".del").bind('click',function(){
+
+        $(this).parent().remove();
+
+    });
 </script>
 @include('layout.footer')
 </body>
