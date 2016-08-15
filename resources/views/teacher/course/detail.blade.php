@@ -20,20 +20,34 @@
     </div>
     @if(isset($scores))
     <div class="single_grade">
-        <dl>
-            <dt>学号</dt>
-            <dt>姓名</dt>
-            <dt>成绩</dt>
-            <dt>排名</dt>
-        </dl>
-        @foreach($scores as $score)
-        <dl>
-            <dd>{{ $score->student->student_id }}</dd>
-            <dd>{{ $score->student->name }}</dd>
-            <dd>{{ $score->val }}</dd>
-            <dd>{{ $score->sortVal($scores,$score->val) }}<!--<i class="up"></i>--></dd>
-        </dl>
-        @endforeach
+        <table id="example" cellspacing="0">
+            <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>成绩</th>
+                <th>排名</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>成绩</th>
+                <th>排名</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            @foreach($scores as $score)
+            <tr>
+                <td>{{ $score->student->student_id }}</td>
+                <td>{{ $score->student->name }}</td>
+                <td>{{ $score->val }}</td>
+                <td>{{ $score->sortVal($scores,$score->val) }}<!--<i class="up"></i>--></td>
+            </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
     @else
         <div class="single_grade">
