@@ -39,11 +39,11 @@
                     @else
                     <p class="zone">
                     @endif
-                        <b class="a_one" data-val = 1></b>
-                        <b class="a_two" data-val = 2></b>
-                        <b class="a_three" data-val = 3></b>
-                        <b class="a_four" data-val = 4></b>
-                        <b class="a_five" data-val = 5></b>
+                        <b class="a_one" data-val = 1 data-period="{{ $score->period }}"></b>
+                        <b class="a_two" data-val = 2 data-period="{{ $score->period }}"></b>
+                        <b class="a_three" data-val = 3 data-period="{{ $score->period }}"></b>
+                        <b class="a_four" data-val = 4 data-period="{{ $score->period }}"></b>
+                        <b class="a_five" data-val = 5 data-period="{{ $score->period }}"></b>
                     </p>
                 </li>
                 @endforeach
@@ -53,23 +53,6 @@
 </div>
 @include('layout.footer')
 <script type="text/javascript">
-    /*
-    $(".a_one").click(function(){
-        $(this).parents("li p").attr("class","one")
-    });
-    $(".a_two").click(function(){
-        $(this).parents("li p").attr("class","two")
-    });
-    $(".a_three").click(function(){
-        $(this).parents("li p").attr("class","three")
-    });
-    $(".a_four").click(function(){
-        $(this).parents("li p").attr("class","four")
-    });
-    $(".a_five").click(function(){
-        $(this).parents("li p").attr("class","five")
-    });
-    */
 
     $('.zone b').bind('click',function(){
 
@@ -78,6 +61,8 @@
         var activity_id = '{{ $activity->id }}';
 
         var score = $(this).attr('data-val');
+
+        var period = $(this).attr('data-period');
 
         var dom = $(this);
 
